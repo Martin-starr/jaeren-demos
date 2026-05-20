@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Folkestad Designs — Tjenester og priser 2025/2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,700&display=swap" rel="stylesheet">
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        :root {
+            --navy: #1C3A5C;
+            --navy-deep: #152D4A;
+            --gold: #B8993A;
+            --gold-light: #C9A94A;
+            --cream: #F6F2EA;
+            --warm-white: #FDFAF5;
+            --ink: #1A1A1A;
+            --muted: #5A6270;
+            --rule: rgba(184, 153, 58, 0.3);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+            color: var(--ink);
+            background: #E8E4DC;
+            -webkit-font-smoothing: antialiased;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        /* ==================== PAGE STRUCTURE ==================== */
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto 2px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @media screen {
+            .page {
+                box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+                margin-bottom: 24px;
+            }
+        }
+
+        @media print {
+            .page { page-break-after: always; margin: 0; }
+            .page:last-child { page-break-after: auto; }
+            body { background: white; }
+        }
+
+        /* ==================== HEADER BAR ==================== */
+        .page-header {
+            position: absolute; top: 0; left: 0; right: 0;
+            padding: 18px 28mm;
+            display: flex; justify-content: space-between; align-items: center;
+            font-size: 7pt; font-weight: 500;
+            letter-spacing: 0.06em;
+            color: var(--muted);
+            z-index: 10;
+        }
+        .page-header-dark { color: rgba(255,255,255,0.3); }
+        .page-header-section {
+            font-weight: 600; letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        /* ==================== FOOTER ==================== */
+        .page-footer {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            padding: 18px 28mm;
+            display: flex; justify-content: space-between; align-items: center;
+            font-size: 7pt; color: var(--muted);
+        }
+        .page-footer-dark { color: rgba(255,255,255,0.25); }
+
+        /* ==================== PAGE 1: COVER ==================== */
+        .cover {
+            background: var(--navy);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 28mm;
+            min-height: 297mm;
+        }
+        .cover-rule {
+            width: 100%;
+            height: 1px;
+            background: var(--gold);
+            opacity: 0.4;
+        }
+        .cover-brand {
+            margin-top: 20mm;
+        }
+        .cover-brand h2 {
+            font-size: 13pt;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            margin-bottom: 3px;
+        }
+        .cover-brand .sub {
+            font-size: 8.5pt;
+            font-weight: 600;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+        .cover-main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 15mm 0;
+        }
+        .cover-title {
+            font-size: 30pt;
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            margin-bottom: 18px;
+        }
+        .cover-title em {
+            font-style: italic;
+            font-weight: 300;
+            color: var(--gold-light);
+        }
+        .cover-desc {
+            font-size: 11pt;
+            font-weight: 300;
+            line-height: 1.75;
+            color: rgba(255,255,255,0.55);
+            max-width: 340px;
+        }
+        .cover-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        .cover-meta {
+            font-size: 8.5pt;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+        .cover-location {
+            font-size: 8pt;
+            font-weight: 400;
+            color: rgba(255,255,255,0.35);
+            margin-top: 4px;
+            letter-spacing: 0.02em;
+        }
+
+        /* ==================== PAGE 2: TJENESTER ==================== */
+        .content-page {
+            background: var(--cream);
+            padding: 55px 28mm 28mm;
+            min-height: 297mm;
+            position: relative;
+        }
+
+        .section-label {
+            font-size: 7.5pt;
+            font-weight: 600;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+        .section-title {
+            font-size: 22pt;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.015em;
+            color: var(--navy);
+            margin-bottom: 6px;
+        }
+        .section-title em {
+            font-weight: 300;
+            font-style: italic;
+            color: var(--muted);
+        }
+        .section-lead {
+            font-size: 9.5pt;
+            font-weight: 300;
+            line-height: 1.75;
+            color: var(--muted);
+            max-width: 380px;
+            margin-bottom: 28px;
+        }
+
+        .divider {
+            width: 100%;
+            height: 1px;
+            background: var(--rule);
+            margin: 24px 0;
+        }
+
+        /* Service categories */
+        .service-category {
+            margin-bottom: 22px;
+        }
+        .service-category-title {
+            font-size: 8pt;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--navy);
+            margin-bottom: 14px;
+            padding-bottom: 6px;
+            border-bottom: 1.5px solid var(--navy);
+            display: inline-block;
+        }
+        .service-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 28px;
+        }
+        .service-item {
+            margin-bottom: 4px;
+        }
+        .service-num {
+            font-size: 7pt;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 2px;
+        }
+        .service-name {
+            font-size: 10pt;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 2px;
+        }
+        .service-desc {
+            font-size: 8pt;
+            font-weight: 400;
+            color: var(--muted);
+            line-height: 1.55;
+        }
+
+        /* ==================== PAGE 3: PRISER ==================== */
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 12px;
+        }
+        .price-table thead th {
+            background: var(--navy);
+            color: white;
+            font-size: 7.5pt;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 10px 14px;
+            text-align: left;
+        }
+        .price-table thead th:last-child {
+            text-align: right;
+        }
+        .price-table tbody td {
+            padding: 12px 14px;
+            border-bottom: 1px solid rgba(28, 58, 92, 0.07);
+            vertical-align: top;
+        }
+        .price-table tbody tr:hover {
+            background: rgba(184, 153, 58, 0.04);
+        }
+        .price-service {
+            font-size: 9.5pt;
+            font-weight: 700;
+            color: var(--navy);
+        }
+        .price-detail {
+            font-size: 7.5pt;
+            font-weight: 400;
+            color: var(--muted);
+            margin-top: 2px;
+            line-height: 1.5;
+        }
+        .price-amount {
+            font-size: 9.5pt;
+            font-weight: 700;
+            color: var(--navy);
+            text-align: right;
+            white-space: nowrap;
+        }
+        .price-note {
+            font-size: 7pt;
+            font-style: italic;
+            color: var(--muted);
+            margin-top: 8px;
+        }
+
+        .price-group-header td {
+            font-size: 7pt;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--gold);
+            padding: 16px 14px 6px;
+            border-bottom: 1px solid var(--rule);
+        }
+
+        /* ==================== PAGE 4: PROSESS + CTA ==================== */
+        .process-steps {
+            margin-top: 24px;
+        }
+        .process-step {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 22px;
+            align-items: flex-start;
+        }
+        .process-circle {
+            width: 48px; height: 48px;
+            min-width: 48px;
+            background: var(--navy);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 11pt;
+            font-weight: 700;
+            color: white;
+        }
+        .process-text h3 {
+            font-size: 11pt;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 3px;
+        }
+        .process-text p {
+            font-size: 8.5pt;
+            font-weight: 400;
+            color: var(--muted);
+            line-height: 1.65;
+        }
+
+        /* CTA Box */
+        .cta-box {
+            background: var(--navy);
+            color: white;
+            padding: 28px 32px;
+            margin-top: 28px;
+        }
+        .cta-box h2 {
+            font-size: 16pt;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            margin-bottom: 8px;
+        }
+        .cta-box .desc {
+            font-size: 8.5pt;
+            font-weight: 300;
+            color: rgba(255,255,255,0.55);
+            line-height: 1.65;
+            margin-bottom: 20px;
+            max-width: 320px;
+        }
+        .cta-contacts {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            border-top: 1px solid rgba(184, 153, 58, 0.25);
+            padding-top: 16px;
+        }
+        .cta-name {
+            font-size: 10pt;
+            font-weight: 700;
+        }
+        .cta-name span {
+            font-size: 8pt;
+            font-weight: 400;
+            color: rgba(255,255,255,0.4);
+            margin-left: 6px;
+        }
+        .cta-info {
+            text-align: right;
+            font-size: 8.5pt;
+            color: var(--gold);
+            line-height: 1.7;
+        }
+
+        /* ==================== PAKKER SECTION (Page 4 alt) ==================== */
+        .packages {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 20px;
+        }
+        .package {
+            border: 1px solid rgba(28, 58, 92, 0.1);
+            padding: 20px;
+            background: var(--warm-white);
+        }
+        .package.featured {
+            border-color: var(--gold);
+            position: relative;
+        }
+        .package.featured::after {
+            content: 'POPULÆR';
+            position: absolute; top: -1px; right: 16px;
+            background: var(--gold);
+            color: white;
+            font-size: 6pt;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            padding: 4px 10px;
+        }
+        .package-name {
+            font-size: 7.5pt;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 6px;
+        }
+        .package-price {
+            font-size: 18pt;
+            font-weight: 700;
+            color: var(--navy);
+            letter-spacing: -0.02em;
+        }
+        .package-price span {
+            font-size: 9pt;
+            font-weight: 400;
+            color: var(--muted);
+        }
+        .package-desc {
+            font-size: 8pt;
+            color: var(--muted);
+            margin: 6px 0 12px;
+            line-height: 1.5;
+        }
+        .package-features {
+            list-style: none;
+            padding: 0;
+        }
+        .package-features li {
+            font-size: 8pt;
+            color: var(--ink);
+            padding: 4px 0;
+            padding-left: 14px;
+            position: relative;
+            line-height: 1.5;
+        }
+        .package-features li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- PAGE 1: COVER                                                  -->
+<!-- ============================================================ -->
+<div class="page cover">
+    <div class="cover-rule"></div>
+
+    <div class="cover-brand">
+        <h2>Folkestad Designs</h2>
+        <div class="sub">Design & Merkevare · Jæren</div>
+    </div>
+
+    <div class="cover-main">
+        <h1 class="cover-title">
+            Design som bygger<br>
+            <em>merkevarer.</em>
+        </h1>
+        <p class="cover-desc">
+            Nettsider, logoer, visuell identitet og trykksaker<br>
+            for lokale bedrifter som fortjener mer enn en template.
+        </p>
+    </div>
+
+    <div class="cover-footer">
+        <div>
+            <div class="cover-meta">Tjenester og priser · 2025/2026</div>
+            <div class="cover-location">Klepp Stasjon · Jæren · Rogaland</div>
+        </div>
+    </div>
+
+    <div class="cover-rule"></div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE 2: TJENESTER                                              -->
+<!-- ============================================================ -->
+<div class="page content-page">
+    <div class="page-header">
+        <span>Folkestad Designs · Design & merkevare for lokale bedrifter</span>
+        <span class="page-header-section">Tjenester</span>
+    </div>
+
+    <div style="margin-top: 12px;">
+        <div class="section-label">Hva du får</div>
+        <h2 class="section-title">Alt fra skjerm til trykk<br><em>— én leverandør, ett uttrykk.</em></h2>
+        <p class="section-lead">
+            Logo, nettside, visittkort og flyer — designet som én helhet.
+            Du slipper å koordinere mellom fire ulike freelancere
+            som aldri har snakket sammen.
+        </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- DIGITAL -->
+    <div class="service-category">
+        <div class="service-category-title">Digital</div>
+        <div class="service-grid">
+            <div class="service-item">
+                <div class="service-num">01</div>
+                <div class="service-name">Nettside</div>
+                <div class="service-desc">Skreddersydd design, norsk tekst, SEO-oppsett, mobiloptimalisert. Ferdig på 1–2 uker.</div>
+            </div>
+            <div class="service-item">
+                <div class="service-num">02</div>
+                <div class="service-name">Landingsside</div>
+                <div class="service-desc">Enkeltstående kampanjeside for produkt, event eller tjeneste. Konverteringsoptimalisert.</div>
+            </div>
+            <div class="service-item">
+                <div class="service-num">03</div>
+                <div class="service-name">Sosiale medier-profil</div>
+                <div class="service-desc">Profilbilde, coverbilde og post-maler tilpasset din visuelle identitet.</div>
+            </div>
+            <div class="service-item">
+                <div class="service-num">04</div>
+                <div class="service-name">Presentasjoner</div>
+                <div class="service-desc">Salgspresentasjoner, investorpitch eller interne dokumenter i din merkevare.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- IDENTITET -->
+    <div class="service-category">
+        <div class="service-category-title">Merkevare & identitet</div>
+        <div class="service-grid">
+            <div class="service-item">
+                <div class="service-num">05</div>
+                <div class="service-name">Logo — ny</div>
+                <div class="service-desc">Komplett logopakke: primærlogo, ikon, varianter (lys/mørk), vektorfiler.</div>
+            </div>
+            <div class="service-item">
+                <div class="service-num">06</div>
+                <div class="service-name">Logo — fornying</div>
+                <div class="service-desc">Modernisering av eksisterende logo. Bevarer gjenkjennelsen, oppdaterer uttrykket.</div>
+            </div>
+            <div class="service-item">
+                <div class="service-num">07</div>
+                <div class="service-name">Visuell identitet</div>
+                <div class="service-desc">Fargepalett, typografi, stilguide og bruksregler. Alt dokumentert i en brandbook.</div>
+            </div>
+            <div class="service-item">
+                <div class="service-num">08</div>
+                <div class="service-name">Mockups</div>
+                <div class="service-desc">Fotorealistiske mockups av logo på fasade, bil, arbeidsklær, emballasje eller skjerm.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TRYKK -->
+    <div class="service-category">
+        <div class="service-category-title">Trykk & print</div>
+        <div class="service-grid">
+            <div class="service-item">
+                <div class="service-num">09</div>
+                <div class="service-name">Visittkort</div>
+                <div class="service-desc">Dobbeltsidig design, trykkklart. Levert som PDF og vektorfil.</div>
+            </div>
+            <div class="service-item">
+                <div class="service-num">10</div>
+                <div class="service-name">Flyer / brosjyre</div>
+                <div class="service-desc">Kampanjeflyer, menybrosjyre, informasjonsark. A5/A4/DL-format.</div>
+            </div>
+            <div class="service-item">
+                <div class="service-num">11</div>
+                <div class="service-name">Plakat / banner</div>
+                <div class="service-desc">Eventplakat, messevegg, roll-up eller vindusdekor. Storformat.</div>
+            </div>
+            <div class="service-item">
+                <div class="service-num">12</div>
+                <div class="service-name">Bildekor-design</div>
+                <div class="service-desc">Layout for bilfoliering tilpasset din bilmodell. Samarbeid med folieringsfirma.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-footer">
+        <span>martin@folkestaddesigns.no · Klepp Stasjon, Jæren</span>
+        <span>2 / 4</span>
+    </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE 3: PRISER                                                 -->
+<!-- ============================================================ -->
+<div class="page content-page">
+    <div class="page-header">
+        <span>Folkestad Designs · Design & merkevare for lokale bedrifter</span>
+        <span class="page-header-section">Priser</span>
+    </div>
+
+    <div style="margin-top: 12px;">
+        <div class="section-label">Priser</div>
+        <h2 class="section-title">Byråkvalitet<br><em>— uten byråprisen.</em></h2>
+        <p class="section-lead">
+            Fast pris avtalt på forhånd. Ingen timebank, ingen overraskelser.
+            Betaling først når du er fornøyd med resultatet.
+        </p>
+    </div>
+
+    <table class="price-table">
+        <thead>
+            <tr>
+                <th>Tjeneste</th>
+                <th style="text-align: right;">Pris</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- DIGITAL -->
+            <tr class="price-group-header">
+                <td colspan="2">Digital</td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="price-service">Nettside — design, tekst og utvikling</div>
+                    <div class="price-detail">Research, norsk copy, custom design, SEO, responsivt, kontaktskjema</div>
+                </td>
+                <td class="price-amount">fra 8 000 kr</td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="price-service">Landingsside</div>
+                    <div class="price-detail">Enkeltstående kampanje- eller produktside, konverteringsoptimalisert</div>
+                </td>
+                <td class="price-amount">3 000 — 6 000 kr</td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="price-service">Ekstra undersider</div>
+                    <div class="price-detail">Dedikert tjenesteside, blogg, stillingsannonser, FAQ</div>
+                </td>
+                <td class="price-amount">2 000 — 4 000 kr/stk</td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="price-service">Sosiale medier-pakke</div>
+                    <div class="price-detail">Profil, cover, 4–6 post-maler tilpasset din identitet</div>
+                </td>
+                <td class="price-amount">3 000 — 5 000 kr</td>
+            </tr>
+
+            <!-- IDENTITET -->
+            <tr class="price-group-header">
+                <td colspan="2">Merkevare & identitet</td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="price-service">Logo — ny</div>
+                    <div class="price-detail">Primærlogo, ikon, lys/mørk-varianter, vektorfiler (SVG, PNG, PDF)</div>
+                </td>
+                <td class="price-amount">4 000 — 8 000 kr</td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="price-service">Logo — fornying / modernisering</div>
+                    <div class="price-detail">Oppdatert versjon av eksisterende logo med bevart gjenkjennelse</div>
+                </td>
+                <td class="price-amount">3 000 — 6 000 kr</td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="price-service">Visuell identitet / brandbook</div>
+                    <div class="price-detail">Fargepalett, typografi, stilguide, bruksregler, dokumentert i PDF</div>
+                </td>
+                <td class="price-amount">6 000 — 12 000 kr</td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="price-service">Mockups</div>
+                    <div class="price-detail">Fotorealistiske visninger av logo på fasade, bil, klær, emballasje (3–6 stk)</div>
+                </td>
+                <td class="price-amount">2 000 — 5 000 kr</td>
+            </tr>
+
+            <!-- TRYKK -->
+            <tr class="price-group-header">
+                <td colspan="2">Trykk & print</td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="price-service">Visittkort</div>
+                    <div class="price-detail">Dobbeltsidig design, trykkklart PDF + vektorfil</div>
+                </td>
+                <td class="price-amount">1 500 — 3 000 kr</td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="price-service">Flyer / brosjyre</div>
+                    <div class="price-detail">A5, A4 eller DL-format, trykkklart med bleed</div>
+                </td>
+                <td class="price-amount">2 000 — 4 000 kr</td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="price-service">Plakat / banner / roll-up</div>
+                    <div class="price-detail">Eventplakat, messevegg, vindusdekor — storformat</div>
+                </td>
+                <td class="price-amount">2 500 — 5 000 kr</td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="price-service">Bildekor-design</div>
+                    <div class="price-detail">Layout tilpasset bilmodell, leveranseformat for folieringsfirma</div>
+                </td>
+                <td class="price-amount">3 000 — 6 000 kr</td>
+            </tr>
+
+            <!-- LØPENDE -->
+            <tr class="price-group-header">
+                <td colspan="2">Løpende</td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="price-service">Månedlig vedlikehold og drift</div>
+                    <div class="price-detail">Hosting, småjusteringer, oppdateringer, SEO-oppfølging</div>
+                </td>
+                <td class="price-amount">500 — 1 500 kr/mnd</td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="price-service">Bildepakke — foto på lokasjon</div>
+                    <div class="price-detail">8–12 redigerte bilder klare for nett og trykk</div>
+                </td>
+                <td class="price-amount">3 000 — 5 000 kr</td>
+            </tr>
+        </tbody>
+    </table>
+    <p class="price-note">Alle priser er eks. mva. · Endelig pris avtales etter gjennomgang av prosjektet.</p>
+
+    <div class="page-footer">
+        <span>martin@folkestaddesigns.no · Klepp Stasjon, Jæren</span>
+        <span>3 / 4</span>
+    </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE 4: PAKKER + PROSESS + CTA                                 -->
+<!-- ============================================================ -->
+<div class="page content-page">
+    <div class="page-header">
+        <span>Folkestad Designs · Design & merkevare for lokale bedrifter</span>
+        <span class="page-header-section">Pakker & prosess</span>
+    </div>
+
+    <div style="margin-top: 12px;">
+        <div class="section-label">Pakketilbud</div>
+        <h2 class="section-title">Spar med pakke<br><em>— alt henger sammen.</em></h2>
+        <p class="section-lead">
+            Når logo, nettside og trykksaker designes sammen,
+            får du ett helhetlig uttrykk — og en bedre pris.
+        </p>
+    </div>
+
+    <div class="packages">
+        <div class="package">
+            <div class="package-name">Oppstart</div>
+            <div class="package-price">12 000 <span>kr</span></div>
+            <div class="package-desc">For nye bedrifter som trenger det grunnleggende.</div>
+            <ul class="package-features">
+                <li>Logo (primær + varianter)</li>
+                <li>Visittkort (dobbeltsidig)</li>
+                <li>Enkel nettside (3–5 sider)</li>
+                <li>Alle filer levert digitalt</li>
+            </ul>
+        </div>
+        <div class="package featured">
+            <div class="package-name">Komplett merkevare</div>
+            <div class="package-price">22 000 <span>kr</span></div>
+            <div class="package-desc">For etablerte bedrifter som vil ta steget.</div>
+            <ul class="package-features">
+                <li>Logo (ny eller fornying)</li>
+                <li>Visuell identitet / brandbook</li>
+                <li>Nettside (5–7 sider, SEO)</li>
+                <li>Visittkort + flyer</li>
+                <li>3 mockups (fasade, bil, klær)</li>
+                <li>Sosiale medier-maler</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="divider" style="margin-top: 28px;"></div>
+
+    <div class="section-label">Slik jobber vi</div>
+    <h2 class="section-title" style="font-size: 16pt; margin-bottom: 16px;">Fra idé til ferdig<br><em>— på fire steg.</em></h2>
+
+    <div class="process-steps">
+        <div class="process-step">
+            <div class="process-circle">01</div>
+            <div class="process-text">
+                <h3>Utkast</h3>
+                <p>Jeg lager et uforpliktende utkast basert på research av din bedrift. Du ser resultatet før du bestemmer deg.</p>
+            </div>
+        </div>
+        <div class="process-step">
+            <div class="process-circle">02</div>
+            <div class="process-text">
+                <h3>Innhold og tilpasning</h3>
+                <p>Vi avtaler bilder, tekst og detaljer. Jeg tilpasser designet til ditt innhold og dine tilbakemeldinger.</p>
+            </div>
+        </div>
+        <div class="process-step">
+            <div class="process-circle">03</div>
+            <div class="process-text">
+                <h3>Gjennomgang</h3>
+                <p>Du ser alt ferdig og gir tilbakemelding. Vi justerer til du er fornøyd — ingen ekstra kostnad.</p>
+            </div>
+        </div>
+        <div class="process-step">
+            <div class="process-circle">04</div>
+            <div class="process-text">
+                <h3>Levering og betaling</h3>
+                <p>Alt leveres digitalt og/eller publiseres. Faktura sendes først når du er fornøyd.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA BOX -->
+    <div class="cta-box">
+        <h2>Klar for en uforpliktende prat?</h2>
+        <div class="desc">
+            Jeg viser deg gjerne eksempler på skjerm — det tar fem minutter.
+            Ring, send melding, eller stikk innom for en kaffe.
+        </div>
+        <div class="cta-contacts">
+            <div class="cta-name">Martin Folkestad <span>· Klepp Stasjon · Jæren</span></div>
+            <div class="cta-info">
+                martin@folkestaddesigns.no<br>
+                [telefonnummer]<br>
+                folkestaddesigns.no
+            </div>
+        </div>
+    </div>
+
+    <div class="page-footer">
+        <span>martin@folkestaddesigns.no · Klepp Stasjon, Jæren</span>
+        <span>4 / 4</span>
+    </div>
+</div>
+
+</body>
+</html>

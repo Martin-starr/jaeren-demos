@@ -3,2470 +3,3543 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Folkestad Designs — nettsider, logoer og visuell identitet for lokale bedrifter på Jæren. Levert på 1-2 uker." />
-<title>folkestad.design — Lokal design i verdensklasse</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>Folkestad Designs — Design som virker, for ekte bedrifter</title>
+<meta name="description" content="Nettsider, merkevarer og visuell identitet for håndverkere, restauranter og fagbedrifter på Jæren. 21 leverte prosjekter. Levert på 1–2 uker." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..700,30..100;1,9..144,300..700,30..100&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 <style>
-/* =========================================================
-   FOLKESTAD DESIGNS — v2
-   Off-white + coral identity, friendly Nordic professional
-   ========================================================= */
+:root{
+  --bg:#F8F5F0;
+  --bg-white:#FFFFFF;
+  --bg-dark:#1A1A1A;
+  --bg-darker:#0F0F0F;
+  --ink:#0F0F0F;
+  --muted:#6E6E6E;
+  --light:#A0A0A0;
+  --coral:#FF5C39;
+  --coral-dark:#E0421F;
+  --coral-tint:#FFE8E1;
+  --border:#E8E2D5;
+  --border-soft:#EFEAE0;
+  --serif:'Fraunces', Georgia, serif;
+  --sans:'IBM Plex Sans', system-ui, sans-serif;
+  --mono:'IBM Plex Mono', ui-monospace, monospace;
+  --radius:8px;
+  --shadow-sm:0 4px 20px rgba(0,0,0,0.06);
+  --shadow-md:0 10px 30px -10px rgba(0,0,0,0.12);
+  --shadow-lg:0 30px 60px -20px rgba(0,0,0,0.3);
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans);
+  font-size:17px;
+  line-height:1.7;
+  color:var(--ink);
+  background:var(--bg);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none;transition:color .2s var(--ease)}
+button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
+::selection{background:var(--coral);color:white}
 
-:root {
-  --bg: #F8F5F0;
-  --bg-white: #FFFFFF;
-  --bg-gray: #E8E2D5;
-  --ink: #0F0F0F;
-  --muted: #6E6E6E;
-  --line: rgba(15, 15, 15, 0.08);
-  --line-strong: rgba(15, 15, 15, 0.14);
-  --coral: #FF5C39;
-  --coral-dark: #E0421F;
-  --coral-tint: #FFE8E1;
-  --good: #2E8B57;
-  --bad: #C13B26;
-  --shadow-sm: 0 2px 8px rgba(15, 15, 15, 0.04);
-  --shadow-md: 0 6px 24px rgba(15, 15, 15, 0.06);
-  --shadow-lg: 0 16px 48px rgba(15, 15, 15, 0.08);
-  --radius-sm: 4px;
-  --radius: 8px;
-  --radius-lg: 12px;
-  --max: 1200px;
+/* TYPE */
+.serif{font-family:var(--serif)}
+.mono{font-family:var(--mono)}
+.eyebrow{
+  font-family:var(--sans);
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--ink);
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
 }
+.eyebrow .dot{
+  width:8px;height:8px;border-radius:50%;background:var(--coral);
+  display:inline-block;
+}
+.eyebrow.light{color:var(--light)}
+.eyebrow.light .dot{background:var(--coral)}
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-body {
-  font-family: 'IBM Plex Sans', system-ui, sans-serif;
-  font-weight: 400;
-  font-size: 17px;
-  line-height: 1.7;
-  color: var(--ink);
-  background: var(--bg);
-  overflow-x: hidden;
+h1, .h1{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:clamp(56px, 9vw, 128px);
+  line-height:.95;
+  letter-spacing:-.04em;
+  font-variation-settings:"opsz" 144, "SOFT" 80;
 }
+h2, .h2{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:clamp(40px, 5vw, 80px);
+  line-height:1.05;
+  letter-spacing:-.03em;
+  font-variation-settings:"opsz" 100, "SOFT" 60;
+}
+h3, .h3{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:clamp(24px, 2.5vw, 36px);
+  line-height:1.15;
+  letter-spacing:-.02em;
+}
+.lead{
+  font-weight:300;
+  font-size:clamp(18px, 1.4vw, 22px);
+  line-height:1.65;
+  color:var(--ink);
+  max-width:640px;
+}
+.body-sm{font-size:14px;color:var(--muted);line-height:1.6}
 
-img, svg { display: block; max-width: 100%; }
-a { color: inherit; text-decoration: none; cursor: pointer; }
-button { font-family: inherit; cursor: pointer; border: none; background: none; }
+/* LAYOUT */
+.container{
+  width:100%;
+  max-width:1320px;
+  margin:0 auto;
+  padding:0 32px;
+}
+@media (max-width:768px){
+  .container{padding:0 20px}
+}
+section{padding:120px 0;position:relative}
+@media (max-width:768px){section{padding:80px 0}}
 
-.container { max-width: var(--max); margin: 0 auto; padding: 0 32px; }
-.container-narrow { max-width: 900px; margin: 0 auto; padding: 0 32px; }
-
-/* ---------- Typography ---------- */
-.eyebrow {
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--coral);
-  margin-bottom: 16px;
-  display: inline-block;
+/* NAV */
+.nav{
+  position:fixed;
+  top:0;left:0;right:0;
+  z-index:100;
+  padding:18px 0;
+  background:transparent;
+  transition:background .3s var(--ease), border-color .3s var(--ease), padding .3s var(--ease);
+  border-bottom:1px solid transparent;
 }
-
-.eyebrow-muted { color: var(--muted); }
-
-h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.025em; line-height: 1.1; color: var(--ink); }
-h1 { font-size: clamp(48px, 8vw, 92px); letter-spacing: -0.035em; line-height: 1.02; }
-h2 { font-size: clamp(36px, 5vw, 60px); letter-spacing: -0.03em; }
-h3 { font-size: clamp(22px, 2.4vw, 28px); letter-spacing: -0.02em; line-height: 1.2; }
-h4 { font-size: 18px; letter-spacing: -0.015em; }
-
-.lead { font-size: clamp(18px, 1.6vw, 21px); font-weight: 300; line-height: 1.6; color: var(--muted); max-width: 640px; }
-.coral-text { color: var(--coral); }
-.highlight {
-  background: linear-gradient(180deg, transparent 60%, var(--coral-tint) 60%);
-  padding: 0 2px;
+.nav.scrolled{
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  border-bottom-color:var(--border);
+  padding:14px 0;
 }
-
-/* ---------- Buttons ---------- */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 14px 24px;
-  font-size: 15px;
-  font-weight: 600;
-  border-radius: var(--radius);
-  transition: all 0.2s ease;
-  white-space: nowrap;
-  border: 1.5px solid transparent;
+.nav-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:32px;
 }
-
-.btn-primary {
-  background: var(--coral);
-  color: #fff;
-  box-shadow: 0 4px 12px rgba(255, 92, 57, 0.25);
+.logo{
+  font-family:var(--mono);
+  font-weight:500;
+  font-size:15px;
+  letter-spacing:-.01em;
+  color:var(--ink);
+  display:inline-flex;align-items:center;gap:2px;
 }
-.btn-primary:hover {
-  background: var(--coral-dark);
-  transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(255, 92, 57, 0.35);
+.logo .bullet{color:var(--coral);font-weight:700;margin:0 2px}
+.nav-links{
+  display:flex;align-items:center;gap:36px;list-style:none;
 }
-
-.btn-secondary {
-  background: transparent;
-  color: var(--ink);
-  border-color: var(--line-strong);
+.nav-links a{
+  font-size:14px;
+  font-weight:500;
+  color:var(--ink);
+  position:relative;
+  padding:6px 0;
 }
-.btn-secondary:hover {
-  border-color: var(--ink);
-  background: var(--ink);
-  color: #fff;
+.nav-links a::after{
+  content:"";
+  position:absolute;
+  left:0;right:100%;
+  bottom:0;
+  height:1.5px;
+  background:var(--coral);
+  transition:right .35s var(--ease);
 }
-
-.btn-sm { padding: 10px 16px; font-size: 14px; }
-.btn-lg { padding: 18px 32px; font-size: 16px; }
-
-/* ---------- Nav ---------- */
-.nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  padding: 18px 0;
-  transition: all 0.3s ease;
-  background: transparent;
-  border-bottom: 1px solid transparent;
+.nav-links a:hover::after{right:0}
+.nav-cta{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:10px 18px;
+  background:var(--coral);
+  color:white;
+  border-radius:999px;
+  font-size:14px;font-weight:500;
+  transition:transform .2s var(--ease), background .2s var(--ease), box-shadow .2s var(--ease);
 }
-.nav.scrolled {
-  background: rgba(248, 245, 240, 0.92);
-  backdrop-filter: saturate(180%) blur(12px);
-  -webkit-backdrop-filter: saturate(180%) blur(12px);
-  border-bottom-color: var(--line);
-  padding: 12px 0;
+.nav-cta:hover{
+  background:var(--coral-dark);
+  transform:translateY(-1px);
+  box-shadow:0 6px 18px -4px rgba(255,92,57,.4);
 }
-.nav-inner {
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 0 32px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.hamburger{display:none;width:28px;height:20px;position:relative}
+.hamburger span{
+  position:absolute;left:0;right:0;height:1.5px;background:var(--ink);
+  transition:transform .3s var(--ease);
 }
-.logo {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--ink);
-  letter-spacing: -0.01em;
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-}
-.logo-dot {
-  width: 8px; height: 8px;
-  background: var(--coral);
-  border-radius: 50%;
-  display: inline-block;
-}
-.nav-links {
-  display: flex;
-  gap: 32px;
-  align-items: center;
-}
-.nav-links a {
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--ink);
-  transition: color 0.2s;
-  position: relative;
-}
-.nav-links a:hover { color: var(--coral); }
-.nav-mobile {
-  display: none;
-  padding: 8px;
-  font-size: 22px;
-}
-
-@media (max-width: 880px) {
-  .nav-links { display: none; }
-  .nav-links.open {
-    display: flex;
-    position: absolute;
-    top: 100%;
-    left: 0; right: 0;
-    background: #fff;
-    padding: 24px 32px;
-    flex-direction: column;
-    gap: 18px;
-    align-items: flex-start;
-    border-bottom: 1px solid var(--line);
-    box-shadow: var(--shadow-md);
-  }
-  .nav-mobile { display: block; }
+.hamburger span:nth-child(1){top:2px}
+.hamburger span:nth-child(2){top:9px}
+.hamburger span:nth-child(3){top:16px}
+@media (max-width:900px){
+  .nav-links{display:none}
+  .hamburger{display:block}
 }
 
-/* ---------- Hero ---------- */
-.hero {
-  min-height: 100vh;
-  padding: 140px 0 80px;
-  display: flex;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
+/* HERO */
+.hero{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:120px 0 60px;
+  position:relative;
+  overflow:hidden;
 }
-.hero-bg-shape {
-  position: absolute;
-  width: 600px; height: 600px;
-  background: var(--coral);
-  border-radius: 50%;
-  filter: blur(140px);
-  opacity: 0.12;
-  top: -100px; right: -200px;
-  z-index: 0;
-  animation: float 16s ease-in-out infinite;
+.hero-blob{
+  position:absolute;
+  top:-100px;right:-100px;
+  width:600px;height:600px;
+  background:radial-gradient(circle at center, rgba(255,92,57,0.18), transparent 65%);
+  filter:blur(60px);
+  pointer-events:none;
+  z-index:0;
 }
-.hero-bg-shape-2 {
-  position: absolute;
-  width: 400px; height: 400px;
-  background: var(--coral);
-  border-radius: 50%;
-  filter: blur(120px);
-  opacity: 0.06;
-  bottom: -100px; left: -100px;
-  z-index: 0;
-  animation: float 20s ease-in-out infinite reverse;
+.hero-blob.lower{
+  top:auto;bottom:-200px;left:-150px;right:auto;
+  width:400px;height:400px;
+  background:radial-gradient(circle at center, rgba(255,92,57,0.07), transparent 65%);
 }
-@keyframes float {
-  0%, 100% { transform: translate(0, 0); }
-  50% { transform: translate(40px, -30px); }
+.hero-content{position:relative;z-index:1}
+.hero-eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:48px;
 }
-.hero-inner {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 32px;
+.hero-eyebrow .sep{color:var(--light)}
+.hero-h1{
+  font-family:var(--serif);
+  font-weight:500;
+  font-variation-settings:"opsz" 144, "SOFT" 80;
+  font-size:clamp(56px, 9vw, 128px);
+  line-height:.95;
+  letter-spacing:-.04em;
+  color:var(--ink);
+  margin-bottom:40px;
+  max-width:1200px;
 }
-.hero-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 14px;
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: 100px;
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--muted);
-  box-shadow: var(--shadow-sm);
-  margin-bottom: 28px;
+.hero-h1 .word{
+  display:inline-block;
+  opacity:0;
+  transform:translateY(40px);
+  animation:wordReveal .8s var(--ease) forwards;
 }
-.hero-tag-dot {
-  width: 6px; height: 6px;
-  background: var(--coral);
-  border-radius: 50%;
-  animation: pulse 2s ease-in-out infinite;
+.hero-h1 .word.italic{
+  font-style:italic;
+  font-weight:400;
+  font-variation-settings:"opsz" 144, "SOFT" 100;
+  color:var(--coral);
 }
-@keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(1.4); }
+@keyframes wordReveal{
+  to{opacity:1;transform:translateY(0)}
 }
-.hero h1 { margin-bottom: 28px; max-width: 1000px; }
-.hero .lead { font-size: clamp(18px, 1.7vw, 22px); margin-bottom: 40px; max-width: 680px; }
-.hero-ctas {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-bottom: 56px;
+.hero-h1 .word:nth-child(1){animation-delay:.1s}
+.hero-h1 .word:nth-child(2){animation-delay:.18s}
+.hero-h1 .word:nth-child(3){animation-delay:.26s}
+.hero-h1 .word:nth-child(4){animation-delay:.34s}
+.hero-h1 .word:nth-child(5){animation-delay:.42s}
+.hero-h1 .word:nth-child(6){animation-delay:.5s}
+.hero-h1 .word:nth-child(7){animation-delay:.58s}
+.hero-lead{
+  font-weight:300;
+  font-size:clamp(18px, 1.5vw, 22px);
+  line-height:1.65;
+  color:var(--ink);
+  max-width:620px;
+  margin-bottom:48px;
+  opacity:0;
+  animation:fadeUp .8s var(--ease) .7s forwards;
 }
-.hero-trust {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  font-size: 14px;
-  color: var(--muted);
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
 }
-.stars { color: var(--coral); font-size: 16px; letter-spacing: 2px; }
-.hero-divider {
-  width: 1px; height: 16px;
-  background: var(--line-strong);
+.btn-row{
+  display:flex;flex-wrap:wrap;gap:14px;
+  margin-bottom:80px;
+  opacity:0;
+  animation:fadeUp .8s var(--ease) .9s forwards;
+}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:18px 28px;
+  border-radius:999px;
+  font-size:15px;
+  font-weight:500;
+  transition:all .25s var(--ease);
+  cursor:pointer;
+  border:1.5px solid transparent;
+}
+.btn-primary{
+  background:var(--coral);
+  color:white;
+}
+.btn-primary:hover{
+  background:var(--coral-dark);
+  transform:translateY(-2px);
+  box-shadow:0 12px 30px -8px rgba(255,92,57,.5);
+}
+.btn-outline{
+  background:transparent;
+  color:var(--ink);
+  border-color:var(--ink);
+}
+.btn-outline:hover{
+  background:var(--ink);
+  color:white;
+  transform:translateY(-2px);
+}
+.btn-arrow{
+  transition:transform .2s var(--ease);
+}
+.btn:hover .btn-arrow{transform:translateX(3px)}
+
+.hero-stats{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:0;
+  border-top:1px solid var(--border);
+  padding-top:36px;
+  margin-top:auto;
+  opacity:0;
+  animation:fadeUp .8s var(--ease) 1.1s forwards;
+}
+.stat{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  padding-right:24px;
+  border-right:1px solid var(--border);
+}
+.stat:last-child{border-right:none}
+.stat-num{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:clamp(36px, 4vw, 52px);
+  line-height:1;
+  letter-spacing:-.02em;
+  color:var(--ink);
+}
+.stat-label{
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+@media (max-width:700px){
+  .hero-stats{grid-template-columns:1fr;gap:24px}
+  .stat{border-right:none;border-bottom:1px solid var(--border);padding:0 0 20px}
+  .stat:last-child{border-bottom:none;padding-bottom:0}
 }
 
-/* Marquee ord */
-.hero-words {
-  margin-top: 80px;
-  display: flex;
-  gap: 40px;
-  overflow: hidden;
-  -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
-  mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+/* LOGOSTRIPE */
+.logostripe{
+  padding:60px 0;
+  background:var(--bg-white);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  overflow:hidden;
 }
-.hero-words-track {
-  display: flex;
-  gap: 40px;
-  animation: marquee 30s linear infinite;
-  white-space: nowrap;
-  flex-shrink: 0;
+.logostripe-label{
+  text-align:center;
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:28px;
 }
-.hero-words span {
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--muted);
-  letter-spacing: 0.04em;
+.marquee{
+  position:relative;
+  overflow:hidden;
+  mask-image:linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  -webkit-mask-image:linear-gradient(to right, transparent, black 8%, black 92%, transparent);
 }
-.hero-words span::before {
-  content: "—";
-  color: var(--coral);
-  margin-right: 12px;
+.marquee-track{
+  display:flex;
+  gap:60px;
+  width:max-content;
+  animation:marquee 50s linear infinite;
+  align-items:center;
 }
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+@keyframes marquee{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+.brand-name{
+  font-size:22px;
+  color:var(--ink);
+  white-space:nowrap;
+  letter-spacing:-.01em;
+  opacity:.75;
+  transition:opacity .2s var(--ease);
+}
+.brand-name:hover{opacity:1}
+.brand-name.s1{font-family:var(--serif);font-weight:500;font-style:italic}
+.brand-name.s2{font-family:var(--mono);font-weight:500;letter-spacing:.05em;font-size:18px}
+.brand-name.s3{font-family:var(--sans);font-weight:700;text-transform:uppercase;letter-spacing:.15em;font-size:18px}
+.brand-name.s4{font-family:var(--serif);font-weight:700}
+.brand-name.s5{font-family:var(--sans);font-weight:300}
+.brand-name.s6{font-family:var(--sans);font-weight:600;font-style:italic}
+.brand-name.s7{font-family:var(--serif);font-weight:400;letter-spacing:.03em}
+
+/* CAPABILITIES */
+.cap-header{
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:80px;
+  align-items:end;
+  margin-bottom:72px;
+}
+.cap-header .lead{margin-top:24px}
+@media (max-width:900px){
+  .cap-header{grid-template-columns:1fr;gap:32px}
+}
+.cap-grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  grid-auto-rows:340px;
+  gap:24px;
+}
+@media (max-width:1000px){
+  .cap-grid{grid-template-columns:repeat(2, 1fr)}
+}
+@media (max-width:600px){
+  .cap-grid{grid-template-columns:1fr;grid-auto-rows:auto}
+}
+.cap-card{
+  background:var(--bg-white);
+  border-radius:var(--radius);
+  padding:32px;
+  overflow:hidden;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  box-shadow:var(--shadow-sm);
+  transition:transform .35s var(--ease), box-shadow .35s var(--ease);
+  cursor:default;
+  border:1px solid var(--border-soft);
+}
+.cap-card:hover{
+  transform:translateY(-6px);
+  box-shadow:var(--shadow-md);
+}
+.cap-card.wide{grid-column:span 2}
+.cap-card.dark{background:var(--bg-dark);color:white}
+.cap-card.dark .cap-eyebrow{color:var(--light)}
+.cap-card.dark .cap-title{color:white}
+.cap-card.dark .cap-desc{color:var(--light)}
+.cap-card.cream{background:var(--bg)}
+.cap-card.coral-tint{background:var(--coral-tint)}
+@media (max-width:600px){
+  .cap-card.wide{grid-column:span 1}
+}
+.cap-mockup{
+  flex:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:20px;
+  position:relative;
+  min-height:160px;
+}
+.cap-info{display:flex;flex-direction:column;gap:8px}
+.cap-eyebrow{
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+.cap-title{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:22px;
+  line-height:1.2;
+  letter-spacing:-.02em;
+  color:var(--ink);
+}
+.cap-desc{
+  font-size:14px;
+  color:var(--muted);
+  line-height:1.5;
 }
 
-/* ---------- Section base ---------- */
-section { padding: 100px 0; position: relative; }
-.section-white { background: var(--bg-white); }
-.section-off { background: var(--bg); }
-.section-gray { background: var(--bg-gray); }
+/* MOCKUP — LAPTOP */
+.laptop-frame{
+  width:90%;
+  max-width:520px;
+  aspect-ratio:16/10;
+  background:linear-gradient(135deg,#2A2A2A,#1A1A1A);
+  border-radius:12px;
+  padding:14px 14px 22px;
+  box-shadow:0 30px 60px -20px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.1);
+  position:relative;
+  transition:transform .4s var(--ease);
+}
+.cap-card:hover .laptop-frame{transform:translateY(-3px) scale(1.02)}
+.laptop-frame::after{
+  content:"";
+  position:absolute;
+  bottom:-3px;left:25%;right:25%;
+  height:5px;
+  background:#2A2A2A;
+  border-radius:0 0 8px 8px;
+}
+.laptop-screen{
+  background:white;
+  border-radius:4px;
+  height:100%;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,0.05);
+  display:flex;
+  flex-direction:column;
+}
+.browser-chrome{
+  height:24px;
+  background:linear-gradient(#F5F5F5,#EFEFEF);
+  display:flex;
+  align-items:center;
+  padding:0 10px;
+  gap:6px;
+  border-bottom:1px solid #E0E0E0;
+  flex-shrink:0;
+}
+.traffic{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.traffic.r{background:#FF5F56}
+.traffic.y{background:#FFBD2E}
+.traffic.g{background:#27C93F}
+.url-bar{
+  margin-left:8px;
+  background:white;
+  border:1px solid #E0E0E0;
+  border-radius:4px;
+  padding:2px 10px;
+  font-family:var(--mono);
+  font-size:9px;
+  color:#888;
+  flex:1;
+  max-width:200px;
+}
+.screen-content{
+  flex:1;
+  padding:18px 22px;
+  background:linear-gradient(180deg, #FAFAF7, #F5F1EA);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:8px;
+}
+.screen-nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-family:var(--mono);
+  font-size:7px;
+  color:#1A1A1A;
+  margin-bottom:6px;
+}
+.screen-nav-links{display:flex;gap:8px;color:#888}
+.screen-eyebrow{
+  font-size:6px;
+  letter-spacing:.18em;
+  color:var(--coral);
+  font-weight:600;
+  text-transform:uppercase;
+}
+.screen-h1{
+  font-family:var(--serif);
+  font-size:14px;
+  font-weight:500;
+  line-height:1.1;
+  color:#1A1A1A;
+  letter-spacing:-.02em;
+}
+.screen-h1 em{color:var(--coral);font-style:italic}
+.screen-sub{
+  font-size:6.5px;
+  color:#666;
+  max-width:80%;
+}
+.screen-btn{
+  background:#1A1A1A;
+  color:white;
+  font-size:6px;
+  padding:4px 10px;
+  border-radius:999px;
+  display:inline-flex;
+  align-items:center;
+  gap:3px;
+  align-self:flex-start;
+  margin-top:4px;
+}
+.screen-btn.coral{background:var(--coral)}
 
-.section-head {
-  text-align: center;
-  margin-bottom: 64px;
-  max-width: 720px;
-  margin-left: auto;
-  margin-right: auto;
+/* MOCKUP — LOGO GRID */
+.logo-grid-mockup{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  grid-template-rows:1fr 1fr;
+  gap:8px;
+  width:100%;
+  max-width:240px;
+  aspect-ratio:1;
 }
-.section-head-left {
-  text-align: left;
-  margin-bottom: 64px;
-  max-width: 720px;
+.logo-tile{
+  background:white;
+  border:1px solid var(--border-soft);
+  border-radius:4px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:8px;
+  transition:transform .3s var(--ease);
 }
-.section-head h2 { margin-bottom: 16px; }
-.section-head p { color: var(--muted); font-size: 18px; line-height: 1.6; }
-
-/* ---------- Logos strip ---------- */
-.logos-strip {
-  padding: 60px 0;
-  background: var(--bg-white);
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
+.cap-card:hover .logo-tile:nth-child(1){transform:translate(-2px,-2px)}
+.cap-card:hover .logo-tile:nth-child(2){transform:translate(2px,-2px)}
+.cap-card:hover .logo-tile:nth-child(3){transform:translate(-2px,2px)}
+.cap-card:hover .logo-tile:nth-child(4){transform:translate(2px,2px)}
+.logo-tile.dark{background:#1A1A1A}
+.logo-tile.gold{background:#D4A65A}
+.kv-logo{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:14px;
+  color:#1A1A1A;
+  letter-spacing:-.02em;
+  text-align:center;
+  line-height:1;
 }
-.logos-title {
-  text-align: center;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 32px;
+.kv-logo.white{color:white}
+.kv-logo.large{font-size:18px}
+.kv-mono{
+  font-family:var(--serif);
+  font-weight:600;
+  font-size:24px;
+  color:white;
+  letter-spacing:-.04em;
 }
-.logos-marquee {
-  display: flex;
-  overflow: hidden;
-  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
-  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
-}
-.logos-track {
-  display: flex;
-  gap: 56px;
-  animation: marquee 40s linear infinite;
-  flex-shrink: 0;
-  padding-right: 56px;
-}
-.logos-track span {
-  font-family: 'IBM Plex Sans';
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--ink);
-  letter-spacing: -0.01em;
-  white-space: nowrap;
-  opacity: 0.7;
-  transition: opacity 0.2s;
-}
-.logos-track span:hover { opacity: 1; color: var(--coral); }
-
-/* ---------- Problem / Solution ---------- */
-.problem-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
-  margin-bottom: 100px;
-}
-.problem-row:last-child { margin-bottom: 0; }
-.problem-row:nth-child(even) .problem-text { order: 2; }
-.problem-row:nth-child(even) .problem-visual { order: 1; }
-
-.problem-text .eyebrow { color: var(--coral); }
-.problem-text h3 { font-size: clamp(28px, 3vw, 40px); margin-bottom: 20px; }
-.problem-text p { color: var(--muted); font-size: 17px; margin-bottom: 24px; }
-.problem-link {
-  font-weight: 600;
-  color: var(--coral);
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  transition: gap 0.2s;
-}
-.problem-link:hover { gap: 12px; color: var(--coral-dark); }
-
-.problem-visual {
-  background: var(--bg-white);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  padding: 32px;
-  min-height: 320px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  box-shadow: var(--shadow-sm);
-}
-
-/* Visual 1: outdated vs modern */
-.visual-mockups {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  width: 100%;
-}
-.mockup {
-  border-radius: var(--radius);
-  padding: 14px;
-  font-size: 11px;
-  position: relative;
-}
-.mockup-old {
-  background: #d8d3c5;
-  border: 2px solid #b5ad96;
-  color: #5a5444;
-}
-.mockup-old .mockup-title { background: #999180; color: #fff; padding: 4px 6px; font-family: 'Times New Roman', serif; font-size: 10px; }
-.mockup-old .mockup-body { padding-top: 8px; }
-.mockup-old .mockup-body span { display: block; height: 4px; background: #b5ad96; margin: 4px 0; border-radius: 1px; }
-.mockup-old-tag {
-  position: absolute;
-  top: -10px; left: 10px;
-  background: var(--bad);
-  color: #fff;
-  font-size: 10px;
-  font-weight: 600;
-  padding: 3px 8px;
-  border-radius: 100px;
-  letter-spacing: 0.05em;
-}
-.mockup-new {
-  background: #fff;
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow-sm);
-}
-.mockup-new .mockup-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: 8px;
-  border-bottom: 1px solid var(--line);
-  margin-bottom: 8px;
-}
-.mockup-new .mockup-logo {
-  width: 24px; height: 6px;
-  background: var(--ink);
-  border-radius: 2px;
-}
-.mockup-new .mockup-dots {
-  display: flex; gap: 3px;
-}
-.mockup-new .mockup-dots i {
-  width: 4px; height: 4px;
-  background: var(--muted);
-  border-radius: 50%;
-  display: block;
-}
-.mockup-new .mockup-h {
-  height: 8px;
-  background: var(--ink);
-  border-radius: 2px;
-  margin-bottom: 4px;
-  width: 70%;
-}
-.mockup-new .mockup-line { height: 3px; background: var(--line-strong); border-radius: 1px; margin: 3px 0; }
-.mockup-new .mockup-line.short { width: 60%; }
-.mockup-new .mockup-btn {
-  display: inline-block;
-  margin-top: 8px;
-  padding: 4px 10px;
-  background: var(--coral);
-  color: #fff;
-  border-radius: 3px;
-  font-size: 9px;
-  font-weight: 600;
-}
-.mockup-new-tag {
-  position: absolute;
-  top: -10px; left: 10px;
-  background: var(--good);
-  color: #fff;
-  font-size: 10px;
-  font-weight: 600;
-  padding: 3px 8px;
-  border-radius: 100px;
-  letter-spacing: 0.05em;
+.kv-wordmark{
+  font-family:var(--mono);
+  font-weight:500;
+  font-size:9px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:#1A1A1A;
 }
 
-/* Visual 2: clock + money */
-.visual-time {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
+/* MOCKUP — BUSINESS CARDS */
+.cards-stack{
+  position:relative;
+  width:200px;height:120px;
 }
-.compare-bars { width: 100%; }
-.bar-row {
-  margin-bottom: 16px;
+.bcard{
+  position:absolute;
+  width:100%;height:100%;
+  border-radius:4px;
+  background:white;
+  box-shadow:0 8px 20px -8px rgba(0,0,0,0.2);
+  transition:transform .4s var(--ease);
 }
-.bar-label {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 6px;
-  font-size: 13px;
+.bcard.c1{transform:rotate(-6deg) translate(-10px,8px);background:#1A1A1A}
+.bcard.c2{transform:rotate(2deg) translate(5px,4px);background:#D4A65A}
+.bcard.c3{
+  transform:rotate(-1deg);
+  background:white;
+  padding:16px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  border:1px solid var(--border-soft);
 }
-.bar-label-name { font-weight: 600; }
-.bar-label-value { color: var(--muted); }
-.bar-track {
-  background: var(--bg);
-  height: 10px;
-  border-radius: 100px;
-  overflow: hidden;
+.cap-card:hover .bcard.c1{transform:rotate(-8deg) translate(-14px,10px)}
+.cap-card:hover .bcard.c2{transform:rotate(4deg) translate(8px,6px)}
+.cap-card:hover .bcard.c3{transform:rotate(0deg) translateY(-2px)}
+.bcard-logo{
+  font-family:var(--serif);
+  font-weight:600;
+  font-size:14px;
+  color:#1A1A1A;
+  letter-spacing:-.02em;
 }
-.bar-fill {
-  height: 100%;
-  border-radius: 100px;
-  display: flex;
-  align-items: center;
+.bcard-info{
+  font-size:7px;
+  color:#666;
+  line-height:1.4;
 }
-.bar-fill.big { background: var(--ink); width: 100%; }
-.bar-fill.small { background: var(--coral); width: 22%; }
+.bcard-name{font-weight:600;color:#1A1A1A;font-size:8px;letter-spacing:.05em}
 
-/* Visual 3: options */
-.visual-options {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  width: 100%;
+/* MOCKUP — POSTER */
+.wall{
+  width:100%;height:100%;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(255,255,255,0.6), transparent 60%),
+    linear-gradient(135deg, #E8E2D5, #DCD4C2);
+  position:relative;
+  border-radius:4px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  min-height:240px;
 }
-.option-card {
-  background: var(--bg);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 16px 12px;
-  text-align: center;
-  font-size: 12px;
-  font-weight: 500;
-  transition: all 0.2s;
+.wall::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(0,0,0,.02) 0, transparent 4%),
+    radial-gradient(circle at 80% 70%, rgba(0,0,0,.02) 0, transparent 4%),
+    radial-gradient(circle at 50% 50%, rgba(0,0,0,.015) 0, transparent 3%);
+  background-size:80px 80px;
+  pointer-events:none;
 }
-.option-card.active {
-  background: var(--coral-tint);
-  border-color: var(--coral);
-  color: var(--coral-dark);
+.poster{
+  width:60%;
+  aspect-ratio:1/1.414;
+  background:white;
+  box-shadow:0 16px 36px -16px rgba(0,0,0,0.35), 0 2px 4px rgba(0,0,0,0.1);
+  transform:rotate(-1.5deg);
+  padding:22px 18px;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  transition:transform .4s var(--ease);
 }
-.option-icon {
-  width: 32px; height: 32px;
-  margin: 0 auto 10px;
-  background: var(--ink);
-  border-radius: var(--radius-sm);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-weight: 600;
+.cap-card:hover .poster{transform:rotate(-2.5deg) translateY(-4px)}
+.poster::before, .poster::after{
+  content:"";
+  position:absolute;
+  top:-3px;
+  width:5px;height:5px;
+  background:#888;
+  border-radius:50%;
+  box-shadow:0 1px 2px rgba(0,0,0,.3);
 }
-.option-card.active .option-icon { background: var(--coral); }
-.option-arrow {
-  display: block;
-  text-align: center;
-  font-size: 20px;
-  color: var(--coral);
-  margin-top: 16px;
+.poster::before{left:15%}
+.poster::after{right:15%}
+.poster-eyebrow{
+  font-family:var(--sans);
+  font-size:7px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--coral);
+  font-weight:600;
 }
-
-/* ---------- Services ---------- */
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+.poster-h1{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:24px;
+  line-height:.95;
+  letter-spacing:-.03em;
+  color:#1A1A1A;
 }
-.service-card {
-  background: var(--bg);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  padding: 32px 28px;
-  transition: all 0.25s ease;
-  position: relative;
-  cursor: pointer;
-}
-.service-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--ink);
-  box-shadow: var(--shadow-md);
-}
-.service-icon {
-  width: 48px; height: 48px;
-  background: var(--coral-tint);
-  border-radius: var(--radius);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-  color: var(--coral);
-  transition: all 0.25s ease;
-}
-.service-card:hover .service-icon {
-  background: var(--coral);
-  color: #fff;
-}
-.service-card h3 {
-  font-size: 20px;
-  margin-bottom: 10px;
-  transition: color 0.2s;
-}
-.service-card:hover h3 { color: var(--coral); }
-.service-card p {
-  color: var(--muted);
-  font-size: 15px;
-  margin-bottom: 20px;
-  line-height: 1.55;
-}
-.service-meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 16px;
-  border-top: 1px solid var(--line);
-  font-size: 14px;
-}
-.service-price { font-weight: 600; color: var(--ink); }
-.service-link { color: var(--coral); font-weight: 600; }
-.popular-badge {
-  position: absolute;
-  top: -12px;
-  right: 20px;
-  background: var(--coral);
-  color: #fff;
-  font-size: 11px;
-  font-weight: 600;
-  padding: 5px 12px;
-  border-radius: 100px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+.poster-h1 em{color:var(--coral);font-style:italic}
+.poster-foot{
+  font-family:var(--mono);
+  font-size:7px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:#666;
 }
 
-/* ---------- Case study Kvernhuset ---------- */
-.case {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 24px;
-  grid-auto-rows: minmax(220px, auto);
+/* MOCKUP — PHONE */
+.phone-frame{
+  width:140px;
+  height:280px;
+  background:#1A1A1A;
+  border-radius:24px;
+  padding:5px;
+  box-shadow:0 20px 40px -10px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.1);
+  position:relative;
+  transition:transform .4s var(--ease);
 }
-.case-block {
-  background: #fff;
-  border-radius: var(--radius-lg);
-  padding: 32px;
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow-sm);
-  overflow: hidden;
-  position: relative;
+.cap-card:hover .phone-frame{transform:translateY(-4px) rotate(-2deg)}
+.phone-screen{
+  background:white;
+  border-radius:20px;
+  height:100%;
+  overflow:hidden;
+  position:relative;
+  display:flex;
+  flex-direction:column;
 }
-.case-block-label {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 16px;
+.phone-notch{
+  position:absolute;top:6px;left:50%;transform:translateX(-50%);
+  width:50px;height:14px;
+  background:#1A1A1A;
+  border-radius:999px;
+  z-index:2;
 }
-.case-block-title {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--ink);
-  margin-bottom: 8px;
+.phone-header{
+  height:36px;
+  background:white;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  padding-bottom:4px;
+  font-family:var(--serif);
+  font-weight:600;
+  font-size:9px;
+  color:#1A1A1A;
+  border-bottom:1px solid #F0F0F0;
 }
-
-/* Logo presentation */
-.case-logo {
-  background: #FAF7F0;
-  grid-column: span 2;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;
-  padding: 0;
-  align-items: stretch;
-  min-height: 280px;
+.ig-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;
+  flex:1;
 }
-.case-logo-light, .case-logo-dark {
-  padding: 48px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  gap: 24px;
+.ig-tile{
+  background:linear-gradient(135deg, #FFE8E1, #FFD0C2);
+  position:relative;
+  overflow:hidden;
 }
-.case-logo-light { background: #FAF7F0; }
-.case-logo-dark { background: #4A4A4A; color: #FAF7F0; }
-
-.kvernhuset-wordmark {
-  font-family: 'IBM Plex Sans';
-  font-weight: 700;
-  font-size: clamp(20px, 2.6vw, 32px);
-  letter-spacing: 0.22em;
-  color: #4A4A4A;
-}
-.case-logo-dark .kvernhuset-wordmark { color: #FAF7F0; }
-.kvernhuset-monogram {
-  width: 64px; height: 64px;
-  border: 2px solid #4A4A4A;
-  border-radius: 50%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 18px;
-  color: #4A4A4A;
-  letter-spacing: 0.04em;
-}
-.case-logo-dark .kvernhuset-monogram {
-  border-color: #D4A65A;
-  color: #D4A65A;
-}
-.kvernhuset-tagline {
-  font-size: 10px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: #B87333;
-}
-.case-logo-dark .kvernhuset-tagline { color: #D4A65A; }
-
-/* Colors swatches */
-.case-colors { padding: 24px; }
-.swatches {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 8px;
-  margin-top: 16px;
-}
-.swatch {
-  border-radius: var(--radius);
-  overflow: hidden;
-  border: 1px solid var(--line);
-}
-.swatch-color {
-  aspect-ratio: 1;
-  width: 100%;
-}
-.swatch-info {
-  padding: 8px;
-  font-size: 10px;
-}
-.swatch-name { font-weight: 600; }
-.swatch-hex { color: var(--muted); font-family: 'IBM Plex Mono'; font-size: 9px; }
-
-/* Typography spec */
-.case-type { padding: 24px; }
-.type-row {
-  padding: 12px 0;
-  border-bottom: 1px solid var(--line);
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 12px;
-}
-.type-row:last-child { border-bottom: none; }
-.type-sample {
-  font-family: 'IBM Plex Sans';
-  color: #4A4A4A;
-}
-.type-sample.h1 { font-size: 24px; font-weight: 700; letter-spacing: -0.02em; }
-.type-sample.h2 { font-size: 18px; font-weight: 600; }
-.type-sample.body { font-size: 14px; font-weight: 400; }
-.type-sample.label { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; }
-.type-meta {
-  font-size: 11px;
-  color: var(--muted);
-  font-family: 'IBM Plex Mono';
-  white-space: nowrap;
+.ig-tile:nth-child(2){background:linear-gradient(135deg,#1A1A1A,#3A3A3A)}
+.ig-tile:nth-child(3){background:linear-gradient(135deg,#FAF7F0,#E8E2D5)}
+.ig-tile:nth-child(4){background:linear-gradient(135deg,#FF5C39,#E0421F)}
+.ig-tile:nth-child(5){background:linear-gradient(135deg,#FAF7F0,#D4A65A)}
+.ig-tile:nth-child(6){background:linear-gradient(135deg,#1A1A1A,#0F0F0F)}
+.ig-tile:nth-child(7){background:linear-gradient(135deg,#FFE8E1,#FFFFFF)}
+.ig-tile:nth-child(8){background:linear-gradient(135deg,#D4A65A,#B87333)}
+.ig-tile:nth-child(9){background:linear-gradient(135deg,#FF5C39,#FFE8E1)}
+.ig-tile::after{
+  content:"";
+  position:absolute;
+  inset:25%;
+  border:1px solid rgba(255,255,255,.3);
+  border-radius:2px;
 }
 
-/* Business card */
-.case-card { padding: 32px; }
-.bcards {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-top: 12px;
+/* MOCKUP — DOCUMENTS */
+.doc-stack{
+  position:relative;
+  width:160px;height:200px;
 }
-.bcard {
-  aspect-ratio: 16/10;
-  border-radius: var(--radius);
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  box-shadow: var(--shadow-sm);
-  font-size: 9px;
+.doc{
+  position:absolute;
+  width:100%;height:100%;
+  background:white;
+  border:1px solid var(--border-soft);
+  box-shadow:0 12px 24px -10px rgba(0,0,0,0.2);
+  border-radius:2px;
+  padding:14px 12px;
+  transition:transform .4s var(--ease);
 }
-.bcard-front {
-  background: #4A4A4A;
-  color: #FAF7F0;
+.doc.d1{transform:rotate(-5deg) translate(-6px,4px);background:#F5F1EA}
+.doc.d2{transform:rotate(2deg) translate(3px,2px);background:#FAFAF7}
+.doc.d3{
+  transform:rotate(-1deg);
+  background:white;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
 }
-.bcard-front .bcard-logo {
-  font-weight: 700;
-  letter-spacing: 0.22em;
-  font-size: 11px;
-  color: #D4A65A;
+.cap-card:hover .doc.d1{transform:rotate(-7deg) translate(-10px,6px)}
+.cap-card:hover .doc.d2{transform:rotate(4deg) translate(5px,4px)}
+.cap-card:hover .doc.d3{transform:rotate(0deg) translateY(-3px)}
+.doc-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding-bottom:6px;
+  border-bottom:1px solid #1C3A5C;
 }
-.bcard-front .bcard-mono {
-  align-self: flex-end;
-  width: 22px; height: 22px;
-  border: 1.5px solid #D4A65A;
-  border-radius: 50%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 8px;
-  font-weight: 700;
-  color: #D4A65A;
+.doc-brand{
+  font-family:var(--mono);
+  font-size:7px;
+  font-weight:600;
+  letter-spacing:.15em;
+  color:#1C3A5C;
 }
-.bcard-back {
-  background: #FAF7F0;
-  color: #4A4A4A;
+.doc-version{
+  font-family:var(--mono);
+  font-size:6px;
+  color:#B8993A;
 }
-.bcard-back-name {
-  font-weight: 700;
-  font-size: 11px;
+.doc-title{
+  font-family:var(--serif);
+  font-weight:600;
+  font-size:11px;
+  color:#1C3A5C;
+  line-height:1.1;
+  margin-top:4px;
 }
-.bcard-back-role {
-  font-size: 9px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: #B87333;
-  margin-top: 2px;
+.doc-line{
+  height:2px;
+  background:#E0E0E0;
+  border-radius:1px;
 }
-.bcard-back-meta {
-  font-size: 8px;
-  color: #4A4A4A;
-  line-height: 1.5;
-}
-
-/* Brand guidelines */
-.case-guidelines { padding: 28px; }
-.guide-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin-top: 12px;
-  font-size: 12px;
-}
-.guide-do, .guide-dont {
-  padding: 12px;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--line);
-}
-.guide-do { background: #f3f9f5; border-color: #d6e8dd; }
-.guide-dont { background: #fcf2f0; border-color: #f0d3cc; }
-.guide-do .guide-h { color: var(--good); font-weight: 600; margin-bottom: 6px; }
-.guide-dont .guide-h { color: var(--bad); font-weight: 600; margin-bottom: 6px; }
-.guide-do ul, .guide-dont ul { list-style: none; font-size: 11px; line-height: 1.7; }
-.guide-do li::before { content: "✓ "; color: var(--good); font-weight: 700; }
-.guide-dont li::before { content: "✕ "; color: var(--bad); font-weight: 700; }
-
-/* Phone mockup */
-.case-phone {
-  padding: 0;
-  background: linear-gradient(135deg, #FAF7F0 0%, #efebe0 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 360px;
-}
-.phone {
-  width: 180px;
-  aspect-ratio: 9/19;
-  background: #0F0F0F;
-  border-radius: 26px;
-  padding: 8px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.1);
-  position: relative;
-}
-.phone-notch {
-  position: absolute;
-  top: 14px; left: 50%;
-  transform: translateX(-50%);
-  width: 50px; height: 14px;
-  background: #0F0F0F;
-  border-radius: 100px;
-  z-index: 2;
-}
-.phone-screen {
-  width: 100%;
-  height: 100%;
-  background: #FAF7F0;
-  border-radius: 20px;
-  overflow: hidden;
-  padding: 22px 12px 12px;
-  font-size: 8px;
-  color: #4A4A4A;
-}
-.phone-screen-logo {
-  font-weight: 700;
-  letter-spacing: 0.22em;
-  font-size: 9px;
-  text-align: center;
-  margin: 4px 0 14px;
-  color: #4A4A4A;
-}
-.phone-hero {
-  background: #4A4A4A;
-  color: #FAF7F0;
-  border-radius: 4px;
-  padding: 10px 8px;
-  margin-bottom: 8px;
-}
-.phone-hero h5 {
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.1;
-  margin-bottom: 4px;
-}
-.phone-hero p { font-size: 7px; opacity: 0.8; line-height: 1.4; }
-.phone-pill {
-  display: inline-block;
-  background: #D4A65A;
-  color: #4A4A4A;
-  padding: 2px 6px;
-  border-radius: 100px;
-  font-size: 6px;
-  font-weight: 600;
-  margin-top: 6px;
-}
-.phone-row {
-  height: 4px;
-  background: #efebe0;
-  border-radius: 1px;
-  margin: 4px 0;
-}
-.phone-row.short { width: 60%; }
-.phone-tile {
-  background: #efebe0;
-  border-radius: 3px;
-  padding: 6px;
-  margin-top: 6px;
-}
-.phone-tile-title {
-  font-size: 7px;
-  font-weight: 600;
-  color: #4A4A4A;
+.doc-line.short{width:60%}
+.doc-line.mid{width:80%}
+.doc-foot{
+  margin-top:auto;
+  font-family:var(--mono);
+  font-size:5px;
+  letter-spacing:.15em;
+  color:#888;
 }
 
-/* ---------- Portfolio ---------- */
-.portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+/* CASE STUDIES */
+.cases-header{
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:80px;
+  align-items:end;
+  margin-bottom:72px;
 }
-.proj-card {
-  background: var(--bg);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  transition: all 0.25s ease;
-  cursor: pointer;
+.cases-header .lead{margin-top:24px}
+@media (max-width:900px){
+  .cases-header{grid-template-columns:1fr;gap:32px}
 }
-.proj-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
-  border-color: var(--ink);
+.cases-grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:32px;
 }
-.proj-thumb {
-  aspect-ratio: 16/10;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  color: #fff;
+@media (max-width:1000px){
+  .cases-grid{grid-template-columns:1fr}
 }
-.proj-thumb-label {
-  font-family: 'IBM Plex Sans';
-  font-weight: 700;
-  font-size: 22px;
-  letter-spacing: -0.02em;
-  text-align: center;
-  padding: 0 16px;
-  z-index: 2;
+.case-card{
+  display:flex;
+  flex-direction:column;
+  cursor:pointer;
+  transition:transform .35s var(--ease);
 }
-.proj-thumb::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 70% 30%, rgba(255,255,255,0.12), transparent 60%);
+.case-card:hover{transform:translateY(-4px)}
+.case-cover{
+  width:100%;
+  aspect-ratio:4/5;
+  border-radius:var(--radius);
+  overflow:hidden;
+  position:relative;
+  margin-bottom:24px;
+  background:var(--bg);
 }
-.proj-info {
-  padding: 20px 24px 24px;
+.case-cover-inner{
+  position:absolute;
+  inset:0;
+  transition:transform .6s var(--ease);
 }
-.proj-tags {
-  display: flex;
-  gap: 8px;
-  font-size: 11px;
-  color: var(--muted);
-  margin-bottom: 8px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+.case-card:hover .case-cover-inner{transform:scale(1.04)}
+.case-arrow{
+  position:absolute;
+  bottom:20px;right:20px;
+  width:44px;height:44px;
+  border-radius:50%;
+  background:var(--coral);
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  opacity:0;
+  transform:translate(8px,8px);
+  transition:all .3s var(--ease);
+  font-size:16px;
+  z-index:5;
 }
-.proj-tags span { font-weight: 500; }
-.proj-info h3 {
-  font-size: 18px;
-  margin-bottom: 4px;
-  transition: color 0.2s;
+.case-card:hover .case-arrow{
+  opacity:1;
+  transform:translate(0,0);
 }
-.proj-card:hover h3 { color: var(--coral); }
-.proj-info p { font-size: 14px; color: var(--muted); line-height: 1.5; }
-.portfolio-cta {
-  text-align: center;
-  margin-top: 56px;
+.case-tags{
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:14px;
 }
-
-/* ---------- Comparison table ---------- */
-.compare-wrap {
-  background: #fff;
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--line);
-  overflow: hidden;
-  box-shadow: var(--shadow-sm);
+.case-title{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:32px;
+  letter-spacing:-.02em;
+  line-height:1.1;
+  margin-bottom:10px;
 }
-.compare-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 14px;
+.case-subtitle{
+  font-size:16px;
+  color:var(--muted);
+  line-height:1.55;
+  margin-bottom:12px;
 }
-.compare-table th, .compare-table td {
-  padding: 18px 16px;
-  text-align: center;
-  border-bottom: 1px solid var(--line);
-  vertical-align: middle;
-}
-.compare-table tr:last-child td { border-bottom: none; }
-.compare-table th {
-  background: var(--bg);
-  font-weight: 600;
-  font-size: 13px;
-  letter-spacing: -0.005em;
-}
-.compare-table th:first-child, .compare-table td:first-child {
-  text-align: left;
-  font-weight: 500;
-}
-.col-folkestad {
-  background: var(--coral-tint) !important;
-  color: var(--coral-dark);
-  font-weight: 700 !important;
-  position: relative;
-}
-.col-folkestad-h {
-  background: var(--coral) !important;
-  color: #fff !important;
-}
-.col-folkestad-h::after {
-  content: "★";
-  display: block;
-  font-size: 10px;
-  margin-top: 4px;
-  opacity: 0.9;
-}
-.cell-yes { color: var(--good); font-size: 18px; font-weight: 600; }
-.cell-no { color: var(--bad); font-size: 18px; }
-.cell-mid { color: var(--muted); font-size: 14px; font-weight: 600; }
-.cell-note { display: block; font-size: 11px; color: var(--muted); font-weight: 400; margin-top: 2px; }
-.col-folkestad .cell-note { color: var(--coral-dark); }
-
-@media (max-width: 880px) {
-  .compare-wrap { overflow-x: auto; }
-  .compare-table { min-width: 720px; }
+.case-year{
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:.18em;
+  color:var(--light);
+  text-transform:uppercase;
 }
 
-/* ---------- Process ---------- */
-.process-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  position: relative;
+/* Cover 1 — Hodne (floral + phone) */
+.cover-hodne{
+  background:
+    radial-gradient(circle at 80% 20%, rgba(216,107,107,.5), transparent 50%),
+    radial-gradient(circle at 20% 80%, rgba(122,141,89,.4), transparent 55%),
+    linear-gradient(135deg, #F5E6E0, #E8D8C5);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:32px;
 }
-.process-step {
-  position: relative;
+.cover-hodne::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:
+    radial-gradient(circle at 25% 30%, rgba(216,107,107,.18) 0, transparent 8%),
+    radial-gradient(circle at 75% 60%, rgba(216,107,107,.15) 0, transparent 8%),
+    radial-gradient(circle at 45% 85%, rgba(216,107,107,.1) 0, transparent 6%),
+    radial-gradient(circle at 60% 15%, rgba(122,141,89,.15) 0, transparent 7%);
+  pointer-events:none;
 }
-.process-num {
-  font-family: 'IBM Plex Sans';
-  font-size: clamp(48px, 6vw, 72px);
-  font-weight: 700;
-  color: var(--coral);
-  letter-spacing: -0.04em;
-  line-height: 1;
-  margin-bottom: 16px;
+.cover-phone{
+  width:55%;
+  max-width:160px;
+  aspect-ratio:9/19;
+  background:#1A1A1A;
+  border-radius:18px;
+  padding:5px;
+  box-shadow:0 25px 50px -10px rgba(0,0,0,0.35);
+  position:relative;
+  z-index:2;
 }
-.process-step h3 {
-  font-size: 20px;
-  margin-bottom: 8px;
+.cover-phone-screen{
+  background:#FAF6F0;
+  border-radius:14px;
+  height:100%;
+  padding:14px 10px;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  overflow:hidden;
+  position:relative;
 }
-.process-step p { color: var(--muted); font-size: 15px; line-height: 1.6; }
-
-/* ---------- Pricing ---------- */
-.pricing-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  max-width: 1100px;
-  margin: 0 auto;
+.cover-phone-screen::before{
+  content:"";
+  position:absolute;
+  top:6px;left:50%;transform:translateX(-50%);
+  width:38px;height:10px;
+  background:#1A1A1A;
+  border-radius:999px;
 }
-.price-card {
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  padding: 40px 32px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  transition: all 0.25s;
+.cover-phone-nav{
+  font-family:var(--serif);
+  font-weight:600;
+  font-size:8px;
+  color:#1C3A5C;
+  letter-spacing:-.01em;
+  margin-top:12px;
+  text-align:center;
 }
-.price-card.featured {
-  background: var(--ink);
-  color: #fff;
-  border-color: var(--ink);
-  transform: scale(1.02);
-  box-shadow: var(--shadow-lg);
+.cover-phone-h{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:11px;
+  line-height:1.05;
+  color:#1A1A1A;
+  margin-top:8px;
 }
-.price-card:hover { transform: translateY(-4px); }
-.price-card.featured:hover { transform: scale(1.02) translateY(-4px); }
-.price-card h3 {
-  font-size: 18px;
-  color: inherit;
-  margin-bottom: 8px;
+.cover-phone-h em{font-style:italic;color:#D86B6B}
+.cover-phone-img{
+  height:60px;
+  background:
+    radial-gradient(circle at 30% 40%, #D86B6B, transparent 40%),
+    radial-gradient(circle at 70% 60%, #7A8D59, transparent 45%),
+    linear-gradient(135deg, #F5E6E0, #E8D8C5);
+  border-radius:4px;
+  margin-top:auto;
 }
-.price-card.featured h3 { color: #fff; }
-.price-desc {
-  font-size: 14px;
-  color: var(--muted);
-  margin-bottom: 24px;
-  min-height: 40px;
-}
-.price-card.featured .price-desc { color: rgba(255,255,255,0.7); }
-.price-amount {
-  font-size: 40px;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  margin-bottom: 4px;
-  line-height: 1.1;
-}
-.price-amount-unit { font-size: 16px; font-weight: 400; color: var(--muted); margin-left: 4px; }
-.price-card.featured .price-amount-unit { color: rgba(255,255,255,0.7); }
-.price-features {
-  list-style: none;
-  padding: 24px 0 0;
-  border-top: 1px solid var(--line);
-  margin-top: 24px;
-  flex: 1;
-}
-.price-card.featured .price-features { border-color: rgba(255,255,255,0.15); }
-.price-features li {
-  padding: 8px 0;
-  font-size: 14px;
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  line-height: 1.5;
-}
-.price-features li::before {
-  content: "";
-  width: 16px; height: 16px;
-  background: var(--coral-tint);
-  border-radius: 50%;
-  position: relative;
-  flex-shrink: 0;
-  margin-top: 4px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 12 12'%3E%3Cpath d='M2.5 6.5L5 9L9.5 3.5' stroke='%23FF5C39' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: center;
-}
-.price-card.featured .price-features li::before {
-  background-color: rgba(255, 92, 57, 0.2);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 12 12'%3E%3Cpath d='M2.5 6.5L5 9L9.5 3.5' stroke='%23FF5C39' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-}
-.price-cta {
-  margin-top: 28px;
-}
-.price-cta .btn { width: 100%; justify-content: center; }
-.price-card.featured .btn-secondary {
-  border-color: rgba(255,255,255,0.25);
-  color: #fff;
-}
-.price-card.featured .btn-secondary:hover {
-  background: #fff;
-  color: var(--ink);
-  border-color: #fff;
-}
-.price-footnote {
-  text-align: center;
-  margin-top: 40px;
-  font-size: 14px;
-  color: var(--muted);
+.cover-phone-foot{
+  font-family:var(--mono);
+  font-size:5.5px;
+  color:#666;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  text-align:center;
 }
 
-/* ---------- Testimonial ---------- */
-.testi {
-  max-width: 900px;
-  margin: 0 auto;
-  text-align: center;
+/* Cover 2 — Kvernhuset (brand book) */
+.cover-kvernhuset{
+  background:linear-gradient(135deg, #FAF7F0, #E8E2D5);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:32px;
 }
-.testi-quote {
-  font-size: clamp(28px, 3.5vw, 42px);
-  font-weight: 500;
-  letter-spacing: -0.025em;
-  line-height: 1.25;
-  margin-bottom: 40px;
+.brandbook{
+  width:90%;
+  max-width:280px;
+  aspect-ratio:1.4/1;
+  position:relative;
+  perspective:800px;
 }
-.testi-quote::before, .testi-quote::after {
-  content: "";
-  color: var(--coral);
-  font-weight: 700;
+.brandbook-page{
+  position:absolute;
+  inset:0;
+  display:flex;
+  border-radius:2px;
+  box-shadow:0 20px 40px -15px rgba(0,0,0,0.25);
+  overflow:hidden;
+  transform:rotateY(-8deg);
+  transform-style:preserve-3d;
 }
-.testi-author {
-  display: inline-flex;
-  align-items: center;
-  gap: 16px;
+.bb-left{
+  flex:1;
+  background:#D4A65A;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
 }
-.testi-avatar {
-  width: 56px; height: 56px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--coral) 0%, var(--coral-dark) 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-weight: 700;
-  font-size: 18px;
+.bb-left::after{
+  content:"";
+  position:absolute;
+  right:0;top:0;bottom:0;width:2px;
+  background:linear-gradient(to right, rgba(0,0,0,.15), transparent);
 }
-.testi-name {
-  text-align: left;
-  font-weight: 600;
+.bb-wordmark{
+  font-family:var(--serif);
+  font-weight:600;
+  color:white;
+  font-size:18px;
+  letter-spacing:-.02em;
+  line-height:.95;
+  text-align:center;
+  padding:8px;
 }
-.testi-role {
-  text-align: left;
-  font-size: 13px;
-  color: var(--muted);
+.bb-wordmark span{
+  display:block;
+  font-family:var(--mono);
+  font-size:6px;
+  font-weight:500;
+  letter-spacing:.3em;
+  margin-top:6px;
+  opacity:.8;
 }
-
-/* ---------- FAQ ---------- */
-.faq-wrap {
-  max-width: 800px;
-  margin: 0 auto;
+.bb-right{
+  flex:1;
+  background:#FAF7F0;
+  padding:14px;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  grid-template-rows:repeat(3,1fr);
+  gap:4px;
 }
-.faq-item {
-  border-bottom: 1px solid var(--line);
+.bb-swatch{
+  border-radius:2px;
+  position:relative;
 }
-.faq-q {
-  width: 100%;
-  text-align: left;
-  padding: 24px 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 24px;
-  font-size: 18px;
-  font-weight: 500;
-  color: var(--ink);
-  font-family: inherit;
+.bb-swatch:nth-child(1){background:#4A4A4A}
+.bb-swatch:nth-child(2){background:#D4A65A}
+.bb-swatch:nth-child(3){background:#FAF7F0;border:1px solid #E0E0E0}
+.bb-swatch:nth-child(4){background:#B87333}
+.bb-swatch:nth-child(5){background:#1A1A1A}
+.bb-swatch:nth-child(6){
+  background:transparent;
+  display:flex;
+  align-items:flex-end;
+  font-family:var(--mono);
+  font-size:5px;
+  letter-spacing:.15em;
+  color:#666;
 }
-.faq-q:hover { color: var(--coral); }
-.faq-icon {
-  flex-shrink: 0;
-  width: 28px; height: 28px;
-  border-radius: 50%;
-  background: var(--bg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  font-weight: 600;
-  transition: all 0.25s ease;
-}
-.faq-item.open .faq-icon {
-  background: var(--coral);
-  color: #fff;
-  transform: rotate(45deg);
-}
-.faq-a {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.35s ease, padding 0.35s ease;
-}
-.faq-a-inner {
-  padding-bottom: 24px;
-  color: var(--muted);
-  font-size: 16px;
-  line-height: 1.7;
-  max-width: 90%;
-}
-.faq-item.open .faq-a { max-height: 240px; }
-
-/* ---------- CTA ---------- */
-.cta {
-  background: var(--bg-white);
-  padding: 140px 0;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-.cta::before {
-  content: "";
-  position: absolute;
-  width: 400px; height: 400px;
-  background: var(--coral);
-  border-radius: 50%;
-  filter: blur(120px);
-  opacity: 0.08;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-}
-.cta-inner { position: relative; z-index: 2; }
-.cta h2 {
-  font-size: clamp(48px, 7vw, 80px);
-  margin-bottom: 24px;
-}
-.cta-sub {
-  font-size: 19px;
-  color: var(--muted);
-  font-weight: 300;
-  margin-bottom: 40px;
-}
-.cta-buttons {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-bottom: 32px;
-}
-.cta-address {
-  font-size: 14px;
-  color: var(--muted);
-  letter-spacing: 0.04em;
-}
-.cta-address span { color: var(--coral); margin: 0 8px; }
-
-/* ---------- Footer ---------- */
-.footer {
-  background: var(--bg);
-  padding: 80px 0 40px;
-  border-top: 1px solid var(--line);
-}
-.footer-grid {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr 1fr;
-  gap: 48px;
-  margin-bottom: 56px;
-}
-.footer-brand .logo { margin-bottom: 16px; }
-.footer-brand p {
-  font-size: 14px;
-  color: var(--muted);
-  max-width: 280px;
-  line-height: 1.6;
-}
-.footer-col h5 {
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 16px;
-}
-.footer-col ul { list-style: none; }
-.footer-col li { padding: 6px 0; }
-.footer-col a {
-  font-size: 14px;
-  color: var(--ink);
-  transition: color 0.2s;
-}
-.footer-col a:hover { color: var(--coral); }
-.footer-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 32px;
-  border-top: 1px solid var(--line);
-  font-size: 13px;
-  color: var(--muted);
-  flex-wrap: wrap;
-  gap: 12px;
-}
-.footer-love .heart { color: var(--coral); }
-
-/* ---------- Reveal animations ---------- */
-.reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-.reveal.in {
-  opacity: 1;
-  transform: none;
+.brandbook::after{
+  content:"";
+  position:absolute;
+  top:0;bottom:0;
+  left:50%;
+  width:2px;
+  background:rgba(0,0,0,.1);
+  z-index:1;
 }
 
-/* ---------- Counter ---------- */
-.counter-strip {
-  background: var(--bg);
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  padding: 60px 0;
+/* Cover 3 — Verminord (documents) */
+.cover-verminord{
+  background:
+    radial-gradient(circle at 50% 100%, rgba(255,92,57,.08), transparent 60%),
+    linear-gradient(135deg, #0F0F0F, #1F1F1F);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:32px;
 }
-.counter-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  text-align: center;
+.vm-docs{
+  position:relative;
+  width:60%;
+  max-width:220px;
+  aspect-ratio:.71;
 }
-.counter-num {
-  font-size: clamp(40px, 5vw, 64px);
-  font-weight: 700;
-  color: var(--coral);
-  letter-spacing: -0.03em;
-  line-height: 1;
-  margin-bottom: 8px;
+.vm-doc{
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:white;
+  border-radius:2px;
+  box-shadow:0 18px 35px -10px rgba(0,0,0,0.5);
+  padding:16px 14px;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
 }
-.counter-label {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--muted);
-  letter-spacing: 0.04em;
+.vm-doc.v1{transform:rotate(-7deg) translate(-12px,8px);background:#F5F1EA}
+.vm-doc.v2{transform:rotate(3deg) translate(6px,4px);background:#FAFAF7}
+.vm-doc.v3{transform:rotate(-1deg);background:white}
+.case-card:hover .vm-doc.v1{transform:rotate(-9deg) translate(-16px,10px)}
+.case-card:hover .vm-doc.v2{transform:rotate(5deg) translate(8px,6px)}
+.case-card:hover .vm-doc.v3{transform:rotate(0deg) translateY(-3px)}
+.vm-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding-bottom:6px;
+  border-bottom:1.5px solid #1C3A5C;
+}
+.vm-brand{
+  font-family:var(--mono);
+  font-size:7px;
+  font-weight:600;
+  letter-spacing:.18em;
+  color:#1C3A5C;
+}
+.vm-tag{
+  font-family:var(--mono);
+  font-size:5.5px;
+  color:#B8993A;
+  background:rgba(184,153,58,.15);
+  padding:1px 4px;
+  border-radius:1px;
+  letter-spacing:.1em;
+}
+.vm-title{
+  font-family:var(--serif);
+  font-weight:600;
+  font-size:11px;
+  color:#1C3A5C;
+  line-height:1.1;
+  letter-spacing:-.01em;
+}
+.vm-sub{
+  font-size:6px;
+  color:#666;
+  line-height:1.3;
+}
+.vm-content{
+  display:flex;
+  flex-direction:column;
+  gap:3px;
+  margin-top:4px;
+}
+.vm-line{
+  height:2px;
+  background:#E0E0E0;
+  border-radius:1px;
+}
+.vm-line.short{width:55%}
+.vm-line.mid{width:75%}
+.vm-foot{
+  margin-top:auto;
+  font-family:var(--mono);
+  font-size:5px;
+  color:#888;
+  letter-spacing:.15em;
 }
 
-/* ---------- Responsive ---------- */
-@media (max-width: 880px) {
-  section { padding: 72px 0; }
-  .container, .container-narrow, .nav-inner, .hero-inner { padding: 0 20px; }
-  .hero { padding: 110px 0 60px; min-height: auto; }
-  .problem-row { grid-template-columns: 1fr; gap: 32px; margin-bottom: 56px; }
-  .problem-row:nth-child(even) .problem-text { order: unset; }
-  .problem-row:nth-child(even) .problem-visual { order: unset; }
-  .services-grid { grid-template-columns: 1fr; }
-  .portfolio-grid { grid-template-columns: 1fr; }
-  .process-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
-  .pricing-grid { grid-template-columns: 1fr; }
-  .price-card.featured { transform: none; }
-  .case { grid-template-columns: 1fr; }
-  .case-logo { grid-column: span 1; grid-template-columns: 1fr; }
-  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
-  .counter-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
-  .swatches { grid-template-columns: repeat(3, 1fr); }
+/* KVERNHUSET DEEP DIVE */
+.deep-dive-header{
+  margin-bottom:80px;
+  max-width:900px;
+}
+.deep-dive-header h2{margin-top:24px;margin-bottom:24px}
+.deep-dive-grid{
+  display:grid;
+  grid-template-columns:repeat(12, 1fr);
+  gap:24px;
+}
+.dd-block{
+  background:white;
+  border-radius:var(--radius);
+  padding:40px;
+  border:1px solid var(--border-soft);
+  position:relative;
+  overflow:hidden;
+}
+.dd-block.dark{background:var(--bg-dark);color:white}
+.dd-block.full{grid-column:span 12}
+.dd-block.half{grid-column:span 6}
+.dd-block.third{grid-column:span 4}
+.dd-block.twothird{grid-column:span 8}
+@media (max-width:900px){
+  .dd-block.half, .dd-block.third, .dd-block.twothird{grid-column:span 12}
+}
+.dd-label{
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:24px;
+}
+.dd-block.dark .dd-label{color:#888}
+
+/* Logo system block */
+.logo-system{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:20px;
+  align-items:stretch;
+}
+.logo-cell{
+  border-radius:6px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:160px;
+  position:relative;
+  padding:24px;
+}
+.logo-cell.primary{
+  background:#1A1A1A;
+  position:relative;
+}
+.logo-cell.primary::before{
+  content:"";
+  position:absolute;
+  top:14px;left:14px;
+  display:flex;gap:5px;
+  width:30px;height:8px;
+  background-image:radial-gradient(circle at 4px center, #FF5F56 3px, transparent 3px),
+                    radial-gradient(circle at 14px center, #FFBD2E 3px, transparent 3px),
+                    radial-gradient(circle at 24px center, #27C93F 3px, transparent 3px);
+}
+.kh-wordmark{
+  font-family:var(--serif);
+  font-weight:600;
+  font-size:clamp(28px, 3vw, 44px);
+  color:white;
+  letter-spacing:-.03em;
+  text-align:center;
+  line-height:.95;
+}
+.kh-wordmark span{
+  display:block;
+  font-family:var(--mono);
+  font-size:10px;
+  font-weight:500;
+  letter-spacing:.3em;
+  color:#D4A65A;
+  margin-top:8px;
+}
+.logo-cell.inverted{background:#FAF7F0;border:1px solid var(--border-soft)}
+.logo-cell.inverted .kh-wordmark{color:#1A1A1A}
+.logo-cell.inverted .kh-wordmark span{color:#B87333}
+.logo-cell.mono{background:#D4A65A}
+.kh-monogram{
+  font-family:var(--serif);
+  font-weight:600;
+  font-size:80px;
+  color:white;
+  letter-spacing:-.06em;
+  line-height:1;
+}
+.logo-cell.icon{background:#4A4A4A}
+.kh-icon{
+  width:60px;height:60px;
+  border:2px solid white;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+}
+.kh-icon::before{
+  content:"";
+  width:14px;height:14px;
+  background:white;
+  border-radius:50%;
+  position:absolute;
+  top:4px;left:50%;
+  transform:translateX(-50%);
+}
+.kh-icon::after{
+  content:"";
+  width:30px;height:1px;
+  background:white;
+  transform:rotate(45deg);
+}
+@media (max-width:800px){
+  .logo-system{grid-template-columns:1fr 1fr}
 }
 
-@media (max-width: 540px) {
-  .footer-grid { grid-template-columns: 1fr; }
-  .process-grid { grid-template-columns: 1fr; }
-  .hero-trust { font-size: 13px; gap: 12px; }
-  .hero-divider { display: none; }
+/* Color palette */
+.palette{
+  display:grid;
+  grid-template-columns:repeat(5, 1fr);
+  gap:0;
+}
+.swatch{
+  aspect-ratio:1;
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  color:white;
+  position:relative;
+  transition:transform .3s var(--ease);
+}
+.swatch:hover{transform:translateY(-4px)}
+.swatch.light{color:#1A1A1A}
+.swatch-name{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:13px;
+  line-height:1.2;
+}
+.swatch-spec{
+  font-family:var(--mono);
+  font-size:10px;
+  line-height:1.5;
+  opacity:.85;
+}
+.s-millstone{background:#4A4A4A}
+.s-wheatgold{background:#D4A65A;color:#1A1A1A}
+.s-flourwhite{background:#FAF7F0;color:#1A1A1A;border:1px solid var(--border-soft)}
+.s-copper{background:#B87333}
+.s-ink{background:#1A1A1A}
+@media (max-width:700px){
+  .palette{grid-template-columns:1fr 1fr}
+}
+
+/* Typography block */
+.typo-display{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:clamp(80px, 12vw, 180px);
+  line-height:.85;
+  letter-spacing:-.05em;
+  color:#1A1A1A;
+  margin-bottom:24px;
+}
+.typo-display em{color:#D4A65A;font-style:italic}
+.typo-spec{
+  display:flex;
+  flex-wrap:wrap;
+  gap:32px;
+  font-family:var(--mono);
+  font-size:11px;
+  color:var(--muted);
+  letter-spacing:.1em;
+}
+.typo-body-demo{
+  font-family:var(--sans);
+  font-weight:300;
+  font-size:18px;
+  line-height:1.7;
+  color:var(--muted);
+  margin-bottom:24px;
+}
+
+/* Business card detail */
+.bcard-display{
+  position:relative;
+  width:100%;
+  max-width:400px;
+  aspect-ratio:1.7/1;
+  margin:0 auto;
+}
+.bc-real{
+  position:absolute;
+  width:80%;
+  aspect-ratio:1.7/1;
+  background:#FAF7F0;
+  border-radius:4px;
+  box-shadow:0 16px 30px -10px rgba(0,0,0,0.25);
+  padding:24px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+.bc-real.front{
+  top:0;left:0;
+  transform:rotate(-3deg);
+  z-index:2;
+}
+.bc-real.back{
+  bottom:0;right:0;
+  transform:rotate(3deg);
+  background:#1A1A1A;
+  color:white;
+}
+.bc-logo{
+  font-family:var(--serif);
+  font-weight:600;
+  font-size:20px;
+  letter-spacing:-.02em;
+  color:#1A1A1A;
+}
+.bc-logo span{
+  display:block;
+  font-family:var(--mono);
+  font-size:7px;
+  letter-spacing:.25em;
+  color:#B87333;
+  margin-top:4px;
+  text-transform:uppercase;
+}
+.bc-info{
+  font-family:var(--mono);
+  font-size:8px;
+  color:#666;
+  line-height:1.5;
+  letter-spacing:.08em;
+}
+.bc-info strong{font-weight:600;color:#1A1A1A;font-size:9px}
+.bc-back-mark{
+  font-family:var(--serif);
+  font-weight:600;
+  font-size:60px;
+  color:#D4A65A;
+  line-height:1;
+  text-align:center;
+  letter-spacing:-.05em;
+}
+.bc-back-foot{
+  font-family:var(--mono);
+  font-size:7px;
+  letter-spacing:.25em;
+  color:#D4A65A;
+  text-align:center;
+  text-transform:uppercase;
+}
+
+/* Brand application — website */
+.app-browser{
+  width:100%;
+  border-radius:8px;
+  overflow:hidden;
+  box-shadow:0 30px 60px -25px rgba(0,0,0,0.3);
+  border:1px solid var(--border-soft);
+}
+.app-chrome{
+  height:32px;
+  background:linear-gradient(#F5F5F5,#EFEFEF);
+  display:flex;
+  align-items:center;
+  padding:0 14px;
+  gap:8px;
+  border-bottom:1px solid #E0E0E0;
+}
+.app-chrome .traffic{width:11px;height:11px}
+.app-chrome .url-bar{
+  font-size:11px;
+  max-width:300px;
+  padding:4px 12px;
+}
+.app-content{
+  background:#FAF7F0;
+  padding:60px 48px;
+  min-height:400px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.app-content .eyebrow{margin-bottom:24px}
+.app-content .eyebrow .dot{background:#D4A65A}
+.app-content .eyebrow{color:#4A4A4A}
+.app-h1{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:clamp(36px, 5vw, 72px);
+  line-height:1;
+  letter-spacing:-.03em;
+  color:#1A1A1A;
+  margin-bottom:24px;
+  max-width:760px;
+}
+.app-h1 em{font-style:italic;color:#B87333}
+.app-sub{
+  font-weight:300;
+  font-size:18px;
+  line-height:1.6;
+  color:#4A4A4A;
+  max-width:540px;
+  margin-bottom:32px;
+}
+.app-btn-row{display:flex;gap:12px;flex-wrap:wrap}
+.app-btn{
+  padding:14px 24px;
+  border-radius:0;
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+}
+.app-btn.primary{background:#1A1A1A;color:white}
+.app-btn.outline{border:1.5px solid #1A1A1A;color:#1A1A1A;background:transparent}
+
+/* Brand rules */
+.rules-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:32px;
+}
+@media (max-width:600px){.rules-grid{grid-template-columns:1fr}}
+.rule-col h4{
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  font-weight:600;
+  margin-bottom:20px;
+  padding-bottom:12px;
+  border-bottom:1px solid var(--border);
+}
+.rule-col.do h4{color:#2D7A4F}
+.rule-col.dont h4{color:#C13838}
+.rule-col ul{list-style:none;display:flex;flex-direction:column;gap:14px}
+.rule-col li{
+  display:flex;
+  gap:12px;
+  font-size:14px;
+  color:var(--muted);
+  line-height:1.5;
+}
+.rule-col li::before{
+  font-family:var(--mono);
+  font-weight:700;
+  flex-shrink:0;
+}
+.rule-col.do li::before{content:"+";color:#2D7A4F}
+.rule-col.dont li::before{content:"×";color:#C13838}
+
+.deep-dive-close{
+  text-align:center;
+  margin-top:72px;
+  font-family:var(--serif);
+  font-style:italic;
+  font-weight:400;
+  font-size:clamp(28px, 3.5vw, 44px);
+  color:var(--ink);
+  letter-spacing:-.02em;
+}
+
+/* VERMINORD CASE */
+.vm-case-spread{
+  display:grid;
+  grid-template-columns:1.4fr 1fr;
+  gap:32px;
+  margin-top:60px;
+}
+@media (max-width:900px){.vm-case-spread{grid-template-columns:1fr}}
+.vm-feature{
+  background:#0F0F0F;
+  border-radius:var(--radius);
+  padding:60px;
+  min-height:480px;
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.vm-feature::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 70% 30%, rgba(184,153,58,.08), transparent 50%),
+    radial-gradient(circle at 30% 80%, rgba(255,92,57,.05), transparent 50%);
+}
+.vm-doc-stack-big{
+  position:relative;
+  width:100%;
+  max-width:340px;
+  aspect-ratio:.71;
+  z-index:2;
+}
+.vm-doc-big{
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:white;
+  border-radius:3px;
+  box-shadow:0 30px 60px -15px rgba(0,0,0,0.6);
+  padding:32px 28px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.vm-doc-big.b1{transform:rotate(-8deg) translate(-30px,12px);background:#F5F1EA}
+.vm-doc-big.b2{transform:rotate(4deg) translate(15px,6px);background:#FAFAF7}
+.vm-doc-big.b3{transform:rotate(-1deg)}
+.vm-doc-big .vm-header{padding-bottom:12px;border-bottom-width:2px}
+.vm-doc-big .vm-brand{font-size:11px}
+.vm-doc-big .vm-title{font-size:18px;margin-top:8px}
+.vm-doc-big .vm-sub{font-size:9px;line-height:1.5}
+.vm-doc-big .vm-line{height:3px}
+.vm-doc-big .vm-foot{font-size:7px;letter-spacing:.2em}
+
+.vm-side{display:flex;flex-direction:column;gap:24px}
+.vm-card-side{
+  background:white;
+  border-radius:var(--radius);
+  padding:32px;
+  border:1px solid var(--border-soft);
+}
+.vm-card-side.brand{background:#1C3A5C;color:white}
+.vm-brandbook-cover{
+  height:140px;
+  background:linear-gradient(135deg, #1C3A5C, #2C4A6C);
+  border-radius:6px;
+  margin-bottom:24px;
+  padding:24px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  border:1px solid rgba(184,153,58,.3);
+  position:relative;
+  overflow:hidden;
+}
+.vm-brandbook-cover::before{
+  content:"";
+  position:absolute;
+  top:0;left:0;right:0;height:2px;background:#B8993A;
+}
+.vm-brandbook-cover .label{
+  font-family:var(--mono);
+  font-size:9px;
+  letter-spacing:.25em;
+  color:#B8993A;
+}
+.vm-brandbook-cover .title{
+  font-family:var(--serif);
+  font-weight:600;
+  font-size:22px;
+  color:white;
+  line-height:1;
+  letter-spacing:-.02em;
+}
+.vm-brandbook-cover .title span{
+  display:block;
+  font-family:var(--mono);
+  font-size:8px;
+  font-weight:500;
+  letter-spacing:.3em;
+  color:#B8993A;
+  margin-top:6px;
+}
+.vm-card-side h4{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:18px;
+  letter-spacing:-.01em;
+  margin-bottom:10px;
+  line-height:1.2;
+}
+.vm-card-side p{
+  font-size:14px;
+  color:var(--muted);
+  line-height:1.55;
+}
+.vm-card-side.brand p{color:rgba(255,255,255,.7)}
+
+.vm-mattilsynet-cover{
+  height:140px;
+  background:#FAFAF7;
+  border:1px solid var(--border);
+  border-radius:6px;
+  margin-bottom:24px;
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  position:relative;
+}
+.vm-mattilsynet-cover::before{
+  content:"OFFISIELL";
+  position:absolute;
+  top:8px;right:8px;
+  font-family:var(--mono);
+  font-size:7px;
+  font-weight:600;
+  letter-spacing:.18em;
+  color:#B8993A;
+  background:rgba(184,153,58,.1);
+  padding:2px 6px;
+  border-radius:2px;
+}
+.mat-brand{
+  font-family:var(--mono);
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:.2em;
+  color:#1C3A5C;
+  padding-bottom:8px;
+  border-bottom:1.5px solid #1C3A5C;
+}
+.mat-title{
+  font-family:var(--serif);
+  font-weight:600;
+  font-size:16px;
+  color:#1C3A5C;
+  line-height:1.1;
+}
+.mat-lines{
+  display:flex;
+  flex-direction:column;
+  gap:3px;
+  margin-top:auto;
+}
+.mat-lines .line{height:2px;background:#E0E0E0;border-radius:1px}
+.mat-lines .line:nth-child(1){width:80%}
+.mat-lines .line:nth-child(2){width:60%}
+.mat-lines .line:nth-child(3){width:70%}
+
+.vm-cta-box{
+  margin-top:60px;
+  background:var(--coral);
+  border-radius:var(--radius);
+  padding:48px;
+  display:grid;
+  grid-template-columns:1.5fr auto;
+  gap:32px;
+  align-items:center;
+  color:white;
+}
+@media (max-width:700px){.vm-cta-box{grid-template-columns:1fr}}
+.vm-cta-text h3{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:clamp(24px, 2.5vw, 32px);
+  line-height:1.15;
+  margin-bottom:12px;
+  letter-spacing:-.02em;
+}
+.vm-cta-text p{
+  font-size:15px;
+  line-height:1.55;
+  opacity:.9;
+}
+.vm-cta-btn{
+  background:white;
+  color:var(--coral);
+  padding:18px 28px;
+  border-radius:999px;
+  font-weight:600;
+  font-size:14px;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  transition:transform .2s var(--ease), box-shadow .2s var(--ease);
+}
+.vm-cta-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 25px -8px rgba(0,0,0,0.2);
+}
+
+/* PRODUCTS */
+.products-header{
+  text-align:center;
+  max-width:760px;
+  margin:0 auto 72px;
+}
+.products-header .lead{margin:24px auto 0}
+.products-grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:32px;
+}
+@media (max-width:900px){.products-grid{grid-template-columns:1fr}}
+.product-card{
+  background:white;
+  border-radius:var(--radius);
+  padding:36px;
+  border:1px solid var(--border-soft);
+  display:flex;
+  flex-direction:column;
+  transition:transform .3s var(--ease), box-shadow .3s var(--ease);
+}
+.product-card:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--shadow-md);
+}
+.product-visual{
+  aspect-ratio:1.2;
+  background:var(--bg);
+  border-radius:6px;
+  margin-bottom:32px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  overflow:hidden;
+}
+.product-visual .doc-stack{transform:scale(.85)}
+.product-tag{
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--coral);
+  margin-bottom:12px;
+}
+.product-name{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:22px;
+  letter-spacing:-.02em;
+  line-height:1.2;
+  margin-bottom:12px;
+}
+.product-desc{
+  font-size:14px;
+  color:var(--muted);
+  line-height:1.55;
+  margin-bottom:24px;
+  flex:1;
+}
+.product-price{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:32px;
+  letter-spacing:-.02em;
+  color:var(--ink);
+  margin-bottom:18px;
+}
+.product-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:14px 22px;
+  background:var(--ink);
+  color:white;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:500;
+  align-self:flex-start;
+  transition:all .2s var(--ease);
+}
+.product-btn:hover{
+  background:var(--coral);
+  transform:translateX(2px);
+}
+.products-note{
+  text-align:center;
+  margin-top:48px;
+  font-size:14px;
+  color:var(--muted);
+  font-style:italic;
+}
+
+/* Product card 2 — mattilsynet visual */
+.product-visual.mat{background:#1C3A5C}
+.product-visual.mat .doc{background:#FAFAF7}
+.product-visual.mat .doc-brand{color:#1C3A5C}
+.product-visual.mat .doc-title{color:#1C3A5C}
+
+/* Product card 3 — starter brand */
+.product-visual.starter{background:linear-gradient(135deg, #FFE8E1, #FFD0C2)}
+.starter-pack{
+  display:flex;
+  gap:8px;
+  align-items:center;
+  justify-content:center;
+}
+.starter-circle{
+  width:40px;height:40px;
+  border-radius:50%;
+  box-shadow:0 8px 20px -8px rgba(0,0,0,0.2);
+}
+.starter-circle:nth-child(1){background:#1A1A1A}
+.starter-circle:nth-child(2){background:#FF5C39}
+.starter-circle:nth-child(3){background:#FAF7F0;border:1px solid var(--border)}
+.starter-circle:nth-child(4){background:#D4A65A}
+
+/* COMPARISON TABLE */
+.cmp-table{
+  width:100%;
+  border-collapse:separate;
+  border-spacing:0;
+  margin-top:60px;
+  font-size:14px;
+}
+.cmp-table th, .cmp-table td{
+  padding:20px 16px;
+  text-align:center;
+  border-bottom:1px solid var(--border);
+  vertical-align:middle;
+}
+.cmp-table th{
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--muted);
+  padding-top:0;
+}
+.cmp-table th:first-child, .cmp-table td:first-child{
+  text-align:left;
+  font-weight:500;
+  color:var(--ink);
+}
+.cmp-table tr:hover td{background:rgba(255,92,57,.03)}
+.cmp-highlight{
+  background:var(--bg-dark);
+  color:white;
+  position:relative;
+}
+.cmp-highlight::before{
+  content:"";
+  position:absolute;
+  top:0;left:0;right:0;
+  height:3px;
+  background:var(--coral);
+}
+.cmp-table th.cmp-highlight{
+  color:white;
+  font-weight:600;
+}
+.cmp-table td.cmp-highlight{
+  background:var(--bg-dark);
+  color:white;
+}
+.cmp-table .yes{color:#2D7A4F;font-weight:600}
+.cmp-table .no{color:#C13838}
+.cmp-table .meh{color:var(--muted)}
+.cmp-table .cmp-highlight .yes{color:#7BD18E}
+.cmp-table .cmp-highlight .no{color:#FF8888}
+@media (max-width:768px){
+  .cmp-table{font-size:12px}
+  .cmp-table th, .cmp-table td{padding:12px 8px}
+}
+
+/* PROCESS */
+.process-grid{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:48px;
+  margin-top:80px;
+}
+@media (max-width:900px){.process-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:500px){.process-grid{grid-template-columns:1fr}}
+.process-step{
+  display:flex;
+  flex-direction:column;
+  gap:24px;
+}
+.process-num{
+  font-family:var(--serif);
+  font-weight:400;
+  font-style:italic;
+  font-size:clamp(80px, 8vw, 120px);
+  line-height:.85;
+  color:var(--coral);
+  letter-spacing:-.04em;
+}
+.process-h{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:22px;
+  letter-spacing:-.02em;
+  line-height:1.2;
+}
+.process-desc{
+  font-size:14px;
+  color:var(--muted);
+  line-height:1.6;
+}
+
+/* PRICING */
+.pricing-grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:32px;
+  margin-top:60px;
+}
+@media (max-width:900px){.pricing-grid{grid-template-columns:1fr}}
+.price-card{
+  background:white;
+  border:1px solid var(--border-soft);
+  border-radius:var(--radius);
+  padding:48px 40px;
+  display:flex;
+  flex-direction:column;
+  position:relative;
+  transition:transform .3s var(--ease), box-shadow .3s var(--ease);
+}
+.price-card:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--shadow-md);
+}
+.price-card.featured{
+  background:var(--bg-dark);
+  color:white;
+  border-color:var(--bg-dark);
+}
+.price-card.featured .price-cur, .price-card.featured .price-amt{color:white}
+.price-card.featured .price-feat{color:rgba(255,255,255,.8)}
+.price-badge{
+  position:absolute;
+  top:-12px;left:50%;
+  transform:translateX(-50%);
+  background:var(--coral);
+  color:white;
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  padding:8px 16px;
+  border-radius:999px;
+  white-space:nowrap;
+}
+.price-label{
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:24px;
+}
+.price-card.featured .price-label{color:#888}
+.price-name{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:32px;
+  letter-spacing:-.02em;
+  line-height:1.1;
+  margin-bottom:24px;
+}
+.price-amount{
+  display:flex;
+  align-items:baseline;
+  gap:6px;
+  margin-bottom:32px;
+}
+.price-amt{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:56px;
+  letter-spacing:-.03em;
+  line-height:1;
+  color:var(--ink);
+}
+.price-cur{
+  font-family:var(--sans);
+  font-weight:500;
+  font-size:18px;
+  color:var(--muted);
+}
+.price-features{
+  list-style:none;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  margin-bottom:32px;
+  flex:1;
+}
+.price-feat{
+  font-size:14px;
+  color:var(--muted);
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  line-height:1.5;
+}
+.price-feat::before{
+  content:"+";
+  font-family:var(--mono);
+  font-weight:700;
+  color:var(--coral);
+  flex-shrink:0;
+}
+.price-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:16px 24px;
+  border-radius:999px;
+  font-size:14px;
+  font-weight:500;
+  background:var(--ink);
+  color:white;
+  transition:all .25s var(--ease);
+}
+.price-card.featured .price-btn{background:var(--coral)}
+.price-card.featured .price-btn:hover{background:white;color:var(--coral)}
+.price-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 24px -8px rgba(0,0,0,0.2);
+}
+.pricing-foot{
+  text-align:center;
+  margin-top:48px;
+  font-size:14px;
+  color:var(--muted);
+}
+.pricing-foot strong{color:var(--ink);font-weight:600}
+
+/* TESTIMONIAL */
+.testimonial{
+  background:var(--bg);
+  text-align:center;
+}
+.test-quote{
+  font-family:var(--serif);
+  font-style:italic;
+  font-weight:400;
+  font-size:clamp(36px, 5vw, 64px);
+  line-height:1.15;
+  letter-spacing:-.03em;
+  color:var(--ink);
+  max-width:1100px;
+  margin:0 auto 48px;
+}
+.test-quote::before, .test-quote::after{
+  color:var(--coral);
+  font-weight:600;
+}
+.test-quote::before{content:"\201C"}
+.test-quote::after{content:"\201D"}
+.test-attribution{
+  display:inline-flex;
+  align-items:center;
+  gap:18px;
+}
+.test-portrait{
+  width:64px;height:64px;
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 35% 35%, #FFE8E1, transparent 50%),
+    linear-gradient(135deg, var(--coral), var(--coral-dark));
+  position:relative;
+  overflow:hidden;
+}
+.test-portrait::before{
+  content:"M";
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:var(--serif);
+  font-weight:600;
+  font-size:32px;
+  color:white;
+}
+.test-info{text-align:left}
+.test-name{
+  font-weight:600;
+  font-size:15px;
+  color:var(--ink);
+}
+.test-role{
+  font-size:13px;
+  color:var(--muted);
+}
+
+/* FAQ */
+.faq-grid{
+  max-width:900px;
+  margin:60px auto 0;
+}
+.faq-item{
+  border-bottom:1px solid var(--border);
+}
+.faq-item:first-child{border-top:1px solid var(--border)}
+.faq-q{
+  width:100%;
+  padding:32px 0;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:24px;
+  text-align:left;
+  cursor:pointer;
+  transition:color .2s var(--ease);
+}
+.faq-q:hover{color:var(--coral)}
+.faq-q-text{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:clamp(20px, 2vw, 26px);
+  letter-spacing:-.02em;
+  line-height:1.25;
+  flex:1;
+}
+.faq-icon{
+  width:36px;height:36px;
+  border-radius:50%;
+  background:var(--bg);
+  border:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+  transition:all .3s var(--ease);
+  font-size:18px;
+  color:var(--ink);
+}
+.faq-item.open .faq-icon{
+  background:var(--coral);
+  border-color:var(--coral);
+  color:white;
+  transform:rotate(45deg);
+}
+.faq-a{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .4s var(--ease);
+}
+.faq-a-inner{
+  padding-bottom:32px;
+  font-size:16px;
+  color:var(--muted);
+  line-height:1.7;
+  max-width:760px;
+}
+.faq-item.open .faq-a{max-height:400px}
+
+/* CTA SECTION */
+.cta-section{
+  background:var(--bg-darker);
+  color:white;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.cta-section::before{
+  content:"";
+  position:absolute;
+  bottom:-200px;left:50%;
+  transform:translateX(-50%);
+  width:800px;height:400px;
+  background:radial-gradient(circle, rgba(255,92,57,.3), transparent 65%);
+  filter:blur(80px);
+  pointer-events:none;
+}
+.cta-inner{
+  position:relative;
+  z-index:1;
+  max-width:1000px;
+  margin:0 auto;
+}
+.cta-h{
+  font-family:var(--serif);
+  font-weight:500;
+  font-variation-settings:"opsz" 144, "SOFT" 80;
+  font-size:clamp(60px, 9vw, 132px);
+  line-height:.95;
+  letter-spacing:-.04em;
+  margin-bottom:32px;
+  color:white;
+}
+.cta-h em{font-style:italic;color:var(--coral);font-weight:400}
+.cta-sub{
+  font-weight:300;
+  font-size:clamp(18px, 1.5vw, 22px);
+  line-height:1.5;
+  color:rgba(255,255,255,.75);
+  max-width:600px;
+  margin:0 auto 48px;
+}
+.cta-btns{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  justify-content:center;
+}
+.cta-btn-primary{
+  background:var(--coral);
+  color:white;
+  padding:20px 32px;
+  border-radius:999px;
+  font-size:16px;
+  font-weight:500;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  transition:all .25s var(--ease);
+}
+.cta-btn-primary:hover{
+  background:var(--coral-dark);
+  transform:translateY(-2px);
+  box-shadow:0 16px 36px -10px rgba(255,92,57,.5);
+}
+.cta-btn-secondary{
+  background:transparent;
+  color:white;
+  padding:20px 32px;
+  border:1.5px solid rgba(255,255,255,.4);
+  border-radius:999px;
+  font-size:16px;
+  font-weight:500;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  transition:all .25s var(--ease);
+}
+.cta-btn-secondary:hover{
+  background:white;
+  color:var(--ink);
+  border-color:white;
+  transform:translateY(-2px);
+}
+
+/* FOOTER */
+.footer{
+  background:var(--bg);
+  padding:80px 0 40px;
+  border-top:1px solid var(--border);
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr 1fr;
+  gap:48px;
+  margin-bottom:60px;
+}
+@media (max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;gap:32px}}
+@media (max-width:500px){.footer-grid{grid-template-columns:1fr}}
+.footer-brand .logo{font-size:18px;margin-bottom:18px;display:block}
+.footer-brand p{
+  font-size:14px;
+  color:var(--muted);
+  line-height:1.65;
+  max-width:300px;
+}
+.footer-col h5{
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--ink);
+  margin-bottom:20px;
+}
+.footer-col ul{
+  list-style:none;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.footer-col a{
+  font-size:14px;
+  color:var(--muted);
+  transition:color .2s var(--ease);
+}
+.footer-col a:hover{color:var(--coral)}
+.footer-bottom{
+  padding-top:32px;
+  border-top:1px solid var(--border);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:16px;
+  font-size:13px;
+  color:var(--muted);
+}
+.footer-bottom .heart{color:var(--coral)}
+
+/* SCROLL REVEAL */
+.reveal{
+  opacity:0;
+  transform:translateY(30px);
+  transition:opacity .9s var(--ease), transform .9s var(--ease);
+}
+.reveal.in{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE TWEAKS */
+@media (max-width:768px){
+  .hero-h1{font-size:48px;line-height:.98}
+  .case-title{font-size:24px}
+  .dd-block{padding:28px}
+  .price-card{padding:32px 28px}
+  .typo-display{font-size:80px}
 }
 </style>
 </head>
 <body>
 
-<!-- ============== NAV ============== -->
+<!-- NAV -->
 <nav class="nav" id="nav">
-  <div class="nav-inner">
-    <a href="#" class="logo">
-      folkestad<span class="logo-dot"></span>design
-    </a>
-    <div class="nav-links" id="navLinks">
-      <a href="#tjenester">Tjenester</a>
-      <a href="#portefolje">Portefølje</a>
-      <a href="#prosess">Prosess</a>
-      <a href="#priser">Priser</a>
-      <a href="#faq">FAQ</a>
-      <a href="#kontakt" class="btn btn-primary btn-sm">Få et tilbud →</a>
-    </div>
-    <button class="nav-mobile" id="navMobile" aria-label="Meny">☰</button>
+  <div class="container nav-inner">
+    <a href="#" class="logo">folkestad<span class="bullet">•</span>design</a>
+    <ul class="nav-links">
+      <li><a href="#tjenester">Tjenester</a></li>
+      <li><a href="#arbeid">Arbeid</a></li>
+      <li><a href="#prosess">Prosess</a></li>
+      <li><a href="#priser">Priser</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a href="#kontakt" class="nav-cta">Få et tilbud <span class="btn-arrow">→</span></a>
+    <button class="hamburger" aria-label="Meny"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
-<!-- ============== HERO ============== -->
-<header class="hero">
-  <div class="hero-bg-shape"></div>
-  <div class="hero-bg-shape-2"></div>
-  <div class="hero-inner">
-    <div class="hero-tag reveal">
-      <span class="hero-tag-dot"></span>
-      Tar imot 3 nye prosjekter i mai
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-blob"></div>
+  <div class="hero-blob lower"></div>
+  <div class="container hero-content">
+    <div class="hero-eyebrow eyebrow">
+      <span class="dot"></span>
+      <span>Jæren, Norge</span>
+      <span class="sep">/</span>
+      <span>Design studio</span>
+      <span class="sep">/</span>
+      <span>2025</span>
     </div>
-    <h1 class="reveal">
-      Lokale bedrifter fortjener<br>design i <span class="highlight coral-text">verdensklasse</span>.
+    <h1 class="hero-h1">
+      <span class="word">Design</span>
+      <span class="word">som</span>
+      <span class="word italic">virker</span>
+      <span class="word">— for</span>
+      <br>
+      <span class="word">ekte</span>
+      <span class="word">bedrifter.</span>
     </h1>
-    <p class="lead reveal">
-      Nettsider, logoer og visuell identitet — for håndverkere, kafeer og fagbedrifter på Jæren. Levert på 1–2 uker, til en pris som faktisk gir mening.
+    <p class="hero-lead">
+      Nettsider, merkevarer og visuell identitet for håndverkere, restauranter og fagbedrifter på Jæren. 21 leverte prosjekter. Levert på 1–2 uker. Du betaler kun om du er fornøyd.
     </p>
-    <div class="hero-ctas reveal">
-      <a href="#kontakt" class="btn btn-primary btn-lg">Få et tilbud →</a>
-      <a href="#portefolje" class="btn btn-secondary btn-lg">Se 21 prosjekter</a>
+    <div class="btn-row">
+      <a href="#kontakt" class="btn btn-primary">Få et tilbud <span class="btn-arrow">→</span></a>
+      <a href="#arbeid" class="btn btn-outline">Se 21 prosjekter <span class="btn-arrow">→</span></a>
     </div>
-    <div class="hero-trust reveal">
-      <span class="stars">★★★★★</span>
-      <span>Klepp Stasjon · Jæren</span>
-      <span class="hero-divider"></span>
-      <span><strong style="color:var(--ink); font-weight:600;">21</strong> prosjekter levert</span>
-      <span class="hero-divider"></span>
-      <span>Snittid: <strong style="color:var(--ink); font-weight:600;">9 dager</strong></span>
-    </div>
-  </div>
-</header>
-
-<!-- words marquee -->
-<div class="hero-words">
-  <div class="hero-words-track">
-    <span>håndverk</span><span>ærlig</span><span>lokal</span><span>tydelig</span><span>varm</span><span>presis</span><span>jordnær</span><span>nordisk</span><span>moderne</span><span>menneskelig</span>
-    <span>håndverk</span><span>ærlig</span><span>lokal</span><span>tydelig</span><span>varm</span><span>presis</span><span>jordnær</span><span>nordisk</span><span>moderne</span><span>menneskelig</span>
-  </div>
-</div>
-
-<!-- ============== LOGOS ============== -->
-<section class="logos-strip" style="padding-top:60px; padding-bottom:60px;">
-  <p class="logos-title">Brukt av 21 lokale bedrifter på Jæren</p>
-  <div class="logos-marquee">
-    <div class="logos-track">
-      <span>Miljøgartneriet</span>
-      <span>Hodne Gartneri</span>
-      <span>Smiå Café</span>
-      <span>Rits Kafé</span>
-      <span>Murmester Heskje</span>
-      <span>Bjergabygg</span>
-      <span>Saxobryn</span>
-      <span>Topp til Tå</span>
-      <span>Hommersåk Bil</span>
-      <span>Berland Bilverksted</span>
-      <span>Jæren Dekk</span>
-      <span>Klepp Bakeri</span>
-      <span>Bryne VVS</span>
-      <span>Time Elektriker</span>
-    </div>
-    <div class="logos-track" aria-hidden="true">
-      <span>Miljøgartneriet</span>
-      <span>Hodne Gartneri</span>
-      <span>Smiå Café</span>
-      <span>Rits Kafé</span>
-      <span>Murmester Heskje</span>
-      <span>Bjergabygg</span>
-      <span>Saxobryn</span>
-      <span>Topp til Tå</span>
-      <span>Hommersåk Bil</span>
-      <span>Berland Bilverksted</span>
-      <span>Jæren Dekk</span>
-      <span>Klepp Bakeri</span>
-      <span>Bryne VVS</span>
-      <span>Time Elektriker</span>
-    </div>
-  </div>
-</section>
-
-<!-- ============== COUNTERS ============== -->
-<section class="counter-strip" style="padding:60px 0;">
-  <div class="container">
-    <div class="counter-grid">
-      <div class="reveal">
-        <div class="counter-num" data-counter="21">0</div>
-        <div class="counter-label">Prosjekter levert</div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">21</div>
+        <div class="stat-label">Leverte prosjekter</div>
       </div>
-      <div class="reveal">
-        <div class="counter-num" data-counter="9">0</div>
-        <div class="counter-label">Snittdager til lansering</div>
+      <div class="stat">
+        <div class="stat-num">9 dager</div>
+        <div class="stat-label">Snitt leveringstid</div>
       </div>
-      <div class="reveal">
-        <div class="counter-num" data-counter="100">0</div>
-        <div class="counter-label">% fornøyde kunder</div>
-      </div>
-      <div class="reveal">
-        <div class="counter-num"><span data-counter="5">0</span>k</div>
-        <div class="counter-label">Startpris i kroner</div>
+      <div class="stat">
+        <div class="stat-num">100<span style="font-size:.7em">%</span></div>
+        <div class="stat-label">Fornøyd-garanti</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============== PROBLEM / SOLUTION ============== -->
-<section class="section-off" id="problem">
+<!-- LOGOSTRIPE -->
+<section class="logostripe">
   <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">Hva vi løser</span>
-      <h2>Tre problemer vi hører hver uke</h2>
-      <p>Drives av lokale bedrifter, gjenkjenner du sannsynligvis minst ett av disse.</p>
+    <div class="logostripe-label">Brukt av lokale bedrifter på Jæren</div>
+  </div>
+  <div class="marquee">
+    <div class="marquee-track">
+      <span class="brand-name s1">Miljøgartneriet</span>
+      <span class="brand-name s2">HODNE GARTNERI</span>
+      <span class="brand-name s3">Smiå</span>
+      <span class="brand-name s4">Rits Kafé</span>
+      <span class="brand-name s5">Bjergabygg</span>
+      <span class="brand-name s6">Murmester Heskje</span>
+      <span class="brand-name s7">Saxobryn</span>
+      <span class="brand-name s1">Topp til Tå</span>
+      <span class="brand-name s3">Hommersåk Bil</span>
+      <span class="brand-name s4">Berland</span>
+      <span class="brand-name s2">JÆREN DEKK</span>
+      <span class="brand-name s5">Bulkedoktoren</span>
+      <span class="brand-name s6">Helleren &amp; Haaland</span>
+      <span class="brand-name s7">Verminord</span>
+      <!-- duplicate for seamless loop -->
+      <span class="brand-name s1">Miljøgartneriet</span>
+      <span class="brand-name s2">HODNE GARTNERI</span>
+      <span class="brand-name s3">Smiå</span>
+      <span class="brand-name s4">Rits Kafé</span>
+      <span class="brand-name s5">Bjergabygg</span>
+      <span class="brand-name s6">Murmester Heskje</span>
+      <span class="brand-name s7">Saxobryn</span>
+      <span class="brand-name s1">Topp til Tå</span>
+      <span class="brand-name s3">Hommersåk Bil</span>
+      <span class="brand-name s4">Berland</span>
+      <span class="brand-name s2">JÆREN DEKK</span>
+      <span class="brand-name s5">Bulkedoktoren</span>
+      <span class="brand-name s6">Helleren &amp; Haaland</span>
+      <span class="brand-name s7">Verminord</span>
+    </div>
+  </div>
+</section>
+
+<!-- CAPABILITIES -->
+<section id="tjenester">
+  <div class="container">
+    <div class="cap-header reveal">
+      <div>
+        <div class="eyebrow"><span class="dot"></span>Hva vi lager</div>
+        <h2 style="margin-top:24px">Komplett design — fra logo til lansering</h2>
+      </div>
+      <p class="lead">Ett team, alle disipliner. Du slipper å koordinere mellom fem byråer — alt fra første skisse til ferdig nettside leveres herfra.</p>
     </div>
 
-    <!-- Row 1 -->
-    <div class="problem-row">
-      <div class="problem-text reveal">
-        <span class="eyebrow">Problem 01</span>
-        <h3>Du har ingen nettside — eller en som ser ut som 2015.</h3>
-        <p>Kundene googler deg før de ringer. Hvis siden din ser utdatert ut, ringer de konkurrenten i stedet. Vi bygger nettsider som ser like skarpe ut om fem år.</p>
-        <a href="#tjenester" class="problem-link">Vi løser dette →</a>
-      </div>
-      <div class="problem-visual reveal">
-        <div class="visual-mockups">
-          <div class="mockup mockup-old">
-            <span class="mockup-old-tag">FØR</span>
-            <div class="mockup-title">Velkommen til vår bedrift</div>
-            <div class="mockup-body">
-              <span></span><span></span><span></span><span style="width:60%;"></span>
-            </div>
-          </div>
-          <div class="mockup mockup-new">
-            <span class="mockup-new-tag">ETTER</span>
-            <div class="mockup-header">
-              <div class="mockup-logo"></div>
-              <div class="mockup-dots"><i></i><i></i><i></i></div>
-            </div>
-            <div class="mockup-h"></div>
-            <div class="mockup-line"></div>
-            <div class="mockup-line short"></div>
-            <span class="mockup-btn">Få tilbud</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Row 2 -->
-    <div class="problem-row">
-      <div class="problem-text reveal">
-        <span class="eyebrow">Problem 02</span>
-        <h3>Du betaler 50 000 kr for et byrå som tar tre måneder.</h3>
-        <p>Storbyrå-pris uten storbyrå-resultatene. Vi har lavere overhead, raskere prosess og snakker direkte med deg — ikke gjennom tre lag prosjektledere.</p>
-        <a href="#priser" class="problem-link">Se faste priser →</a>
-      </div>
-      <div class="problem-visual reveal">
-        <div class="visual-time">
-          <div class="compare-bars">
-            <div class="bar-row">
-              <div class="bar-label">
-                <span class="bar-label-name">Storbyrå</span>
-                <span class="bar-label-value">3 mnd · fra 50 000 kr</span>
+    <div class="cap-grid">
+      <!-- CARD 1: NETTSIDER (wide, dark) -->
+      <div class="cap-card wide dark reveal">
+        <div class="cap-mockup">
+          <div class="laptop-frame">
+            <div class="laptop-screen">
+              <div class="browser-chrome">
+                <span class="traffic r"></span>
+                <span class="traffic y"></span>
+                <span class="traffic g"></span>
+                <span class="url-bar">kvernhuset.no</span>
               </div>
-              <div class="bar-track"><div class="bar-fill big"></div></div>
-            </div>
-            <div class="bar-row">
-              <div class="bar-label">
-                <span class="bar-label-name" style="color:var(--coral);">Folkestad Designs</span>
-                <span class="bar-label-value">9 dager · fra 5 000 kr</span>
+              <div class="screen-content">
+                <div class="screen-nav">
+                  <span style="font-weight:600">KVERNHUSET</span>
+                  <span class="screen-nav-links"><span>Meny</span><span>Bestill</span><span>Om</span></span>
+                </div>
+                <div class="screen-eyebrow">● Åpent 08–22</div>
+                <div class="screen-h1">Brød, kaffe og <em>ro</em> på Jæren.</div>
+                <div class="screen-sub">Surdeig fra eget bakeri. Spesialitetskaffe fra Oslo. Lokalt, ekte, hverdag.</div>
+                <div class="screen-btn coral">Bestill bord →</div>
               </div>
-              <div class="bar-track"><div class="bar-fill small"></div></div>
             </div>
           </div>
         </div>
+        <div class="cap-info">
+          <div class="cap-eyebrow">Nettsider</div>
+          <div class="cap-title" style="color:white">Responsive nettsider fra 5 000 kr</div>
+          <div class="cap-desc">Norske domener, hosting, raskt fra mobil til laptop. SEO-optimalisert fra dag én.</div>
+        </div>
       </div>
-    </div>
 
-    <!-- Row 3 -->
-    <div class="problem-row">
-      <div class="problem-text reveal">
-        <span class="eyebrow">Problem 03</span>
-        <h3>Du vet ikke helt hva du trenger — logo? nettside? alt sammen?</h3>
-        <p>Det er greit. Vi tar en gratis prat først, ser hva du faktisk trenger akkurat nå, og hva som kan vente. Ingen oppselling, bare ærlige råd.</p>
-        <a href="#kontakt" class="problem-link">Ta en uforpliktende prat →</a>
-      </div>
-      <div class="problem-visual reveal">
-        <div style="width:100%;">
-          <div class="visual-options">
-            <div class="option-card"><div class="option-icon">L</div>Logo</div>
-            <div class="option-card active"><div class="option-icon">M</div>Komplett</div>
-            <div class="option-card"><div class="option-icon">N</div>Nettside</div>
-          </div>
-          <span class="option-arrow">↓</span>
-          <div style="text-align:center; padding:14px; background:var(--coral-tint); border-radius:var(--radius); color:var(--coral-dark); font-weight:600; font-size:14px;">
-            Vi anbefaler det som passer deg
+      <!-- CARD 2: LOGO (1x1) -->
+      <div class="cap-card reveal">
+        <div class="cap-mockup">
+          <div class="logo-grid-mockup">
+            <div class="logo-tile dark"><div class="kv-logo white large">Kvernhuset</div></div>
+            <div class="logo-tile"><div class="kv-logo">Kvernhuset</div></div>
+            <div class="logo-tile gold"><div class="kv-mono">KK</div></div>
+            <div class="logo-tile"><div class="kv-wordmark">Kvernhuset</div></div>
           </div>
         </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ============== TJENESTER ============== -->
-<section class="section-white" id="tjenester">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">Tjenester</span>
-      <h2>Alt under ett tak</h2>
-      <p>Velg én tjeneste, eller hele pakken. Vi tilpasser oss det du trenger.</p>
-    </div>
-
-    <div class="services-grid">
-      <!-- 1 -->
-      <div class="service-card reveal">
-        <div class="service-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
-          </svg>
-        </div>
-        <h3>Nettside</h3>
-        <p>Rask, ren, og fungerer perfekt på mobil. Optimalisert for Google fra dag én.</p>
-        <div class="service-meta">
-          <span class="service-price">Fra 5 000 kr</span>
-          <span class="service-link">Les mer →</span>
+        <div class="cap-info">
+          <div class="cap-eyebrow">Logo</div>
+          <div class="cap-title">Logo som funker overalt</div>
+          <div class="cap-desc">Variasjoner for skilt, web, print og sosiale medier — i alle størrelser.</div>
         </div>
       </div>
 
-      <!-- 2 -->
-      <div class="service-card reveal">
-        <div class="service-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/>
-          </svg>
+      <!-- CARD 3: VISITTKORT (1x1, cream) -->
+      <div class="cap-card cream reveal">
+        <div class="cap-mockup">
+          <div class="cards-stack">
+            <div class="bcard c1"></div>
+            <div class="bcard c2"></div>
+            <div class="bcard c3">
+              <div>
+                <div class="bcard-logo">Kvernhuset</div>
+              </div>
+              <div>
+                <div class="bcard-name">MARIT HAGEN</div>
+                <div class="bcard-info">Daglig leder<br>marit@kvernhuset.no</div>
+              </div>
+            </div>
+          </div>
         </div>
-        <h3>Logo &amp; identitet</h3>
-        <p>Et merke som ser like bra ut på skiltet, på fakturaen og på Instagram.</p>
-        <div class="service-meta">
-          <span class="service-price">Fra 4 000 kr</span>
-          <span class="service-link">Les mer →</span>
-        </div>
-      </div>
-
-      <!-- 3 popular -->
-      <div class="service-card reveal">
-        <span class="popular-badge">Mest populært</span>
-        <div class="service-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
-          </svg>
-        </div>
-        <h3>Komplett merkevare</h3>
-        <p>Logo + nettside + visittkort + retningslinjer. Alt du trenger, ferdig pakket.</p>
-        <div class="service-meta">
-          <span class="service-price">Fra 12 000 kr</span>
-          <span class="service-link">Les mer →</span>
+        <div class="cap-info">
+          <div class="cap-eyebrow">Visittkort</div>
+          <div class="cap-title">Førsteinntrykket teller</div>
+          <div class="cap-desc">Trykt på 350g med rustikk overflate — vanvittig god kvalitet.</div>
         </div>
       </div>
 
-      <!-- 4 -->
-      <div class="service-card reveal">
-        <div class="service-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>
-          </svg>
+      <!-- CARD 4: POSTER (wide, off-white) -->
+      <div class="cap-card wide reveal">
+        <div class="cap-mockup">
+          <div class="wall">
+            <div class="poster">
+              <div>
+                <div class="poster-eyebrow">● Sommer 2025</div>
+              </div>
+              <div class="poster-h1">Eple-helg på <em>Jæren</em>.</div>
+              <div class="poster-foot">Kvernhuset · 12–14 sept</div>
+            </div>
+          </div>
         </div>
-        <h3>Flyers &amp; trykk</h3>
-        <p>Brosjyrer, plakater, menyer — designet for å bli lagt merke til, ikke kastet.</p>
-        <div class="service-meta">
-          <span class="service-price">Fra 2 000 kr</span>
-          <span class="service-link">Les mer →</span>
-        </div>
-      </div>
-
-      <!-- 5 -->
-      <div class="service-card reveal">
-        <div class="service-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="6" width="18" height="12" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/>
-          </svg>
-        </div>
-        <h3>Visittkort</h3>
-        <p>Trykket på solid 350g papir, levert til døra. Du trenger fortsatt visittkort.</p>
-        <div class="service-meta">
-          <span class="service-price">Fra 1 500 kr</span>
-          <span class="service-link">Les mer →</span>
+        <div class="cap-info">
+          <div class="cap-eyebrow">Trykksaker</div>
+          <div class="cap-title">Plakater, flyers og brosjyrer</div>
+          <div class="cap-desc">A3 til A0, 300 DPI, klare for trykk. Eller vi tar oss av trykk + levering.</div>
         </div>
       </div>
 
-      <!-- 6 -->
-      <div class="service-card reveal">
-        <div class="service-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 12a9 9 0 1 1-9-9"/><polyline points="21 3 21 9 15 9"/>
-          </svg>
+      <!-- CARD 5: SOMME (dark) -->
+      <div class="cap-card dark reveal">
+        <div class="cap-mockup">
+          <div class="phone-frame">
+            <div class="phone-screen">
+              <div class="phone-notch"></div>
+              <div class="phone-header">@kvernhuset</div>
+              <div class="ig-grid">
+                <div class="ig-tile"></div>
+                <div class="ig-tile"></div>
+                <div class="ig-tile"></div>
+                <div class="ig-tile"></div>
+                <div class="ig-tile"></div>
+                <div class="ig-tile"></div>
+                <div class="ig-tile"></div>
+                <div class="ig-tile"></div>
+                <div class="ig-tile"></div>
+              </div>
+            </div>
+          </div>
         </div>
-        <h3>Redesign</h3>
-        <p>Har du en logo eller side fra 2010? Vi gir den nytt liv uten å miste sjelen.</p>
-        <div class="service-meta">
-          <span class="service-price">Fra 3 000 kr</span>
-          <span class="service-link">Les mer →</span>
+        <div class="cap-info">
+          <div class="cap-eyebrow">Somme</div>
+          <div class="cap-title">Instagram &amp; innholdsdesign</div>
+          <div class="cap-desc">Ferdige post-maler i din identitet. Du fyller inn, vi har gjort jobben.</div>
+        </div>
+      </div>
+
+      <!-- CARD 6: DOKUMENTASJON (coral tinted) -->
+      <div class="cap-card coral-tint reveal">
+        <div class="cap-mockup">
+          <div class="doc-stack">
+            <div class="doc d1"></div>
+            <div class="doc d2"></div>
+            <div class="doc d3">
+              <div class="doc-header">
+                <span class="doc-brand">VERMINORD</span>
+                <span class="doc-version">v1.0</span>
+              </div>
+              <div class="doc-title">SOP — Vermicompost produksjon</div>
+              <div class="doc-line mid"></div>
+              <div class="doc-line short"></div>
+              <div class="doc-line mid"></div>
+              <div class="doc-line"></div>
+              <div class="doc-line short"></div>
+              <div class="doc-foot">DOKUMENT 04 · 2025</div>
+            </div>
+          </div>
+        </div>
+        <div class="cap-info">
+          <div class="cap-eyebrow">SOP &amp; Dok</div>
+          <div class="cap-title">Profesjonell dokumentasjon</div>
+          <div class="cap-desc">Inkluderer Mattilsynet-kit. SOPer, HACCP, sporbarhet — designet for å faktisk leses.</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============== CASE STUDY KVERNHUSET ============== -->
-<section class="section-off" id="case">
+<!-- CASE STUDIES -->
+<section id="arbeid" style="background:var(--bg-white)">
   <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">Merkevare-eksempel</span>
-      <h2>Fra ingenting til komplett identitet på 7 dager</h2>
-      <p>Vi designet en fiktiv kafé — Kvernhuset Kafé — for å vise hva en komplett merkevarepakke faktisk inneholder.</p>
+    <div class="cases-header reveal">
+      <div>
+        <div class="eyebrow"><span class="dot"></span>Utvalgt arbeid</div>
+        <h2 style="margin-top:24px">Ekte bedrifter. Ekte resultater.</h2>
+      </div>
+      <p class="lead">Tre av 21 prosjekter — fra fiktiv merkevare-demo til levert kunde. Hver case viser hva en komplett design-pakke faktisk inneholder.</p>
     </div>
 
-    <div class="case">
-
-      <!-- Logo presentation (full width) -->
-      <div class="case-block case-logo reveal" style="grid-column: span 2;">
-        <div class="case-logo-light">
-          <div class="kvernhuset-monogram">KK</div>
-          <div class="kvernhuset-wordmark">KVERNHUSET</div>
-          <div class="kvernhuset-tagline">Kafé · Klepp Stasjon</div>
+    <div class="cases-grid">
+      <!-- CASE 1: HODNE -->
+      <a href="https://martin-starr.github.io/jaeren-demos/hodne-gartneri-masterpiece.html" target="_blank" rel="noopener" class="case-card reveal">
+        <div class="case-cover">
+          <div class="case-cover-inner cover-hodne">
+            <div class="cover-phone">
+              <div class="cover-phone-screen">
+                <div class="cover-phone-nav">HODNE GARTNERI</div>
+                <div class="cover-phone-h">Norges største <em>Kalanchoë</em></div>
+                <div class="cover-phone-img"></div>
+                <div class="cover-phone-foot">SIDEN 1971 · JÆREN</div>
+              </div>
+            </div>
+          </div>
+          <div class="case-arrow">→</div>
         </div>
-        <div class="case-logo-dark">
-          <div class="kvernhuset-monogram">KK</div>
-          <div class="kvernhuset-wordmark">KVERNHUSET</div>
-          <div class="kvernhuset-tagline">Kafé · Klepp Stasjon</div>
+        <div class="case-tags">Brand identity · Web design · Photography direction</div>
+        <div class="case-title">Hodne Gartneri</div>
+        <div class="case-subtitle">Norges største Kalanchoë-produsent siden 1971 — fortalt digitalt.</div>
+        <div class="case-year">2025 · Levert kunde</div>
+      </a>
+
+      <!-- CASE 2: KVERNHUSET -->
+      <a href="#kvernhuset-deep" class="case-card reveal">
+        <div class="case-cover">
+          <div class="case-cover-inner cover-kvernhuset">
+            <div class="brandbook">
+              <div class="brandbook-page">
+                <div class="bb-left">
+                  <div class="bb-wordmark">Kvernhuset<span>KAFÉ · JÆREN</span></div>
+                </div>
+                <div class="bb-right">
+                  <div class="bb-swatch"></div>
+                  <div class="bb-swatch"></div>
+                  <div class="bb-swatch"></div>
+                  <div class="bb-swatch"></div>
+                  <div class="bb-swatch"></div>
+                  <div class="bb-swatch">BRAND BOOK</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="case-arrow">→</div>
+        </div>
+        <div class="case-tags">Brand identity · Wordmark · Color system · Print</div>
+        <div class="case-title">Kvernhuset Kafé</div>
+        <div class="case-subtitle">Komplett merkevare på 7 dager — fra ingenting til ferdig brand book.</div>
+        <div class="case-year">2025 · Fiktiv case</div>
+      </a>
+
+      <!-- CASE 3: VERMINORD -->
+      <a href="#verminord-case" class="case-card reveal">
+        <div class="case-cover">
+          <div class="case-cover-inner cover-verminord">
+            <div class="vm-docs">
+              <div class="vm-doc v1"></div>
+              <div class="vm-doc v2"></div>
+              <div class="vm-doc v3">
+                <div class="vm-header">
+                  <span class="vm-brand">VERMINORD</span>
+                  <span class="vm-tag">SOP-12</span>
+                </div>
+                <div class="vm-title">Mattilsynet — HACCP-protokoll</div>
+                <div class="vm-sub">Komplett kvalitetssikring for vermicompost-produksjon.</div>
+                <div class="vm-content">
+                  <div class="vm-line mid"></div>
+                  <div class="vm-line short"></div>
+                  <div class="vm-line"></div>
+                  <div class="vm-line mid"></div>
+                </div>
+                <div class="vm-foot">DOK · 12 · 2025</div>
+              </div>
+            </div>
+          </div>
+          <div class="case-arrow">→</div>
+        </div>
+        <div class="case-tags">Documentation · Compliance design · Print + Digital</div>
+        <div class="case-title">Verminord SOPs</div>
+        <div class="case-subtitle">Designet et komplett dokumentasjonssystem — også tilgjengelig som digitalt produkt.</div>
+        <div class="case-year">2025 · Levert kunde</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- KVERNHUSET DEEP DIVE -->
+<section id="kvernhuset-deep">
+  <div class="container">
+    <div class="deep-dive-header reveal">
+      <div class="eyebrow"><span class="dot"></span>Case study 02</div>
+      <h2 class="serif"><em>Kvernhuset Kafé</em> — fra ingenting til komplett identitet</h2>
+      <p class="lead">Vi designet en fiktiv kafé fra bunnen for å demonstrere hva en komplett merkevare-pakke leverer. Alt vist her er ferdig design — ikke moodboards.</p>
+    </div>
+
+    <div class="deep-dive-grid">
+      <!-- A. Logo system -->
+      <div class="dd-block full reveal">
+        <div class="dd-label">A · Logosystem</div>
+        <div class="logo-system">
+          <div class="logo-cell primary">
+            <div class="kh-wordmark">Kvernhuset<span>KAFÉ · JÆREN</span></div>
+          </div>
+          <div class="logo-cell inverted">
+            <div class="kh-wordmark">Kvernhuset<span>KAFÉ · JÆREN</span></div>
+          </div>
+          <div class="logo-cell mono">
+            <div class="kh-monogram">KK</div>
+          </div>
+          <div class="logo-cell icon">
+            <div class="kh-icon"></div>
+          </div>
         </div>
       </div>
 
-      <!-- Colors -->
-      <div class="case-block case-colors reveal">
-        <p class="case-block-label">Fargepalett</p>
-        <p class="case-block-title">Jordnære toner med kobber-aksent</p>
-        <div class="swatches">
-          <div class="swatch">
-            <div class="swatch-color" style="background:#4A4A4A;"></div>
-            <div class="swatch-info"><div class="swatch-name">Mill Grey</div><div class="swatch-hex">#4A4A4A</div></div>
+      <!-- B. Color palette -->
+      <div class="dd-block full reveal" style="padding:40px 40px 0">
+        <div class="dd-label" style="padding-left:0">B · Fargepalett</div>
+      </div>
+      <div class="dd-block full reveal" style="padding:0;border:none;background:transparent">
+        <div class="palette">
+          <div class="swatch s-millstone">
+            <div class="swatch-name">Mill Stone</div>
+            <div class="swatch-spec">#4A4A4A<br>RGB 74·74·74</div>
           </div>
-          <div class="swatch">
-            <div class="swatch-color" style="background:#D4A65A;"></div>
-            <div class="swatch-info"><div class="swatch-name">Wheat</div><div class="swatch-hex">#D4A65A</div></div>
+          <div class="swatch s-wheatgold">
+            <div class="swatch-name">Wheat Gold</div>
+            <div class="swatch-spec">#D4A65A<br>RGB 212·166·90</div>
           </div>
-          <div class="swatch">
-            <div class="swatch-color" style="background:#FAF7F0;"></div>
-            <div class="swatch-info"><div class="swatch-name">Flour</div><div class="swatch-hex">#FAF7F0</div></div>
+          <div class="swatch s-flourwhite light">
+            <div class="swatch-name">Flour White</div>
+            <div class="swatch-spec">#FAF7F0<br>RGB 250·247·240</div>
           </div>
-          <div class="swatch">
-            <div class="swatch-color" style="background:#B87333;"></div>
-            <div class="swatch-info"><div class="swatch-name">Copper</div><div class="swatch-hex">#B87333</div></div>
+          <div class="swatch s-copper">
+            <div class="swatch-name">Copper</div>
+            <div class="swatch-spec">#B87333<br>RGB 184·115·51</div>
           </div>
-          <div class="swatch">
-            <div class="swatch-color" style="background:#1A1A1A;"></div>
-            <div class="swatch-info"><div class="swatch-name">Ink</div><div class="swatch-hex">#1A1A1A</div></div>
+          <div class="swatch s-ink">
+            <div class="swatch-name">Ink</div>
+            <div class="swatch-spec">#1A1A1A<br>RGB 26·26·26</div>
           </div>
         </div>
       </div>
 
-      <!-- Typography -->
-      <div class="case-block case-type reveal">
-        <p class="case-block-label">Typografi</p>
-        <p class="case-block-title">IBM Plex Sans · fire vekter</p>
-        <div class="type-row">
-          <span class="type-sample h1">Aa Bryne</span>
-          <span class="type-meta">700 · 28pt</span>
-        </div>
-        <div class="type-row">
-          <span class="type-sample h2">Aa Klepp</span>
-          <span class="type-meta">600 · 20pt</span>
-        </div>
-        <div class="type-row">
-          <span class="type-sample body">Aa Jæren</span>
-          <span class="type-meta">400 · 14pt</span>
-        </div>
-        <div class="type-row">
-          <span class="type-sample label">AA · KAFÉ</span>
-          <span class="type-meta">600 · 11pt</span>
+      <!-- C. Typography -->
+      <div class="dd-block twothird reveal">
+        <div class="dd-label">C · Typografi</div>
+        <div class="typo-display">A<em>a</em></div>
+        <p class="typo-body-demo">Brød, kaffe og ro på Jæren. Vi bruker Fraunces for overskrifter — varm, levende, med ekte personlighet. IBM Plex Sans for brødtekst — ren, lesbar, nordisk.</p>
+        <div class="typo-spec">
+          <span>FRAUNCES · DISPLAY</span>
+          <span>IBM PLEX SANS · BODY</span>
+          <span>IBM PLEX MONO · CAPTION</span>
         </div>
       </div>
 
-      <!-- Business card -->
-      <div class="case-block case-card reveal">
-        <p class="case-block-label">Visittkort</p>
-        <p class="case-block-title">Front + bakside, 350g matt</p>
-        <div class="bcards">
-          <div class="bcard bcard-front">
-            <div class="bcard-mono">KK</div>
-            <div class="bcard-logo">KVERNHUSET</div>
-          </div>
-          <div class="bcard bcard-back">
+      <!-- D. Business card -->
+      <div class="dd-block third reveal" style="background:var(--bg)">
+        <div class="dd-label">D · Visittkort</div>
+        <div class="bcard-display" style="margin-top:48px">
+          <div class="bc-real front">
+            <div class="bc-logo">Kvernhuset<span>KAFÉ · JÆREN</span></div>
             <div>
-              <div class="bcard-back-name">Ingrid Lien</div>
-              <div class="bcard-back-role">Daglig leder</div>
+              <div class="bc-info"><strong>MARIT HAGEN</strong></div>
+              <div class="bc-info">Daglig leder · 451 23 456<br>marit@kvernhuset.no</div>
             </div>
-            <div class="bcard-back-meta">
-              +47 920 00 000<br>
-              ingrid@kvernhuset.no<br>
-              Klepp Stasjon
+          </div>
+          <div class="bc-real back">
+            <div class="bc-back-mark">KK</div>
+            <div class="bc-back-foot">Kvernhuset · Jæren</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- E. Brand application — website -->
+      <div class="dd-block full reveal" style="padding:0;border:none;background:transparent">
+        <div style="padding:40px 0 24px">
+          <div class="dd-label">E · Brand application — nettside</div>
+        </div>
+        <div class="app-browser">
+          <div class="app-chrome">
+            <span class="traffic r"></span>
+            <span class="traffic y"></span>
+            <span class="traffic g"></span>
+            <span class="url-bar">kvernhuset.no</span>
+          </div>
+          <div class="app-content">
+            <div class="eyebrow"><span class="dot"></span>Åpent 08–22 alle dager</div>
+            <h3 class="app-h1">Brød, kaffe og <em>ro</em> på Jæren.</h3>
+            <p class="app-sub">Surdeig fra eget bakeri. Spesialitetskaffe fra Oslo. Et sted å sitte alene med en bok, eller møte hele familien til søndagsfrokost.</p>
+            <div class="app-btn-row">
+              <span class="app-btn primary">Bestill bord</span>
+              <span class="app-btn outline">Se menyen</span>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Guidelines -->
-      <div class="case-block case-guidelines reveal">
-        <p class="case-block-label">Brand guidelines</p>
-        <p class="case-block-title">Klare regler — vanskelig å bomme</p>
-        <div class="guide-grid">
-          <div class="guide-do">
-            <div class="guide-h">Gjør dette</div>
+      <!-- F. Brand rules -->
+      <div class="dd-block full reveal">
+        <div class="dd-label">F · Brand-regler</div>
+        <div class="rules-grid">
+          <div class="rule-col do">
+            <h4>Gjør</h4>
             <ul>
-              <li>Hvit logo på Mill Grey</li>
-              <li>Wheat brukes til knapper</li>
-              <li>Mye luft rundt logoen</li>
-              <li>Bare to vekter per tekst</li>
+              <li>Bruk Wheat Gold som kontrast mot Ink eller Mill Stone</li>
+              <li>La hvitrommet være — minst 40% av flaten skal puste</li>
+              <li>Hold typografi til to vekter per komposisjon</li>
+              <li>Monogrammet "KK" som favicon, social-avatar og lukket merke</li>
             </ul>
           </div>
-          <div class="guide-dont">
-            <div class="guide-h">Ikke gjør dette</div>
+          <div class="rule-col dont">
+            <h4>Ikke gjør</h4>
             <ul>
-              <li>Skygger eller gradienter</li>
-              <li>Strekk eller skråstilling</li>
-              <li>Wheat på Flour (kontrast)</li>
-              <li>Mer enn 3 farger samtidig</li>
+              <li>Strekk eller skrå aldri wordmark — bruk dedikerte varianter</li>
+              <li>Aldri Wheat Gold på Flour White (for lav kontrast)</li>
+              <li>Ingen gradienter, ingen skygger på logo</li>
+              <li>Ikke bytt typografi — Fraunces og Plex Sans, punktum</li>
             </ul>
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- Phone mockup -->
-      <div class="case-block case-phone reveal">
-        <div class="phone">
-          <div class="phone-notch"></div>
-          <div class="phone-screen">
-            <div class="phone-screen-logo">KVERNHUSET</div>
-            <div class="phone-hero">
-              <h5>Kaffe, brød og litt ro.</h5>
-              <p>Klepp Stasjon, åpen 07–17 alle hverdager.</p>
-              <span class="phone-pill">SE MENY</span>
+    <div class="deep-dive-close reveal">
+      Slik leveres en komplett merkevare på 7 dager.
+    </div>
+  </div>
+</section>
+
+<!-- VERMINORD CASE -->
+<section id="verminord-case" style="background:var(--bg-white)">
+  <div class="container">
+    <div class="deep-dive-header reveal">
+      <div class="eyebrow"><span class="dot"></span>Case study 03</div>
+      <h2 class="serif">Verminord AS — <em>compliance som design</em></h2>
+      <p class="lead">Dokumentasjon som faktisk leses. SOPer, Mattilsynet-rapporter og intern brandbook for Nordens nye vermicompost-produsent.</p>
+    </div>
+
+    <div class="vm-case-spread reveal">
+      <div class="vm-feature">
+        <div class="vm-doc-stack-big">
+          <div class="vm-doc-big b1"></div>
+          <div class="vm-doc-big b2"></div>
+          <div class="vm-doc-big b3">
+            <div class="vm-header">
+              <span class="vm-brand">VERMINORD</span>
+              <span class="vm-tag">SOP-04</span>
             </div>
-            <div class="phone-tile">
-              <div class="phone-tile-title">Dagens</div>
-              <div class="phone-row short"></div>
-              <div class="phone-row"></div>
+            <div class="vm-title">Vermicompost — produksjons-protokoll</div>
+            <div class="vm-sub">Standard operating procedure for ormekompost-produksjon. HACCP-validert.</div>
+            <div class="vm-content">
+              <div class="vm-line mid"></div>
+              <div class="vm-line short"></div>
+              <div class="vm-line"></div>
+              <div class="vm-line mid"></div>
+              <div class="vm-line short"></div>
+              <div class="vm-line"></div>
             </div>
-            <div class="phone-tile">
-              <div class="phone-tile-title">Åpningstider</div>
-              <div class="phone-row"></div>
-              <div class="phone-row short"></div>
-            </div>
+            <div class="vm-foot">DOK · 04 · NOV 2025 · JÆREN</div>
           </div>
         </div>
       </div>
 
+      <div class="vm-side">
+        <div class="vm-card-side brand">
+          <div class="vm-brandbook-cover">
+            <div class="label">BRAND BOOK · V1.0</div>
+            <div class="title">Verminord<span>STANDARD · 2025</span></div>
+          </div>
+          <h4>Intern brandbook</h4>
+          <p>Komplett identitet-håndbok for team og leverandører. Logo-bruk, fargesystem, typografi og applikasjoner.</p>
+        </div>
+
+        <div class="vm-card-side">
+          <div class="vm-mattilsynet-cover">
+            <div class="mat-brand">MATTILSYNET-KIT</div>
+            <div class="mat-title">Inspeksjon &amp; sporbarhet</div>
+            <div class="mat-lines">
+              <div class="line"></div>
+              <div class="line"></div>
+              <div class="line"></div>
+            </div>
+          </div>
+          <h4>Mattilsynet-kit</h4>
+          <p>HACCP-protokoll, sporbarhetslogg, rengjøringsplan og avvikshåndtering — klar til inspeksjon.</p>
+        </div>
+      </div>
     </div>
 
-    <div style="text-align:center; margin-top:48px;" class="reveal">
-      <a href="#kontakt" class="btn btn-primary btn-lg">Bestill din egen merkevarepakke →</a>
-    </div>
-  </div>
-</section>
-
-<!-- ============== PORTFOLIO ============== -->
-<section class="section-white" id="portefolje">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">Portefølje</span>
-      <h2>21 prosjekter, levert lokalt</h2>
-      <p>Et utvalg av seks som vi liker spesielt godt.</p>
-    </div>
-
-    <div class="portfolio-grid">
-
-      <a href="https://martin-starr.github.io/jaeren-demos/miljogartneriet" target="_blank" rel="noopener" class="proj-card reveal">
-        <div class="proj-thumb" style="background:linear-gradient(135deg, #4A6B3E 0%, #2D4326 100%);">
-          <span class="proj-thumb-label">Miljøgartneriet</span>
-        </div>
-        <div class="proj-info">
-          <div class="proj-tags"><span>Gartneri</span>·<span>Klepp</span></div>
-          <h3>Miljøgartneriet</h3>
-          <p>Komplett nettside med produktkatalog og kontaktskjema.</p>
-        </div>
-      </a>
-
-      <a href="https://martin-starr.github.io/jaeren-demos/smiacafe" target="_blank" rel="noopener" class="proj-card reveal">
-        <div class="proj-thumb" style="background:linear-gradient(135deg, #C97B3F 0%, #8B4513 100%);">
-          <span class="proj-thumb-label">Smiå Café</span>
-        </div>
-        <div class="proj-info">
-          <div class="proj-tags"><span>Kafé</span>·<span>Bryne</span></div>
-          <h3>Smiå Café</h3>
-          <p>Varm identitet med håndlaget følelse for en bygdekafé.</p>
-        </div>
-      </a>
-
-      <a href="https://martin-starr.github.io/jaeren-demos/murmester-heskje" target="_blank" rel="noopener" class="proj-card reveal">
-        <div class="proj-thumb" style="background:linear-gradient(135deg, #2F4858 0%, #1A2A36 100%);">
-          <span class="proj-thumb-label">Murmester Heskje</span>
-        </div>
-        <div class="proj-info">
-          <div class="proj-tags"><span>Håndverk</span>·<span>Klepp</span></div>
-          <h3>Murmester Heskje</h3>
-          <p>Solid, troverdig identitet for en familiebedrift i tredje generasjon.</p>
-        </div>
-      </a>
-
-      <a href="https://martin-starr.github.io/jaeren-demos/bjergabygg" target="_blank" rel="noopener" class="proj-card reveal">
-        <div class="proj-thumb" style="background:linear-gradient(135deg, #6B5C3A 0%, #3F3522 100%);">
-          <span class="proj-thumb-label">Bjergabygg</span>
-        </div>
-        <div class="proj-info">
-          <div class="proj-tags"><span>Entreprenør</span>·<span>Jæren</span></div>
-          <h3>Bjergabygg</h3>
-          <p>Profesjonell nettside med prosjektgalleri og referanser.</p>
-        </div>
-      </a>
-
-      <a href="https://martin-starr.github.io/jaeren-demos/hommersaak-bil" target="_blank" rel="noopener" class="proj-card reveal">
-        <div class="proj-thumb" style="background:linear-gradient(135deg, #C13B26 0%, #7A2317 100%);">
-          <span class="proj-thumb-label">Hommersåk Bil</span>
-        </div>
-        <div class="proj-info">
-          <div class="proj-tags"><span>Bilverksted</span>·<span>Sandnes</span></div>
-          <h3>Hommersåk Bil</h3>
-          <p>Klar, ærlig kommunikasjon for et lokalt bilverksted med 25 års erfaring.</p>
-        </div>
-      </a>
-
-      <a href="https://martin-starr.github.io/jaeren-demos/topp-til-taa" target="_blank" rel="noopener" class="proj-card reveal">
-        <div class="proj-thumb" style="background:linear-gradient(135deg, #B87B98 0%, #6E3B58 100%);">
-          <span class="proj-thumb-label">Topp til Tå</span>
-        </div>
-        <div class="proj-info">
-          <div class="proj-tags"><span>Frisør</span>·<span>Bryne</span></div>
-          <h3>Topp til Tå</h3>
-          <p>Feminin, varm identitet for en frisør- og velværesalong.</p>
-        </div>
-      </a>
-
-    </div>
-
-    <div class="portfolio-cta reveal">
-      <a href="https://martin-starr.github.io/jaeren-demos/" target="_blank" rel="noopener" class="btn btn-secondary btn-lg">Se alle 21 prosjekter →</a>
+    <div class="vm-cta-box reveal">
+      <div class="vm-cta-text">
+        <h3>Trenger din bedrift profesjonell dokumentasjon?</h3>
+        <p>Vi har laget ferdige kits du kan kjøpe direkte — eller skreddersydd for din bransje.</p>
+      </div>
+      <a href="#produkter" class="vm-cta-btn">Se produkter <span>↓</span></a>
     </div>
   </div>
 </section>
 
-<!-- ============== COMPARISON ============== -->
-<section class="section-off" id="hvorfor">
+<!-- PRODUCTS -->
+<section id="produkter">
   <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">Hvorfor oss</span>
-      <h2>Hvorfor Folkestad Designs?</h2>
-      <p>Sammenlignet med de andre alternativene du har vurdert.</p>
+    <div class="products-header reveal">
+      <div class="eyebrow" style="justify-content:center"><span class="dot"></span>Digitale produkter</div>
+      <h2 style="margin-top:24px">Ferdige designpakker</h2>
+      <p class="lead">Trenger du SOPer eller Mattilsynet-dokumentasjon raskt? Last ned ferdige pakker — designet av Folkestad Designs, redigerbare i Word og Pages.</p>
     </div>
 
-    <div class="compare-wrap reveal">
-      <table class="compare-table">
-        <thead>
-          <tr>
-            <th></th>
-            <th class="col-folkestad-h">Folkestad Designs</th>
-            <th>Storbyrå</th>
-            <th>Frilanser</th>
-            <th>DIY (Wix/Squarespace)</th>
-            <th>Ingenting</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Pris</td>
-            <td class="col-folkestad">5–25k <span class="cell-note">Faste priser</span></td>
-            <td><span class="cell-mid">50–200k</span></td>
-            <td><span class="cell-mid">15–40k</span></td>
-            <td><span class="cell-yes">✓</span> <span class="cell-note">200kr/mnd</span></td>
-            <td><span class="cell-yes">✓</span> <span class="cell-note">Men koster i tapte kunder</span></td>
-          </tr>
-          <tr>
-            <td>Tid til ferdig</td>
-            <td class="col-folkestad">1–2 uker <span class="cell-note">Garantert</span></td>
-            <td><span class="cell-mid">2–3 mnd</span></td>
-            <td><span class="cell-mid">3–8 uker</span></td>
-            <td><span class="cell-mid">Helga, men ofte mer</span></td>
-            <td><span class="cell-no">—</span></td>
-          </tr>
-          <tr>
-            <td>Lokalkjennskap</td>
-            <td class="col-folkestad"><span class="cell-yes">✓</span> <span class="cell-note">Fra Jæren</span></td>
-            <td><span class="cell-no">✕</span> <span class="cell-note">Oslo-bobla</span></td>
-            <td><span class="cell-mid">Avhenger</span></td>
-            <td><span class="cell-no">✕</span></td>
-            <td><span class="cell-no">✕</span></td>
-          </tr>
-          <tr>
-            <td>Skreddersydd design</td>
-            <td class="col-folkestad"><span class="cell-yes">✓</span></td>
-            <td><span class="cell-yes">✓</span></td>
-            <td><span class="cell-yes">✓</span></td>
-            <td><span class="cell-no">✕</span> <span class="cell-note">Maler</span></td>
-            <td><span class="cell-no">✕</span></td>
-          </tr>
-          <tr>
-            <td>Eierskap til design</td>
-            <td class="col-folkestad"><span class="cell-yes">✓</span> <span class="cell-note">Alt er ditt</span></td>
-            <td><span class="cell-mid">Avhenger</span></td>
-            <td><span class="cell-mid">Avhenger</span></td>
-            <td><span class="cell-no">✕</span> <span class="cell-note">Låst til plattform</span></td>
-            <td><span class="cell-no">—</span></td>
-          </tr>
-          <tr>
-            <td>Oppfølging etter lansering</td>
-            <td class="col-folkestad"><span class="cell-yes">✓</span> <span class="cell-note">90 dager gratis</span></td>
-            <td><span class="cell-mid">På timepris</span></td>
-            <td><span class="cell-mid">Avhenger</span></td>
-            <td><span class="cell-no">✕</span></td>
-            <td><span class="cell-no">—</span></td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="products-grid">
+      <div class="product-card reveal">
+        <div class="product-visual">
+          <div class="doc-stack">
+            <div class="doc d1"></div>
+            <div class="doc d2"></div>
+            <div class="doc d3">
+              <div class="doc-header">
+                <span class="doc-brand">SOP · 04</span>
+                <span class="doc-version">v1.0</span>
+              </div>
+              <div class="doc-title">Produksjon — kvalitetskontroll</div>
+              <div class="doc-line mid"></div>
+              <div class="doc-line short"></div>
+              <div class="doc-line"></div>
+              <div class="doc-foot">12 MALER · 2025</div>
+            </div>
+          </div>
+        </div>
+        <div class="product-tag">SOP-pakke</div>
+        <div class="product-name">SOP-pakke for produksjon</div>
+        <div class="product-desc">12 ferdig-designede SOP-maler for produksjonsbedrifter. Inkluderer HACCP, sporbarhet, kvalitetssikring og avvikshåndtering. Word + PDF.</div>
+        <div class="product-price">1 990 kr</div>
+        <a href="#kontakt" class="product-btn">Last ned <span>→</span></a>
+      </div>
+
+      <div class="product-card reveal">
+        <div class="product-visual mat">
+          <div class="doc-stack">
+            <div class="doc d1" style="background:#E8E2D5"></div>
+            <div class="doc d2" style="background:#FAFAF7"></div>
+            <div class="doc d3">
+              <div class="doc-header">
+                <span class="doc-brand">MATTILSYNET</span>
+                <span class="doc-version">2025</span>
+              </div>
+              <div class="doc-title">Inspeksjon &amp; HACCP-kit</div>
+              <div class="doc-line mid"></div>
+              <div class="doc-line"></div>
+              <div class="doc-line short"></div>
+              <div class="doc-foot">INSPEKSJONSKLAR</div>
+            </div>
+          </div>
+        </div>
+        <div class="product-tag">Mattilsynet-kit</div>
+        <div class="product-name">Mattilsynet-kit</div>
+        <div class="product-desc">Komplett Mattilsynet-pakke for matproduksjon: HACCP-protokoll, sporbarhetslogg, rengjøringsplan og avvikshåndtering. Tilpasset norsk regelverk.</div>
+        <div class="product-price">2 990 kr</div>
+        <a href="#kontakt" class="product-btn">Last ned <span>→</span></a>
+      </div>
+
+      <div class="product-card reveal">
+        <div class="product-visual starter">
+          <div class="starter-pack">
+            <div class="starter-circle"></div>
+            <div class="starter-circle"></div>
+            <div class="starter-circle"></div>
+            <div class="starter-circle"></div>
+          </div>
+        </div>
+        <div class="product-tag">Starter-pakke</div>
+        <div class="product-name">Starter-merkevare</div>
+        <div class="product-desc">Logo-mal + fargekart + typografi-guide for å komme i gang selv. Redigerbar i Figma og Canva. For deg som vil gjøre det meste selv.</div>
+        <div class="product-price">990 kr</div>
+        <a href="#kontakt" class="product-btn">Last ned <span>→</span></a>
+      </div>
     </div>
+
+    <p class="products-note">Skreddersydd versjon? <a href="#kontakt" style="color:var(--coral);text-decoration:underline;text-underline-offset:3px">Kontakt for tilpasning →</a></p>
   </div>
 </section>
 
-<!-- ============== PROCESS ============== -->
-<section class="section-white" id="prosess">
+<!-- COMPARISON -->
+<section style="background:var(--bg-white)">
   <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">Prosess</span>
-      <h2>Fra første prat til lansering</h2>
-      <p>Enkel og forutsigbar. Fire steg. Ingen overraskelser.</p>
+    <div class="cases-header reveal">
+      <div>
+        <div class="eyebrow"><span class="dot"></span>Hvorfor Folkestad</div>
+        <h2 style="margin-top:24px">Bedre enn alternativene</h2>
+      </div>
+      <p class="lead">Ærlig sammenligning — vi forteller deg når et alternativ kan være riktig for deg.</p>
+    </div>
+
+    <table class="cmp-table reveal">
+      <thead>
+        <tr>
+          <th></th>
+          <th class="cmp-highlight">Folkestad</th>
+          <th>Storbyrå</th>
+          <th>Frilanser</th>
+          <th>Wix selv</th>
+          <th>Ingenting</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Pris</td>
+          <td class="cmp-highlight yes">5–18 000 kr</td>
+          <td class="no">80–250 000</td>
+          <td class="meh">10–40 000</td>
+          <td class="meh">2 400/år</td>
+          <td class="meh">0</td>
+        </tr>
+        <tr>
+          <td>Leveringstid</td>
+          <td class="cmp-highlight yes">1–2 uker</td>
+          <td class="no">3–6 mnd</td>
+          <td class="meh">2–8 uker</td>
+          <td class="meh">Helger og kvelder</td>
+          <td class="no">Aldri</td>
+        </tr>
+        <tr>
+          <td>Lokal kjennskap (Jæren)</td>
+          <td class="cmp-highlight yes">Ja</td>
+          <td class="no">Nei</td>
+          <td class="meh">Kanskje</td>
+          <td class="no">Nei</td>
+          <td class="no">—</td>
+        </tr>
+        <tr>
+          <td>Skreddersydd design</td>
+          <td class="cmp-highlight yes">Ja</td>
+          <td class="yes">Ja</td>
+          <td class="yes">Ja</td>
+          <td class="no">Maler</td>
+          <td class="no">—</td>
+        </tr>
+        <tr>
+          <td>Oppfølging etter lansering</td>
+          <td class="cmp-highlight yes">Inkludert</td>
+          <td class="meh">Mot honorar</td>
+          <td class="meh">Variabel</td>
+          <td class="no">Selvbetjent</td>
+          <td class="no">—</td>
+        </tr>
+        <tr>
+          <td>Du eier alt</td>
+          <td class="cmp-highlight yes">Ja</td>
+          <td class="meh">Avtaleavhengig</td>
+          <td class="yes">Vanligvis</td>
+          <td class="no">Wix eier plattform</td>
+          <td class="no">—</td>
+        </tr>
+        <tr>
+          <td>Betaling kun ved fornøyd</td>
+          <td class="cmp-highlight yes">Ja</td>
+          <td class="no">Aldri</td>
+          <td class="no">Sjelden</td>
+          <td class="no">Forskudd</td>
+          <td class="no">—</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="prosess">
+  <div class="container">
+    <div class="cases-header reveal">
+      <div>
+        <div class="eyebrow"><span class="dot"></span>Prosess</div>
+        <h2 style="margin-top:24px">Slik jobber vi.</h2>
+      </div>
+      <p class="lead">Fire steg, transparent fra start til lansering. Du ser fremgangen før du betaler en krone.</p>
     </div>
 
     <div class="process-grid">
       <div class="process-step reveal">
         <div class="process-num">01</div>
-        <h3>Vi bygger et utkast</h3>
-        <p>På 2–3 dager. Helt uten forpliktelse. Du ser noe konkret før du bestemmer deg.</p>
+        <h3 class="process-h">Vi bygger utkast</h3>
+        <p class="process-desc">2–3 dager med komplett design — ingen forpliktelse. Du ser produktet før penger nevnes.</p>
       </div>
       <div class="process-step reveal">
         <div class="process-num">02</div>
-        <h3>Du ser og kommenterer</h3>
-        <p>Vi tar et møte (fysisk eller på Teams). Justerer til det er akkurat sånn du vil ha det.</p>
+        <h3 class="process-h">Du ser og kommenterer</h3>
+        <p class="process-desc">Live demo, kommentarer direkte på designet. Vi snakker, justerer, viser igjen.</p>
       </div>
       <div class="process-step reveal">
         <div class="process-num">03</div>
-        <h3>Vi finpusser</h3>
-        <p>Alle detaljer på plass. Vi tester på mobil, sjekker SEO, og rigger Google Analytics.</p>
+        <h3 class="process-h">Vi finpusser</h3>
+        <p class="process-desc">Alle detaljer — kopier, bilder, farger, struktur. Inntil det er <em style="font-family:var(--serif);font-style:italic;color:var(--coral)">helt riktig</em>.</p>
       </div>
       <div class="process-step reveal">
         <div class="process-num">04</div>
-        <h3>Lansering</h3>
-        <p>Du betaler kun om du er fornøyd. Ferdig. Vi følger opp 90 dager etter.</p>
+        <h3 class="process-h">Lansering</h3>
+        <p class="process-desc">Vi setter opp domene, hosting og lanserer. Du betaler kun ved fornøydhet.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============== PRICING ============== -->
-<section class="section-off" id="priser">
+<!-- PRICING -->
+<section id="priser" style="background:var(--bg-white)">
   <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">Priser</span>
-      <h2>Enkle, faste priser</h2>
-      <p>Ingen overraskelser. Ingen timer du ikke skjønner. Bare ett tilbud.</p>
+    <div class="cases-header reveal">
+      <div>
+        <div class="eyebrow"><span class="dot"></span>Priser</div>
+        <h2 style="margin-top:24px">Enkle, faste priser.</h2>
+      </div>
+      <p class="lead">Du vet hva det koster før vi starter. Ingen skjulte timer, ingen overraskelser i sluttregningen.</p>
     </div>
 
     <div class="pricing-grid">
       <div class="price-card reveal">
-        <h3>Oppstart</h3>
-        <p class="price-desc">For deg som trenger noe enkelt, raskt.</p>
-        <div class="price-amount">5 000 <span class="price-amount-unit">kr</span></div>
-        <ul class="price-features">
-          <li>Enkel nettside (3–5 sider)</li>
-          <li>Responsiv, fungerer på mobil</li>
-          <li>Kontaktskjema</li>
-          <li>Google-optimalisert</li>
-          <li>Levert på 7 dager</li>
-        </ul>
-        <div class="price-cta">
-          <a href="#kontakt" class="btn btn-secondary">Velg Oppstart</a>
+        <div class="price-label">Oppstart</div>
+        <div class="price-name">Enkel nettside</div>
+        <div class="price-amount">
+          <span class="price-amt">5 000</span>
+          <span class="price-cur">kr</span>
         </div>
+        <ul class="price-features">
+          <li class="price-feat">Én-sides responsive nettside</li>
+          <li class="price-feat">Domeneoppsett og hosting første år</li>
+          <li class="price-feat">Kontaktskjema og Google Maps</li>
+          <li class="price-feat">SEO-grunnlag og rask lasting</li>
+          <li class="price-feat">Levering på 5–7 dager</li>
+        </ul>
+        <a href="#kontakt" class="price-btn">Bestill <span>→</span></a>
       </div>
 
       <div class="price-card featured reveal">
-        <span class="popular-badge">Mest populært</span>
-        <h3>Komplett Merkevare</h3>
-        <p class="price-desc">Alt du trenger for å se profesjonell ut fra dag én.</p>
-        <div class="price-amount">18 000 <span class="price-amount-unit">kr</span></div>
-        <ul class="price-features">
-          <li>Logo + monogram</li>
-          <li>Nettside (opptil 10 sider)</li>
-          <li>Visittkort (250 stk trykket)</li>
-          <li>Brand guidelines</li>
-          <li>Social media-maler</li>
-          <li>90 dager oppfølging</li>
-        </ul>
-        <div class="price-cta">
-          <a href="#kontakt" class="btn btn-primary">Velg Komplett</a>
+        <div class="price-badge">Mest populært</div>
+        <div class="price-label">Komplett merkevare</div>
+        <div class="price-name">Hele pakka</div>
+        <div class="price-amount">
+          <span class="price-amt">18 000</span>
+          <span class="price-cur">kr</span>
         </div>
+        <ul class="price-features">
+          <li class="price-feat">Multi-sides nettside (5–10 sider)</li>
+          <li class="price-feat">Komplett logo-system &amp; merkevare</li>
+          <li class="price-feat">Visittkort, brevhode, sosiale media-maler</li>
+          <li class="price-feat">Brand book med farger, typografi, regler</li>
+          <li class="price-feat">CMS for å oppdatere selv</li>
+          <li class="price-feat">3 mnd oppfølging inkludert</li>
+          <li class="price-feat">Levering på 10–14 dager</li>
+        </ul>
+        <a href="#kontakt" class="price-btn">Bestill <span>→</span></a>
       </div>
 
       <div class="price-card reveal">
-        <h3>Skreddersydd</h3>
-        <p class="price-desc">Større bedrift, bookingsystem, e-handel, eller noe spesielt.</p>
-        <div class="price-amount" style="font-size:32px;">Kontakt oss</div>
+        <div class="price-label">Skreddersydd</div>
+        <div class="price-name">Større prosjekter</div>
+        <div class="price-amount">
+          <span class="price-amt" style="font-size:42px">Kontakt</span>
+        </div>
         <ul class="price-features">
-          <li>Bookingsystem eller e-handel</li>
-          <li>Integrasjoner (CRM, regnskap)</li>
-          <li>Flere språk</li>
-          <li>Egen serverløsning</li>
-          <li>Dedikert prosjektleder</li>
-          <li>SLA og support</li>
+          <li class="price-feat">Nettbutikk, booking-systemer</li>
+          <li class="price-feat">Skreddersydd webapp eller plattform</li>
+          <li class="price-feat">Integrasjoner (Tripletex, Fiken, Stripe)</li>
+          <li class="price-feat">Print: brosjyrer, kataloger, skilt</li>
+          <li class="price-feat">Foto- og videoregi</li>
+          <li class="price-feat">Pris etter omfang</li>
         </ul>
-        <div class="price-cta">
-          <a href="#kontakt" class="btn btn-secondary">Be om tilbud</a>
-        </div>
+        <a href="#kontakt" class="price-btn">Snakk med oss <span>→</span></a>
       </div>
     </div>
 
-    <p class="price-footnote reveal">
-      Ingen skjulte kostnader. Betaling kun ved fornøyd kunde.
-    </p>
+    <p class="pricing-foot"><strong>Ingen skjulte kostnader</strong> · Betaling kun ved fornøyd kunde · 100% norsk eierskap til alt vi lager</p>
   </div>
 </section>
 
-<!-- ============== TESTIMONIAL ============== -->
-<section class="section-white">
+<!-- TESTIMONIAL -->
+<section class="testimonial">
+  <div class="container reveal">
+    <p class="test-quote">Jeg bygger sider jeg selv ville vært stolt av som eier. Punktum.</p>
+    <div class="test-attribution">
+      <div class="test-portrait"></div>
+      <div class="test-info">
+        <div class="test-name">Martin Folkestad</div>
+        <div class="test-role">Grunnlegger · Folkestad Designs</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="background:var(--bg-white)">
   <div class="container">
-    <div class="testi reveal">
-      <p class="testi-quote">
-        “Jeg bygger sider jeg selv ville vært stolt av — ikke noe annet er godt nok for bedriften din heller.”
-      </p>
-      <div class="testi-author">
-        <div class="testi-avatar">MF</div>
-        <div>
-          <div class="testi-name">Martin Folkestad</div>
-          <div class="testi-role">Designer &amp; grunnlegger · folkestad.design</div>
+    <div class="cases-header reveal" style="grid-template-columns:1fr;text-align:center">
+      <div style="margin:0 auto">
+        <div class="eyebrow" style="justify-content:center"><span class="dot"></span>Vanlige spørsmål</div>
+        <h2 style="margin-top:24px">FAQ</h2>
+      </div>
+    </div>
+
+    <div class="faq-grid">
+      <div class="faq-item">
+        <button class="faq-q">
+          <span class="faq-q-text">Hvor lang tid tar et prosjekt?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Enkel nettside: 5–7 dager. Komplett merkevare med nettside, logo og print-materiale: 10–14 dager. Større prosjekter med nettbutikk eller integrasjoner: 3–5 uker. Du får alltid en konkret leveringsdato før vi starter.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span class="faq-q-text">Hva betyr "betaling kun ved fornøyd"?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Vi bygger ferdig utkast først. Du ser et komplett produkt, ikke skisser eller løfter. Hvis du ikke er fornøyd og vi ikke kan justere oss dit du vil — så betaler du ingenting. Vi tar risikoen, ikke du.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span class="faq-q-text">Hvem eier nettsiden etter levering?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Du. 100%. Du eier domenet, designet, koden og innholdet. Vi gir deg full tilgang og kan overføre alt til din egen hosting når som helst. Ingen låsing, ingen abonnement du ikke kan komme deg ut av.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span class="faq-q-text">Kan jeg oppdatere innhold selv?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Ja — alle våre nettsider leveres med enkelt CMS hvor du kan endre tekst, bytte bilder, legge til nyheter og produkter. Vi viser deg hvordan på 15 minutter. For Komplett-pakken er 3 måneders oppfølging inkludert.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span class="faq-q-text">Hva med hosting og domene?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Vi tar oss av alt — domeneregistrering, hosting, SSL-sertifikat, e-postoppsett. Første år inkludert i prisen. Etterpå koster det ca. 1 200 kr/år for hosting + domene. Du kan også flytte til din egen leverandør når som helst.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span class="faq-q-text">Jobber dere bare på Jæren?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Vi er basert på Klepp Stasjon, og det meste av kundene våre er fra Jæren-regionen — fra Stavanger og Sandnes til Egersund. Men vi tar oppdrag for hele Norge så lenge prosjektet føles riktig. Møter går digitalt eller her hos oss.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span class="faq-q-text">Hva slags bedrifter passer dere best for?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Håndverkere, restauranter, kafeer, gårdsbutikker, helsefaglige, fagbedrifter og småprodusenter. Bedrifter som vil ha en seriøs profesjonell tilstedeværelse uten å bruke 200 000 kr på et byrå. Vi sier også fra hvis du burde valgt noen andre.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span class="faq-q-text">Hvordan starter jeg?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Send en kort mail til hei@folkestad.design eller ring. Første samtale (30 min) er alltid gratis — vi ser på hva du trenger og om vi passer. Hvis ja, sender vi tilbud innen 24 timer. Hvis nei, hjelper vi deg gjerne videre til noen som passer bedre.</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============== FAQ ============== -->
-<section class="section-off" id="faq">
-  <div class="container-narrow">
-    <div class="section-head reveal">
-      <span class="eyebrow">FAQ</span>
-      <h2>Vanlige spørsmål</h2>
-      <p>Finner du ikke svaret? Send en mail til <a href="mailto:hei@folkestad.design" style="color:var(--coral); font-weight:600;">hei@folkestad.design</a>.</p>
-    </div>
-
-    <div class="faq-wrap">
-      <div class="faq-item">
-        <button class="faq-q">
-          <span>Hva koster det?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">
-          <div class="faq-a-inner">
-            Fra 5 000 kr for en enkel nettside, opp til 18 000 kr for en komplett merkevarepakke. Skreddersydde løsninger får eget tilbud. Alle priser er faste — vi sender ikke ekstra-fakturaer underveis.
-          </div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q">
-          <span>Hvor lang tid tar det?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">
-          <div class="faq-a-inner">
-            Snitt-tiden vår er 9 dager fra første prat til ferdig nettside. En komplett merkevarepakke tar typisk 2 uker. Vi gir deg et konkret datoanslag i tilbudet — og holder det.
-          </div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q">
-          <span>Eier jeg designet etterpå?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">
-          <div class="faq-a-inner">
-            Ja. 100 %. Du får alle filer (Figma, SVG, PNG, ICO), kildekode, og full rettighet til å bruke, endre eller flytte alt sammen. Vi låser deg ikke inne i noen plattform.
-          </div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q">
-          <span>Hva om jeg ikke er fornøyd?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">
-          <div class="faq-a-inner">
-            Du betaler kun ved ferdig prosjekt, og kun om du er fornøyd. Vi har 100 % fornøyde kunder så langt — og vi har ingen planer om å endre det.
-          </div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q">
-          <span>Tar dere kun lokale bedrifter på Jæren?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">
-          <div class="faq-a-inner">
-            Hovedfokus er Jæren, Sandnes og Stavanger-regionen. Men vi tar gjerne prosjekter over hele Norge — alt kan kjøres digitalt om det trengs.
-          </div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q">
-          <span>Kan jeg endre nettsiden selv senere?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">
-          <div class="faq-a-inner">
-            Ja. Vi setter opp et enkelt redigeringsverktøy (typisk Sanity eller Webflow CMS) slik at du kan oppdatere tekst, bilder og priser uten å være utvikler.
-          </div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q">
-          <span>Trenger jeg domene først?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">
-          <div class="faq-a-inner">
-            Nei. Vi hjelper deg å finne og registrere domenet som en del av prosjektet. Har du allerede et, bruker vi det.
-          </div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q">
-          <span>Hvordan betaler jeg?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">
-          <div class="faq-a-inner">
-            Faktura med 14 dagers betalingsfrist, sendt etter at du er fornøyd og prosjektet er lansert. Norske bedrifter, MVA-registrert.
-          </div>
-        </div>
-      </div>
+<!-- CTA SECTION -->
+<section id="kontakt" class="cta-section">
+  <div class="container cta-inner reveal">
+    <h2 class="cta-h"><em>Klar?</em> La oss<br>bygge.</h2>
+    <p class="cta-sub">Send en mail eller ring. Første samtale er alltid gratis — vi ser på hva du trenger og om vi passer for hverandre.</p>
+    <div class="cta-btns">
+      <a href="mailto:hei@folkestad.design" class="cta-btn-primary">hei@folkestad.design <span class="btn-arrow">→</span></a>
+      <a href="tel:+47" class="cta-btn-secondary">Ring [TELEFON] <span class="btn-arrow">→</span></a>
     </div>
   </div>
 </section>
 
-<!-- ============== CTA ============== -->
-<section class="cta" id="kontakt">
-  <div class="cta-inner container-narrow">
-    <h2 class="reveal">Klar for å starte?</h2>
-    <p class="cta-sub reveal">Send en mail eller ring. Første prat er alltid gratis — og uforpliktende.</p>
-    <div class="cta-buttons reveal">
-      <a href="mailto:hei@folkestad.design" class="btn btn-primary btn-lg">hei@folkestad.design</a>
-      <a href="tel:+4790000000" class="btn btn-secondary btn-lg">Ring +47 900 00 000</a>
-    </div>
-    <div class="cta-address reveal">
-      Klepp Stasjon <span>·</span> Jæren <span>·</span> Norge
-    </div>
-  </div>
-</section>
-
-<!-- ============== FOOTER ============== -->
+<!-- FOOTER -->
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="#" class="logo">folkestad<span class="logo-dot"></span>design</a>
-        <p>Nettsider, logoer og visuell identitet for lokale bedrifter på Jæren. Levert raskt, ærlig priset.</p>
+        <a href="#" class="logo">folkestad<span class="bullet">•</span>design</a>
+        <p>Nettsider, merkevarer og visuell identitet for håndverkere, restauranter og fagbedrifter på Jæren.</p>
       </div>
-
       <div class="footer-col">
         <h5>Tjenester</h5>
         <ul>
-          <li><a href="#tjenester">Nettside</a></li>
-          <li><a href="#tjenester">Logo &amp; identitet</a></li>
-          <li><a href="#tjenester">Komplett merkevare</a></li>
-          <li><a href="#tjenester">Trykk &amp; flyers</a></li>
-          <li><a href="#tjenester">Redesign</a></li>
+          <li><a href="#tjenester">Nettsider</a></li>
+          <li><a href="#tjenester">Logo &amp; merkevare</a></li>
+          <li><a href="#tjenester">Print &amp; trykksaker</a></li>
+          <li><a href="#tjenester">Sosiale medier</a></li>
+          <li><a href="#produkter">Digitale produkter</a></li>
         </ul>
       </div>
-
       <div class="footer-col">
         <h5>Selskap</h5>
         <ul>
-          <li><a href="#portefolje">Portefølje</a></li>
+          <li><a href="#arbeid">Arbeid</a></li>
           <li><a href="#prosess">Prosess</a></li>
           <li><a href="#priser">Priser</a></li>
           <li><a href="#faq">FAQ</a></li>
         </ul>
       </div>
-
       <div class="footer-col">
         <h5>Kontakt</h5>
         <ul>
           <li><a href="mailto:hei@folkestad.design">hei@folkestad.design</a></li>
           <li><a href="mailto:martin@folkestad.design">martin@folkestad.design</a></li>
-          <li><a href="tel:+4790000000">+47 900 00 000</a></li>
-          <li>Klepp Stasjon, Jæren</li>
+          <li><a href="tel:+47">[TELEFON]</a></li>
+          <li><span style="color:var(--muted)">Klepp Stasjon, Jæren</span></li>
         </ul>
       </div>
     </div>
-
     <div class="footer-bottom">
-      <div>© 2025 Folkestad Designs · Klepp Stasjon, Jæren · Org.nr 000 000 000</div>
-      <div class="footer-love">Bygget med kjærlighet på Jæren <span class="heart">❤</span></div>
+      <div>© 2025 Folkestad Designs · Klepp Stasjon, Jæren</div>
+      <div>Bygget med kjærlighet <span class="heart">❤</span> · folkestad.design</div>
     </div>
   </div>
 </footer>
 
 <script>
-  // ---- Nav scroll
-  const nav = document.getElementById('nav');
-  const onScroll = () => {
-    if (window.scrollY > 24) nav.classList.add('scrolled');
-    else nav.classList.remove('scrolled');
-  };
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
+// NAV scroll effect
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 30) nav.classList.add('scrolled');
+  else nav.classList.remove('scrolled');
+});
 
-  // ---- Mobile menu
-  const navMobile = document.getElementById('navMobile');
-  const navLinks = document.getElementById('navLinks');
-  navMobile.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
+// Scroll reveal via IntersectionObserver
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    }
   });
-  navLinks.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => navLinks.classList.remove('open'));
+}, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// FAQ accordion
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    // Close all
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    // Open if was closed
+    if (!isOpen) item.classList.add('open');
   });
+});
 
-  // ---- Reveal animation
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('in');
-        io.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
-  // ---- Counters
-  const counters = document.querySelectorAll('[data-counter]');
-  const counterIO = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        const el = e.target;
-        const target = parseInt(el.dataset.counter, 10);
-        const duration = 1400;
-        const start = performance.now();
-        const tick = (now) => {
-          const p = Math.min((now - start) / duration, 1);
-          const ease = 1 - Math.pow(1 - p, 3);
-          el.textContent = Math.round(target * ease);
-          if (p < 1) requestAnimationFrame(tick);
-        };
-        requestAnimationFrame(tick);
-        counterIO.unobserve(el);
-      }
-    });
-  }, { threshold: 0.4 });
-  counters.forEach(c => counterIO.observe(c));
-
-  // ---- FAQ accordion
-  document.querySelectorAll('.faq-q').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const item = btn.closest('.faq-item');
-      const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item.open').forEach(o => o.classList.remove('open'));
-      if (!isOpen) item.classList.add('open');
-    });
+// Smooth anchor scrolling offset for nav
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', (e) => {
+    const href = link.getAttribute('href');
+    if (href === '#' || href.length < 2) return;
+    const target = document.querySelector(href);
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 80;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
   });
+});
 </script>
 
 </body>

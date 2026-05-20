@@ -1,0 +1,1874 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arild Byberg AS — Tømrer på Jæren</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='6' fill='%232B1F14'/%3E%3Crect x='14' y='38' width='36' height='12' rx='2' fill='%23A0845C'/%3E%3Cpolygon points='8,38 32,12 56,38' fill='%23EDE6DA'/%3E%3Crect x='27' y='38' width='10' height='12' fill='%235C4A3A'/%3E%3C/svg%3E" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --dark-oak: #2B1F14;
+      --warm-timber: #A0845C;
+      --linen: #EDE6DA;
+      --bark: #5C4A3A;
+      --pale-linen: #F7F4EF;
+      --mid-wood: #7A5E43;
+      --text-body: #2B2420;
+      --text-muted: #6B5C50;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'IBM Plex Sans', sans-serif;
+      background-color: var(--pale-linen);
+      color: var(--text-body);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ──────────────────────────────────────────
+       NAV
+    ────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(43, 31, 20, 0.97);
+      backdrop-filter: blur(8px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 48px;
+      height: 68px;
+    }
+
+    .nav-logo {
+      color: #EDE6DA;
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-decoration: none;
+      line-height: 1.2;
+    }
+
+    .nav-logo span {
+      display: block;
+      font-weight: 300;
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      color: var(--warm-timber);
+      margin-top: 1px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #BFB3A6;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--warm-timber);
+    }
+
+    .nav-cta {
+      background: var(--warm-timber);
+      color: #FFF !important;
+      padding: 9px 20px;
+      font-weight: 600 !important;
+      font-size: 12px !important;
+      letter-spacing: 0.12em !important;
+      text-transform: uppercase;
+      transition: background 0.2s !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--mid-wood) !important;
+      color: #FFF !important;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #EDE6DA;
+      transition: all 0.3s;
+    }
+
+    /* ──────────────────────────────────────────
+       HERO
+    ────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      background: var(--dark-oak);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 120px 48px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Abstract wood grain background */
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      right: -10%;
+      width: 70%;
+      height: 140%;
+      background: linear-gradient(168deg,
+        transparent 0%,
+        rgba(92, 74, 58, 0.18) 25%,
+        rgba(160, 132, 92, 0.10) 50%,
+        transparent 75%
+      );
+      transform: rotate(-8deg);
+    }
+
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      top: 10%;
+      right: 8%;
+      width: 340px;
+      height: 420px;
+      background: linear-gradient(135deg,
+        rgba(160, 132, 92, 0.12) 0%,
+        rgba(92, 74, 58, 0.22) 40%,
+        rgba(43, 31, 20, 0.0) 100%
+      );
+      border-radius: 2px;
+    }
+
+    /* House silhouette — pure CSS */
+    .hero-shape {
+      position: absolute;
+      top: 12%;
+      right: 6%;
+      width: 260px;
+      height: 280px;
+      opacity: 0.13;
+    }
+
+    .hero-shape .house-wall {
+      position: absolute;
+      bottom: 0;
+      left: 20px;
+      right: 20px;
+      height: 160px;
+      background: var(--warm-timber);
+    }
+
+    .hero-shape .house-roof {
+      position: absolute;
+      bottom: 158px;
+      left: 0;
+      right: 0;
+      height: 0;
+      border-left: 130px solid transparent;
+      border-right: 130px solid transparent;
+      border-bottom: 90px solid var(--linen);
+    }
+
+    .hero-shape .house-door {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 36px;
+      height: 62px;
+      background: var(--bark);
+    }
+
+    .hero-shape .house-window {
+      position: absolute;
+      width: 38px;
+      height: 38px;
+      background: var(--linen);
+    }
+
+    .hero-shape .house-window.w1 { bottom: 76px; left: 42px; }
+    .hero-shape .house-window.w2 { bottom: 76px; right: 42px; }
+
+    .hero-year-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 32px;
+    }
+
+    .hero-year-badge .line {
+      width: 32px;
+      height: 1px;
+      background: var(--warm-timber);
+    }
+
+    .hero-year-badge .text {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--warm-timber);
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 6vw, 76px);
+      font-weight: 700;
+      color: var(--linen);
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      max-width: 700px;
+      margin-bottom: 28px;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--warm-timber);
+    }
+
+    .hero-lead {
+      font-size: 17px;
+      font-weight: 300;
+      color: #B8A898;
+      max-width: 480px;
+      line-height: 1.75;
+      margin-bottom: 52px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--warm-timber);
+      color: #FFF;
+      padding: 16px 32px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-primary:hover {
+      background: var(--mid-wood);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid rgba(160, 132, 92, 0.45);
+      color: #BFB3A6;
+      padding: 16px 32px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: inline-block;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--warm-timber);
+      color: var(--warm-timber);
+    }
+
+    .hero-stats {
+      position: absolute;
+      bottom: 80px;
+      right: 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      text-align: right;
+    }
+
+    .hero-stat .number {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--warm-timber);
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+
+    .hero-stat .label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #7A6A5C;
+      margin-top: 4px;
+    }
+
+    /* ──────────────────────────────────────────
+       SECTION COMMONS
+    ────────────────────────────────────────── */
+    section {
+      padding: 100px 48px;
+    }
+
+    .section-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--warm-timber);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-label::before {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: var(--warm-timber);
+      display: inline-block;
+    }
+
+    .section-title {
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      line-height: 1.15;
+      color: var(--dark-oak);
+      margin-bottom: 20px;
+    }
+
+    .section-lead {
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.75;
+      max-width: 560px;
+    }
+
+    /* ──────────────────────────────────────────
+       STRIP / INTRO BAND
+    ────────────────────────────────────────── */
+    .intro-strip {
+      background: var(--warm-timber);
+      padding: 32px 48px;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      overflow: hidden;
+    }
+
+    .intro-strip-text {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #FFF;
+      white-space: nowrap;
+      animation: marquee 22s linear infinite;
+    }
+
+    @keyframes marquee {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ──────────────────────────────────────────
+       TJENESTER
+    ────────────────────────────────────────── */
+    .tjenester {
+      background: #FFF;
+    }
+
+    .tjenester-header {
+      max-width: 1200px;
+      margin: 0 auto 64px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: end;
+    }
+
+    .tjenester-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .tjeneste-card {
+      background: var(--pale-linen);
+      padding: 44px 36px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.25s;
+    }
+
+    .tjeneste-card:hover {
+      background: var(--linen);
+    }
+
+    .tjeneste-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 0;
+      background: var(--warm-timber);
+      transition: height 0.3s;
+    }
+
+    .tjeneste-card:hover::before {
+      height: 100%;
+    }
+
+    .tjeneste-icon {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 24px;
+    }
+
+    .tjeneste-number {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--warm-timber);
+      margin-bottom: 12px;
+    }
+
+    .tjeneste-name {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--dark-oak);
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+
+    .tjeneste-desc {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* Tjeneste SVG icons */
+    .icon-nybygg { color: var(--warm-timber); }
+
+    /* ──────────────────────────────────────────
+       PROSJEKTER
+    ────────────────────────────────────────── */
+    .prosjekter {
+      background: var(--dark-oak);
+      padding: 100px 48px;
+    }
+
+    .prosjekter .section-label {
+      color: var(--warm-timber);
+    }
+
+    .prosjekter .section-title {
+      color: var(--linen);
+    }
+
+    .prosjekter .section-lead {
+      color: #9A8878;
+    }
+
+    .prosjekter-header {
+      max-width: 1200px;
+      margin: 0 auto 56px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .prosjekter-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: repeat(2, 280px);
+      gap: 3px;
+    }
+
+    .prosjekt-card {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .prosjekt-card.large { grid-column: span 5; }
+    .prosjekt-card.medium { grid-column: span 4; }
+    .prosjekt-card.small { grid-column: span 3; }
+    .prosjekt-card.wide { grid-column: span 7; }
+
+    /* CSS-only "project photo" abstractions */
+    .proj-visual {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transition: transform 0.4s ease;
+    }
+
+    .prosjekt-card:hover .proj-visual {
+      transform: scale(1.03);
+    }
+
+    /* Project 1 — Nybygg enebolig */
+    .pv-1 {
+      background: linear-gradient(135deg, #3D2E1E 0%, #5C4A3A 55%, #7A6050 100%);
+    }
+    .pv-1::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60%;
+      height: 60%;
+      background: #EDE6DA;
+      opacity: 0.12;
+      clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+    }
+    .pv-1::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 20%;
+      width: 60%;
+      height: 40%;
+      background: rgba(160, 132, 92, 0.2);
+    }
+
+    /* Project 2 — Tilbygg */
+    .pv-2 {
+      background: linear-gradient(160deg, #2B1F14 0%, #4A3828 60%, #6B5040 100%);
+    }
+    .pv-2::before {
+      content: '';
+      position: absolute;
+      inset: 20px;
+      border: 1px solid rgba(160, 132, 92, 0.25);
+    }
+    .pv-2::after {
+      content: '';
+      position: absolute;
+      bottom: 30px;
+      left: 30px;
+      right: 30px;
+      height: 2px;
+      background: var(--warm-timber);
+      opacity: 0.4;
+    }
+
+    /* Project 3 — Rehabilitering */
+    .pv-3 {
+      background: #4A3626;
+    }
+    .pv-3::before {
+      content: '';
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      right: 20px;
+      bottom: 20px;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 18px,
+        rgba(160, 132, 92, 0.08) 18px,
+        rgba(160, 132, 92, 0.08) 19px
+      );
+    }
+
+    /* Project 4 — Terrasse */
+    .pv-4 {
+      background: linear-gradient(145deg, #5C4A3A 0%, #3D2E1E 100%);
+    }
+    .pv-4::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 50%;
+      background: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 22px,
+        rgba(237, 230, 218, 0.1) 22px,
+        rgba(237, 230, 218, 0.1) 23px
+      );
+    }
+
+    /* Project 5 — Garasje */
+    .pv-5 {
+      background: linear-gradient(135deg, #1E160E 0%, #3D2E1E 100%);
+    }
+    .pv-5::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 70%;
+      height: 55%;
+      background: rgba(92, 74, 58, 0.45);
+      border-radius: 1px;
+    }
+
+    /* Project 6 — Innredning */
+    .pv-6 {
+      background: #6B5040;
+    }
+    .pv-6::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 28px,
+        rgba(43, 31, 20, 0.15) 28px,
+        rgba(43, 31, 20, 0.15) 29px
+      );
+    }
+
+    .prosjekt-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(43, 31, 20, 0.88) 0%, transparent 55%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 28px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .prosjekt-card:hover .prosjekt-overlay {
+      opacity: 1;
+    }
+
+    .prosjekt-overlay-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--warm-timber);
+      margin-bottom: 6px;
+    }
+
+    .prosjekt-overlay-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--linen);
+      letter-spacing: -0.01em;
+    }
+
+    .prosjekt-tag {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: rgba(43, 31, 20, 0.72);
+      backdrop-filter: blur(4px);
+      color: var(--warm-timber);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 6px 12px;
+    }
+
+    /* ──────────────────────────────────────────
+       OM OSS
+    ────────────────────────────────────────── */
+    .om-oss {
+      background: var(--pale-linen);
+    }
+
+    .om-oss-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .om-oss-visual {
+      position: relative;
+      height: 480px;
+    }
+
+    .om-visual-main {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 60px;
+      bottom: 60px;
+      background: linear-gradient(145deg, #3D2E1E 0%, #5C4A3A 60%, #8B6E52 100%);
+    }
+
+    .om-visual-main::before {
+      content: '';
+      position: absolute;
+      inset: 24px;
+      background: repeating-linear-gradient(
+        160deg,
+        transparent,
+        transparent 40px,
+        rgba(160, 132, 92, 0.07) 40px,
+        rgba(160, 132, 92, 0.07) 41px
+      );
+    }
+
+    /* Wood plank texture */
+    .om-visual-main::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 32px,
+        rgba(43, 31, 20, 0.12) 32px,
+        rgba(43, 31, 20, 0.12) 33px
+      );
+    }
+
+    .om-visual-accent {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 160px;
+      height: 200px;
+      background: var(--warm-timber);
+    }
+
+    .om-visual-accent::after {
+      content: '"';
+      font-family: Georgia, serif;
+      font-size: 72px;
+      color: rgba(255,255,255,0.18);
+      position: absolute;
+      top: 12px;
+      left: 18px;
+      line-height: 1;
+    }
+
+    .om-visual-year {
+      position: absolute;
+      top: 20px;
+      right: 80px;
+      background: var(--dark-oak);
+      color: var(--warm-timber);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      padding: 10px 16px;
+    }
+
+    .om-oss-content .section-label {
+      margin-bottom: 16px;
+    }
+
+    .om-oss-content .section-title {
+      margin-bottom: 28px;
+    }
+
+    .om-body {
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--text-muted);
+      line-height: 1.78;
+      margin-bottom: 24px;
+    }
+
+    .om-body strong {
+      color: var(--dark-oak);
+      font-weight: 600;
+    }
+
+    .om-values {
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .om-value {
+      border-left: 2px solid var(--warm-timber);
+      padding-left: 16px;
+    }
+
+    .om-value-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--dark-oak);
+      margin-bottom: 4px;
+    }
+
+    .om-value-text {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ──────────────────────────────────────────
+       PROSESS / HOW WE WORK
+    ────────────────────────────────────────── */
+    .prosess {
+      background: var(--linen);
+    }
+
+    .prosess-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .prosess-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 64px;
+    }
+
+    .prosess-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+    }
+
+    .prosess-step {
+      background: #FFF;
+      padding: 40px 28px;
+      position: relative;
+    }
+
+    .step-num {
+      font-size: 52px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      color: rgba(160, 132, 92, 0.18);
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+
+    .step-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--dark-oak);
+      margin-bottom: 10px;
+    }
+
+    .step-text {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .step-arrow {
+      position: absolute;
+      top: 50%;
+      right: -14px;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      border-left: 14px solid #FFF;
+      z-index: 2;
+    }
+
+    .prosess-step:last-child .step-arrow {
+      display: none;
+    }
+
+    /* ──────────────────────────────────────────
+       SERVICEOMRÅDE
+    ────────────────────────────────────────── */
+    .serviceomrade {
+      background: var(--dark-oak);
+      padding: 80px 48px;
+    }
+
+    .serviceomrade-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 48px;
+    }
+
+    .serviceomrade-text .section-label { color: var(--warm-timber); }
+    .serviceomrade-text h3 {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--linen);
+      letter-spacing: -0.015em;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .serviceomrade-text p {
+      font-size: 15px;
+      font-weight: 300;
+      color: #9A8878;
+      line-height: 1.75;
+      max-width: 400px;
+    }
+
+    .area-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .area-pill {
+      background: rgba(160, 132, 92, 0.16);
+      border: 1px solid rgba(160, 132, 92, 0.28);
+      color: var(--warm-timber);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 8px 16px;
+    }
+
+    .serviceomrade-map {
+      flex-shrink: 0;
+      width: 320px;
+      height: 320px;
+      position: relative;
+    }
+
+    /* Abstract Jæren map shape */
+    .map-shape {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .map-shape::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(160, 132, 92, 0.08);
+      clip-path: polygon(20% 5%, 78% 2%, 92% 18%, 88% 55%, 78% 82%, 55% 96%, 28% 92%, 8% 72%, 5% 42%, 10% 22%);
+      border: 1px solid rgba(160, 132, 92, 0.2);
+    }
+
+    .map-dot {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--warm-timber);
+      transform: translate(-50%, -50%);
+    }
+
+    .map-dot::after {
+      content: '';
+      position: absolute;
+      inset: -5px;
+      border-radius: 50%;
+      border: 1px solid rgba(160, 132, 92, 0.4);
+      animation: pulse 2.5s ease-in-out infinite;
+    }
+
+    .map-dot-label {
+      position: absolute;
+      left: 16px;
+      top: -6px;
+      white-space: nowrap;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--warm-timber);
+    }
+
+    .map-dot.secondary {
+      width: 7px;
+      height: 7px;
+      background: rgba(160, 132, 92, 0.55);
+    }
+    .map-dot.secondary::after { display: none; }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.4; }
+      50% { transform: scale(1.5); opacity: 0.1; }
+    }
+
+    /* ──────────────────────────────────────────
+       KONTAKT
+    ────────────────────────────────────────── */
+    .kontakt {
+      background: #FFF;
+    }
+
+    .kontakt-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+    }
+
+    .kontakt-info .section-title {
+      margin-bottom: 32px;
+    }
+
+    .kontakt-detail {
+      display: flex;
+      gap: 18px;
+      margin-bottom: 28px;
+      align-items: flex-start;
+    }
+
+    .kontakt-detail-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--linen);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .kontakt-detail-icon svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--warm-timber);
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .kontakt-detail-text .label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--warm-timber);
+      margin-bottom: 4px;
+    }
+
+    .kontakt-detail-text .value {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--dark-oak);
+    }
+
+    .kontakt-detail-text .value a {
+      color: var(--dark-oak);
+      text-decoration: none;
+    }
+
+    .kontakt-detail-text .value a:hover {
+      color: var(--warm-timber);
+    }
+
+    .kontakt-form {
+      background: var(--pale-linen);
+      padding: 48px;
+    }
+
+    .form-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--dark-oak);
+      letter-spacing: -0.01em;
+      margin-bottom: 8px;
+    }
+
+    .form-subtitle {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--text-muted);
+      margin-bottom: 36px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--bark);
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 14px 16px;
+      background: #FFF;
+      border: 1px solid rgba(92, 74, 58, 0.18);
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--dark-oak);
+      outline: none;
+      transition: border-color 0.2s;
+      appearance: none;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--warm-timber);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .form-group-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-submit {
+      background: var(--dark-oak);
+      color: var(--linen);
+      border: none;
+      padding: 16px 36px;
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.2s;
+      margin-top: 8px;
+    }
+
+    .form-submit:hover {
+      background: var(--bark);
+    }
+
+    /* ──────────────────────────────────────────
+       FOOTER
+    ────────────────────────────────────────── */
+    footer {
+      background: var(--dark-oak);
+      padding: 52px 48px 36px;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(160, 132, 92, 0.15);
+      margin-bottom: 36px;
+    }
+
+    .footer-brand-name {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--linen);
+      margin-bottom: 4px;
+    }
+
+    .footer-brand-sub {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.16em;
+      color: var(--warm-timber);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .footer-brand-text {
+      font-size: 13px;
+      font-weight: 300;
+      color: #7A6A5C;
+      line-height: 1.75;
+    }
+
+    .footer-col-title {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--warm-timber);
+      margin-bottom: 20px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      font-size: 13px;
+      font-weight: 400;
+      color: #7A6A5C;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--warm-timber);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      font-weight: 400;
+      color: #5A4A3C;
+    }
+
+    .footer-org {
+      font-size: 12px;
+      font-weight: 400;
+      color: #5A4A3C;
+    }
+
+    /* ──────────────────────────────────────────
+       SCROLL ANIMATIONS
+    ────────────────────────────────────────── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-up-delay-1 { transition-delay: 0.1s; }
+    .fade-up-delay-2 { transition-delay: 0.2s; }
+    .fade-up-delay-3 { transition-delay: 0.3s; }
+    .fade-up-delay-4 { transition-delay: 0.4s; }
+    .fade-up-delay-5 { transition-delay: 0.5s; }
+
+    .fade-in {
+      opacity: 0;
+      transition: opacity 0.7s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+    }
+
+    /* ──────────────────────────────────────────
+       MOBILE
+    ────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      nav { padding: 0 28px; }
+
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 68px;
+        left: 0;
+        right: 0;
+        background: var(--dark-oak);
+        flex-direction: column;
+        padding: 28px;
+        gap: 20px;
+        border-top: 1px solid rgba(160,132,92,0.15);
+      }
+
+      .nav-links.open { display: flex; }
+      .nav-links a { font-size: 15px; }
+      .hamburger { display: flex; }
+
+      .hero { padding: 100px 28px 64px; }
+      .hero h1 { font-size: 38px; }
+      .hero-stats { display: none; }
+
+      section { padding: 72px 28px; }
+
+      .tjenester-header { grid-template-columns: 1fr; gap: 24px; }
+      .tjenester-grid { grid-template-columns: 1fr 1fr; }
+
+      .prosjekter-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+      }
+      .prosjekt-card.large,
+      .prosjekt-card.medium,
+      .prosjekt-card.small,
+      .prosjekt-card.wide {
+        grid-column: span 1;
+        height: 220px;
+      }
+
+      .om-oss-inner { grid-template-columns: 1fr; gap: 48px; }
+      .om-oss-visual { height: 280px; }
+
+      .prosess-header { grid-template-columns: 1fr; gap: 24px; }
+      .prosess-steps { grid-template-columns: 1fr 1fr; }
+      .step-arrow { display: none; }
+
+      .serviceomrade-inner { flex-direction: column; align-items: flex-start; }
+      .serviceomrade-map { width: 100%; }
+
+      .kontakt-inner { grid-template-columns: 1fr; gap: 48px; }
+      .kontakt-form { padding: 32px 24px; }
+
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+    }
+
+    @media (max-width: 600px) {
+      nav { padding: 0 20px; }
+      .hero { padding: 90px 20px 56px; }
+      .hero h1 { font-size: 32px; }
+      .hero-lead { font-size: 15px; }
+      .hero-actions { flex-direction: column; }
+      .btn-primary, .btn-outline { text-align: center; }
+
+      section { padding: 60px 20px; }
+      .tjenester-grid { grid-template-columns: 1fr; }
+      .prosess-steps { grid-template-columns: 1fr; }
+      .form-group-row { grid-template-columns: 1fr; }
+      .om-values { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      .intro-strip { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════ NAV ═══════════════════════ -->
+  <nav>
+    <a href="#" class="nav-logo">
+      Arild Byberg AS
+      <span>Tømrer · Klepp, Jæren</span>
+    </a>
+    <div class="hamburger" id="hamburger" aria-label="Meny" role="button" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#tjenester">Tjenester</a></li>
+      <li><a href="#prosjekter">Prosjekter</a></li>
+      <li><a href="#om-oss">Om oss</a></li>
+      <li><a href="#kontakt" class="nav-cta">Kontakt</a></li>
+    </ul>
+  </nav>
+
+  <!-- ═══════════════════════ HERO ═══════════════════════ -->
+  <section class="hero" id="topp">
+    <div class="hero-bg"></div>
+    <div class="hero-shape">
+      <div class="house-wall"></div>
+      <div class="house-roof"></div>
+      <div class="house-door"></div>
+      <div class="house-window w1"></div>
+      <div class="house-window w2"></div>
+    </div>
+
+    <div class="hero-year-badge">
+      <div class="line"></div>
+      <div class="text">Etablert 1997</div>
+      <div class="line"></div>
+    </div>
+
+    <h1>27 år som<br /><em>tømrer</em><br />på Jæren.</h1>
+    <p class="hero-lead">Arild Byberg AS utfører alt fra nybygg og tilbygg til rehabilitering og innredning. Solid håndverk, lokalkunnskap og nærhet til kunden.</p>
+
+    <div class="hero-actions">
+      <a href="#kontakt" class="btn-primary">Be om tilbud</a>
+      <a href="#tjenester" class="btn-outline">Se tjenester</a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="number">27</div>
+        <div class="label">Års erfaring</div>
+      </div>
+      <div class="hero-stat">
+        <div class="number">Voll</div>
+        <div class="label">Kleppvegen 788</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ STRIP ═══════════════════════ -->
+  <div class="intro-strip">
+    <div class="intro-strip-text">
+      Nybygg &nbsp;·&nbsp; Tilbygg &nbsp;·&nbsp; Rehabilitering &nbsp;·&nbsp; Innredning &nbsp;·&nbsp; Terrasse &nbsp;·&nbsp; Garasje &nbsp;·&nbsp; Klepp &nbsp;·&nbsp; Jæren &nbsp;·&nbsp; 27 år &nbsp;·&nbsp;
+      Nybygg &nbsp;·&nbsp; Tilbygg &nbsp;·&nbsp; Rehabilitering &nbsp;·&nbsp; Innredning &nbsp;·&nbsp; Terrasse &nbsp;·&nbsp; Garasje &nbsp;·&nbsp; Klepp &nbsp;·&nbsp; Jæren &nbsp;·&nbsp; 27 år &nbsp;·&nbsp;
+    </div>
+  </div>
+
+  <!-- ═══════════════════════ TJENESTER ═══════════════════════ -->
+  <section class="tjenester" id="tjenester">
+    <div class="tjenester-header">
+      <div class="fade-up">
+        <div class="section-label">Hva vi gjør</div>
+        <h2 class="section-title">Tjenester vi<br />tilbyr</h2>
+      </div>
+      <div class="fade-up fade-up-delay-1">
+        <p class="section-lead">Vi tar på oss oppdrag av alle størrelser — fra mindre snekkerarbeid til større byggeprosjekter. Alltid med fokus på kvalitet og presist håndverk.</p>
+      </div>
+    </div>
+
+    <div class="tjenester-grid">
+      <div class="tjeneste-card fade-up">
+        <div class="tjeneste-number">01</div>
+        <div class="tjeneste-name">Nybygg</div>
+        <p class="tjeneste-desc">Vi bygger enebolig og fritidsboliger fra bunnen av. Erfaren prosjektgjennomføring med fokus på byggekvalitet og materialvalg som varer.</p>
+      </div>
+      <div class="tjeneste-card fade-up fade-up-delay-1">
+        <div class="tjeneste-number">02</div>
+        <div class="tjeneste-name">Tilbygg</div>
+        <p class="tjeneste-desc">Trenger du mer plass? Vi utvider eksisterende bolig med tilbygg som er sømlost integrert i det opprinnelige bygget.</p>
+      </div>
+      <div class="tjeneste-card fade-up fade-up-delay-2">
+        <div class="tjeneste-number">03</div>
+        <div class="tjeneste-name">Rehabilitering</div>
+        <p class="tjeneste-desc">Eldre bygg fortjener ny giv. Vi restaurerer og rehabiliterer boliger og næringsbygg med respekt for opprinnelig stil og konstruksjon.</p>
+      </div>
+      <div class="tjeneste-card fade-up fade-up-delay-3">
+        <div class="tjeneste-number">04</div>
+        <div class="tjeneste-name">Innredning</div>
+        <p class="tjeneste-desc">Fra kjøkken og bad til bokhyller og garderober. Vi lager skreddersydde løsninger tilpasset ditt rom og dine behov.</p>
+      </div>
+      <div class="tjeneste-card fade-up fade-up-delay-4">
+        <div class="tjeneste-number">05</div>
+        <div class="tjeneste-name">Terrasse</div>
+        <p class="tjeneste-desc">En god terrasse forlenger boligen utendørs. Vi bygger i trykkimpregnert tre, kompositt eller hardved — tilpasset Jærens klima.</p>
+      </div>
+      <div class="tjeneste-card fade-up fade-up-delay-5">
+        <div class="tjeneste-number">06</div>
+        <div class="tjeneste-name">Garasje</div>
+        <p class="tjeneste-desc">Garasjer og uthus tilpasset tomten og hustypen. Solid grunnarbeid og konstruksjon som tåler vestlandsvinteren.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ PROSJEKTER ═══════════════════════ -->
+  <section class="prosjekter" id="prosjekter">
+    <div class="prosjekter-header">
+      <div class="fade-up">
+        <div class="section-label" style="color: var(--warm-timber);">Tidligere arbeid</div>
+        <h2 class="section-title" style="color: var(--linen);">Utvalgte<br />prosjekter</h2>
+      </div>
+      <div class="fade-up fade-up-delay-1">
+        <p class="section-lead" style="max-width: 380px;">Lokale prosjekter gjennomført over 27 år i Klepp, Voll og på Jæren.</p>
+      </div>
+    </div>
+
+    <div class="prosjekter-grid">
+      <div class="prosjekt-card large fade-in">
+        <div class="proj-visual pv-1"></div>
+        <div class="prosjekt-tag">Klepp</div>
+        <div class="prosjekt-overlay">
+          <div class="prosjekt-overlay-label">Nybygg</div>
+          <div class="prosjekt-overlay-title">Enebolig, Klepp Stasjon</div>
+        </div>
+      </div>
+      <div class="prosjekt-card medium fade-in fade-up-delay-1">
+        <div class="proj-visual pv-2"></div>
+        <div class="prosjekt-tag">Voll</div>
+        <div class="prosjekt-overlay">
+          <div class="prosjekt-overlay-label">Tilbygg</div>
+          <div class="prosjekt-overlay-title">Utvidelse stue, Voll</div>
+        </div>
+      </div>
+      <div class="prosjekt-card small fade-in fade-up-delay-2">
+        <div class="proj-visual pv-3"></div>
+        <div class="prosjekt-tag">Bryne</div>
+        <div class="prosjekt-overlay">
+          <div class="prosjekt-overlay-label">Rehabilitering</div>
+          <div class="prosjekt-overlay-title">Fasaderehab, Bryne</div>
+        </div>
+      </div>
+      <div class="prosjekt-card wide fade-in fade-up-delay-3">
+        <div class="proj-visual pv-4"></div>
+        <div class="prosjekt-tag">Klepp</div>
+        <div class="prosjekt-overlay">
+          <div class="prosjekt-overlay-label">Terrasse</div>
+          <div class="prosjekt-overlay-title">Terrasse i kompositt, 48 m²</div>
+        </div>
+      </div>
+      <div class="prosjekt-card small fade-in fade-up-delay-4">
+        <div class="proj-visual pv-5"></div>
+        <div class="prosjekt-tag">Voll</div>
+        <div class="prosjekt-overlay">
+          <div class="prosjekt-overlay-label">Garasje</div>
+          <div class="prosjekt-overlay-title">Dobbeltgarasje, Voll</div>
+        </div>
+      </div>
+      <div class="prosjekt-card medium fade-in fade-up-delay-5">
+        <div class="proj-visual pv-6"></div>
+        <div class="prosjekt-tag">Jæren</div>
+        <div class="prosjekt-overlay">
+          <div class="prosjekt-overlay-label">Innredning</div>
+          <div class="prosjekt-overlay-title">Kjøkkeninnredning, Orre</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ OM OSS ═══════════════════════ -->
+  <section class="om-oss" id="om-oss">
+    <div class="om-oss-inner">
+      <div class="om-oss-visual fade-in">
+        <div class="om-visual-main"></div>
+        <div class="om-visual-accent"></div>
+        <div class="om-visual-year">Siden 1997</div>
+      </div>
+      <div class="om-oss-content fade-up">
+        <div class="section-label">Om oss</div>
+        <h2 class="section-title">Arild Byberg<br />— håndverker på<br />Jæren siden 1997.</h2>
+        <p class="om-body">
+          Arild Byberg startet sin karriere som tømrer tidlig på nittitallet og har siden bygget opp en solid virksomhet med røtter på Jæren. <strong>Med 27 år i faget</strong> kjenner han lokale byggeskikker, terreng og klimautfordringer bedre enn de fleste.
+        </p>
+        <p class="om-body">
+          Arild Byberg AS holder til på <strong>Kleppvegen 788 i Voll</strong>, bare steinkast fra Klepp. Vi er et lite firma med stor kapasitet — og vi er stolt av å alltid holde ord, holde ryddig og levere til rett tid.
+        </p>
+
+        <div class="om-values">
+          <div class="om-value">
+            <div class="om-value-title">Lokal kunnskap</div>
+            <div class="om-value-text">Jæren er hjemstedet. Vi kjenner terreng, klima og lokale krav.</div>
+          </div>
+          <div class="om-value">
+            <div class="om-value-title">Solid håndverk</div>
+            <div class="om-value-text">27 år. Vi vet hva som holder og hva som ikke gjør det.</div>
+          </div>
+          <div class="om-value">
+            <div class="om-value-title">Personlig service</div>
+            <div class="om-value-text">Du snakker alltid direkte med Arild — ikke med en sentralbord.</div>
+          </div>
+          <div class="om-value">
+            <div class="om-value-title">Ryddig og presis</div>
+            <div class="om-value-text">Vi holder tidsfrister, holder arbeidsplassen ryddig og holder ord.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ PROSESS ═══════════════════════ -->
+  <section class="prosess">
+    <div class="prosess-inner">
+      <div class="prosess-header">
+        <div class="fade-up">
+          <div class="section-label">Slik jobber vi</div>
+          <h2 class="section-title">Fra idé til<br />ferdig resultat</h2>
+        </div>
+        <div class="fade-up fade-up-delay-1">
+          <p class="section-lead">Vi tar oss tid til å forstå hva du trenger — og holder deg orientert gjennom hele prosessen.</p>
+        </div>
+      </div>
+
+      <div class="prosess-steps">
+        <div class="prosess-step fade-up">
+          <div class="step-num">01</div>
+          <div class="step-title">Kontakt og befaring</div>
+          <p class="step-text">Vi avtaler befaring, ser på tomten eller bygget, og diskuterer hva du ønsker. Ingen forpliktelse.</p>
+          <div class="step-arrow"></div>
+        </div>
+        <div class="prosess-step fade-up fade-up-delay-1">
+          <div class="step-num">02</div>
+          <div class="step-title">Tilbud og planlegging</div>
+          <p class="step-text">Du mottar et skriftlig tilbud med pris og tidsplan. Klart og uten overraskelser.</p>
+          <div class="step-arrow"></div>
+        </div>
+        <div class="prosess-step fade-up fade-up-delay-2">
+          <div class="step-num">03</div>
+          <div class="step-title">Gjennomføring</div>
+          <p class="step-text">Vi starter til avtalt tid, jobber strukturert og ryddig. Du er alltid velkomne til å spørre og følge med.</p>
+          <div class="step-arrow"></div>
+        </div>
+        <div class="prosess-step fade-up fade-up-delay-3">
+          <div class="step-num">04</div>
+          <div class="step-title">Ferdigstilling</div>
+          <p class="step-text">Vi gjennomgår prosjektet sammen og sørger for at alt er i orden før vi avslutter oppdraget.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ SERVICEOMRÅDE ═══════════════════════ -->
+  <div class="serviceomrade">
+    <div class="serviceomrade-inner">
+      <div class="serviceomrade-text fade-up">
+        <div class="section-label">Dekningsområde</div>
+        <h3>Vi opererer på<br />Jæren og omegn.</h3>
+        <p>Arild Byberg AS har base i Voll og betjener kunder i hele Klepp, Hå og Time kommuner. Ta kontakt selv om du er usikker på om vi dekker ditt område.</p>
+        <div class="area-pills">
+          <span class="area-pill">Klepp</span>
+          <span class="area-pill">Voll</span>
+          <span class="area-pill">Bryne</span>
+          <span class="area-pill">Jæren</span>
+          <span class="area-pill">Time</span>
+          <span class="area-pill">Hå</span>
+          <span class="area-pill">Sola</span>
+        </div>
+      </div>
+
+      <div class="serviceomrade-map fade-in fade-up-delay-2">
+        <div class="map-shape">
+          <!-- Klepp/Voll — primary -->
+          <div class="map-dot" style="top: 42%; left: 40%;">
+            <span class="map-dot-label">Klepp / Voll</span>
+          </div>
+          <!-- Bryne -->
+          <div class="map-dot secondary" style="top: 62%; left: 48%;">
+            <span class="map-dot-label" style="color: rgba(160,132,92,0.55);">Bryne</span>
+          </div>
+          <!-- Sola -->
+          <div class="map-dot secondary" style="top: 22%; left: 52%;">
+            <span class="map-dot-label" style="color: rgba(160,132,92,0.55);">Sola</span>
+          </div>
+          <!-- Varhaug -->
+          <div class="map-dot secondary" style="top: 78%; left: 44%;">
+            <span class="map-dot-label" style="color: rgba(160,132,92,0.55);">Hå</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════ KONTAKT ═══════════════════════ -->
+  <section class="kontakt" id="kontakt">
+    <div class="kontakt-inner">
+      <div class="kontakt-info fade-up">
+        <div class="section-label">Ta kontakt</div>
+        <h2 class="section-title">Vi er her<br />når du trenger oss.</h2>
+        <p class="section-lead" style="margin-bottom: 48px;">Ring Arild direkte, send en e-post, eller fyll ut skjemaet. Vi svarer raskt og finner en tid for befaring.</p>
+
+        <div class="kontakt-detail">
+          <div class="kontakt-detail-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          </div>
+          <div class="kontakt-detail-text">
+            <div class="label">Telefon</div>
+            <div class="value"><a href="tel:51421173">51 42 11 73</a></div>
+          </div>
+        </div>
+
+        <div class="kontakt-detail">
+          <div class="kontakt-detail-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          </div>
+          <div class="kontakt-detail-text">
+            <div class="label">E-post</div>
+            <div class="value"><a href="mailto:post@arildbyberg.no">post@arildbyberg.no</a></div>
+          </div>
+        </div>
+
+        <div class="kontakt-detail">
+          <div class="kontakt-detail-icon">
+            <svg viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <div class="kontakt-detail-text">
+            <div class="label">Adresse</div>
+            <div class="value">Kleppvegen 788, Voll</div>
+          </div>
+        </div>
+
+        <div class="kontakt-detail">
+          <div class="kontakt-detail-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="kontakt-detail-text">
+            <div class="label">Åpningstider</div>
+            <div class="value">Man–fre: 07:00–16:00</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="kontakt-form fade-up fade-up-delay-2">
+        <div class="form-title">Be om tilbud</div>
+        <div class="form-subtitle">Vi tar kontakt innen én virkedag.</div>
+
+        <div class="form-group-row">
+          <div class="form-group">
+            <label for="fornavn">Fornavn</label>
+            <input type="text" id="fornavn" placeholder="Ola" />
+          </div>
+          <div class="form-group">
+            <label for="etternavn">Etternavn</label>
+            <input type="text" id="etternavn" placeholder="Nordmann" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="telefon">Telefon</label>
+          <input type="tel" id="telefon" placeholder="900 00 000" />
+        </div>
+
+        <div class="form-group">
+          <label for="tjeneste">Hva gjelder det?</label>
+          <select id="tjeneste">
+            <option value="">Velg tjeneste...</option>
+            <option>Nybygg</option>
+            <option>Tilbygg</option>
+            <option>Rehabilitering</option>
+            <option>Innredning</option>
+            <option>Terrasse</option>
+            <option>Garasje</option>
+            <option>Annet</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="melding">Beskriv prosjektet</label>
+          <textarea id="melding" placeholder="Fortell litt om hva du ønsker å gjøre..."></textarea>
+        </div>
+
+        <button class="form-submit" type="button">Send forespørsel</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand-name">Arild Byberg AS</div>
+          <div class="footer-brand-sub">Tømrer · Jæren · Siden 1997</div>
+          <p class="footer-brand-text">Solid tømrerhåndverk med lokal forankring på Jæren. Fra Kleppvegen 788 i Voll betjener vi kunder over hele Klepp, Time og Hå.</p>
+        </div>
+        <div>
+          <div class="footer-col-title">Tjenester</div>
+          <ul class="footer-links">
+            <li><a href="#tjenester">Nybygg</a></li>
+            <li><a href="#tjenester">Tilbygg</a></li>
+            <li><a href="#tjenester">Rehabilitering</a></li>
+            <li><a href="#tjenester">Innredning</a></li>
+            <li><a href="#tjenester">Terrasse og garasje</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Kontakt</div>
+          <ul class="footer-links">
+            <li><a href="tel:51421173">51 42 11 73</a></li>
+            <li><a href="mailto:post@arildbyberg.no">post@arildbyberg.no</a></li>
+            <li><a href="#">Kleppvegen 788, Voll</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copy">&copy; 2024 Arild Byberg AS. Alle rettigheter forbeholdt.</div>
+        <div class="footer-org">Org.nr. 123 456 789</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Nav toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+
+    // Smooth close on link click
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+
+    // Scroll animations
+    const fadeEls = document.querySelectorAll('.fade-up, .fade-in');
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    );
+
+    fadeEls.forEach(el => observer.observe(el));
+
+    // Nav background on scroll
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 60) {
+        nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.3)';
+      } else {
+        nav.style.boxShadow = 'none';
+      }
+    });
+  </script>
+</body>
+</html>

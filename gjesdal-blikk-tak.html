@@ -1,0 +1,2345 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gjesdal Blikk &amp; Tak AS – Takarbeid og blikkenslager, Ålgård</title>
+  <meta name="description" content="Gjesdal Blikk & Tak AS – Profesjonelt takarbeid og blikkenslagerarbeid i Gjesdal, Sandnes og Stavanger-regionen. 20 år med erfaring. Vi holder tett." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='3' fill='%232C3E50'/%3E%3Cpath d='M4 20 L16 8 L28 20' stroke='%23E67E22' stroke-width='2.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cline x1='8' y1='20' x2='24' y2='20' stroke='%23E67E22' stroke-width='2' stroke-linecap='round'/%3E%3Cline x1='16' y1='20' x2='16' y2='26' stroke='%23E67E22' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E" />
+
+  <style>
+    /* ============================
+       RESET & BASE
+    ============================ */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --slate:     #2C3E50;
+      --slate-lt:  #3D5166;
+      --metal:     #7F8C8D;
+      --metal-lt:  #A8B4B5;
+      --copper:    #E67E22;
+      --copper-lt: #F0A055;
+      --light:     #ECF0F1;
+      --light-dk:  #DDE3E4;
+      --white:     #FFFFFF;
+      --ink:       #1A2332;
+      --muted:     #5D6E7E;
+      --border:    rgba(127,140,141,0.22);
+      --border-lt: rgba(127,140,141,0.12);
+
+      --ff: 'IBM Plex Sans', sans-serif;
+      --max: 1200px;
+      --radius: 2px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--ff);
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--ink);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+
+    /* ============================
+       SCROLL ANIMATIONS
+    ============================ */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .fade-left {
+      opacity: 0;
+      transform: translateX(-24px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .fade-left.visible { opacity: 1; transform: translateX(0); }
+    .fade-right {
+      opacity: 0;
+      transform: translateX(24px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .fade-right.visible { opacity: 1; transform: translateX(0); }
+
+    .fade-up.delay-1, .fade-left.delay-1, .fade-right.delay-1 { transition-delay: 0.1s; }
+    .fade-up.delay-2, .fade-left.delay-2, .fade-right.delay-2 { transition-delay: 0.2s; }
+    .fade-up.delay-3, .fade-left.delay-3, .fade-right.delay-3 { transition-delay: 0.3s; }
+    .fade-up.delay-4, .fade-left.delay-4, .fade-right.delay-4 { transition-delay: 0.4s; }
+    .fade-up.delay-5 { transition-delay: 0.5s; }
+
+    /* ============================
+       TYPOGRAPHY
+    ============================ */
+    h1, h2, h3, h4 {
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    .label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--copper);
+    }
+
+    .label.light { color: rgba(230,126,34,0.85); }
+
+    .section-title {
+      font-size: clamp(28px, 4vw, 44px);
+      color: var(--slate);
+    }
+
+    .section-title.on-dark { color: #fff; }
+
+    .lead {
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--muted);
+    }
+
+    .lead.on-dark { color: rgba(255,255,255,0.55); }
+
+    /* ============================
+       LAYOUT
+    ============================ */
+    .container {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    section { padding: 100px 0; }
+
+    .section-header { margin-bottom: 64px; }
+    .section-header .label { margin-bottom: 14px; }
+    .section-header .section-title { margin-bottom: 20px; }
+    .section-header .lead { max-width: 560px; }
+
+    /* ============================
+       ACCENT LINE
+    ============================ */
+    .orange-line {
+      width: 44px;
+      height: 3px;
+      background: var(--copper);
+      display: block;
+      margin: 18px 0 0;
+    }
+
+    /* ============================
+       NAV
+    ============================ */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(44, 62, 80, 0.97);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(230,126,34,0.15);
+    }
+
+    .nav-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 40px;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* Roof icon */
+    .nav-logo-icon {
+      width: 34px;
+      height: 34px;
+      background: var(--copper);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-logo-icon svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .nav-logo-text {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .nav-logo-main {
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .nav-logo-sub {
+      font-size: 10px;
+      font-weight: 400;
+      color: rgba(230,126,34,0.75);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.65);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--copper-lt); }
+
+    .nav-cta {
+      background: var(--copper) !important;
+      color: #fff !important;
+      padding: 9px 20px !important;
+      border-radius: var(--radius) !important;
+      transition: background 0.2s !important;
+    }
+
+    .nav-cta:hover { background: var(--copper-lt) !important; color: #fff !important; }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #fff;
+      border-radius: 2px;
+    }
+
+    /* ============================
+       HERO
+    ============================ */
+    #hero {
+      min-height: 100vh;
+      background: var(--slate);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      padding: 0;
+    }
+
+    /* Geometric metal/roof pattern background */
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(160deg, #1E2D40 0%, #2C3E50 40%, #243242 100%);
+    }
+
+    /* Metal panel / corrugated effect */
+    .hero-panels {
+      position: absolute;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(
+          180deg,
+          transparent,
+          transparent 44px,
+          rgba(255,255,255,0.025) 44px,
+          rgba(255,255,255,0.025) 46px
+        ),
+        repeating-linear-gradient(
+          90deg,
+          transparent,
+          transparent 80px,
+          rgba(0,0,0,0.04) 80px,
+          rgba(0,0,0,0.04) 82px
+        );
+    }
+
+    /* Diagonal copper accent band */
+    .hero-accent-band {
+      position: absolute;
+      top: -20%;
+      right: -5%;
+      width: 55%;
+      height: 140%;
+      background: linear-gradient(135deg, transparent 30%, rgba(230,126,34,0.06) 50%, transparent 70%);
+      transform: skewX(-8deg);
+    }
+
+    /* Large background number */
+    .hero-bg-num {
+      position: absolute;
+      right: -20px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: clamp(200px, 20vw, 360px);
+      font-weight: 700;
+      color: rgba(230,126,34,0.055);
+      letter-spacing: -0.06em;
+      line-height: 1;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    /* Animated diagonal stripes (copper) */
+    .hero-stripe {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(180deg, transparent 0%, rgba(230,126,34,0.18) 30%, rgba(230,126,34,0.18) 70%, transparent 100%);
+    }
+
+    .hero-stripe:nth-child(1) { right: 30%; }
+    .hero-stripe:nth-child(2) { right: 28.5%; opacity: 0.5; }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 120px 40px 90px;
+      width: 100%;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(230,126,34,0.15);
+      border: 1px solid rgba(230,126,34,0.3);
+      border-radius: 100px;
+      padding: 6px 16px 6px 8px;
+      margin-bottom: 32px;
+    }
+
+    .hero-badge-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--copper);
+      border-radius: 50%;
+    }
+
+    .hero-badge-text {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--copper-lt);
+    }
+
+    .hero-headline {
+      font-size: clamp(40px, 7vw, 90px);
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.03em;
+      line-height: 1.0;
+      margin-bottom: 20px;
+    }
+
+    .hero-headline em {
+      font-style: normal;
+      color: var(--copper);
+    }
+
+    .hero-tagline {
+      font-size: clamp(18px, 2.5vw, 28px);
+      font-weight: 300;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: -0.01em;
+      margin-bottom: 36px;
+      line-height: 1.3;
+    }
+
+    .hero-tagline strong {
+      font-weight: 600;
+      color: rgba(255,255,255,0.75);
+    }
+
+    .hero-body {
+      font-size: 16px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.5);
+      max-width: 500px;
+      line-height: 1.75;
+      margin-bottom: 52px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--copper);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 16px 36px;
+      border-radius: var(--radius);
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-primary:hover {
+      background: var(--copper-lt);
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      display: inline-block;
+      border: 1px solid rgba(255,255,255,0.22);
+      color: rgba(255,255,255,0.75);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 15px 36px;
+      border-radius: var(--radius);
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--copper);
+      color: var(--copper);
+    }
+
+    /* Hero stats bar */
+    .hero-stats {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0,0,0,0.25);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-stats-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 40px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .h-stat {
+      padding: 26px 0;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .h-stat:last-child { border-right: none; }
+
+    .h-stat-num {
+      font-size: 30px;
+      font-weight: 700;
+      color: var(--copper);
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+
+    .h-stat-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-top: 5px;
+    }
+
+    /* ============================
+       USP BAND
+    ============================ */
+    .usp-band {
+      background: var(--light);
+      padding: 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .usp-band-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 40px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .usp-item {
+      padding: 44px 36px;
+      border-right: 1px solid var(--border);
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .usp-item:last-child { border-right: none; }
+
+    .usp-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--slate);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .usp-icon svg { width: 22px; height: 22px; }
+
+    .usp-item h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--slate);
+      margin-bottom: 5px;
+      letter-spacing: -0.01em;
+    }
+
+    .usp-item p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* ============================
+       TJENESTER
+    ============================ */
+    #tjenester {
+      background: var(--white);
+    }
+
+    .tjenester-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .tj-card {
+      background: var(--light);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 44px 40px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .tj-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--copper);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s;
+    }
+
+    .tj-card:hover::after { transform: scaleX(1); }
+
+    .tj-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 44px rgba(44,62,80,0.1);
+    }
+
+    /* Large decorative background number on card */
+    .tj-card-bg-num {
+      position: absolute;
+      right: -10px;
+      bottom: -20px;
+      font-size: 100px;
+      font-weight: 700;
+      color: rgba(44,62,80,0.04);
+      letter-spacing: -0.04em;
+      line-height: 1;
+      user-select: none;
+    }
+
+    .tj-icon {
+      width: 50px;
+      height: 50px;
+      background: var(--slate);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .tj-icon svg { width: 26px; height: 26px; }
+
+    .tj-card h3 {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--slate);
+      margin-bottom: 12px;
+      letter-spacing: -0.015em;
+    }
+
+    .tj-card p {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 22px;
+    }
+
+    .tj-list {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .tj-list li {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--slate-lt);
+      letter-spacing: 0.03em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .tj-list li::before {
+      content: '';
+      display: block;
+      width: 14px;
+      height: 2px;
+      background: var(--copper);
+      flex-shrink: 0;
+    }
+
+    /* ============================
+       PROSJEKTER
+    ============================ */
+    #prosjekter {
+      background: var(--slate);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .prosjekter-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 80% 30%, rgba(230,126,34,0.07) 0%, transparent 60%),
+        linear-gradient(180deg, #2C3E50 0%, #1E2D3E 100%);
+    }
+
+    .prosjekter-panel-bg {
+      position: absolute;
+      inset: 0;
+      opacity: 0.03;
+      background-image:
+        repeating-linear-gradient(
+          180deg,
+          transparent,
+          transparent 50px,
+          rgba(255,255,255,0.5) 50px,
+          rgba(255,255,255,0.5) 51px
+        );
+    }
+
+    .prosjekter-inner {
+      position: relative;
+      z-index: 2;
+    }
+
+    .prosjekter-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .proj-card {
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.07);
+      background: rgba(255,255,255,0.04);
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+    }
+
+    .proj-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 44px rgba(0,0,0,0.3);
+      border-color: rgba(230,126,34,0.3);
+    }
+
+    .proj-thumb {
+      height: 180px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Different metal/roof color schemes */
+    .proj-thumb-1 {
+      background: linear-gradient(135deg, #2C3E50 0%, #4A6080 40%, #364A5A 100%);
+    }
+    .proj-thumb-2 {
+      background: linear-gradient(135deg, #3C4A5A 0%, #566878 50%, #2A3848 100%);
+    }
+    .proj-thumb-3 {
+      background: linear-gradient(135deg, #1E2D3A 0%, #4A5E70 50%, #2C3E50 100%);
+    }
+    .proj-thumb-4 {
+      background: linear-gradient(135deg, #485260 0%, #2C3A48 40%, #5A6A7A 100%);
+    }
+    .proj-thumb-5 {
+      background: linear-gradient(135deg, #3A4A5C 0%, #5C6A7A 50%, #283848 100%);
+    }
+    .proj-thumb-6 {
+      background: linear-gradient(135deg, #243040 0%, #48606E 50%, #1E2C3A 100%);
+    }
+
+    /* Metal panel overlay */
+    .proj-thumb::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        180deg,
+        transparent,
+        transparent 20px,
+        rgba(0,0,0,0.12) 20px,
+        rgba(0,0,0,0.12) 22px
+      );
+    }
+
+    /* Roof shape SVG overlay */
+    .proj-thumb::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: linear-gradient(180deg, transparent, rgba(0,0,0,0.35));
+    }
+
+    .proj-thumb-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      z-index: 2;
+      background: var(--copper);
+      color: #fff;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 1px;
+    }
+
+    .proj-info {
+      padding: 22px;
+    }
+
+    .proj-type {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--copper);
+      margin-bottom: 6px;
+    }
+
+    .proj-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 5px;
+      letter-spacing: -0.01em;
+    }
+
+    .proj-location {
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+    }
+
+    /* ============================
+       KVALITET (certifications)
+    ============================ */
+    #kvalitet {
+      background: var(--white);
+    }
+
+    .kvalitet-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    /* Certification / guarantee blocks */
+    .guarantee-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .g-card {
+      background: var(--light);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      transition: border-color 0.2s;
+    }
+
+    .g-card:hover { border-color: var(--copper); }
+
+    .g-card-num {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--copper);
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .g-card h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--slate);
+      margin-bottom: 6px;
+    }
+
+    .g-card p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* Visual - roof cross-section */
+    .roof-visual {
+      position: relative;
+      padding: 40px;
+      background: var(--slate);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .roof-visual-bg {
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        180deg,
+        transparent,
+        transparent 32px,
+        rgba(255,255,255,0.025) 32px,
+        rgba(255,255,255,0.025) 34px
+      );
+    }
+
+    /* CSS roof cross-section illustration */
+    .roof-diagram {
+      position: relative;
+      z-index: 2;
+    }
+
+    .roof-shape {
+      width: 100%;
+      height: 180px;
+      position: relative;
+      margin-bottom: 16px;
+    }
+
+    /* Roof peak shape */
+    .roof-peak {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 160px solid transparent;
+      border-right: 160px solid transparent;
+      border-bottom: 180px solid rgba(230,126,34,0.3);
+    }
+
+    /* Metal layer */
+    .roof-metal-layer {
+      position: absolute;
+      bottom: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 148px solid transparent;
+      border-right: 148px solid transparent;
+      border-bottom: 160px solid rgba(127,140,141,0.25);
+    }
+
+    /* Underlayer */
+    .roof-under-layer {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 135px solid transparent;
+      border-right: 135px solid transparent;
+      border-bottom: 145px solid rgba(44,62,80,0.5);
+    }
+
+    /* Ridge cap */
+    .roof-ridge {
+      position: absolute;
+      top: 4px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 20px;
+      background: var(--copper);
+      border-radius: 1px 1px 0 0;
+      z-index: 3;
+    }
+
+    .roof-labels {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+
+    .roof-label-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .roof-label-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+
+    .dot-copper { background: var(--copper); }
+    .dot-metal  { background: var(--metal-lt); }
+    .dot-slate  { background: rgba(100,120,140,0.8); }
+
+    /* Certifications list */
+    .cert-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .cert-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .cert-check {
+      width: 24px;
+      height: 24px;
+      background: rgba(230,126,34,0.12);
+      border: 1px solid rgba(230,126,34,0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .cert-check svg { width: 12px; height: 12px; }
+
+    .cert-item-text {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .cert-item-text strong {
+      color: var(--slate);
+      font-weight: 600;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* ============================
+       OM OSS
+    ============================ */
+    #om-oss {
+      background: var(--light);
+      position: relative;
+    }
+
+    .om-oss-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .om-oss-text h3 {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--slate);
+      margin-bottom: 18px;
+      letter-spacing: -0.01em;
+    }
+
+    .om-oss-text p {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 20px;
+    }
+
+    .om-oss-text strong { color: var(--slate); font-weight: 600; }
+
+    /* Decorative metal plate info boxes */
+    .info-plates {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .info-plate {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+
+    .info-plate-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--copper);
+      margin-bottom: 6px;
+    }
+
+    .info-plate-val {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--slate);
+    }
+
+    /* Visual side — CSS "building/roofline" */
+    .building-visual {
+      position: relative;
+    }
+
+    .building-scene {
+      background: var(--slate);
+      border-radius: var(--radius);
+      padding: 40px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .building-scene-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, #1E2D40 0%, #2C3E50 100%);
+    }
+
+    .building-scene-panels {
+      position: absolute;
+      inset: 0;
+      opacity: 0.04;
+      background-image:
+        repeating-linear-gradient(
+          90deg,
+          transparent,
+          transparent 28px,
+          rgba(255,255,255,0.8) 28px,
+          rgba(255,255,255,0.8) 30px
+        );
+    }
+
+    .building-svg-wrap {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Values stripe */
+    .values-stripe {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-top: 36px;
+    }
+
+    .vs-item {
+      background: var(--white);
+      padding: 24px 20px;
+      text-align: center;
+    }
+
+    .vs-num {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--copper);
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+
+    .vs-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--slate);
+    }
+
+    /* ============================
+       AREA BAND
+    ============================ */
+    .area-band {
+      background: var(--slate);
+      padding: 56px 0;
+    }
+
+    .area-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .area-left .label { margin-bottom: 8px; }
+
+    .area-left h3 {
+      font-size: 22px;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .area-tags {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .area-tag {
+      border: 1px solid rgba(230,126,34,0.35);
+      color: rgba(255,255,255,0.75);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 8px 16px;
+      border-radius: 1px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .area-tag:hover {
+      background: rgba(230,126,34,0.15);
+      color: var(--copper-lt);
+    }
+
+    /* ============================
+       TESTIMONIAL BAND
+    ============================ */
+    .testimonial-band {
+      background: var(--copper);
+      padding: 64px 0;
+    }
+
+    .testimonial-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 40px;
+      text-align: center;
+    }
+
+    .testimonial-quote {
+      font-size: clamp(18px, 2.5vw, 24px);
+      font-weight: 300;
+      color: #fff;
+      line-height: 1.6;
+      letter-spacing: -0.01em;
+      margin-bottom: 24px;
+    }
+
+    .testimonial-author {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+    }
+
+    /* ============================
+       KONTAKT
+    ============================ */
+    #kontakt {
+      background: var(--white);
+    }
+
+    .kontakt-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .kontakt-left .label { margin-bottom: 14px; }
+
+    .kontakt-title {
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 700;
+      color: var(--slate);
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+
+    .kontakt-body {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 44px;
+    }
+
+    .contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .contact-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 16px;
+      background: var(--light);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: border-color 0.2s;
+    }
+
+    .contact-row:hover { border-color: var(--copper); }
+
+    .contact-row-icon {
+      width: 38px;
+      height: 38px;
+      background: var(--slate);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .contact-row-icon svg { width: 18px; height: 18px; }
+
+    .contact-row-lbl {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--copper);
+      margin-bottom: 3px;
+    }
+
+    .contact-row-val {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--slate);
+    }
+
+    /* Right side form */
+    .kontakt-form {
+      background: var(--light);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 44px;
+    }
+
+    .form-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--slate);
+      margin-bottom: 28px;
+      letter-spacing: -0.01em;
+    }
+
+    .form-group { margin-bottom: 18px; }
+
+    .form-group label {
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--copper);
+      margin-bottom: 7px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 12px 16px;
+      font-family: var(--ff);
+      font-size: 15px;
+      color: var(--ink);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: var(--metal-lt);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--copper);
+    }
+
+    .form-group textarea { min-height: 110px; resize: vertical; }
+    .form-group select { appearance: none; cursor: pointer; }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .form-submit {
+      width: 100%;
+      background: var(--slate);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius);
+      padding: 15px;
+      font-family: var(--ff);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .form-submit:hover { background: var(--copper); }
+
+    /* ============================
+       FOOTER
+    ============================ */
+    footer {
+      background: var(--slate);
+      padding: 52px 0 32px;
+      border-top: 3px solid var(--copper);
+    }
+
+    .footer-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 28px;
+    }
+
+    .footer-logo-main {
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .footer-logo-sub {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      color: rgba(255,255,255,0.35);
+      margin-top: 3px;
+    }
+
+    .footer-center {
+      font-size: 13px;
+      color: rgba(255,255,255,0.3);
+      text-align: center;
+    }
+
+    .footer-right {
+      font-size: 12px;
+      color: rgba(255,255,255,0.3);
+      text-align: right;
+    }
+
+    /* ============================
+       MOBILE
+    ============================ */
+    @media (max-width: 900px) {
+      .container { padding: 0 24px; }
+      section { padding: 72px 0; }
+
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 68px;
+        left: 0;
+        right: 0;
+        background: rgba(44,62,80,0.98);
+        padding: 24px;
+        gap: 20px;
+        border-bottom: 1px solid rgba(230,126,34,0.2);
+        z-index: 99;
+      }
+
+      .nav-links.open a {
+        font-size: 15px;
+        color: rgba(255,255,255,0.8);
+      }
+
+      .hero-content { padding: 110px 24px 180px; }
+      .hero-bg-num { font-size: 140px; opacity: 0.5; }
+      .hero-stripe { display: none; }
+
+      .hero-stats-inner {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 24px;
+      }
+
+      .h-stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
+      .h-stat:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.07); }
+      .h-stat:last-child, .h-stat:nth-last-child(2) { border-bottom: none; }
+
+      .usp-band-inner { grid-template-columns: 1fr; }
+      .usp-item { border-right: none; border-bottom: 1px solid var(--border); }
+      .usp-item:last-child { border-bottom: none; }
+
+      .tjenester-grid { grid-template-columns: 1fr; }
+
+      .prosjekter-grid { grid-template-columns: 1fr 1fr; }
+
+      .kvalitet-grid { grid-template-columns: 1fr; gap: 48px; }
+
+      .om-oss-grid { grid-template-columns: 1fr; gap: 48px; }
+
+      .area-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 24px;
+      }
+
+      .kontakt-grid { grid-template-columns: 1fr; gap: 48px; }
+
+      .footer-inner { flex-direction: column; align-items: flex-start; padding: 0 24px; }
+      .footer-right { text-align: left; }
+
+      .usp-band-inner { padding: 0; }
+    }
+
+    @media (max-width: 600px) {
+      .prosjekter-grid { grid-template-columns: 1fr; }
+      .guarantee-cards { grid-template-columns: 1fr; }
+      .info-plates { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .kontakt-form { padding: 28px 20px; }
+      .values-stripe { grid-template-columns: 1fr; }
+      .hero-actions { flex-direction: column; align-items: flex-start; }
+      .btn-primary, .btn-ghost { width: 100%; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===========================
+       NAV
+  =========================== -->
+  <nav id="mainNav">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">
+        <div class="nav-logo-icon">
+          <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 14 L10 4 L18 14" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="5" y1="14" x2="15" y2="14" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+            <line x1="10" y1="14" x2="10" y2="18" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="nav-logo-text">
+          <span class="nav-logo-main">Gjesdal Blikk &amp; Tak</span>
+          <span class="nav-logo-sub">Takarbeid · Ålgård</span>
+        </div>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#tjenester">Tjenester</a></li>
+        <li><a href="#prosjekter">Prosjekter</a></li>
+        <li><a href="#kvalitet">Kvalitet</a></li>
+        <li><a href="#om-oss">Om oss</a></li>
+        <li><a href="#kontakt" class="nav-cta">Ta kontakt</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Åpne meny">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===========================
+       HERO
+  =========================== -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-panels"></div>
+    <div class="hero-accent-band"></div>
+    <div class="hero-bg-num">20</div>
+    <div class="hero-stripe"></div>
+    <div class="hero-stripe"></div>
+
+    <div class="hero-content">
+      <div class="hero-badge fade-up visible">
+        <div class="hero-badge-dot"></div>
+        <span class="hero-badge-text">20 år med tak over hodet</span>
+      </div>
+
+      <h1 class="hero-headline fade-up visible delay-1">
+        Vi holder<br /><em>tett.</em>
+      </h1>
+
+      <p class="hero-tagline fade-up visible delay-2">
+        <strong>Profesjonelt takarbeid</strong> og blikkenslagerarbeid
+        i Gjesdal, Sandnes og hele Stavanger-regionen.
+      </p>
+
+      <p class="hero-body fade-up visible delay-3">
+        Gjesdal Blikk &amp; Tak AS har i 20 år levert solid takarbeid til både
+        privatpersoner og næringskunder. Vi jobber presist, ryddig og med materialer
+        som holder i tiår. Hvert tak vi legger, skal du kunne stole på.
+      </p>
+
+      <div class="hero-actions fade-up visible delay-4">
+        <a href="#kontakt" class="btn-primary">Be om befaring</a>
+        <a href="#tjenester" class="btn-ghost">Se tjenester</a>
+      </div>
+    </div>
+
+    <div class="hero-stats">
+      <div class="hero-stats-inner">
+        <div class="h-stat fade-up visible">
+          <div class="h-stat-num">20+</div>
+          <div class="h-stat-label">Års erfaring</div>
+        </div>
+        <div class="h-stat fade-up visible delay-1">
+          <div class="h-stat-num">500+</div>
+          <div class="h-stat-label">Fullførte prosjekter</div>
+        </div>
+        <div class="h-stat fade-up visible delay-2">
+          <div class="h-stat-num">2</div>
+          <div class="h-stat-label">Sektorer — privat &amp; næring</div>
+        </div>
+        <div class="h-stat fade-up visible delay-3">
+          <div class="h-stat-num">Jæren</div>
+          <div class="h-stat-label">Arbeidsområde</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       USP BAND
+  =========================== -->
+  <div class="usp-band">
+    <div class="usp-band-inner">
+
+      <div class="usp-item fade-up">
+        <div class="usp-icon">
+          <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11 2L3 9V20H8V14H14V20H19V9L11 2Z" stroke="#E67E22" stroke-width="1.6" fill="none" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div>
+          <h4>Privat og næring</h4>
+          <p>Vi legger tak på eneboliger, næringsbygg, landbruk og industri — med samme presisjon uansett størrelse.</p>
+        </div>
+      </div>
+
+      <div class="usp-item fade-up delay-1">
+        <div class="usp-icon">
+          <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="11" cy="11" r="8.5" stroke="#E67E22" stroke-width="1.6" fill="none"/>
+            <path d="M7 11L10 14L15 8" stroke="#E67E22" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </div>
+        <div>
+          <h4>Garanti på arbeidet</h4>
+          <p>Vi gir skriftlig garanti på alle våre leveranser — og stiller opp dersom noe ikke er som det skal.</p>
+        </div>
+      </div>
+
+      <div class="usp-item fade-up delay-2">
+        <div class="usp-icon">
+          <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="3" width="16" height="16" rx="1.5" stroke="#E67E22" stroke-width="1.6" fill="none"/>
+            <line x1="7" y1="9" x2="15" y2="9" stroke="#E67E22" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="7" y1="12" x2="12" y2="12" stroke="#E67E22" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <h4>Klart tilbud</h4>
+          <p>Vi befarer og gir deg et skriftlig tilbud uten overraskelser. Det vi sier, det koster.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===========================
+       TJENESTER
+  =========================== -->
+  <section id="tjenester">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="label">Hva vi gjør</span>
+        <h2 class="section-title">Tjenester</h2>
+        <p class="lead">
+          Fra taklegging og beslag til ventilasjon og blikkenslagerarbeid —
+          vi dekker hele fasaden for deg.
+        </p>
+        <span class="orange-line"></span>
+      </div>
+
+      <div class="tjenester-grid">
+
+        <!-- Taklegging -->
+        <div class="tj-card fade-up">
+          <div class="tj-card-bg-num">01</div>
+          <div class="tj-icon">
+            <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 18 L13 5 L23 18" stroke="#E67E22" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <line x1="3" y1="18" x2="23" y2="18" stroke="#E67E22" stroke-width="1.8" stroke-linecap="round"/>
+              <line x1="13" y1="18" x2="13" y2="23" stroke="#E67E22" stroke-width="1.8" stroke-linecap="round"/>
+              <line x1="8" y1="23" x2="18" y2="23" stroke="#E67E22" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Taklegging</h3>
+          <p>
+            Vi legger alle typer tak — fra tradisjonelt tegltak til moderne metalltakplater
+            og stålprofiler. Riktig utførelse sikrer at taket holder i tiår uten problemer.
+          </p>
+          <ul class="tj-list">
+            <li>Metalltakplater og stålprofiler</li>
+            <li>Tegltakstein og betong</li>
+            <li>Bølgeeternitt og fibersement</li>
+            <li>Topasitas/asfaltbelegg</li>
+            <li>Flattak og papptak</li>
+            <li>Rehabilitering av eksisterende tak</li>
+          </ul>
+        </div>
+
+        <!-- Beslag -->
+        <div class="tj-card fade-up delay-1">
+          <div class="tj-card-bg-num">02</div>
+          <div class="tj-icon">
+            <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="3" y="8" width="20" height="10" rx="1" stroke="#E67E22" stroke-width="1.8" fill="none"/>
+              <line x1="3" y1="12" x2="23" y2="12" stroke="#E67E22" stroke-width="1.5" stroke-dasharray="3 2"/>
+              <path d="M7 8 L7 5 L19 5 L19 8" stroke="#E67E22" stroke-width="1.8" fill="none"/>
+              <line x1="7" y1="18" x2="7" y2="21" stroke="#E67E22" stroke-width="1.8" stroke-linecap="round"/>
+              <line x1="19" y1="18" x2="19" y2="21" stroke="#E67E22" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Beslag &amp; tekking</h3>
+          <p>
+            Beslag er det som holder taket tett der materialer møtes. Vi produserer og monterer
+            beslag i sink, kobber, aluminium og stål — tilpasset hvert tak.
+          </p>
+          <ul class="tj-list">
+            <li>Mønebeslag og fotbeslag</li>
+            <li>Rennebeslag og nedløp</li>
+            <li>Veggbeslag og vindbeslag</li>
+            <li>Takvinduer og lysluker</li>
+            <li>Takpiper og gjennomføringer</li>
+            <li>Kopperfasader og spesialproduksjon</li>
+          </ul>
+        </div>
+
+        <!-- Ventilasjon -->
+        <div class="tj-card fade-up delay-2">
+          <div class="tj-card-bg-num">03</div>
+          <div class="tj-icon">
+            <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="13" cy="13" r="9" stroke="#E67E22" stroke-width="1.8" fill="none"/>
+              <path d="M13 4 C13 4 16 9 13 13 C10 17 13 22 13 22" stroke="#E67E22" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+              <path d="M4 13 C4 13 9 10 13 13 C17 16 22 13 22 13" stroke="#E67E22" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Ventilasjon &amp; takavsug</h3>
+          <p>
+            Riktig ventilasjon forlenger levetiden på taket og innemiljøet. Vi prosjekterer
+            og installerer ventilasjonsgjennomføringer og takavsug.
+          </p>
+          <ul class="tj-list">
+            <li>Takavsug og takvifte</li>
+            <li>Ventilasjonsgjennomføringer</li>
+            <li>Takluker og åpningsvinduer</li>
+            <li>Fuktskjerm og undertak</li>
+            <li>Loft- og kjellerventilasjon</li>
+          </ul>
+        </div>
+
+        <!-- Blikkenslager -->
+        <div class="tj-card fade-up delay-3">
+          <div class="tj-card-bg-num">04</div>
+          <div class="tj-icon">
+            <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 20 L22 4" stroke="#E67E22" stroke-width="1.8" stroke-linecap="round"/>
+              <rect x="14" y="3" width="9" height="5" rx="1" stroke="#E67E22" stroke-width="1.6" fill="none"/>
+              <rect x="3" y="18" width="9" height="5" rx="1" stroke="#E67E22" stroke-width="1.6" fill="none"/>
+              <circle cx="13" cy="13" r="2.5" stroke="#E67E22" stroke-width="1.6" fill="none"/>
+            </svg>
+          </div>
+          <h3>Blikkenslagerarbeid</h3>
+          <p>
+            Presisjonsblikkenslagerarbeid for fasader, tårn, balkonger og alle utvendige flater
+            som krever metallets holdbarhet og estetikk.
+          </p>
+          <ul class="tj-list">
+            <li>Fasadeblikk og kledning</li>
+            <li>Balkonger og terrasser i metall</li>
+            <li>Piper og gjennomføringer</li>
+            <li>Spesialtilpassede løsninger</li>
+            <li>Kobber- og sinkarbeider</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       PROSJEKTER
+  =========================== -->
+  <section id="prosjekter">
+    <div class="prosjekter-bg"></div>
+    <div class="prosjekter-panel-bg"></div>
+    <div class="container">
+      <div class="prosjekter-inner">
+        <div class="section-header fade-up">
+          <span class="label light">Utvalgte referanser</span>
+          <h2 class="section-title on-dark">Prosjekter</h2>
+          <p class="lead on-dark">
+            Vi har lagt tak på alt fra eneboliger i Gjesdal til store næringsbygg
+            i Sandnes og Stavanger. Her er et lite knippe referanser.
+          </p>
+          <span class="orange-line"></span>
+        </div>
+
+        <div class="prosjekter-grid">
+
+          <div class="proj-card fade-up">
+            <div class="proj-thumb proj-thumb-1">
+              <span class="proj-thumb-badge">Privat</span>
+            </div>
+            <div class="proj-info">
+              <div class="proj-type">Taklegging</div>
+              <div class="proj-name">Rehabilitering — enebolig</div>
+              <div class="proj-location">Ålgård, Gjesdal</div>
+            </div>
+          </div>
+
+          <div class="proj-card fade-up delay-1">
+            <div class="proj-thumb proj-thumb-2">
+              <span class="proj-thumb-badge">Næring</span>
+            </div>
+            <div class="proj-info">
+              <div class="proj-type">Metalltakplater</div>
+              <div class="proj-name">Næringsbygg — nytt tak</div>
+              <div class="proj-location">Sandnes</div>
+            </div>
+          </div>
+
+          <div class="proj-card fade-up delay-2">
+            <div class="proj-thumb proj-thumb-3">
+              <span class="proj-thumb-badge">Privat</span>
+            </div>
+            <div class="proj-info">
+              <div class="proj-type">Beslag &amp; tekking</div>
+              <div class="proj-name">Takgjennomføringer og beslag</div>
+              <div class="proj-location">Bryne, Time</div>
+            </div>
+          </div>
+
+          <div class="proj-card fade-up delay-1">
+            <div class="proj-thumb proj-thumb-4">
+              <span class="proj-thumb-badge">Industri</span>
+            </div>
+            <div class="proj-info">
+              <div class="proj-type">Industritaklegging</div>
+              <div class="proj-name">Lagerhall — komplett tak</div>
+              <div class="proj-location">Forus, Sandnes</div>
+            </div>
+          </div>
+
+          <div class="proj-card fade-up delay-2">
+            <div class="proj-thumb proj-thumb-5">
+              <span class="proj-thumb-badge">Landbruk</span>
+            </div>
+            <div class="proj-info">
+              <div class="proj-type">Landbruksbygg</div>
+              <div class="proj-name">Driftsbygning — stålprofiltak</div>
+              <div class="proj-location">Klepp</div>
+            </div>
+          </div>
+
+          <div class="proj-card fade-up delay-3">
+            <div class="proj-thumb proj-thumb-6">
+              <span class="proj-thumb-badge">Privat</span>
+            </div>
+            <div class="proj-info">
+              <div class="proj-type">Takvindu &amp; ventilasjon</div>
+              <div class="proj-name">Takvindu og ventilasjon</div>
+              <div class="proj-location">Figgjo, Gjesdal</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       KVALITET
+  =========================== -->
+  <section id="kvalitet">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="label">Trygghet og kvalitet</span>
+        <h2 class="section-title">Vår standard</h2>
+        <p class="lead">
+          Vi strekker oss alltid ett steg lengre — fordi et tak ikke kan repareres i en fart
+          når det begynner å lekke midt i januar.
+        </p>
+        <span class="orange-line"></span>
+      </div>
+
+      <div class="kvalitet-grid">
+
+        <div class="guarantee-cards fade-left">
+
+          <div class="g-card">
+            <div class="g-card-num">20</div>
+            <h4>Års erfaring</h4>
+            <p>To tiår med takarbeid på Jæren gir oss kunnskap du ikke finner i en håndbok.</p>
+          </div>
+
+          <div class="g-card">
+            <div class="g-card-num">5 år</div>
+            <h4>Garanti</h4>
+            <p>Vi gir 5 års garanti på eget arbeid. Tryggheten gjelder fra dag én.</p>
+          </div>
+
+          <div class="g-card">
+            <div class="g-card-num">24t</div>
+            <h4>Akuttrespons</h4>
+            <p>Akutt lekkasje? Vi er tilgjengelige og rykker ut raskt når det haster.</p>
+          </div>
+
+          <div class="g-card">
+            <div class="g-card-num">100%</div>
+            <h4>Skriftlig tilbud</h4>
+            <p>Alltid skriftlig tilbud med klare priser. Ingen skjulte kostnader.</p>
+          </div>
+
+        </div>
+
+        <div class="fade-right delay-2">
+          <div class="roof-visual">
+            <div class="roof-visual-bg"></div>
+            <div class="roof-diagram">
+              <div class="roof-shape">
+                <div class="roof-under-layer"></div>
+                <div class="roof-metal-layer"></div>
+                <div class="roof-peak"></div>
+                <div class="roof-ridge"></div>
+              </div>
+              <div class="roof-labels">
+                <div class="roof-label-item">
+                  <div class="roof-label-dot dot-copper"></div>
+                  Mønebeslag
+                </div>
+                <div class="roof-label-item">
+                  <div class="roof-label-dot dot-metal"></div>
+                  Metallplate
+                </div>
+                <div class="roof-label-item">
+                  <div class="roof-label-dot dot-slate"></div>
+                  Undertak
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cert-list">
+            <div class="cert-item">
+              <div class="cert-check">
+                <svg viewBox="0 0 12 12" fill="none">
+                  <path d="M2 6L5 9L10 3" stroke="#E67E22" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="cert-item-text">
+                <strong>Godkjent som ansvarlig utførende</strong>
+                Søker godkjenning hos Direktoratet for byggkvalitet (DiBK) i relevante fagområder.
+              </div>
+            </div>
+            <div class="cert-item">
+              <div class="cert-check">
+                <svg viewBox="0 0 12 12" fill="none">
+                  <path d="M2 6L5 9L10 3" stroke="#E67E22" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="cert-item-text">
+                <strong>Fagbrev og sertifisering</strong>
+                Alle håndverkere har fagbrev. Vi holder oss løpende oppdatert på nye krav og materialer.
+              </div>
+            </div>
+            <div class="cert-item">
+              <div class="cert-check">
+                <svg viewBox="0 0 12 12" fill="none">
+                  <path d="M2 6L5 9L10 3" stroke="#E67E22" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="cert-item-text">
+                <strong>HMS og sikkerhet</strong>
+                Godkjente prosedyrer for høydearbeid. Komplett forsikringsdekning.
+              </div>
+            </div>
+            <div class="cert-item">
+              <div class="cert-check">
+                <svg viewBox="0 0 12 12" fill="none">
+                  <path d="M2 6L5 9L10 3" stroke="#E67E22" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="cert-item-text">
+                <strong>Miljøbevisst</strong>
+                Vi sorterer avfall, gjenbruker der det er mulig og velger miljøvennlige alternativer.
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       TESTIMONIAL
+  =========================== -->
+  <div class="testimonial-band">
+    <div class="testimonial-inner fade-up">
+      <blockquote class="testimonial-quote">
+        "De kom på befaring, ga oss et klart tilbud, og leverte til punkt og prikke.
+        Taket er perfekt. Prisen var ærlig. Det er sånn det skal være."
+      </blockquote>
+      <div class="testimonial-author">Kunde — Ålgård, Gjesdal</div>
+    </div>
+  </div>
+
+  <!-- ===========================
+       OM OSS
+  =========================== -->
+  <section id="om-oss">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="label">Hvem vi er</span>
+        <h2 class="section-title">Om Gjesdal Blikk &amp; Tak</h2>
+        <p class="lead">
+          Startet med et enkelt løfte: levere godt takarbeid med ærlig kommunikasjon.
+          Det løftet holder vi fremdeles.
+        </p>
+        <span class="orange-line"></span>
+      </div>
+
+      <div class="om-oss-grid">
+
+        <div class="om-oss-text fade-left">
+          <h3>Etablert på Jæren. Rotfestet i Gjesdal.</h3>
+          <p>
+            Gjesdal Blikk &amp; Tak AS ble etablert i Ålgård og har gjennom 20 år bygget opp
+            et solid rykte i regionen. Vi startet med fokus på privatmarkedet, men har de siste
+            årene utvidet til å betjene <strong>næringsbygg, landbruk og industrianlegg</strong>
+            i hele Stavanger-regionen.
+          </p>
+          <p>
+            Vi holder til på Industriveien 12 i Ålgård, og opererer fra Gjesdal og ut til
+            Sandnes, Stavanger og hele Jæren. Laget vårt består av erfarne fagfolk med
+            fagbrev i blikkenslager- og takfaget.
+          </p>
+          <p>
+            Det vi er mest stolte av er ikke teknisk kompetanse — det tar vi som en selvfølge.
+            Vi er mest stolte av <strong>tilfredse kunder som ringer oss igjen</strong> neste gang de
+            trenger noe.
+          </p>
+
+          <div class="info-plates">
+            <div class="info-plate">
+              <div class="info-plate-label">Lokasjon</div>
+              <div class="info-plate-val">Industriveien 12, Ålgård</div>
+            </div>
+            <div class="info-plate">
+              <div class="info-plate-label">Etablert</div>
+              <div class="info-plate-val">Ca. 2004 — 20+ år</div>
+            </div>
+            <div class="info-plate">
+              <div class="info-plate-label">Marked</div>
+              <div class="info-plate-val">Privat &amp; næring</div>
+            </div>
+            <div class="info-plate">
+              <div class="info-plate-label">Region</div>
+              <div class="info-plate-val">Jæren / Stavanger</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="fade-right delay-2">
+          <div class="building-scene">
+            <div class="building-scene-bg"></div>
+            <div class="building-scene-panels"></div>
+            <div class="building-svg-wrap">
+              <!-- CSS building illustration -->
+              <svg viewBox="0 0 380 240" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto;">
+                <!-- Ground line -->
+                <line x1="0" y1="210" x2="380" y2="210" stroke="rgba(127,140,141,0.3)" stroke-width="1"/>
+
+                <!-- Building body 1 (main) -->
+                <rect x="60" y="110" width="180" height="100" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+                <!-- Roof on building 1 -->
+                <polygon points="50,110 150,55 260,110" fill="rgba(230,126,34,0.25)" stroke="#E67E22" stroke-width="1.5"/>
+                <!-- Roof metal seams -->
+                <line x1="100" y1="82" x2="130" y2="110" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+                <line x1="150" y1="55" x2="150" y2="110" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
+                <line x1="200" y1="82" x2="170" y2="110" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+                <!-- Ridge cap -->
+                <rect x="144" y="51" width="12" height="10" rx="1" fill="#E67E22"/>
+                <!-- Window 1 -->
+                <rect x="90" y="140" width="30" height="35" rx="1" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+                <line x1="105" y1="140" x2="105" y2="175" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+                <!-- Door -->
+                <rect x="155" y="165" width="30" height="45" rx="1" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+                <!-- Window 2 -->
+                <rect x="200" y="140" width="30" height="35" rx="1" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+                <line x1="215" y1="140" x2="215" y2="175" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+
+                <!-- Building 2 (right, smaller) -->
+                <rect x="265" y="145" width="100" height="65" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+                <!-- Flat roof with edging -->
+                <rect x="258" y="138" width="114" height="9" rx="1" fill="rgba(127,140,141,0.3)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+                <rect x="262" y="135" width="106" height="4" rx="0.5" fill="rgba(230,126,34,0.4)"/>
+                <!-- Window right building -->
+                <rect x="278" y="160" width="24" height="20" rx="1" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+                <rect x="320" y="160" width="24" height="20" rx="1" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+
+                <!-- Downpipe -->
+                <line x1="258" y1="138" x2="258" y2="210" stroke="rgba(230,126,34,0.5)" stroke-width="2.5"/>
+                <line x1="372" y1="138" x2="372" y2="210" stroke="rgba(230,126,34,0.5)" stroke-width="2.5"/>
+                <line x1="50" y1="110" x2="50" y2="210" stroke="rgba(230,126,34,0.4)" stroke-width="2.5"/>
+                <line x1="260" y1="110" x2="260" y2="210" stroke="rgba(230,126,34,0.4)" stroke-width="2.5"/>
+              </svg>
+            </div>
+          </div>
+
+          <div class="values-stripe">
+            <div class="vs-item">
+              <div class="vs-num">500+</div>
+              <div class="vs-label">Prosjekter</div>
+            </div>
+            <div class="vs-item">
+              <div class="vs-num">20 år</div>
+              <div class="vs-label">Erfaring</div>
+            </div>
+            <div class="vs-item">
+              <div class="vs-num">Jæren</div>
+              <div class="vs-label">Hjemsted</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       AREA BAND
+  =========================== -->
+  <div class="area-band">
+    <div class="area-inner">
+      <div class="area-left fade-up">
+        <span class="label">Dekningsområde</span>
+        <h3>Vi jobber i hele regionen</h3>
+      </div>
+      <div class="area-tags fade-up delay-2">
+        <span class="area-tag">Gjesdal</span>
+        <span class="area-tag">Ålgård</span>
+        <span class="area-tag">Sandnes</span>
+        <span class="area-tag">Stavanger</span>
+        <span class="area-tag">Jæren</span>
+        <span class="area-tag">Bryne</span>
+        <span class="area-tag">Klepp</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===========================
+       KONTAKT
+  =========================== -->
+  <section id="kontakt">
+    <div class="container">
+      <div class="kontakt-grid">
+
+        <div class="kontakt-left fade-up">
+          <span class="label">Ta kontakt</span>
+          <h2 class="kontakt-title">Trenger du nytt tak?</h2>
+          <p class="kontakt-body">
+            Vi befarer og gir deg et klart, skriftlig tilbud uten forpliktelser.
+            Ring oss på telefon, send en e-post eller fyll ut skjemaet — vi svarer raskt.
+          </p>
+
+          <div class="contact-list">
+
+            <div class="contact-row">
+              <div class="contact-row-icon">
+                <svg viewBox="0 0 18 18" fill="none">
+                  <path d="M2.5 4.5C2.5 4.1 2.8 3.8 3.2 3.8H6.1L7.2 6.8L5.7 8.3C6.4 9.7 7.8 11.1 9.2 11.8L10.7 10.3L13.7 11.4V14.3C13.7 14.7 13.4 15 13 15C7 15 2.5 10.5 2.5 4.5Z" stroke="#E67E22" stroke-width="1.4" fill="none" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div>
+                <div class="contact-row-lbl">Telefon</div>
+                <div class="contact-row-val">51 61 08 80</div>
+              </div>
+            </div>
+
+            <div class="contact-row">
+              <div class="contact-row-icon">
+                <svg viewBox="0 0 18 18" fill="none">
+                  <rect x="1.5" y="3.5" width="15" height="11" rx="1.5" stroke="#E67E22" stroke-width="1.4" fill="none"/>
+                  <path d="M1.5 6.5L9 11L16.5 6.5" stroke="#E67E22" stroke-width="1.4" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div>
+                <div class="contact-row-lbl">E-post</div>
+                <div class="contact-row-val">post@gjesdalblikk.no</div>
+              </div>
+            </div>
+
+            <div class="contact-row">
+              <div class="contact-row-icon">
+                <svg viewBox="0 0 18 18" fill="none">
+                  <path d="M9 2C6.6 2 4.5 4.1 4.5 6.5C4.5 10.3 9 16 9 16C9 16 13.5 10.3 13.5 6.5C13.5 4.1 11.4 2 9 2Z" stroke="#E67E22" stroke-width="1.4" fill="none"/>
+                  <circle cx="9" cy="6.5" r="1.8" stroke="#E67E22" stroke-width="1.4" fill="none"/>
+                </svg>
+              </div>
+              <div>
+                <div class="contact-row-lbl">Adresse</div>
+                <div class="contact-row-val">Industriveien 12, 4330 Ålgård</div>
+              </div>
+            </div>
+
+            <div class="contact-row">
+              <div class="contact-row-icon">
+                <svg viewBox="0 0 18 18" fill="none">
+                  <circle cx="9" cy="9" r="7" stroke="#E67E22" stroke-width="1.4" fill="none"/>
+                  <path d="M9 5V9L11.5 11.5" stroke="#E67E22" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div>
+                <div class="contact-row-lbl">Åpningstider</div>
+                <div class="contact-row-val">Man–Fre: 07:00–16:00</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="kontakt-form fade-up delay-2">
+          <div class="form-title">Send oss en forespørsel</div>
+          <form onsubmit="return false;">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Navn</label>
+                <input type="text" id="name" placeholder="Ditt navn" />
+              </div>
+              <div class="form-group">
+                <label for="phone">Telefon</label>
+                <input type="tel" id="phone" placeholder="Telefonnummer" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">E-post</label>
+              <input type="email" id="email" placeholder="din@epost.no" />
+            </div>
+            <div class="form-group">
+              <label for="address">Adresse for prosjektet</label>
+              <input type="text" id="address" placeholder="Gate og postnummer" />
+            </div>
+            <div class="form-group">
+              <label for="service">Type oppdrag</label>
+              <select id="service">
+                <option value="" disabled selected>Velg tjeneste</option>
+                <option>Ny taklegging</option>
+                <option>Rehabilitering av eksisterende tak</option>
+                <option>Beslag og tekking</option>
+                <option>Ventilasjon</option>
+                <option>Blikkenslagerarbeid</option>
+                <option>Næringsbygg</option>
+                <option>Annet</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="msg">Beskriv prosjektet</label>
+              <textarea id="msg" placeholder="Kort beskrivelse av hva du trenger..."></textarea>
+            </div>
+            <button type="submit" class="form-submit">Send forespørsel</button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       FOOTER
+  =========================== -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo-main">Gjesdal Blikk &amp; Tak AS</div>
+        <div class="footer-logo-sub">Takarbeid &amp; Blikkenslager · Ålgård · 20 år</div>
+      </div>
+      <div class="footer-center">
+        &copy; 2025 Gjesdal Blikk &amp; Tak AS &nbsp;·&nbsp; Org.nr: [xxxxxx]
+      </div>
+      <div class="footer-right">
+        Industriveien 12, 4330 Ålgård<br />
+        Tlf: 51 61 08 80
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===========================
+       SCRIPTS
+  =========================== -->
+  <script>
+    // Mobile nav
+    const navToggle = document.getElementById('navToggle');
+    const navLinks  = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+
+    // IntersectionObserver — fade-up, fade-left, fade-right
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            observer.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    document.querySelectorAll('.fade-up:not(.visible), .fade-left, .fade-right').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Nav scroll effect
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        nav.style.background = 'rgba(44,62,80,0.99)';
+      } else {
+        nav.style.background = 'rgba(44,62,80,0.97)';
+      }
+    }, { passive: true });
+  </script>
+
+</body>
+</html>

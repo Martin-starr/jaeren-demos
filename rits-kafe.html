@@ -1,0 +1,1829 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rits Kafé &amp; Vinstove — Bryne, Jæren</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── Reset & Base ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --dark:    #1A0A1A;
+      --primary: #8B2252;
+      --accent:  #D4A87A;
+      --light:   #F5F0EB;
+      --muted:   #a0849a;
+      --ink:     #1A0A1A;
+      --gap-sm:  1.5rem;
+      --gap-md:  3rem;
+      --gap-lg:  6rem;
+      --max-w:   1160px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.7;
+      background: var(--dark);
+      color: var(--light);
+      overflow-x: hidden;
+    }
+
+    /* ─── Typography helpers ─── */
+    .label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    h1, h2, h3, h4 {
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+    h1 { font-size: clamp(2.8rem, 7vw, 5.2rem); }
+    h2 { font-size: clamp(1.9rem, 4vw, 3rem); }
+    h3 { font-size: 1.35rem; }
+    h4 { font-size: 1rem; font-weight: 600; letter-spacing: 0.04em; }
+    p { line-height: 1.75; }
+
+    /* ─── Layout helpers ─── */
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    .section {
+      padding: var(--gap-lg) 0;
+    }
+    .section--light {
+      background: var(--light);
+      color: var(--ink);
+    }
+    .section--mid {
+      background: #2a1228;
+    }
+    .divider {
+      display: block;
+      width: 48px;
+      height: 2px;
+      background: var(--accent);
+      margin: 1.2rem 0 2rem;
+    }
+    .divider--center { margin-left: auto; margin-right: auto; }
+
+    /* ─── Scroll animation ─── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .fade-in.delay-1 { transition-delay: 0.1s; }
+    .fade-in.delay-2 { transition-delay: 0.2s; }
+    .fade-in.delay-3 { transition-delay: 0.3s; }
+    .fade-in.delay-4 { transition-delay: 0.4s; }
+
+    /* ══════════════════════════════════════════
+       NAVIGATION
+    ══════════════════════════════════════════ */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(26, 10, 26, 0.85);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(212, 168, 122, 0.12);
+      transition: background 0.4s;
+    }
+    .nav-logo {
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--light);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(245, 240, 235, 0.75);
+      text-decoration: none;
+      transition: color 0.25s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* Hamburger */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--light);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    @media (max-width: 760px) {
+      .nav-toggle { display: flex; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0; right: 0;
+        flex-direction: column;
+        gap: 0;
+        background: rgba(26, 10, 26, 0.97);
+        border-top: 1px solid rgba(212, 168, 122, 0.2);
+        padding: 1rem 0;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { border-bottom: 1px solid rgba(212, 168, 122, 0.08); }
+      .nav-links a {
+        display: block;
+        padding: 1rem 2rem;
+        font-size: 0.85rem;
+      }
+    }
+
+    /* ══════════════════════════════════════════
+       HERO
+    ══════════════════════════════════════════ */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    /* Dark moody background with gradients */
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 70% 40%, rgba(139, 34, 82, 0.28) 0%, transparent 65%),
+        radial-gradient(ellipse 60% 80% at 20% 70%, rgba(26, 10, 26, 0.95) 0%, transparent 70%),
+        linear-gradient(170deg, #1A0A1A 0%, #2a0e22 40%, #1a0818 70%, #0e050e 100%);
+    }
+
+    /* Candle-glow orbs */
+    .hero-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+    }
+    .hero-orb-1 {
+      width: 420px; height: 420px;
+      top: 15%; right: 12%;
+      background: radial-gradient(circle, rgba(212, 168, 122, 0.18) 0%, transparent 70%);
+    }
+    .hero-orb-2 {
+      width: 260px; height: 260px;
+      bottom: 20%; right: 30%;
+      background: radial-gradient(circle, rgba(139, 34, 82, 0.22) 0%, transparent 70%);
+    }
+    .hero-orb-3 {
+      width: 180px; height: 180px;
+      top: 55%; left: 10%;
+      background: radial-gradient(circle, rgba(212, 168, 122, 0.10) 0%, transparent 70%);
+    }
+
+    /* Wine glass silhouette decoration */
+    .hero-glass {
+      position: absolute;
+      right: 8%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 180px;
+      height: 340px;
+      opacity: 0.07;
+    }
+    .hero-glass::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 120px; height: 120px;
+      border-radius: 50% 50% 48% 48%;
+      border: 3px solid var(--accent);
+    }
+    .hero-glass::after {
+      content: '';
+      position: absolute;
+      top: 100px; left: 50%;
+      transform: translateX(-50%);
+      width: 3px; height: 160px;
+      background: var(--accent);
+    }
+    .hero-glass-base {
+      position: absolute;
+      bottom: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 100px; height: 3px;
+      background: var(--accent);
+      opacity: 0.07;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 760px;
+      padding-top: 6rem;
+    }
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.8rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 36px; height: 1px;
+      background: var(--accent);
+    }
+    .hero-tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .hero-title {
+      color: var(--light);
+      margin-bottom: 1.5rem;
+    }
+    .hero-title em {
+      font-style: normal;
+      color: var(--accent);
+    }
+    .hero-subtitle {
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: rgba(245, 240, 235, 0.72);
+      max-width: 520px;
+      margin-bottom: 2.8rem;
+      line-height: 1.75;
+    }
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.9rem 2.2rem;
+      background: var(--primary);
+      color: var(--light);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: background 0.25s, transform 0.25s;
+    }
+    .hero-cta:hover {
+      background: #a02960;
+      transform: translateY(-2px);
+    }
+    .hero-cta-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.9rem 2.2rem;
+      border: 1px solid rgba(212, 168, 122, 0.4);
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: border-color 0.25s, color 0.25s, transform 0.25s;
+      margin-left: 1rem;
+    }
+    .hero-cta-secondary:hover {
+      border-color: var(--accent);
+      color: var(--light);
+      transform: translateY(-2px);
+    }
+    .hero-meta {
+      position: absolute;
+      bottom: 2.5rem;
+      right: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.4rem;
+    }
+    .hero-meta-item {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(212, 168, 122, 0.55);
+    }
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: rgba(245, 240, 235, 0.4);
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      animation: scrollBounce 2.4s ease-in-out infinite;
+    }
+    .hero-scroll::after {
+      content: '';
+      display: block;
+      width: 1px; height: 40px;
+      background: linear-gradient(to bottom, rgba(212, 168, 122, 0.5), transparent);
+    }
+    @keyframes scrollBounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(6px); }
+    }
+
+    @media (max-width: 600px) {
+      .hero-cta-secondary { margin-left: 0; margin-top: 0.75rem; }
+      .hero-ctas { display: flex; flex-direction: column; align-items: flex-start; }
+      .hero-glass { display: none; }
+    }
+
+    /* ══════════════════════════════════════════
+       OM OSS
+    ══════════════════════════════════════════ */
+    #om-oss {
+      background: var(--light);
+      color: var(--ink);
+    }
+    .om-oss-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .om-oss-visual {
+      position: relative;
+      height: 480px;
+    }
+    .om-oss-card {
+      position: absolute;
+      border-radius: 2px;
+    }
+    .om-oss-card-1 {
+      top: 0; left: 0;
+      width: 75%; height: 72%;
+      background: linear-gradient(145deg, #2a0e22, #1a0818);
+      box-shadow: 0 32px 80px rgba(26,10,26,0.25);
+    }
+    /* Wine pour shape */
+    .om-oss-card-1::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 65% 30%, rgba(139, 34, 82, 0.45) 0%, transparent 65%);
+    }
+    .om-oss-card-1::after {
+      content: '2014';
+      position: absolute;
+      bottom: 1.5rem; left: 1.5rem;
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: rgba(212, 168, 122, 0.15);
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+    .om-oss-card-2 {
+      bottom: 0; right: 0;
+      width: 65%; height: 50%;
+      background: linear-gradient(135deg, #8B2252, #6b1a3e);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.5rem;
+    }
+    .om-oss-card-2-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(212, 168, 122, 0.8);
+      margin-bottom: 0.4rem;
+    }
+    .om-oss-card-2-text {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--light);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+    .om-oss-stat {
+      position: absolute;
+      top: 55%; left: 60%;
+      width: 100px; height: 100px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 12px 40px rgba(212, 168, 122, 0.3);
+    }
+    .om-oss-stat-num {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--dark);
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+    .om-oss-stat-sub {
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(26,10,26,0.65);
+    }
+    .om-oss-text h2 { color: var(--ink); }
+    .om-oss-text p {
+      color: #3a2038;
+      font-size: 1rem;
+      font-weight: 300;
+      margin-bottom: 1.2rem;
+    }
+    .om-oss-pillars {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .pillar {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    .pillar-icon {
+      width: 36px; height: 36px;
+      flex-shrink: 0;
+      background: var(--primary);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+    }
+    .pillar-text strong {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: 0.2rem;
+    }
+    .pillar-text span {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: #5a3a52;
+    }
+
+    @media (max-width: 860px) {
+      .om-oss-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .om-oss-visual { height: 320px; }
+    }
+
+    /* ══════════════════════════════════════════
+       MENY
+    ══════════════════════════════════════════ */
+    #meny { background: var(--dark); }
+    .meny-header {
+      text-align: center;
+      margin-bottom: var(--gap-md);
+    }
+    .meny-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      margin-top: 2rem;
+      border: 1px solid rgba(212, 168, 122, 0.2);
+      border-radius: 2px;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+      overflow: hidden;
+    }
+    .meny-tab {
+      padding: 0.75rem 2.2rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(245, 240, 235, 0.5);
+      cursor: pointer;
+      background: none;
+      border: none;
+      transition: all 0.25s;
+    }
+    .meny-tab:not(:last-child) { border-right: 1px solid rgba(212, 168, 122, 0.2); }
+    .meny-tab.active {
+      background: var(--primary);
+      color: var(--light);
+    }
+    .meny-tab:hover:not(.active) { color: var(--accent); }
+
+    .meny-grid {
+      display: none;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5px;
+      margin-top: var(--gap-md);
+    }
+    .meny-grid.active { display: grid; }
+
+    .meny-item {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(212, 168, 122, 0.08);
+      padding: 2rem;
+      transition: border-color 0.25s, background 0.25s;
+    }
+    .meny-item:hover {
+      border-color: rgba(212, 168, 122, 0.25);
+      background: rgba(255,255,255,0.05);
+    }
+    .meny-item-tag {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+    .meny-item-name {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--light);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+    .meny-item-desc {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: rgba(245, 240, 235, 0.55);
+      line-height: 1.65;
+      margin-bottom: 1.2rem;
+    }
+    .meny-item-price {
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+    }
+
+    /* ══════════════════════════════════════════
+       VINKART
+    ══════════════════════════════════════════ */
+    #vinkart { background: #140610; }
+    .vinkart-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .vinkart-intro p {
+      font-size: 1rem;
+      font-weight: 300;
+      color: rgba(245, 240, 235, 0.65);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+    .vinkart-cta-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(212, 168, 122, 0.35);
+      padding-bottom: 2px;
+      transition: border-color 0.25s;
+    }
+    .vinkart-cta-link:hover { border-color: var(--accent); }
+
+    .wine-list { display: flex; flex-direction: column; gap: 0; }
+    .wine-category {
+      border-top: 1px solid rgba(212, 168, 122, 0.15);
+      padding: 1.8rem 0;
+    }
+    .wine-category:last-child { border-bottom: 1px solid rgba(212, 168, 122, 0.15); }
+    .wine-cat-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+    }
+    .wine-cat-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .wine-cat-line {
+      flex: 1;
+      height: 1px;
+      background: rgba(212, 168, 122, 0.1);
+    }
+    .wine-entries { display: flex; flex-direction: column; gap: 1rem; }
+    .wine-entry {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    .wine-entry-info {}
+    .wine-entry-name {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--light);
+      margin-bottom: 0.15rem;
+    }
+    .wine-entry-detail {
+      font-size: 0.82rem;
+      font-weight: 300;
+      color: rgba(245, 240, 235, 0.45);
+    }
+    .wine-entry-price {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent);
+      white-space: nowrap;
+      padding-top: 2px;
+    }
+
+    @media (max-width: 860px) {
+      .vinkart-inner { grid-template-columns: 1fr; gap: 3rem; }
+    }
+
+    /* ══════════════════════════════════════════
+       ÅPNINGSTIDER
+    ══════════════════════════════════════════ */
+    #apningstider { background: var(--primary); }
+    .apn-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3px;
+    }
+    .apn-block {
+      background: rgba(26, 10, 26, 0.55);
+      padding: 3rem;
+    }
+    .apn-block:first-child { background: rgba(26, 10, 26, 0.7); }
+    .apn-icon {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+    .apn-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--light);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+    .apn-sub {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(212, 168, 122, 0.75);
+      margin-bottom: 2rem;
+    }
+    .apn-rows { display: flex; flex-direction: column; gap: 0.75rem; }
+    .apn-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid rgba(245, 240, 235, 0.1);
+    }
+    .apn-day {
+      font-size: 0.88rem;
+      font-weight: 400;
+      color: rgba(245, 240, 235, 0.7);
+    }
+    .apn-time {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--light);
+    }
+    .apn-closed { color: rgba(245, 240, 235, 0.3); }
+
+    @media (max-width: 600px) {
+      .apn-grid { grid-template-columns: 1fr; }
+      .apn-block { padding: 2rem; }
+    }
+
+    /* ══════════════════════════════════════════
+       ARRANGEMENT
+    ══════════════════════════════════════════ */
+    #arrangement { background: var(--light); color: var(--ink); }
+    .arr-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .arr-text h2 { color: var(--ink); }
+    .arr-text p {
+      font-size: 1rem;
+      font-weight: 300;
+      color: #4a2a42;
+      margin-bottom: 1.2rem;
+    }
+    .arr-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    .arr-feature {
+      padding: 1.2rem;
+      border: 1px solid rgba(139, 34, 82, 0.15);
+      border-radius: 2px;
+    }
+    .arr-feature-title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 0.3rem;
+    }
+    .arr-feature-desc {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: #5a3a52;
+    }
+    .arr-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.9rem 2.2rem;
+      background: var(--ink);
+      color: var(--light);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: background 0.25s, transform 0.25s;
+    }
+    .arr-cta:hover { background: var(--primary); transform: translateY(-2px); }
+
+    /* Visual panel */
+    .arr-visual {
+      position: relative;
+      height: 520px;
+    }
+    .arr-panel-1 {
+      position: absolute;
+      top: 0; right: 0;
+      width: 85%; height: 65%;
+      background: linear-gradient(145deg, #1A0A1A, #2a0e22);
+      box-shadow: 0 32px 80px rgba(26,10,26,0.2);
+    }
+    .arr-panel-1::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 30% 60%, rgba(212, 168, 122, 0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 50% at 80% 20%, rgba(139, 34, 82, 0.25) 0%, transparent 60%);
+    }
+    /* Decorative candles */
+    .candle {
+      position: absolute;
+      bottom: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .candle-1 { right: 3rem; }
+    .candle-2 { right: 5.5rem; }
+    .candle-3 { right: 7.5rem; }
+    .candle-flame {
+      width: 8px; height: 14px;
+      background: radial-gradient(ellipse at bottom, #fff8, var(--accent), transparent);
+      border-radius: 50% 50% 30% 30%;
+      animation: flicker 2s ease-in-out infinite alternate;
+    }
+    .candle-2 .candle-flame { animation-delay: 0.4s; height: 12px; }
+    .candle-3 .candle-flame { animation-delay: 0.8s; height: 10px; }
+    .candle-body {
+      width: 10px;
+      background: rgba(245, 240, 235, 0.7);
+    }
+    .candle-1 .candle-body { height: 60px; }
+    .candle-2 .candle-body { height: 45px; }
+    .candle-3 .candle-body { height: 38px; }
+    @keyframes flicker {
+      0% { transform: scaleX(1) scaleY(1); opacity: 0.9; }
+      100% { transform: scaleX(0.85) scaleY(1.08); opacity: 1; }
+    }
+    .arr-panel-2 {
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 55%; height: 42%;
+      background: var(--primary);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .arr-panel-2-q {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: rgba(245, 240, 235, 0.15);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .arr-panel-2-text {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--light);
+      line-height: 1.4;
+    }
+
+    @media (max-width: 860px) {
+      .arr-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .arr-visual { height: 320px; }
+    }
+
+    /* ══════════════════════════════════════════
+       KONTAKT
+    ══════════════════════════════════════════ */
+    #kontakt { background: var(--dark); }
+    .kontakt-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .kontakt-info { }
+    .kontakt-info p {
+      font-size: 1rem;
+      font-weight: 300;
+      color: rgba(245, 240, 235, 0.65);
+      margin-bottom: 3rem;
+    }
+    .kontakt-details { display: flex; flex-direction: column; gap: 1.5rem; }
+    .kontakt-detail {
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+    }
+    .kontakt-detail-icon {
+      width: 40px; height: 40px;
+      flex-shrink: 0;
+      border: 1px solid rgba(212, 168, 122, 0.25);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      color: var(--accent);
+    }
+    .kontakt-detail-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(212, 168, 122, 0.55);
+      margin-bottom: 0.2rem;
+    }
+    .kontakt-detail-val {
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: var(--light);
+    }
+    .kontakt-detail-val a {
+      color: var(--light);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(245, 240, 235, 0.15);
+      transition: border-color 0.25s;
+    }
+    .kontakt-detail-val a:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* Contact form */
+    .kontakt-form {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(212, 168, 122, 0.1);
+      padding: 2.5rem;
+    }
+    .form-row { margin-bottom: 1.5rem; }
+    .form-row label {
+      display: block;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+    .form-row input,
+    .form-row select,
+    .form-row textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(245, 240, 235, 0.1);
+      border-radius: 2px;
+      padding: 0.85rem 1rem;
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--light);
+      outline: none;
+      transition: border-color 0.25s;
+    }
+    .form-row input:focus,
+    .form-row select:focus,
+    .form-row textarea:focus { border-color: rgba(212, 168, 122, 0.4); }
+    .form-row select { appearance: none; cursor: pointer; }
+    .form-row textarea { resize: vertical; min-height: 120px; }
+    .form-row input::placeholder,
+    .form-row textarea::placeholder { color: rgba(245, 240, 235, 0.25); }
+    .form-submit {
+      width: 100%;
+      padding: 1rem;
+      background: var(--primary);
+      color: var(--light);
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: background 0.25s, transform 0.25s;
+    }
+    .form-submit:hover { background: #a02960; transform: translateY(-1px); }
+
+    @media (max-width: 860px) {
+      .kontakt-grid { grid-template-columns: 1fr; gap: 3rem; }
+    }
+
+    /* ══════════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════════ */
+    footer {
+      background: #0e050e;
+      padding: 4rem 0 2.5rem;
+      border-top: 1px solid rgba(212, 168, 122, 0.1);
+    }
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 4rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(212, 168, 122, 0.08);
+      margin-bottom: 2rem;
+    }
+    .footer-brand-name {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--light);
+      margin-bottom: 0.4rem;
+    }
+    .footer-brand-sub {
+      font-size: 0.75rem;
+      font-weight: 300;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 1.2rem;
+    }
+    .footer-desc {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+    .footer-col h5 {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.2rem;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-col ul li a {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.25s;
+    }
+    .footer-col ul li a:hover { color: var(--accent); }
+    .footer-col address {
+      font-style: normal;
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-copy {
+      font-size: 0.78rem;
+      font-weight: 300;
+      color: rgba(160, 132, 154, 0.5);
+    }
+    .footer-credit {
+      font-size: 0.78rem;
+      font-weight: 300;
+      color: rgba(160, 132, 154, 0.4);
+    }
+    .footer-credit a {
+      color: rgba(212, 168, 122, 0.5);
+      text-decoration: none;
+      transition: color 0.25s;
+    }
+    .footer-credit a:hover { color: var(--accent); }
+
+    @media (max-width: 760px) {
+      .footer-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+
+    /* ══════════════════════════════════════════
+       DECORATIVE: Section separator line
+    ══════════════════════════════════════════ */
+    .sep {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .sep::before, .sep::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(212, 168, 122, 0.15);
+    }
+    .sep-mark {
+      width: 6px; height: 6px;
+      background: var(--accent);
+      transform: rotate(45deg);
+    }
+
+    /* Price highlight badge */
+    .price-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.5rem 1.2rem;
+      border: 1px solid rgba(212, 168, 122, 0.3);
+      border-radius: 2px;
+      margin-top: 1rem;
+    }
+    .price-badge-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(245, 240, 235, 0.5);
+    }
+    .price-badge-val {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    /* ── Utility ── */
+    @media (max-width: 600px) {
+      .section { padding: 4rem 0; }
+      .arr-features { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     NAVIGATION
+══════════════════════════════════════════ -->
+<nav id="site-nav">
+  <a href="#hero" class="nav-logo">Rits <span>&amp;</span> Vinstove</a>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Meny">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#om-oss">Om oss</a></li>
+    <li><a href="#meny">Meny</a></li>
+    <li><a href="#vinkart">Vinkart</a></li>
+    <li><a href="#apningstider">Åpningstider</a></li>
+    <li><a href="#arrangement">Arrangement</a></li>
+    <li><a href="#kontakt">Kontakt</a></li>
+  </ul>
+</nav>
+
+
+<!-- ══════════════════════════════════════════
+     HERO
+══════════════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-orb hero-orb-3"></div>
+  <div class="hero-glass">
+    <div class="hero-glass-base"></div>
+  </div>
+
+  <div class="container" style="position:relative; z-index:2; width:100%;">
+    <div class="hero-content">
+      <div class="hero-eyebrow fade-in">
+        <span class="hero-tag">Bryne · Jæren · Est. 2014</span>
+      </div>
+      <h1 class="hero-title fade-in delay-1">
+        Kafé om<br/>dagen.<br/><em>Vinstove</em><br/>om kvelden.
+      </h1>
+      <p class="hero-subtitle fade-in delay-2">
+        Et sted der godt selskap møter godt vin, og maten forteller om Jæren og Europa på samme tid.
+      </p>
+      <div class="hero-ctas fade-in delay-3">
+        <a href="#meny" class="hero-cta">Se menyen</a>
+        <a href="#arrangement" class="hero-cta-secondary">Privat arrangement</a>
+      </div>
+      <div class="price-badge fade-in delay-4">
+        <span class="price-badge-label">Nettside fra</span>
+        <span class="price-badge-val">8 000 – 12 000 kr</span>
+      </div>
+    </div>
+
+    <div class="hero-meta">
+      <span class="hero-meta-item">Kafé · Vinstove</span>
+      <span class="hero-meta-item">Bryne Sentrum</span>
+    </div>
+  </div>
+
+  <div class="hero-scroll">Scroll</div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     OM OSS
+══════════════════════════════════════════ -->
+<section id="om-oss" class="section section--light">
+  <div class="container">
+    <div class="om-oss-grid">
+
+      <div class="om-oss-visual fade-in">
+        <div class="om-oss-card om-oss-card-1"></div>
+        <div class="om-oss-card om-oss-card-2">
+          <div class="om-oss-card-2-label">Siden</div>
+          <div class="om-oss-card-2-text">Ti år<br/>med sjel</div>
+        </div>
+        <div class="om-oss-stat">
+          <span class="om-oss-stat-num">80+</span>
+          <span class="om-oss-stat-sub">Viner</span>
+        </div>
+      </div>
+
+      <div class="om-oss-text">
+        <span class="label fade-in">Om oss</span>
+        <span class="divider fade-in"></span>
+        <h2 class="fade-in">Europeisk vinbar.<br/>Jærsk sjel.</h2>
+        <div class="om-oss-pillars fade-in delay-1">
+          <p>
+            Rits ble grunnlagt med én tanke i hodet: at Bryne fortjente et sted der du kan ta en god kopp kaffe om formiddagen, en skikkelig lunsj midt på dagen — og så komme tilbake om kvelden, senke skuldrene og la en god flaske Barolo ta deg med til Piemonte for noen timer.
+          </p>
+          <p>
+            Vi holder til i hjerte av Bryne sentrum. Interiøret er bevisst dempet — mørke vegger, stearinlys, naturmaterialer — slik at det er maten, vinen og samtalen som lyser opp rommet.
+          </p>
+        </div>
+        <div class="om-oss-pillars fade-in delay-2">
+          <div class="pillar">
+            <div class="pillar-icon">☕</div>
+            <div class="pillar-text">
+              <strong>Kafé om dagen</strong>
+              <span>Spesialkaffe, freskbakte boller, solid lunsj fra åpen kjøkken</span>
+            </div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">🍷</div>
+            <div class="pillar-text">
+              <strong>Vinstove om kvelden</strong>
+              <span>Kurert vinkart, antipasti, varmretter og ost til sene kvelder</span>
+            </div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">🕯</div>
+            <div class="pillar-text">
+              <strong>Atmosfære</strong>
+              <span>Lys dimmet, musikk lav, gjester i fokus — alltid</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     MENY
+══════════════════════════════════════════ -->
+<section id="meny" class="section">
+  <div class="container">
+    <div class="meny-header">
+      <span class="label fade-in">Vår meny</span>
+      <span class="divider divider--center fade-in"></span>
+      <h2 class="fade-in">Enkelt. Sesongbasert.<br/>Med omhu.</h2>
+      <p style="font-size:1rem; font-weight:300; color:rgba(245,240,235,0.6); max-width:540px; margin:1.5rem auto 0;" class="fade-in delay-1">
+        Menyen skifter etter årstid og hva jærske produsenter har å by på. Under finner du utvalgte retter fra både lunsj- og kveldsmeny.
+      </p>
+      <div class="meny-tabs fade-in delay-2">
+        <button class="meny-tab active" data-tab="lunsj">Lunsj</button>
+        <button class="meny-tab" data-tab="kveld">Kveld</button>
+        <button class="meny-tab" data-tab="drikke">Drikke</button>
+      </div>
+    </div>
+
+    <!-- LUNSJ -->
+    <div class="meny-grid active fade-in" id="tab-lunsj">
+      <div class="meny-item">
+        <div class="meny-item-tag">Klassiker</div>
+        <div class="meny-item-name">Croque Monsieur</div>
+        <div class="meny-item-desc">Smørstekt brioche, røkt skinke, emmentaler og béchamel. Servert med frisk salat og sennepsdressing.</div>
+        <div class="meny-item-price">195 kr</div>
+      </div>
+      <div class="meny-item">
+        <div class="meny-item-tag">Vegetar</div>
+        <div class="meny-item-name">Bruschetta med burrata</div>
+        <div class="meny-item-desc">Ristet surdeigsbrød med arvestomatensalsa, kremete burrata, basilikumolje og fleur de sel.</div>
+        <div class="meny-item-price">175 kr</div>
+      </div>
+      <div class="meny-item">
+        <div class="meny-item-tag">Populær</div>
+        <div class="meny-item-name">Cæsarsalat</div>
+        <div class="meny-item-desc">Romaine, hjemmelaget cæssardressing, parmesanspon, bakt hvitløkscrouton og ansjos. Kan suppleres med grillet kylling (+59 kr).</div>
+        <div class="meny-item-price">185 kr</div>
+      </div>
+      <div class="meny-item">
+        <div class="meny-item-tag">Dagens</div>
+        <div class="meny-item-name">Quiche Lorraine</div>
+        <div class="meny-item-desc">Hjembakt pai med røkt bacon, gruyère og karamellisert løk. Servert med dags­fersk suppe.</div>
+        <div class="meny-item-price">179 kr</div>
+      </div>
+      <div class="meny-item">
+        <div class="meny-item-tag">Varm rett</div>
+        <div class="meny-item-name">Gratinert fiskesuppe</div>
+        <div class="meny-item-desc">Kremet suppe med laks, torsk og reker fra Nordsjøen. Gratinert med parmesan og serveres med focaccia.</div>
+        <div class="meny-item-price">225 kr</div>
+      </div>
+      <div class="meny-item">
+        <div class="meny-item-tag">Sweet</div>
+        <div class="meny-item-name">Vafler med rips og krem</div>
+        <div class="meny-item-desc">Sprø hjertevafler med pisket fløtekrem, rørte ripsbær og drizzle av honning fra Jæren.</div>
+        <div class="meny-item-price">129 kr</div>
+      </div>
+    </div>
+
+    <!-- KVELD -->
+    <div class="meny-grid" id="tab-kveld">
+      <div class="meny-item">
+        <div class="meny-item-tag">Del gjerne</div>
+        <div class="meny-item-name">Antipasti-brett</div>
+        <div class="meny-item-desc">Et utvalg av salumi, syltet grønt, oliven, bruschetta og fersk burrata. Perfekt til første glass.</div>
+        <div class="meny-item-price">295 kr · for 2</div>
+      </div>
+      <div class="meny-item">
+        <div class="meny-item-tag">Signaturrett</div>
+        <div class="meny-item-name">Entrecôte med rødvinsaus</div>
+        <div class="meny-item-desc">Norsk storfe, 250 g, stekt medium. Trøffelpotet, asparges og en reduksjon av Côtes du Rhône.</div>
+        <div class="meny-item-price">425 kr</div>
+      </div>
+      <div class="meny-item">
+        <div class="meny-item-tag">Pasta</div>
+        <div class="meny-item-name">Pasta Carbonara</div>
+        <div class="meny-item-desc">Rigatoni, guanciale, egg, pecorino Romano og nykvernet pepper. Ingen fløte, aldri.</div>
+        <div class="meny-item-price">245 kr</div>
+      </div>
+      <div class="meny-item">
+        <div class="meny-item-tag">Etter maten</div>
+        <div class="meny-item-name">Ost og honning</div>
+        <div class="meny-item-desc">Tre norske og europeiske oster, valnøtter, druer, lokalt honning og knekkebrød fra Kvitsøy.</div>
+        <div class="meny-item-price">215 kr</div>
+      </div>
+      <div class="meny-item">
+        <div class="meny-item-tag">Fisk</div>
+        <div class="meny-item-name">Pannestekt kveite</div>
+        <div class="meny-item-desc">Kveitefilet, beurre blanc med kapers og sitron, søtpotetpuré og syltet fennikel.</div>
+        <div class="meny-item-price">375 kr</div>
+      </div>
+      <div class="meny-item">
+        <div class="meny-item-tag">Dessert</div>
+        <div class="meny-item-name">Crème brûlée</div>
+        <div class="meny-item-desc">Klassisk vaniljecrème med sprøtt sukkerlokk. Servert med friske bær og langfinger.</div>
+        <div class="meny-item-price">135 kr</div>
+      </div>
+    </div>
+
+    <!-- DRIKKE -->
+    <div class="meny-grid" id="tab-drikke">
+      <div class="meny-item">
+        <div class="meny-item-tag">Aperitif</div>
+        <div class="meny-item-name">Aperol Spritz</div>
+        <div class="meny-item-desc">Aperol, Prosecco Superiore, Club Soda og en skive appelsin. Sommeren i et glass.</div>
+        <div class="meny-item-price">145 kr</div>
+      </div>
+      <div class="meny-item">
+        <div class="meny-item-tag">Signaturcocktail</div>
+        <div class="meny-item-name">Espresso Martini</div>
+        <div class="meny-item-desc">Vodka, Kahlúa, dobbel espresso fra vår La Marzocco. Ristet til det skummer.</div>
+        <div class="meny-item-price">165 kr</div>
+      </div>
+      <div class="meny-item">
+        <div class="meny-item-tag">Lokalt</div>
+        <div class="meny-item-name">Lervig Brewhouse IPA</div>
+        <div class="meny-item-desc">Craft-øl fra Stavanger. Fruktig og humlerik med en lang, tørr avslutning. 0,4 l.</div>
+        <div class="meny-item-price">115 kr</div>
+      </div>
+      <div class="meny-item">
+        <div class="meny-item-tag">Kaffe</div>
+        <div class="meny-item-name">Filter / Espresso</div>
+        <div class="meny-item-desc">Bønner fra Tim Wendelboe, Oslo. Brygg på Chemex eller trekk som dobbel espresso — din valg.</div>
+        <div class="meny-item-price">45 – 65 kr</div>
+      </div>
+      <div class="meny-item">
+        <div class="meny-item-tag">Alkoholfritt</div>
+        <div class="meny-item-name">Hjemmelaget limonade</div>
+        <div class="meny-item-desc">Ferskpresset sitron, elderflower-sirup, mynte og kullsyreholdig vann. Skifter med sesongen.</div>
+        <div class="meny-item-price">65 kr</div>
+      </div>
+      <div class="meny-item">
+        <div class="meny-item-tag">Lokal perle</div>
+        <div class="meny-item-name">Jærsk Eplesider</div>
+        <div class="meny-item-desc">Tørr naturlig sider fra Helleland. Presset på eplesorter dyrket på Jæren. 0,33 l.</div>
+        <div class="meny-item-price">98 kr</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     VINKART
+══════════════════════════════════════════ -->
+<section id="vinkart" class="section">
+  <div class="container">
+    <div class="vinkart-inner">
+
+      <div class="vinkart-intro fade-in">
+        <span class="label">Vinkart</span>
+        <span class="divider"></span>
+        <h2>Vin valgt<br/>med omhu.</h2>
+        <p style="margin-top:1.5rem;">
+          Vi holder et utvalg på over 80 etiketter, alltid med en håndplukket samling av klassikere og sjeldne funn. Alle viner kan bestilles på glass eller flaske.
+        </p>
+        <p>
+          Sommelier og daglig leder Erik Bakke reiser til produsenter hvert år for å sikre at hvert glass i Rits forteller en ekte historie — fra Piemonte til Loire, fra Rioja til Burgund.
+        </p>
+        <a href="#kontakt" class="vinkart-cta-link">Spør om vinanbefaling →</a>
+      </div>
+
+      <div class="wine-list fade-in delay-1">
+
+        <div class="wine-category">
+          <div class="wine-cat-header">
+            <span class="wine-cat-label">Rødt</span>
+            <span class="wine-cat-line"></span>
+          </div>
+          <div class="wine-entries">
+            <div class="wine-entry">
+              <div class="wine-entry-info">
+                <div class="wine-entry-name">Barolo DOCG — Massolino</div>
+                <div class="wine-entry-detail">Piemonte, Italia · Nebbiolo · 2018</div>
+              </div>
+              <div class="wine-entry-price">895 kr / fl.</div>
+            </div>
+            <div class="wine-entry">
+              <div class="wine-entry-info">
+                <div class="wine-entry-name">Rioja Reserva — Marqués de Riscal</div>
+                <div class="wine-entry-detail">La Rioja, Spania · Tempranillo · 2019</div>
+              </div>
+              <div class="wine-entry-price">625 kr / fl.</div>
+            </div>
+            <div class="wine-entry">
+              <div class="wine-entry-info">
+                <div class="wine-entry-name">Côtes du Rhône — M. Chapoutier</div>
+                <div class="wine-entry-detail">Rhône, Frankrike · Grenache/Syrah · 2021</div>
+              </div>
+              <div class="wine-entry-price">118 kr / glass</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="wine-category">
+          <div class="wine-cat-header">
+            <span class="wine-cat-label">Hvitt</span>
+            <span class="wine-cat-line"></span>
+          </div>
+          <div class="wine-entries">
+            <div class="wine-entry">
+              <div class="wine-entry-info">
+                <div class="wine-entry-name">Sancerre Blanc — Henri Bourgeois</div>
+                <div class="wine-entry-detail">Loire, Frankrike · Sauvignon Blanc · 2022</div>
+              </div>
+              <div class="wine-entry-price">745 kr / fl.</div>
+            </div>
+            <div class="wine-entry">
+              <div class="wine-entry-info">
+                <div class="wine-entry-name">Chablis Premier Cru — Domaine Vocoret</div>
+                <div class="wine-entry-detail">Burgund, Frankrike · Chardonnay · 2021</div>
+              </div>
+              <div class="wine-entry-price">865 kr / fl.</div>
+            </div>
+            <div class="wine-entry">
+              <div class="wine-entry-info">
+                <div class="wine-entry-name">Grüner Veltliner Smaragd — Knoll</div>
+                <div class="wine-entry-detail">Wachau, Østerrike · 2020</div>
+              </div>
+              <div class="wine-entry-price">135 kr / glass</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="wine-category">
+          <div class="wine-cat-header">
+            <span class="wine-cat-label">Musserende &amp; Lokalt</span>
+            <span class="wine-cat-line"></span>
+          </div>
+          <div class="wine-entries">
+            <div class="wine-entry">
+              <div class="wine-entry-info">
+                <div class="wine-entry-name">Champagne Brut NV — Billecart-Salmon</div>
+                <div class="wine-entry-detail">Champagne, Frankrike · Chardonnay/Pinot</div>
+              </div>
+              <div class="wine-entry-price">1 150 kr / fl.</div>
+            </div>
+            <div class="wine-entry">
+              <div class="wine-entry-info">
+                <div class="wine-entry-name">Jærsk Eplesider Brut — Helleland Gård</div>
+                <div class="wine-entry-detail">Jæren, Norge · Naturlig gjæret · 2023</div>
+              </div>
+              <div class="wine-entry-price">345 kr / fl.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     ÅPNINGSTIDER
+══════════════════════════════════════════ -->
+<section id="apningstider">
+  <div class="apn-grid">
+    <div class="apn-block fade-in">
+      <div class="apn-icon">☕</div>
+      <div class="apn-title">Kafé</div>
+      <div class="apn-sub">Dag · Mat &amp; Kaffe</div>
+      <div class="apn-rows">
+        <div class="apn-row">
+          <span class="apn-day">Mandag – Fredag</span>
+          <span class="apn-time">08:00 – 16:00</span>
+        </div>
+        <div class="apn-row">
+          <span class="apn-day">Lørdag</span>
+          <span class="apn-time">09:00 – 15:00</span>
+        </div>
+        <div class="apn-row">
+          <span class="apn-day">Søndag</span>
+          <span class="apn-time apn-closed">Stengt</span>
+        </div>
+      </div>
+    </div>
+    <div class="apn-block fade-in delay-1">
+      <div class="apn-icon">🍷</div>
+      <div class="apn-title">Vinstove</div>
+      <div class="apn-sub">Kveld · Vin &amp; Varmretter</div>
+      <div class="apn-rows">
+        <div class="apn-row">
+          <span class="apn-day">Tirsdag – Torsdag</span>
+          <span class="apn-time">17:00 – 23:00</span>
+        </div>
+        <div class="apn-row">
+          <span class="apn-day">Fredag – Lørdag</span>
+          <span class="apn-time">17:00 – 00:30</span>
+        </div>
+        <div class="apn-row">
+          <span class="apn-day">Mandag &amp; Søndag</span>
+          <span class="apn-time apn-closed">Stengt</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     ARRANGEMENT
+══════════════════════════════════════════ -->
+<section id="arrangement" class="section section--light">
+  <div class="container">
+    <div class="arr-grid">
+
+      <div class="arr-text">
+        <span class="label fade-in">Privat arrangement</span>
+        <span class="divider fade-in"></span>
+        <h2 class="fade-in" style="color:var(--ink);">Vi setter<br/>scenen for deg.</h2>
+        <p class="fade-in delay-1">
+          Rits er tilgjengelig for private middager, selskaper, bedriftslunsjer og spesielle anledninger. Vi tar oss av alt — fra meny til dekorasjon — slik at du kan nyte selskapet.
+        </p>
+        <p class="fade-in delay-1">
+          Vi tilbyr skreddersydde pakker med kuratert vinmeny, kurs med vår sommelier, og mulighet for eksklusiv bruk av hele lokalet.
+        </p>
+
+        <div class="arr-features fade-in delay-2">
+          <div class="arr-feature">
+            <div class="arr-feature-title">Kapasitet</div>
+            <div class="arr-feature-desc">Opptil 40 gjester</div>
+          </div>
+          <div class="arr-feature">
+            <div class="arr-feature-title">Vinkurs</div>
+            <div class="arr-feature-desc">Med sommelier</div>
+          </div>
+          <div class="arr-feature">
+            <div class="arr-feature-title">Bedriftsmiddag</div>
+            <div class="arr-feature-desc">Skreddersydd meny</div>
+          </div>
+          <div class="arr-feature">
+            <div class="arr-feature-title">Eksklusivt</div>
+            <div class="arr-feature-desc">Hel lokale ved behov</div>
+          </div>
+        </div>
+
+        <a href="#kontakt" class="arr-cta fade-in delay-3">Ta kontakt →</a>
+      </div>
+
+      <div class="arr-visual fade-in delay-1">
+        <div class="arr-panel-1">
+          <div class="candle candle-1">
+            <div class="candle-flame"></div>
+            <div class="candle-body"></div>
+          </div>
+          <div class="candle candle-2">
+            <div class="candle-flame"></div>
+            <div class="candle-body"></div>
+          </div>
+          <div class="candle candle-3">
+            <div class="candle-flame"></div>
+            <div class="candle-body"></div>
+          </div>
+        </div>
+        <div class="arr-panel-2">
+          <div class="arr-panel-2-q">"</div>
+          <div class="arr-panel-2-text">Et kveldsminne<br/>laget med omhu.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     KONTAKT
+══════════════════════════════════════════ -->
+<section id="kontakt" class="section">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:var(--gap-md);">
+      <span class="label fade-in">Kontakt</span>
+      <span class="divider divider--center fade-in"></span>
+      <h2 class="fade-in">Vi gleder oss<br/>til å høre fra deg.</h2>
+    </div>
+
+    <div class="kontakt-grid">
+      <div class="kontakt-info fade-in">
+        <p>
+          Har du spørsmål om reservasjon, arrangement eller bare vil si hei — ikke nøl. Vi svarer raskt, og alltid med et smil.
+        </p>
+        <div class="kontakt-details">
+          <div class="kontakt-detail">
+            <div class="kontakt-detail-icon">📍</div>
+            <div>
+              <div class="kontakt-detail-label">Adresse</div>
+              <div class="kontakt-detail-val">Storgata 14, 4340 Bryne</div>
+            </div>
+          </div>
+          <div class="kontakt-detail">
+            <div class="kontakt-detail-icon">📞</div>
+            <div>
+              <div class="kontakt-detail-label">Telefon</div>
+              <div class="kontakt-detail-val"><a href="tel:+4751000000">+47 51 00 00 00</a></div>
+            </div>
+          </div>
+          <div class="kontakt-detail">
+            <div class="kontakt-detail-icon">✉</div>
+            <div>
+              <div class="kontakt-detail-label">E-post</div>
+              <div class="kontakt-detail-val"><a href="mailto:hei@ritskafe.no">hei@ritskafe.no</a></div>
+            </div>
+          </div>
+          <div class="kontakt-detail">
+            <div class="kontakt-detail-icon">📷</div>
+            <div>
+              <div class="kontakt-detail-label">Instagram</div>
+              <div class="kontakt-detail-val"><a href="#">@ritskafe</a></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mini map placeholder -->
+        <div style="margin-top:2.5rem; background:rgba(255,255,255,0.03); border:1px solid rgba(212,168,122,0.1); height:180px; display:flex; align-items:center; justify-content:center; border-radius:2px; flex-direction:column; gap:0.5rem;">
+          <span style="font-size:1.8rem; opacity:0.4;">📍</span>
+          <span style="font-size:0.72rem; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:rgba(212,168,122,0.4);">Storgata 14 · Bryne</span>
+        </div>
+      </div>
+
+      <div class="kontakt-form fade-in delay-1">
+        <span class="label" style="display:block; margin-bottom:1.5rem;">Send oss en melding</span>
+        <form onsubmit="return false;">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+            <div class="form-row">
+              <label>Fornavn</label>
+              <input type="text" placeholder="Ola" />
+            </div>
+            <div class="form-row">
+              <label>Etternavn</label>
+              <input type="text" placeholder="Nordmann" />
+            </div>
+          </div>
+          <div class="form-row">
+            <label>E-postadresse</label>
+            <input type="email" placeholder="ola@eksempel.no" />
+          </div>
+          <div class="form-row">
+            <label>Telefon (valgfritt)</label>
+            <input type="tel" placeholder="+47 000 00 000" />
+          </div>
+          <div class="form-row">
+            <label>Henvendelse gjelder</label>
+            <select>
+              <option value="" disabled selected>Velg kategori</option>
+              <option>Reservasjon / bord</option>
+              <option>Privat arrangement</option>
+              <option>Vinkurs / selskap</option>
+              <option>Bedriftslunsj</option>
+              <option>Generell henvendelse</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label>Melding</label>
+            <textarea placeholder="Fortell oss gjerne litt om hva dere ønsker…"></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send melding</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand-name">Rits Kafé &amp; Vinstove</div>
+        <div class="footer-brand-sub">Bryne · Jæren · Norge</div>
+        <p class="footer-desc">
+          Et sted for gode stunder, godt selskap og vin som forteller en historie. Kafé om dagen — vinstove om kvelden.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h5>Navigasjon</h5>
+        <ul>
+          <li><a href="#om-oss">Om oss</a></li>
+          <li><a href="#meny">Meny</a></li>
+          <li><a href="#vinkart">Vinkart</a></li>
+          <li><a href="#apningstider">Åpningstider</a></li>
+          <li><a href="#arrangement">Arrangement</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Finn oss</h5>
+        <address>
+          Storgata 14<br/>
+          4340 Bryne<br/>
+          Rogaland, Norge<br/><br/>
+          <a href="tel:+4751000000" style="color:var(--muted); text-decoration:none;">+47 51 00 00 00</a><br/>
+          <a href="mailto:hei@ritskafe.no" style="color:var(--muted); text-decoration:none;">hei@ritskafe.no</a>
+        </address>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2024 Rits Kafé &amp; Vinstove · Alle rettigheter forbeholdt</span>
+      <span class="footer-credit">Demo laget av <a href="mailto:martin@folkestaddesigns.no">Folkestad Designs</a> · <a href="mailto:martin@folkestaddesigns.no">martin@folkestaddesigns.no</a></span>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+  // ── Mobile nav toggle ──
+  const toggle = document.getElementById('nav-toggle');
+  const links  = document.getElementById('nav-links');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+
+  // ── Menu tabs ──
+  document.querySelectorAll('.meny-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.meny-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.meny-grid').forEach(g => g.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+    });
+  });
+
+  // ── IntersectionObserver scroll animations ──
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // ── Nav background on scroll ──
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('site-nav');
+    nav.style.background = window.scrollY > 60
+      ? 'rgba(14, 5, 14, 0.96)'
+      : 'rgba(26, 10, 26, 0.85)';
+  });
+</script>
+
+</body>
+</html>

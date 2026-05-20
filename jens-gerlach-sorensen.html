@@ -1,0 +1,2034 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jens Gerlach Sørensen AS – Snekker & Tømrer, Bryne</title>
+  <meta name="description" content="Jens Gerlach Sørensen AS – Snekker og tømrerarbeid på Jæren siden 1968. 57 år med håndverk, kvalitet og erfaring. Kontakt oss i dag." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='3' fill='%233A2518'/%3E%3Cpath d='M8 22 L16 8 L24 22' stroke='%23C4956A' stroke-width='2.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cline x1='10' y1='18' x2='22' y2='18' stroke='%23C4956A' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E" />
+
+  <style>
+    /* ============================
+       RESET & BASE
+    ============================ */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --walnut:    #3A2518;
+      --walnut-mid:#5C3D28;
+      --copper:    #C4956A;
+      --copper-lt: #D9B48A;
+      --parchment: #F5EDE0;
+      --parchment-dk: #EDE0CC;
+      --cream:     #FAF6F0;
+      --ink:       #1E1410;
+      --muted:     #7A6655;
+      --border:    rgba(196,149,106,0.25);
+
+      --ff: 'IBM Plex Sans', sans-serif;
+      --max: 1200px;
+      --radius: 2px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--ff);
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--ink);
+      background: var(--cream);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+
+    /* ============================
+       SCROLL ANIMATIONS
+    ============================ */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .fade-up.delay-1 { transition-delay: 0.1s; }
+    .fade-up.delay-2 { transition-delay: 0.2s; }
+    .fade-up.delay-3 { transition-delay: 0.3s; }
+    .fade-up.delay-4 { transition-delay: 0.4s; }
+    .fade-up.delay-5 { transition-delay: 0.5s; }
+
+    /* ============================
+       TYPOGRAPHY
+    ============================ */
+    h1, h2, h3, h4 {
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    .label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--copper);
+    }
+
+    .section-title {
+      font-size: clamp(28px, 4vw, 42px);
+      color: var(--walnut);
+    }
+
+    .lead {
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--muted);
+    }
+
+    /* ============================
+       LAYOUT
+    ============================ */
+    .container {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    section {
+      padding: 100px 0;
+    }
+
+    .section-header {
+      margin-bottom: 64px;
+    }
+
+    .section-header .label {
+      margin-bottom: 14px;
+    }
+
+    .section-header .section-title {
+      margin-bottom: 20px;
+    }
+
+    .section-header .lead {
+      max-width: 560px;
+    }
+
+    /* ============================
+       DIVIDER
+    ============================ */
+    .copper-line {
+      width: 48px;
+      height: 3px;
+      background: var(--copper);
+      display: block;
+      margin: 18px 0 0;
+    }
+
+    /* ============================
+       NAV
+    ============================ */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(58, 37, 24, 0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(196,149,106,0.18);
+    }
+
+    .nav-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 40px;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .nav-logo-main {
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .nav-logo-sub {
+      font-size: 10px;
+      font-weight: 400;
+      color: var(--copper-lt);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--copper-lt); }
+
+    .nav-cta {
+      background: var(--copper) !important;
+      color: #fff !important;
+      padding: 9px 22px;
+      border-radius: var(--radius);
+      transition: background 0.2s !important;
+    }
+
+    .nav-cta:hover { background: var(--copper-lt) !important; }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      transition: transform 0.2s;
+    }
+
+    /* ============================
+       HERO
+    ============================ */
+    #hero {
+      min-height: 100vh;
+      background: var(--walnut);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      padding: 0;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 70% 50%, rgba(196,149,106,0.12) 0%, transparent 65%),
+        radial-gradient(ellipse 50% 80% at 10% 80%, rgba(92,61,40,0.6) 0%, transparent 60%),
+        linear-gradient(160deg, #3A2518 0%, #2A1A0E 55%, #1E130A 100%);
+    }
+
+    /* Wood grain texture overlay using CSS */
+    .hero-grain {
+      position: absolute;
+      inset: 0;
+      opacity: 0.04;
+      background-image:
+        repeating-linear-gradient(
+          88deg,
+          transparent,
+          transparent 3px,
+          rgba(196,149,106,0.8) 3px,
+          rgba(196,149,106,0.8) 4px
+        ),
+        repeating-linear-gradient(
+          92deg,
+          transparent,
+          transparent 7px,
+          rgba(196,149,106,0.4) 7px,
+          rgba(196,149,106,0.4) 8px
+        );
+    }
+
+    /* Large decorative year mark */
+    .hero-year-mark {
+      position: absolute;
+      right: -40px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: clamp(240px, 22vw, 380px);
+      font-weight: 700;
+      color: rgba(196,149,106,0.07);
+      letter-spacing: -0.05em;
+      line-height: 1;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    /* Decorative corner shapes */
+    .hero-corner-tl,
+    .hero-corner-br {
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      border: 1px solid rgba(196,149,106,0.2);
+    }
+
+    .hero-corner-tl {
+      top: 80px;
+      left: 40px;
+      border-right: none;
+      border-bottom: none;
+    }
+
+    .hero-corner-br {
+      bottom: 80px;
+      right: 40px;
+      border-left: none;
+      border-top: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 120px 40px 80px;
+      width: 100%;
+    }
+
+    .hero-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--copper);
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .hero-label::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--copper);
+    }
+
+    .hero-headline {
+      font-size: clamp(42px, 7vw, 88px);
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.03em;
+      line-height: 1.0;
+      margin-bottom: 12px;
+    }
+
+    .hero-headline em {
+      font-style: normal;
+      color: var(--copper);
+    }
+
+    .hero-sub {
+      font-size: clamp(22px, 3vw, 36px);
+      font-weight: 300;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: -0.01em;
+      margin-bottom: 40px;
+      line-height: 1.3;
+    }
+
+    .hero-body {
+      font-size: 17px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.55);
+      max-width: 520px;
+      line-height: 1.75;
+      margin-bottom: 52px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--copper);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 16px 36px;
+      border-radius: var(--radius);
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-primary:hover {
+      background: var(--copper-lt);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      display: inline-block;
+      border: 1px solid rgba(255,255,255,0.3);
+      color: rgba(255,255,255,0.8);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 16px 36px;
+      border-radius: var(--radius);
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--copper);
+      color: var(--copper);
+    }
+
+    /* Stats bar */
+    .hero-stats {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(196,149,106,0.12);
+      border-top: 1px solid rgba(196,149,106,0.2);
+      backdrop-filter: blur(8px);
+    }
+
+    .hero-stats-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 40px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .hero-stat {
+      padding: 28px 0;
+      border-right: 1px solid rgba(196,149,106,0.2);
+      padding-right: 32px;
+      padding-left: 32px;
+      text-align: center;
+    }
+
+    .hero-stat:first-child { padding-left: 0; }
+    .hero-stat:last-child { border-right: none; }
+
+    .hero-stat-num {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--copper);
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+
+    .hero-stat-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-top: 6px;
+    }
+
+    /* ============================
+       INTRO BAND
+    ============================ */
+    .intro-band {
+      background: var(--parchment);
+      padding: 72px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .intro-band-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .intro-quote {
+      font-size: clamp(20px, 2.5vw, 28px);
+      font-weight: 300;
+      color: var(--walnut);
+      line-height: 1.5;
+      letter-spacing: -0.01em;
+      border-left: 3px solid var(--copper);
+      padding-left: 28px;
+    }
+
+    .intro-text {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .intro-text strong {
+      color: var(--walnut);
+      font-weight: 600;
+    }
+
+    /* ============================
+       TJENESTER
+    ============================ */
+    #tjenester {
+      background: var(--cream);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .service-card {
+      background: var(--parchment);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 44px 40px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 100%;
+      background: var(--copper);
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: transform 0.3s;
+    }
+
+    .service-card:hover::before { transform: scaleY(1); }
+
+    .service-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(58,37,24,0.1);
+    }
+
+    /* Decorative wood-plank SVG accent */
+    .service-icon {
+      width: 52px;
+      height: 52px;
+      background: var(--walnut);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .service-icon svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    .service-card h3 {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--walnut);
+      margin-bottom: 12px;
+      letter-spacing: -0.015em;
+    }
+
+    .service-card p {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .service-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .service-list li {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--walnut-mid);
+      letter-spacing: 0.04em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .service-list li::before {
+      content: '';
+      display: block;
+      width: 16px;
+      height: 1px;
+      background: var(--copper);
+      flex-shrink: 0;
+    }
+
+    /* ============================
+       HÅNDVERKET (craftsmanship)
+    ============================ */
+    #handverket {
+      background: var(--walnut);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .handverket-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 80% 20%, rgba(196,149,106,0.08) 0%, transparent 60%),
+        linear-gradient(180deg, #3A2518 0%, #2A1A0E 100%);
+    }
+
+    .handverket-grain {
+      position: absolute;
+      inset: 0;
+      opacity: 0.03;
+      background-image:
+        repeating-linear-gradient(
+          86deg,
+          transparent,
+          transparent 2px,
+          rgba(255,255,255,0.6) 2px,
+          rgba(255,255,255,0.6) 3px
+        );
+    }
+
+    .handverket-inner {
+      position: relative;
+      z-index: 2;
+    }
+
+    .handverket-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 100px;
+      align-items: center;
+    }
+
+    .handverket-visual {
+      position: relative;
+    }
+
+    /* CSS-only wood plank composition */
+    .plank-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 40px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(196,149,106,0.15);
+      border-radius: var(--radius);
+    }
+
+    .plank {
+      height: 40px;
+      border-radius: 1px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .plank::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 60px,
+        rgba(0,0,0,0.06) 60px,
+        rgba(0,0,0,0.06) 62px
+      );
+    }
+
+    .plank-1 { background: linear-gradient(180deg, #7B4F2E 0%, #5C3A1E 50%, #6E4428 100%); }
+    .plank-2 { background: linear-gradient(180deg, #8B5E38 0%, #6B4422 50%, #7D5230 100%); width: 85%; }
+    .plank-3 { background: linear-gradient(180deg, #6A3E20 0%, #4E2E12 50%, #5C3820 100%); width: 95%; }
+    .plank-4 { background: linear-gradient(180deg, #A06A3A 0%, #7A4E26 50%, #8C5C32 100%); width: 78%; }
+    .plank-5 { background: linear-gradient(180deg, #724428 0%, #562E14 50%, #664020 100%); }
+    .plank-6 { background: linear-gradient(180deg, #8C5030 0%, #6C3A1C 50%, #7E4828 100%); width: 90%; }
+
+    .plank-caption {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(196,149,106,0.5);
+    }
+
+    /* Values grid */
+    .values-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: rgba(196,149,106,0.15);
+      border: 1px solid rgba(196,149,106,0.15);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-top: 40px;
+    }
+
+    .value-item {
+      background: rgba(58,37,24,0.6);
+      padding: 28px;
+    }
+
+    .value-item h4 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--copper);
+      margin-bottom: 8px;
+    }
+
+    .value-item p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.65;
+    }
+
+    .handverket-text .label {
+      margin-bottom: 14px;
+    }
+
+    .handverket-title {
+      font-size: clamp(28px, 3.5vw, 42px);
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+
+    .handverket-lead {
+      font-size: 17px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.75;
+      margin-bottom: 36px;
+    }
+
+    /* ============================
+       PROSJEKTER
+    ============================ */
+    #prosjekter {
+      background: var(--parchment);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .project-card {
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(58,37,24,0.15);
+    }
+
+    .project-thumb {
+      height: 200px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-thumb-1 {
+      background: linear-gradient(135deg, #6B4422 0%, #4A2E14 40%, #8B5A30 70%, #5C3A1E 100%);
+    }
+    .project-thumb-2 {
+      background: linear-gradient(135deg, #3A2010 0%, #7A4E28 50%, #5A3418 100%);
+    }
+    .project-thumb-3 {
+      background: linear-gradient(135deg, #8C6040 0%, #4E3018 50%, #7A5030 100%);
+    }
+    .project-thumb-4 {
+      background: linear-gradient(135deg, #5C3820 0%, #9A7048 50%, #4A2E14 100%);
+    }
+    .project-thumb-5 {
+      background: linear-gradient(135deg, #7E5038 0%, #3A2010 45%, #6A4228 100%);
+    }
+    .project-thumb-6 {
+      background: linear-gradient(135deg, #4A3020 0%, #8A6040 50%, #3A2010 100%);
+    }
+
+    /* Simulated wood-panel overlay */
+    .project-thumb::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        88deg,
+        transparent,
+        transparent 14px,
+        rgba(0,0,0,0.08) 14px,
+        rgba(0,0,0,0.08) 16px
+      );
+    }
+
+    .project-thumb-label {
+      position: absolute;
+      bottom: 12px;
+      left: 14px;
+      z-index: 2;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      background: rgba(0,0,0,0.3);
+      padding: 4px 10px;
+      border-radius: 1px;
+    }
+
+    .project-info {
+      background: #fff;
+      padding: 24px;
+    }
+
+    .project-type {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--copper);
+      margin-bottom: 8px;
+    }
+
+    .project-name {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--walnut);
+      margin-bottom: 6px;
+      letter-spacing: -0.01em;
+    }
+
+    .project-location {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* Large featured card */
+    .project-card.featured {
+      grid-column: span 2;
+    }
+
+    .project-card.featured .project-thumb {
+      height: 260px;
+    }
+
+    /* ============================
+       TIMELINE (OM OSS)
+    ============================ */
+    #om-oss {
+      background: var(--cream);
+      position: relative;
+    }
+
+    .om-oss-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .company-text h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--walnut);
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+
+    .company-text p {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 20px;
+    }
+
+    .company-text strong {
+      color: var(--walnut);
+      font-weight: 600;
+    }
+
+    /* Timeline */
+    .timeline {
+      position: relative;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 20px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: linear-gradient(180deg, var(--copper) 0%, var(--copper-lt) 60%, var(--border) 100%);
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 28px;
+      margin-bottom: 32px;
+      position: relative;
+    }
+
+    .timeline-dot {
+      width: 40px;
+      height: 40px;
+      background: var(--walnut);
+      border: 3px solid var(--copper);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .timeline-dot.active {
+      background: var(--copper);
+      border-color: var(--copper);
+    }
+
+    .timeline-dot-inner {
+      width: 8px;
+      height: 8px;
+      background: var(--copper-lt);
+      border-radius: 50%;
+    }
+
+    .timeline-dot.active .timeline-dot-inner {
+      background: #fff;
+    }
+
+    .timeline-content {
+      padding-top: 6px;
+    }
+
+    .timeline-year {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--copper);
+      margin-bottom: 4px;
+    }
+
+    .timeline-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--walnut);
+      margin-bottom: 4px;
+      letter-spacing: -0.01em;
+    }
+
+    .timeline-desc {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* ============================
+       OMRÅDE (service area)
+    ============================ */
+    .area-band {
+      background: var(--parchment-dk);
+      padding: 60px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .area-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .area-label-wrap .label {
+      margin-bottom: 8px;
+    }
+
+    .area-label-wrap h3 {
+      font-size: 22px;
+      color: var(--walnut);
+    }
+
+    .area-tags {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .area-tag {
+      background: var(--walnut);
+      color: rgba(255,255,255,0.85);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 8px 18px;
+      border-radius: 1px;
+    }
+
+    /* ============================
+       CONTACT
+    ============================ */
+    #kontakt {
+      background: var(--walnut);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .kontakt-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 50% at 30% 80%, rgba(196,149,106,0.08) 0%, transparent 60%),
+        linear-gradient(160deg, #3A2518 0%, #2A1A0E 100%);
+    }
+
+    .kontakt-inner {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .kontakt-info .label {
+      margin-bottom: 14px;
+    }
+
+    .kontakt-title {
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+
+    .kontakt-body {
+      font-size: 16px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.75;
+      margin-bottom: 44px;
+    }
+
+    .contact-items {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .contact-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(196,149,106,0.15);
+      border: 1px solid rgba(196,149,106,0.25);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .contact-icon svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .contact-item-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--copper);
+      margin-bottom: 3px;
+    }
+
+    .contact-item-val {
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    /* Contact form */
+    .kontakt-form {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(196,149,106,0.2);
+      border-radius: var(--radius);
+      padding: 44px;
+    }
+
+    .form-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 28px;
+      letter-spacing: -0.01em;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--copper);
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(196,149,106,0.25);
+      border-radius: var(--radius);
+      padding: 12px 16px;
+      font-family: var(--ff);
+      font-size: 15px;
+      color: #fff;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(255,255,255,0.25);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--copper);
+    }
+
+    .form-group textarea { min-height: 120px; resize: vertical; }
+
+    .form-group select {
+      appearance: none;
+      cursor: pointer;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .form-group select option { background: var(--walnut); }
+
+    .form-submit {
+      width: 100%;
+      background: var(--copper);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius);
+      padding: 15px;
+      font-family: var(--ff);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .form-submit:hover { background: var(--copper-lt); }
+
+    /* ============================
+       FOOTER
+    ============================ */
+    footer {
+      background: #1E130A;
+      padding: 48px 0 32px;
+      border-top: 1px solid rgba(196,149,106,0.15);
+    }
+
+    .footer-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .footer-logo {
+      font-size: 14px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.7);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .footer-logo span {
+      display: block;
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      color: var(--copper);
+      margin-top: 2px;
+    }
+
+    .footer-center {
+      font-size: 13px;
+      color: rgba(255,255,255,0.3);
+      text-align: center;
+    }
+
+    .footer-right {
+      font-size: 12px;
+      color: rgba(255,255,255,0.3);
+      text-align: right;
+    }
+
+    /* ============================
+       MOBILE
+    ============================ */
+    @media (max-width: 900px) {
+      .container { padding: 0 24px; }
+      section { padding: 72px 0; }
+
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 68px;
+        left: 0;
+        right: 0;
+        background: rgba(58,37,24,0.98);
+        padding: 24px;
+        gap: 20px;
+        border-bottom: 1px solid rgba(196,149,106,0.2);
+      }
+
+      .nav-links.open a {
+        font-size: 15px;
+        color: rgba(255,255,255,0.8);
+      }
+
+      .hero-content { padding: 110px 24px 180px; }
+      .hero-year-mark { font-size: 140px; right: -10px; opacity: 0.5; }
+      .hero-corner-tl, .hero-corner-br { display: none; }
+
+      .hero-stats-inner {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 24px;
+      }
+
+      .hero-stat { border-right: none; border-bottom: 1px solid rgba(196,149,106,0.2); }
+      .hero-stat:nth-child(odd) { border-right: 1px solid rgba(196,149,106,0.2); }
+      .hero-stat:last-child, .hero-stat:nth-last-child(2) { border-bottom: none; }
+
+      .intro-band-inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding: 0 24px;
+      }
+
+      .services-grid { grid-template-columns: 1fr; }
+
+      .handverket-grid { grid-template-columns: 1fr; gap: 48px; }
+
+      .projects-grid { grid-template-columns: 1fr; }
+      .project-card.featured { grid-column: span 1; }
+
+      .om-oss-grid { grid-template-columns: 1fr; gap: 48px; }
+
+      .area-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 24px;
+      }
+
+      .kontakt-inner { grid-template-columns: 1fr; gap: 48px; }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 24px;
+      }
+
+      .footer-right { text-align: left; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-headline { font-size: 38px; }
+      .hero-sub { font-size: 18px; }
+      .hero-actions { flex-direction: column; align-items: flex-start; }
+      .btn-primary, .btn-outline { width: 100%; text-align: center; }
+      .kontakt-form { padding: 28px 20px; }
+      .values-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===========================
+       NAV
+  =========================== -->
+  <nav id="mainNav">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">
+        <span class="nav-logo-main">Jens Gerlach Sørensen AS</span>
+        <span class="nav-logo-sub">Snekker &amp; Tømrer · Bryne</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#tjenester">Tjenester</a></li>
+        <li><a href="#handverket">Håndverket</a></li>
+        <li><a href="#prosjekter">Prosjekter</a></li>
+        <li><a href="#om-oss">Om oss</a></li>
+        <li><a href="#kontakt" class="nav-cta">Ta kontakt</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Åpne meny">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===========================
+       HERO
+  =========================== -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grain"></div>
+    <div class="hero-year-mark">57</div>
+    <div class="hero-corner-tl"></div>
+    <div class="hero-corner-br"></div>
+
+    <div class="hero-content">
+      <div class="hero-label fade-up visible">Snekker &amp; Tømrer på Jæren siden 1968</div>
+      <h1 class="hero-headline fade-up visible delay-1">
+        57 år med<br />
+        <em>treverk.</em>
+      </h1>
+      <p class="hero-sub fade-up visible delay-2">Håndverk som holder i generasjoner.</p>
+      <p class="hero-body fade-up visible delay-3">
+        Jens Gerlach Sørensen AS har levert snekker- og tømrerarbeid av høyeste kvalitet
+        på Jæren siden 1968. Fra innredning og rehabilitering til nybygg og tilbygg —
+        alltid med solid fagkunnskap og stolthet i arbeidet.
+      </p>
+      <div class="hero-actions fade-up visible delay-4">
+        <a href="#kontakt" class="btn-primary">Be om tilbud</a>
+        <a href="#tjenester" class="btn-outline">Se tjenester</a>
+      </div>
+    </div>
+
+    <div class="hero-stats">
+      <div class="hero-stats-inner">
+        <div class="hero-stat fade-up visible">
+          <div class="hero-stat-num">57</div>
+          <div class="hero-stat-label">År i bransjen</div>
+        </div>
+        <div class="hero-stat fade-up visible delay-1">
+          <div class="hero-stat-num">1968</div>
+          <div class="hero-stat-label">Grunnlagt</div>
+        </div>
+        <div class="hero-stat fade-up visible delay-2">
+          <div class="hero-stat-num">3</div>
+          <div class="hero-stat-label">Generasjoner</div>
+        </div>
+        <div class="hero-stat fade-up visible delay-3">
+          <div class="hero-stat-num">Jæren</div>
+          <div class="hero-stat-label">Arbeidsområde</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       INTRO BAND
+  =========================== -->
+  <div class="intro-band">
+    <div class="intro-band-inner">
+      <blockquote class="intro-quote fade-up">
+        "Vi bygger ikke bare — vi skaper noe som skal stå stødig i tiår. Det har alltid vært vår standard."
+      </blockquote>
+      <div class="intro-text fade-up delay-2">
+        <p>
+          Siden 1968 har Jens Gerlach Sørensen AS vært en <strong>bærebjelke i byggfaget på Jæren</strong>.
+          Gjennom mer enn fem tiår har vi tilpasset oss nye materialer, nye metoder og nye krav —
+          men aldri gått på akkord med det vi setter høyest: <strong>solid håndverk og ærlig pris</strong>.
+        </p>
+        <p>
+          Vi er stolte av at mange av våre kunder kommer tilbake gang på gang, og at vi gjennom
+          generasjoner har bygget og innredet hjem på Bryne, Time og resten av Jæren.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===========================
+       TJENESTER
+  =========================== -->
+  <section id="tjenester">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="label">Hva vi gjør</span>
+        <h2 class="section-title">Våre tjenester</h2>
+        <p class="lead">
+          Fra enkle snekkeroppdrag til store rehabiliteringsprosjekter —
+          vi har kompetansen og erfaringen til å gjøre jobben riktig.
+        </p>
+        <span class="copper-line"></span>
+      </div>
+
+      <div class="services-grid">
+
+        <!-- Innredning -->
+        <div class="service-card fade-up">
+          <div class="service-icon">
+            <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="3" y="6" width="22" height="16" rx="1" stroke="#C4956A" stroke-width="1.8" fill="none"/>
+              <line x1="3" y1="14" x2="25" y2="14" stroke="#C4956A" stroke-width="1.8"/>
+              <line x1="14" y1="6" x2="14" y2="22" stroke="#C4956A" stroke-width="1.8"/>
+              <line x1="3" y1="22" x2="3" y2="26" stroke="#C4956A" stroke-width="1.8" stroke-linecap="round"/>
+              <line x1="25" y1="22" x2="25" y2="26" stroke="#C4956A" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Innredning &amp; møbelsnekker</h3>
+          <p>
+            Skreddersydd innredning til kjøkken, bad, garderobe og stue. Vi tilpasser
+            hvert løsning til rommets mål og kundens behov — ingenting er standardisert her.
+          </p>
+          <ul class="service-list">
+            <li>Kjøkkeninnredning</li>
+            <li>Garderober og skap</li>
+            <li>Baderomsinnredning</li>
+            <li>Hyller og bokhyller</li>
+            <li>Trapper og rekkverker</li>
+          </ul>
+        </div>
+
+        <!-- Rehabilitering -->
+        <div class="service-card fade-up delay-1">
+          <div class="service-icon">
+            <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14 3L3 12H6V24H12V18H16V24H22V12H25L14 3Z" stroke="#C4956A" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+              <circle cx="14" cy="16" r="2.5" stroke="#C4956A" stroke-width="1.8" fill="none"/>
+            </svg>
+          </div>
+          <h3>Rehabilitering &amp; oppussing</h3>
+          <p>
+            Gamle hus fortjener ny kjærlighet. Vi rehabiliterer boliger med respekt for
+            den opprinnelige konstruksjonen, og bringer dem frem til nåtidens standard.
+          </p>
+          <ul class="service-list">
+            <li>Fullstendig renovering</li>
+            <li>Gulvlegging og parkett</li>
+            <li>Dører og vinduer</li>
+            <li>Kledning og panel</li>
+            <li>Terrasser og uteplasser</li>
+          </ul>
+        </div>
+
+        <!-- Nybygg -->
+        <div class="service-card fade-up delay-2">
+          <div class="service-icon">
+            <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="20" width="24" height="3" rx="1" stroke="#C4956A" stroke-width="1.8" fill="none"/>
+              <path d="M5 20V10L14 5L23 10V20" stroke="#C4956A" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+              <rect x="11" y="13" width="6" height="7" rx="0.5" stroke="#C4956A" stroke-width="1.5" fill="none"/>
+            </svg>
+          </div>
+          <h3>Nybygg</h3>
+          <p>
+            Fra råbygg til ferdig innredet bolig. Vi samarbeider tett med deg gjennom
+            hele byggeprosessen og sørger for at resultatet holder mål — og tidsplan.
+          </p>
+          <ul class="service-list">
+            <li>Enebolig og tomannsbolig</li>
+            <li>Hytte og fritidsbolig</li>
+            <li>Uthus og garasje</li>
+            <li>Næringsbygg</li>
+            <li>Modulbygg og prefab</li>
+          </ul>
+        </div>
+
+        <!-- Tilbygg -->
+        <div class="service-card fade-up delay-3">
+          <div class="service-icon">
+            <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="12" width="14" height="13" rx="1" stroke="#C4956A" stroke-width="1.8" fill="none"/>
+              <path d="M9 12V7L16 3L23 7V25" stroke="#C4956A" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+              <line x1="16" y1="25" x2="2" y2="25" stroke="#C4956A" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Tilbygg &amp; påbygg</h3>
+          <p>
+            Trenger du mer plass? Vi bygger tilbygg og påbygg som sømløst integrerer seg
+            med eksisterende bygningsmasse — teknisk korrekt og estetisk gjennomtenkt.
+          </p>
+          <ul class="service-list">
+            <li>Stueforlengelse</li>
+            <li>Vinterhage og veranda</li>
+            <li>Garasjeutvidelse</li>
+            <li>Loft- og kjellerfrembygging</li>
+            <li>Fasadeendringer</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       HÅNDVERKET
+  =========================== -->
+  <section id="handverket">
+    <div class="handverket-bg"></div>
+    <div class="handverket-grain"></div>
+    <div class="container">
+      <div class="handverket-inner">
+        <div class="handverket-grid">
+
+          <div class="handverket-visual fade-up">
+            <div class="plank-stack">
+              <div class="plank plank-1"></div>
+              <div class="plank plank-2"></div>
+              <div class="plank plank-3"></div>
+              <div class="plank plank-4"></div>
+              <div class="plank plank-5"></div>
+              <div class="plank plank-6"></div>
+            </div>
+            <p class="plank-caption">Håndplukket materialkvalitet</p>
+          </div>
+
+          <div class="handverket-text fade-up delay-2">
+            <span class="label">Vår filosofi</span>
+            <h2 class="handverket-title">Håndverket snakker for seg selv</h2>
+            <p class="handverket-lead">
+              Med 57 år i bransjen har vi lært at snarveier alltid koster mer i det lange løp.
+              Hvert prosjekt vi tar på oss, utføres med samme omhu — enten det gjelder å henge
+              en ny dør eller å bygge et helt hus.
+            </p>
+
+            <div class="values-grid">
+              <div class="value-item">
+                <h4>Presisjon</h4>
+                <p>Millimeterarbeid er ikke et krav — det er vår standard.</p>
+              </div>
+              <div class="value-item">
+                <h4>Materialkunnskap</h4>
+                <p>Vi vet hvordan tre oppfører seg, og velger riktig for hvert formål.</p>
+              </div>
+              <div class="value-item">
+                <h4>Ryddighet</h4>
+                <p>Vi leverer alltid arbeidsplassen i bedre stand enn vi fant den.</p>
+              </div>
+              <div class="value-item">
+                <h4>Ærlig pris</h4>
+                <p>Fast tilbud uten skjulte kostnader. Det vi sier, det koster.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       PROSJEKTER
+  =========================== -->
+  <section id="prosjekter">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="label">Utvalgte arbeider</span>
+        <h2 class="section-title">Prosjekter</h2>
+        <p class="lead">
+          Et lite utvalg av hva vi har levert de siste årene — fra intim innredning til
+          større rehabiliteringsprosjekter rundt om på Jæren.
+        </p>
+        <span class="copper-line"></span>
+      </div>
+
+      <div class="projects-grid">
+
+        <div class="project-card featured fade-up">
+          <div class="project-thumb project-thumb-1">
+            <span class="project-thumb-label">Rehabilitering</span>
+          </div>
+          <div class="project-info">
+            <div class="project-type">Rehabilitering</div>
+            <div class="project-name">Fullstendig rehabilitering av 1960-talls bolig</div>
+            <div class="project-location">Bryne, Time kommune</div>
+          </div>
+        </div>
+
+        <div class="project-card fade-up delay-1">
+          <div class="project-thumb project-thumb-2">
+            <span class="project-thumb-label">Innredning</span>
+          </div>
+          <div class="project-info">
+            <div class="project-type">Kjøkkeninnredning</div>
+            <div class="project-name">Skreddersydd kjøkken</div>
+            <div class="project-location">Klepp, Jæren</div>
+          </div>
+        </div>
+
+        <div class="project-card fade-up delay-1">
+          <div class="project-thumb project-thumb-3">
+            <span class="project-thumb-label">Tilbygg</span>
+          </div>
+          <div class="project-info">
+            <div class="project-type">Tilbygg</div>
+            <div class="project-name">Stueforlengelse med vinterhage</div>
+            <div class="project-location">Nærbø, Hå</div>
+          </div>
+        </div>
+
+        <div class="project-card fade-up delay-2">
+          <div class="project-thumb project-thumb-4">
+            <span class="project-thumb-label">Nybygg</span>
+          </div>
+          <div class="project-info">
+            <div class="project-type">Nybygg</div>
+            <div class="project-name">Enebolig, ferdigsnekret</div>
+            <div class="project-location">Varhaug, Time</div>
+          </div>
+        </div>
+
+        <div class="project-card fade-up delay-2">
+          <div class="project-thumb project-thumb-5">
+            <span class="project-thumb-label">Innredning</span>
+          </div>
+          <div class="project-info">
+            <div class="project-type">Garderobe &amp; bod</div>
+            <div class="project-name">Garderobeinnredning i to etasjer</div>
+            <div class="project-location">Bryne sentrum</div>
+          </div>
+        </div>
+
+        <div class="project-card fade-up delay-3">
+          <div class="project-thumb project-thumb-6">
+            <span class="project-thumb-label">Terrasse</span>
+          </div>
+          <div class="project-info">
+            <div class="project-type">Uteplass</div>
+            <div class="project-name">Terrasse og utebod</div>
+            <div class="project-location">Ogna, Hå</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       OM OSS / TIMELINE
+  =========================== -->
+  <section id="om-oss">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="label">Vår historie</span>
+        <h2 class="section-title">57 år på Jæren</h2>
+        <p class="lead">
+          Siden Jens Gerlach Sørensen startet selskapet i 1968, har vi vokst
+          med regionen — og blitt en del av dens byggekultur.
+        </p>
+        <span class="copper-line"></span>
+      </div>
+
+      <div class="om-oss-grid">
+
+        <div class="company-text fade-up">
+          <h3>Et snekkerverksted med røtter i Jæren</h3>
+          <p>
+            Jens Gerlach Sørensen AS ble grunnlagt på Bryne i 1968 av Jens Gerlach Sørensen
+            — en faglært snekker med lidenskap for solid håndverk og god kommunikasjon
+            med kundene. Det som startet som et lite enmannsforetak har vokst til å bli
+            <strong>en av Jærens mest erfarne snekker- og tømmerbedrifter</strong>.
+          </p>
+          <p>
+            Vi holder til på Breimyra 8 i Bryne, og har gjennom tiårene betjent
+            privatpersoner, borettslag og næringskunder over hele Time-regionen.
+            Vår styrke er kombinasjonen av <strong>lang erfaring, lokalkunnskap
+            og evnen til å finne gode, kostnadseffektive løsninger</strong>.
+          </p>
+          <p>
+            Vi er faglig oppdatert, har fagbrev og nødvendige sertifiseringer,
+            og jobber alltid etter gjeldende tekniske forskrifter.
+          </p>
+
+          <div style="margin-top:36px; padding:28px; background:var(--parchment); border:1px solid var(--border); border-radius:var(--radius);">
+            <div class="label" style="margin-bottom:12px;">Adresse</div>
+            <p style="font-size:15px; font-weight:600; color:var(--walnut); margin-bottom:4px;">Breimyra 8, 4344 Bryne</p>
+            <p style="font-size:14px; color:var(--muted);">Time kommune, Rogaland</p>
+          </div>
+        </div>
+
+        <div class="timeline fade-up delay-2">
+
+          <div class="timeline-item">
+            <div class="timeline-dot">
+              <div class="timeline-dot-inner"></div>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-year">1968</div>
+              <div class="timeline-title">Grunnleggelse</div>
+              <div class="timeline-desc">Jens Gerlach Sørensen starter selskapet på Bryne med fokus på innredning og tømrerarbeid for privatmarkedet.</div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot">
+              <div class="timeline-dot-inner"></div>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-year">1970-tallet</div>
+              <div class="timeline-title">Vekst i boligmarkedet</div>
+              <div class="timeline-desc">Jæren opplever sterk boligbygging. Selskapet utvider og tar på seg sine første nybyggprosjekter.</div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot">
+              <div class="timeline-dot-inner"></div>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-year">1980-tallet</div>
+              <div class="timeline-title">Etablert som Jæren-aktør</div>
+              <div class="timeline-desc">Selskapet er nå godt kjent i hele Time-regionen. Økt fokus på innredning og rehabilitering av eldre boliger.</div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot">
+              <div class="timeline-dot-inner"></div>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-year">1990-tallet</div>
+              <div class="timeline-title">Ny generasjon inn</div>
+              <div class="timeline-desc">Neste generasjon bringer ny kunnskap og metoder, mens tradisjonen for kvalitetshåndverk videreføres.</div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot">
+              <div class="timeline-dot-inner"></div>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-year">2000–2010</div>
+              <div class="timeline-title">Modernisering</div>
+              <div class="timeline-desc">Investeringer i nye maskiner og metoder. Sertifiseringer og oppdatering etter nye byggtekniske krav (TEK).</div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot">
+              <div class="timeline-dot-inner"></div>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-year">2010–2020</div>
+              <div class="timeline-title">Spesialisering</div>
+              <div class="timeline-desc">Økt fokus på rehabilitering, tilbygg og skreddersydd innredning. Sterk vekst i kundebasen.</div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot active">
+              <div class="timeline-dot-inner"></div>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-year">2025</div>
+              <div class="timeline-title">57 år — og like sterke</div>
+              <div class="timeline-desc">Vi er sterkere enn noen gang. Samme verdier. Ny energi. Klar for de neste 57 årene på Jæren.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       AREA BAND
+  =========================== -->
+  <div class="area-band">
+    <div class="area-inner">
+      <div class="area-label-wrap fade-up">
+        <span class="label">Vi jobber i hele regionen</span>
+        <h3>Arbeidsområde</h3>
+      </div>
+      <div class="area-tags fade-up delay-2">
+        <span class="area-tag">Bryne</span>
+        <span class="area-tag">Time</span>
+        <span class="area-tag">Klepp</span>
+        <span class="area-tag">Hå</span>
+        <span class="area-tag">Sandnes</span>
+        <span class="area-tag">Hele Jæren</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===========================
+       KONTAKT
+  =========================== -->
+  <section id="kontakt">
+    <div class="kontakt-bg"></div>
+    <div class="container">
+      <div class="kontakt-inner">
+
+        <div class="kontakt-info fade-up">
+          <span class="label">Ta kontakt</span>
+          <h2 class="kontakt-title">La oss snakke om ditt prosjekt</h2>
+          <p class="kontakt-body">
+            Vi gir deg et klart og ærlig tilbud uten skjulte kostnader.
+            Ring oss, send en melding, eller besøk oss på Breimyra 8 i Bryne.
+            Vi svarer raskt og er alltid hyggelige å snakke med.
+          </p>
+
+          <div class="contact-items">
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M3 5C3 4.45 3.45 4 4 4H7.27L8.5 7.5L6.75 9.25C7.55 10.85 9.15 12.45 10.75 13.25L12.5 11.5L16 12.73V16C16 16.55 15.55 17 15 17C8.37 17 3 11.63 3 5Z" stroke="#C4956A" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div>
+                <div class="contact-item-label">Telefon</div>
+                <div class="contact-item-val">51 48 28 83</div>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="2" y="4" width="16" height="12" rx="1.5" stroke="#C4956A" stroke-width="1.5" fill="none"/>
+                  <path d="M2 7L10 12L18 7" stroke="#C4956A" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div>
+                <div class="contact-item-label">E-post</div>
+                <div class="contact-item-val">post@gerlachsorensen.no</div>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M10 2C7.24 2 5 4.24 5 7C5 11 10 18 10 18C10 18 15 11 15 7C15 4.24 12.76 2 10 2Z" stroke="#C4956A" stroke-width="1.5" fill="none"/>
+                  <circle cx="10" cy="7" r="2" stroke="#C4956A" stroke-width="1.5" fill="none"/>
+                </svg>
+              </div>
+              <div>
+                <div class="contact-item-label">Adresse</div>
+                <div class="contact-item-val">Breimyra 8, 4344 Bryne</div>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="10" cy="10" r="7.5" stroke="#C4956A" stroke-width="1.5" fill="none"/>
+                  <path d="M10 6V10L12.5 12.5" stroke="#C4956A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div>
+                <div class="contact-item-label">Åpningstider</div>
+                <div class="contact-item-val">Man–Fre: 07:00–16:00</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="kontakt-form fade-up delay-2">
+          <div class="form-title">Send oss en melding</div>
+          <form onsubmit="return false;">
+            <div class="form-group">
+              <label for="name">Navn</label>
+              <input type="text" id="name" placeholder="Ditt fulle navn" />
+            </div>
+            <div class="form-group">
+              <label for="phone">Telefon</label>
+              <input type="tel" id="phone" placeholder="Ditt telefonnummer" />
+            </div>
+            <div class="form-group">
+              <label for="email">E-post</label>
+              <input type="email" id="email" placeholder="din@epost.no" />
+            </div>
+            <div class="form-group">
+              <label for="service">Tjeneste</label>
+              <select id="service">
+                <option value="" disabled selected>Velg type oppdrag</option>
+                <option value="innredning">Innredning</option>
+                <option value="rehabilitering">Rehabilitering</option>
+                <option value="nybygg">Nybygg</option>
+                <option value="tilbygg">Tilbygg / Påbygg</option>
+                <option value="annet">Annet</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Beskrivelse</label>
+              <textarea id="message" placeholder="Beskriv prosjektet ditt kort..."></textarea>
+            </div>
+            <button type="submit" class="form-submit">Send forespørsel</button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       FOOTER
+  =========================== -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">
+        Jens Gerlach Sørensen AS
+        <span>Snekker &amp; Tømrer · Bryne · Siden 1968</span>
+      </div>
+      <div class="footer-center">
+        &copy; 2025 Jens Gerlach Sørensen AS &nbsp;·&nbsp; Org.nr: [xxxxxx]
+      </div>
+      <div class="footer-right">
+        Breimyra 8, 4344 Bryne<br />
+        Tlf: 51 48 28 83
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===========================
+       SCRIPTS
+  =========================== -->
+  <script>
+    // Mobile nav toggle
+    const navToggle = document.getElementById('navToggle');
+    const navLinks  = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+
+    // Close nav on link click
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+
+    // IntersectionObserver fade-in
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+
+    document.querySelectorAll('.fade-up:not(.visible)').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Nav scroll shrink
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 60) {
+        nav.style.borderBottomColor = 'rgba(196,149,106,0.12)';
+      } else {
+        nav.style.borderBottomColor = 'rgba(196,149,106,0.18)';
+      }
+    });
+
+    // Smooth active nav links
+    const sections = document.querySelectorAll('section[id], div.area-band');
+    const navAnchors = document.querySelectorAll('.nav-links a');
+
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            navAnchors.forEach(a => {
+              a.style.color = '';
+              if (a.getAttribute('href') === '#' + entry.target.id) {
+                a.style.color = 'rgba(196,149,106,0.9)';
+              }
+            });
+          }
+        });
+      },
+      { threshold: 0.4 }
+    );
+
+    document.querySelectorAll('section[id]').forEach(s => sectionObserver.observe(s));
+  </script>
+
+</body>
+</html>

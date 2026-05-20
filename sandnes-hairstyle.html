@@ -1,0 +1,2763 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sandnes Hairstyle – Langgata 94, Sandnes</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%231A1A1A'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-size='28' fill='%23D4A87A'%3ESH%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+  <style>
+    /* ===========================
+       RESET & BASE
+    =========================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --black:       #1A1A1A;
+      --black-deep:  #0F0F0F;
+      --black-soft:  #242424;
+      --nude:        #D4A87A;
+      --nude-light:  #E8C9A0;
+      --nude-dark:   #B8844A;
+      --offwhite:    #F5F0EB;
+      --offwhite-warm: #EDE6DC;
+      --brown:       #8B7355;
+      --brown-light: #A89070;
+      --white:       #FFFFFF;
+      --ink:         #1A1A1A;
+      --muted:       #7A7265;
+      --muted-light: #A09585;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-weight: 400;
+      color: var(--ink);
+      background-color: var(--offwhite);
+      overflow-x: hidden;
+      line-height: 1.7;
+    }
+
+    ::selection {
+      background: var(--nude);
+      color: var(--black);
+    }
+
+    img { display: block; max-width: 100%; }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ===========================
+       SCROLL ANIMATION
+    =========================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-36px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(36px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(0.95);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal-scale.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+    .delay-4 { transition-delay: 0.4s; }
+    .delay-5 { transition-delay: 0.5s; }
+    .delay-6 { transition-delay: 0.6s; }
+
+    /* ===========================
+       NAVIGATION
+    =========================== */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 56px;
+      height: 72px;
+      background: rgba(26, 26, 26, 0.97);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(212, 168, 122, 0.12);
+      transition: background 0.3s ease;
+    }
+
+    .nav-logo {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .nav-logo-name {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+
+    .nav-logo-sub {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--nude);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      transition: color 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--nude);
+    }
+
+    .nav-cta {
+      background: var(--nude) !important;
+      color: var(--black) !important;
+      padding: 10px 28px;
+      font-size: 10px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.22em !important;
+      transition: background 0.25s ease !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--nude-light) !important;
+    }
+
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      transition: all 0.3s ease;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 72px;
+      left: 0;
+      right: 0;
+      background: var(--black-deep);
+      z-index: 99;
+      border-top: 1px solid rgba(212,168,122,0.15);
+    }
+
+    .mobile-menu.open {
+      display: block;
+    }
+
+    .mobile-menu a {
+      display: block;
+      padding: 16px 32px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      transition: color 0.2s, padding-left 0.2s;
+    }
+
+    .mobile-menu a:hover {
+      color: var(--nude);
+      padding-left: 40px;
+    }
+
+    /* ===========================
+       HERO
+    =========================== */
+    .hero {
+      min-height: 100vh;
+      background: var(--black);
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 55% 65% at 65% 35%, rgba(212,168,122,0.09) 0%, transparent 55%),
+        radial-gradient(ellipse 45% 55% at 15% 75%, rgba(139,115,85,0.18) 0%, transparent 55%),
+        linear-gradient(150deg, #0F0F0F 0%, #1A1A1A 45%, #242424 100%);
+    }
+
+    .hero-grid-overlay {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(212,168,122,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(212,168,122,0.04) 1px, transparent 1px);
+      background-size: 80px 80px;
+      pointer-events: none;
+    }
+
+    .hero-accent-line {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 38%;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent 5%, rgba(212,168,122,0.15) 30%, rgba(212,168,122,0.08) 70%, transparent 95%);
+    }
+
+    .hero-right-panel {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 36%;
+      overflow: hidden;
+    }
+
+    .hero-right-panel-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #242424 0%, #1A1A1A 100%);
+    }
+
+    .hero-right-visual {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-scissors {
+      position: relative;
+      width: 180px;
+      height: 180px;
+    }
+
+    .hero-scissors-circle {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(212,168,122,0.15);
+    }
+
+    .hero-scissors-circle:nth-child(1) {
+      inset: 0;
+    }
+
+    .hero-scissors-circle:nth-child(2) {
+      inset: 24px;
+      border-color: rgba(212,168,122,0.1);
+    }
+
+    .hero-scissors-circle:nth-child(3) {
+      inset: 56px;
+      background: rgba(212,168,122,0.06);
+    }
+
+    .hero-scissors-icon {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      filter: grayscale(1) brightness(1.5);
+      opacity: 0.3;
+    }
+
+    .hero-right-address {
+      position: absolute;
+      bottom: 48px;
+      left: 0;
+      right: 0;
+      text-align: center;
+    }
+
+    .hero-right-address-street {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--nude);
+    }
+
+    .hero-right-address-city {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      color: rgba(255,255,255,0.35);
+      margin-top: 4px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: 64%;
+      padding: 0 56px 80px;
+      padding-top: 120px;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 36px;
+    }
+
+    .hero-eyebrow-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--nude);
+      border-radius: 50%;
+    }
+
+    .hero-eyebrow-text {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--nude);
+    }
+
+    .hero-title {
+      font-size: clamp(48px, 7vw, 96px);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      line-height: 0.95;
+      color: var(--white);
+      margin-bottom: 40px;
+    }
+
+    .hero-title .highlight {
+      color: var(--nude);
+      font-style: italic;
+      font-weight: 300;
+    }
+
+    .hero-tagline {
+      font-size: clamp(16px, 2vw, 22px);
+      font-weight: 300;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.55);
+      max-width: 460px;
+      margin-bottom: 56px;
+    }
+
+    .hero-location-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(212,168,122,0.1);
+      border: 1px solid rgba(212,168,122,0.2);
+      padding: 10px 20px;
+      margin-bottom: 48px;
+    }
+
+    .hero-location-badge svg {
+      width: 14px;
+      height: 14px;
+      fill: var(--nude);
+      flex-shrink: 0;
+    }
+
+    .hero-location-badge span {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .hero-location-badge strong {
+      color: var(--nude);
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--nude);
+      color: var(--black);
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 18px 40px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.25s ease, transform 0.2s ease;
+      border-radius: 1px;
+    }
+
+    .btn-primary:hover {
+      background: var(--nude-light);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: transparent;
+      color: var(--white);
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 17px 40px;
+      border: 1px solid rgba(255,255,255,0.2);
+      cursor: pointer;
+      transition: border-color 0.25s, color 0.25s;
+      border-radius: 1px;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--nude);
+      color: var(--nude);
+    }
+
+    .hero-bottom-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 36%;
+      height: 4px;
+      background: linear-gradient(to right, var(--nude-dark), var(--nude), var(--nude-light));
+    }
+
+    .hero-scroll-hint {
+      position: absolute;
+      bottom: 24px;
+      right: calc(36% + 40px);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      z-index: 3;
+    }
+
+    .hero-scroll-hint span {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+    }
+
+    .scroll-arrow {
+      width: 24px;
+      height: 24px;
+      border-right: 1px solid rgba(212,168,122,0.4);
+      border-bottom: 1px solid rgba(212,168,122,0.4);
+      transform: rotate(45deg);
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: rotate(45deg) translateY(0); }
+      50% { transform: rotate(45deg) translateY(4px); }
+    }
+
+    /* ===========================
+       SECTIONS
+    =========================== */
+    .section-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 56px;
+    }
+
+    .section-pad {
+      padding-top: 100px;
+      padding-bottom: 100px;
+    }
+
+    .label-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .label-tick {
+      width: 32px;
+      height: 2px;
+      background: var(--nude);
+    }
+
+    .label-text {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--nude);
+    }
+
+    .section-h2 {
+      font-size: clamp(28px, 4vw, 52px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      color: var(--black);
+    }
+
+    .section-h2-light {
+      color: var(--white);
+    }
+
+    .section-lead {
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--muted);
+      max-width: 580px;
+    }
+
+    /* ===========================
+       STRIP / TICKER
+    =========================== */
+    .ticker-strip {
+      background: var(--nude);
+      padding: 16px 0;
+      overflow: hidden;
+    }
+
+    .ticker-inner {
+      display: flex;
+      gap: 0;
+      white-space: nowrap;
+      animation: ticker 20s linear infinite;
+    }
+
+    .ticker-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 20px;
+      padding: 0 32px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--black);
+      white-space: nowrap;
+    }
+
+    .ticker-dot {
+      width: 4px;
+      height: 4px;
+      background: var(--black);
+      border-radius: 50%;
+      opacity: 0.4;
+    }
+
+    @keyframes ticker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ===========================
+       INTRO / CONCEPT
+    =========================== */
+    .intro-section {
+      background: var(--offwhite);
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 100px;
+      align-items: center;
+    }
+
+    .intro-visual {
+      position: relative;
+    }
+
+    .intro-main-img {
+      width: 100%;
+      padding-bottom: 130%;
+      background: var(--black);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .intro-main-img-inner {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 50% at 50% 20%, rgba(212,168,122,0.15) 0%, transparent 60%),
+        linear-gradient(160deg, #2A2420 0%, #1A1A1A 50%, #111 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .intro-img-graphic {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 1px solid rgba(212,168,122,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .intro-img-graphic::before {
+      content: '';
+      position: absolute;
+      inset: 8px;
+      border-radius: 50%;
+      background: rgba(212,168,122,0.1);
+    }
+
+    .intro-img-graphic svg {
+      width: 32px;
+      height: 32px;
+      fill: var(--nude);
+      position: relative;
+      z-index: 1;
+    }
+
+    .intro-img-label {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+    }
+
+    .intro-float-card {
+      position: absolute;
+      right: -40px;
+      bottom: 48px;
+      background: var(--white);
+      padding: 24px;
+      width: 200px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+    }
+
+    .intro-float-num {
+      font-size: 40px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--nude);
+      line-height: 1;
+    }
+
+    .intro-float-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--black);
+      margin-top: 6px;
+    }
+
+    .intro-float-sub {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .intro-text h2 {
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      color: var(--black);
+      margin-bottom: 24px;
+    }
+
+    .intro-text h2 em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--brown);
+    }
+
+    .intro-text p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .intro-text p:first-of-type {
+      font-size: 18px;
+      font-weight: 300;
+      color: var(--ink);
+    }
+
+    .intro-divider {
+      width: 40px;
+      height: 2px;
+      background: var(--nude);
+      margin: 28px 0;
+    }
+
+    .intro-pillars {
+      display: flex;
+      gap: 32px;
+    }
+
+    .intro-pillar {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .intro-pillar-val {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--nude);
+    }
+
+    .intro-pillar-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ===========================
+       SERVICES
+    =========================== */
+    .services-section {
+      background: var(--black);
+    }
+
+    .services-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 100px 56px;
+    }
+
+    .services-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 64px;
+      gap: 32px;
+    }
+
+    .services-header-right {
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.4);
+      max-width: 320px;
+      text-align: right;
+      line-height: 1.7;
+    }
+
+    .services-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .service-row {
+      display: grid;
+      grid-template-columns: 64px 1fr 1fr 160px;
+      align-items: center;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.04);
+      padding: 28px 36px;
+      gap: 32px;
+      transition: background 0.25s ease, border-color 0.25s ease;
+      cursor: default;
+    }
+
+    .service-row:hover {
+      background: rgba(212,168,122,0.06);
+      border-color: rgba(212,168,122,0.15);
+    }
+
+    .service-row-num {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: rgba(212,168,122,0.4);
+    }
+
+    .service-row-name {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--white);
+    }
+
+    .service-row-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .service-chip {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      background: rgba(255,255,255,0.05);
+      padding: 5px 12px;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .service-row-cta {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .service-row-link {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--nude);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: gap 0.2s ease;
+    }
+
+    .service-row:hover .service-row-link {
+      gap: 14px;
+    }
+
+    .service-row-link-arrow {
+      width: 20px;
+      height: 1px;
+      background: var(--nude);
+      position: relative;
+    }
+
+    .service-row-link-arrow::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: -3px;
+      width: 7px;
+      height: 7px;
+      border-right: 1px solid var(--nude);
+      border-top: 1px solid var(--nude);
+      transform: rotate(45deg);
+    }
+
+    /* Bridal highlight row */
+    .service-row-bridal {
+      background: linear-gradient(90deg, rgba(212,168,122,0.08) 0%, rgba(212,168,122,0.04) 100%);
+      border-color: rgba(212,168,122,0.2);
+    }
+
+    .service-row-bridal .service-row-name {
+      color: var(--nude-light);
+    }
+
+    /* ===========================
+       TEAM
+    =========================== */
+    .team-section {
+      background: var(--offwhite-warm);
+    }
+
+    .team-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 100px 56px;
+    }
+
+    .team-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: end;
+      margin-bottom: 64px;
+    }
+
+    .team-header-right {
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--muted);
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .stylist-card {
+      background: var(--white);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .stylist-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .stylist-portrait {
+      width: 100%;
+      padding-bottom: 90%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stylist-portrait-bg {
+      position: absolute;
+      inset: 0;
+    }
+
+    .stylist-portrait-bg:nth-child(1) {
+      background: linear-gradient(145deg, #2A2420 0%, #1A1610 100%);
+    }
+
+    .stylist-card:nth-child(2) .stylist-portrait-bg {
+      background: linear-gradient(145deg, #231E1A 0%, #1A1A1A 100%);
+    }
+
+    .stylist-card:nth-child(3) .stylist-portrait-bg {
+      background: linear-gradient(145deg, #1E2023 0%, #141518 100%);
+    }
+
+    .stylist-portrait-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 30%, rgba(212,168,122,0.12) 0%, transparent 60%);
+    }
+
+    .stylist-portrait-initials {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .stylist-initials-circle {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: rgba(212,168,122,0.15);
+      border: 1px solid rgba(212,168,122,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--nude);
+    }
+
+    .stylist-portrait-label {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+    }
+
+    .stylist-info {
+      padding: 28px 28px 32px;
+    }
+
+    .stylist-name {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--black);
+      margin-bottom: 4px;
+    }
+
+    .stylist-title {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--nude-dark);
+      margin-bottom: 14px;
+    }
+
+    .stylist-bio {
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .stylist-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .stylist-tag {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--brown);
+      background: var(--offwhite);
+      padding: 5px 12px;
+      border: 1px solid rgba(139,115,85,0.2);
+    }
+
+    /* ===========================
+       GALLERY
+    =========================== */
+    .gallery-section {
+      background: var(--black-soft);
+    }
+
+    .gallery-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 100px 56px;
+    }
+
+    .gallery-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 48px;
+      gap: 24px;
+    }
+
+    .gallery-cta-link {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--nude);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: gap 0.2s ease;
+    }
+
+    .gallery-cta-link:hover {
+      gap: 16px;
+    }
+
+    .gallery-cta-arrow {
+      width: 24px;
+      height: 1px;
+      background: var(--nude);
+      position: relative;
+    }
+
+    .gallery-cta-arrow::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: -3px;
+      width: 7px;
+      height: 7px;
+      border-right: 1px solid var(--nude);
+      border-top: 1px solid var(--nude);
+      transform: rotate(45deg);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: 240px 240px;
+      gap: 4px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gallery-item:nth-child(1) {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+
+    .gallery-item-bg {
+      position: absolute;
+      inset: 0;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-item:hover .gallery-item-bg {
+      transform: scale(1.05);
+    }
+
+    .gallery-item:nth-child(1) .gallery-item-bg {
+      background: linear-gradient(135deg, #2A2218 0%, #1A1510 100%);
+    }
+
+    .gallery-item:nth-child(2) .gallery-item-bg {
+      background: linear-gradient(135deg, #221E1A 0%, #18140F 100%);
+    }
+
+    .gallery-item:nth-child(3) .gallery-item-bg {
+      background: linear-gradient(135deg, #1E1C1A 0%, #141210 100%);
+    }
+
+    .gallery-item:nth-child(4) .gallery-item-bg {
+      background: linear-gradient(135deg, #252220 0%, #1A1718 100%);
+    }
+
+    .gallery-item:nth-child(5) .gallery-item-bg {
+      background: linear-gradient(135deg, #201E1C 0%, #141210 100%);
+    }
+
+    .gallery-item-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 40%, rgba(212,168,122,0.1) 0%, transparent 65%);
+    }
+
+    .gallery-item-label {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      background: rgba(0,0,0,0.4);
+      padding: 6px 12px;
+    }
+
+    .gallery-item-center {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .gallery-scissors {
+      width: 32px;
+      height: 32px;
+      opacity: 0.15;
+    }
+
+    /* ===========================
+       PRICING
+    =========================== */
+    .pricing-section {
+      background: var(--offwhite);
+    }
+
+    .pricing-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 100px 56px;
+    }
+
+    .pricing-header {
+      margin-bottom: 64px;
+    }
+
+    .pricing-cols {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .price-col {
+      background: var(--white);
+      padding: 36px 32px;
+    }
+
+    .price-col-title {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--black);
+      margin-bottom: 4px;
+    }
+
+    .price-col-sub {
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--muted);
+      margin-bottom: 24px;
+      letter-spacing: 0.05em;
+    }
+
+    .price-col-divider {
+      width: 32px;
+      height: 2px;
+      background: var(--nude);
+      margin-bottom: 24px;
+    }
+
+    .price-item {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      padding: 11px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      gap: 12px;
+    }
+
+    .price-item:last-child {
+      border-bottom: none;
+    }
+
+    .price-item-name {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--ink);
+      flex: 1;
+    }
+
+    .price-item-note {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 1px;
+    }
+
+    .price-item-val {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--black);
+      white-space: nowrap;
+    }
+
+    .price-col-featured {
+      background: var(--black);
+    }
+
+    .price-col-featured .price-col-title {
+      color: var(--white);
+    }
+
+    .price-col-featured .price-col-sub {
+      color: rgba(255,255,255,0.4);
+    }
+
+    .price-col-featured .price-item {
+      border-color: rgba(255,255,255,0.06);
+    }
+
+    .price-col-featured .price-item-name {
+      color: rgba(255,255,255,0.75);
+    }
+
+    .price-col-featured .price-item-val {
+      color: var(--nude);
+    }
+
+    .price-col-featured .price-item-note {
+      color: rgba(255,255,255,0.35);
+    }
+
+    .pricing-note {
+      margin-top: 32px;
+      background: rgba(212,168,122,0.08);
+      border-left: 3px solid var(--nude);
+      padding: 18px 24px;
+      font-size: 13px;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    /* ===========================
+       LOCATION SECTION
+    =========================== */
+    .location-section {
+      background: var(--black);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .location-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 30% 50%, rgba(212,168,122,0.06) 0%, transparent 60%);
+    }
+
+    .location-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 100px 56px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .location-text h2 {
+      font-size: clamp(28px, 4vw, 52px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      margin-bottom: 24px;
+      line-height: 1.05;
+    }
+
+    .location-text h2 em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--nude);
+    }
+
+    .location-text p {
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 40px;
+    }
+
+    .location-details {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .location-detail {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .location-detail-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(212,168,122,0.1);
+      border: 1px solid rgba(212,168,122,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .location-detail-icon svg {
+      width: 18px;
+      height: 18px;
+      fill: var(--nude);
+    }
+
+    .location-detail-text {
+      font-size: 14px;
+      color: rgba(255,255,255,0.6);
+      padding-top: 10px;
+      line-height: 1.5;
+    }
+
+    .location-detail-text strong {
+      color: var(--white);
+      display: block;
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .location-map {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      height: 100%;
+      min-height: 420px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .location-map::before {
+      content: '';
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      border: 1px solid rgba(212,168,122,0.08);
+    }
+
+    .location-map::after {
+      content: '';
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 1px solid rgba(212,168,122,0.06);
+    }
+
+    .location-map-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(212,168,122,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(212,168,122,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    .location-pin {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .location-pin-marker {
+      width: 56px;
+      height: 56px;
+      background: var(--nude);
+      border-radius: 50% 50% 50% 0;
+      transform: rotate(-45deg);
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .location-pin-marker-inner {
+      transform: rotate(45deg);
+      font-size: 22px;
+    }
+
+    .location-pin-street {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.05em;
+    }
+
+    .location-pin-city {
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.15em;
+      margin-top: 6px;
+    }
+
+    .location-pin-badge {
+      margin-top: 16px;
+      display: inline-block;
+      background: rgba(212,168,122,0.15);
+      border: 1px solid rgba(212,168,122,0.25);
+      padding: 8px 16px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--nude);
+    }
+
+    /* ===========================
+       BOOKING / CONTACT
+    =========================== */
+    .booking-section {
+      background: var(--offwhite);
+    }
+
+    .booking-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 100px 56px;
+    }
+
+    .booking-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .booking-info h2 {
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      color: var(--black);
+      margin-bottom: 20px;
+    }
+
+    .booking-info p {
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--muted);
+      margin-bottom: 36px;
+    }
+
+    .booking-contact-rows {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .booking-contact-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .booking-contact-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .booking-contact-icon svg {
+      width: 18px;
+      height: 18px;
+      fill: var(--nude);
+    }
+
+    .booking-contact-val {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--black);
+    }
+
+    .booking-contact-label {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 1px;
+    }
+
+    .booking-hours {
+      margin-top: 32px;
+    }
+
+    .booking-hours-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--brown);
+      margin-bottom: 16px;
+    }
+
+    .booking-hour-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 9px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      font-size: 14px;
+    }
+
+    .booking-hour-day {
+      font-weight: 600;
+      color: var(--black);
+    }
+
+    .booking-hour-time {
+      color: var(--muted);
+    }
+
+    .booking-form {
+      background: var(--black);
+      padding: 44px;
+    }
+
+    .booking-form-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .booking-form-sub {
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 32px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--white);
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 14px;
+      padding: 13px 16px;
+      outline: none;
+      transition: border-color 0.25s ease;
+      -webkit-appearance: none;
+      appearance: none;
+      border-radius: 1px;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--nude);
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(255,255,255,0.2);
+    }
+
+    .form-group select option {
+      background: var(--black-deep);
+      color: var(--white);
+    }
+
+    .form-row-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .form-btn {
+      width: 100%;
+      background: var(--nude);
+      color: var(--black);
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      padding: 16px;
+      border: none;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: background 0.25s ease;
+      border-radius: 1px;
+    }
+
+    .form-btn:hover {
+      background: var(--nude-light);
+    }
+
+    /* ===========================
+       FOOTER
+    =========================== */
+    .footer {
+      background: var(--black-deep);
+      padding: 64px 56px 36px;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      margin-bottom: 28px;
+    }
+
+    .footer-wordmark {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .footer-word-sub {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--nude);
+      margin-bottom: 16px;
+    }
+
+    .footer-about {
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.35);
+    }
+
+    .footer-col-h {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--nude);
+      margin-bottom: 20px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      font-size: 13px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.4);
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--nude-light);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      color: rgba(255,255,255,0.2);
+    }
+
+    .footer-copy a {
+      color: rgba(255,255,255,0.35);
+    }
+
+    .footer-nude-bar {
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(to right, var(--nude-dark), var(--nude), var(--nude-light), var(--nude), var(--nude-dark));
+      margin-bottom: 0;
+    }
+
+    /* ===========================
+       RESPONSIVE
+    =========================== */
+    @media (max-width: 1024px) {
+      .nav { padding: 0 28px; }
+      .section-container { padding: 0 28px; }
+      .services-inner { padding: 80px 28px; }
+      .team-inner { padding: 80px 28px; }
+      .gallery-inner { padding: 80px 28px; }
+      .pricing-inner { padding: 80px 28px; }
+      .location-inner { padding: 80px 28px; }
+      .booking-inner { padding: 80px 28px; }
+      .footer { padding: 48px 28px 28px; }
+      .hero-content { padding: 0 28px 80px; width: 65%; }
+      .hero-right-panel { width: 35%; }
+      .hero-accent-line { right: 35%; }
+      .hero-bottom-bar { right: 35%; }
+      .intro-grid { grid-template-columns: 1fr; gap: 48px; }
+      .intro-float-card { right: -20px; }
+      .service-row { grid-template-columns: 48px 1fr 1fr 100px; gap: 16px; padding: 24px 24px; }
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
+      .pricing-cols { grid-template-columns: 1fr; }
+      .location-grid { grid-template-columns: 1fr; }
+      .booking-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+
+    @media (max-width: 768px) {
+      .nav { padding: 0 20px; height: 64px; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .hero { min-height: 100svh; align-items: center; }
+      .hero-content { width: 100%; padding: 80px 20px 60px; }
+      .hero-right-panel { display: none; }
+      .hero-accent-line { display: none; }
+      .hero-bottom-bar { right: 0; }
+      .hero-scroll-hint { right: 40px; }
+      .services-inner, .team-inner, .gallery-inner,
+      .pricing-inner, .location-inner, .booking-inner { padding: 64px 20px; }
+      .footer { padding: 48px 20px 28px; }
+      .services-header { flex-direction: column; align-items: flex-start; }
+      .services-header-right { text-align: left; }
+      .service-row { grid-template-columns: 1fr; gap: 12px; padding: 20px; }
+      .service-row-num { display: none; }
+      .service-row-cta { justify-content: flex-start; }
+      .team-grid { grid-template-columns: 1fr; }
+      .team-header { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; }
+      .gallery-item:nth-child(1) { grid-column: span 2; padding-bottom: 60%; }
+      .gallery-item { min-height: 160px; }
+      .pricing-cols { grid-template-columns: 1fr; }
+      .location-grid { grid-template-columns: 1fr; }
+      .location-map { min-height: 280px; }
+      .booking-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+      .form-row-2 { grid-template-columns: 1fr; }
+      .intro-float-card { position: static; margin-top: 24px; width: 100%; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title { font-size: 40px; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .btn-primary, .btn-outline { text-align: center; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="nav" id="nav">
+    <div class="nav-logo">
+      <span class="nav-logo-name">Sandnes Hairstyle</span>
+      <span class="nav-logo-sub">Langgata 94 · Sandnes</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#tjenester">Tjenester</a></li>
+      <li><a href="#teamet">Teamet</a></li>
+      <li><a href="#priser">Priser</a></li>
+      <li><a href="#galleri">Galleri</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+      <li><a href="#booking" class="nav-cta">Book time</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Meny">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#tjenester">Tjenester</a>
+    <a href="#teamet">Teamet</a>
+    <a href="#priser">Priser</a>
+    <a href="#galleri">Galleri</a>
+    <a href="#kontakt">Kontakt</a>
+    <a href="#booking">Book time</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid-overlay"></div>
+    <div class="hero-accent-line"></div>
+
+    <div class="hero-right-panel">
+      <div class="hero-right-panel-bg"></div>
+      <div class="hero-right-visual">
+        <div class="hero-scissors">
+          <div class="hero-scissors-circle"></div>
+          <div class="hero-scissors-circle"></div>
+          <div class="hero-scissors-circle"></div>
+          <div class="hero-scissors-icon">✂</div>
+        </div>
+      </div>
+      <div class="hero-right-address">
+        <div class="hero-right-address-street">Langgata 94</div>
+        <div class="hero-right-address-city">Sandnes Sentrum</div>
+      </div>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow reveal">
+        <div class="hero-eyebrow-dot"></div>
+        <span class="hero-eyebrow-text">Profesjonell frisør — Sandnes</span>
+      </div>
+
+      <h1 class="hero-title reveal delay-1">
+        Din frisør<br>
+        i <span class="highlight">Langgata</span>
+      </h1>
+
+      <p class="hero-tagline reveal delay-2">
+        Sandnes Hairstyle holder til i hjertet av Sandnes sentrum. Dyktige stylister, personlig service og resultater du kan stå for.
+      </p>
+
+      <div class="hero-location-badge reveal delay-3">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        <span><strong>Langgata 94</strong> — Sandnes sentrum</span>
+      </div>
+
+      <div class="hero-actions reveal delay-4">
+        <a href="#booking" class="btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
+          Book tid nå
+        </a>
+        <a href="#tjenester" class="btn-outline">Se tjenester</a>
+      </div>
+    </div>
+
+    <div class="hero-bottom-bar"></div>
+
+    <div class="hero-scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker-strip" aria-hidden="true">
+    <div class="ticker-inner">
+      <span class="ticker-item">Klipp & Styling <div class="ticker-dot"></div></span>
+      <span class="ticker-item">Fargebehandling <div class="ticker-dot"></div></span>
+      <span class="ticker-item">Balayage <div class="ticker-dot"></div></span>
+      <span class="ticker-item">Hair Extensions <div class="ticker-dot"></div></span>
+      <span class="ticker-item">Brudehår <div class="ticker-dot"></div></span>
+      <span class="ticker-item">Langgata 94, Sandnes <div class="ticker-dot"></div></span>
+      <span class="ticker-item">Klipp & Styling <div class="ticker-dot"></div></span>
+      <span class="ticker-item">Fargebehandling <div class="ticker-dot"></div></span>
+      <span class="ticker-item">Balayage <div class="ticker-dot"></div></span>
+      <span class="ticker-item">Hair Extensions <div class="ticker-dot"></div></span>
+      <span class="ticker-item">Brudehår <div class="ticker-dot"></div></span>
+      <span class="ticker-item">Langgata 94, Sandnes <div class="ticker-dot"></div></span>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <section class="intro-section">
+    <div class="section-container">
+      <div class="section-pad">
+        <div class="intro-grid">
+          <div class="intro-visual reveal-left">
+            <div class="intro-main-img">
+              <div class="intro-main-img-inner">
+                <div class="intro-img-graphic">
+                  <svg viewBox="0 0 24 24"><path d="M15.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM5 12c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8.5c-1.9 0-3.5-1.6-3.5-3.5S3.1 13.5 5 13.5s3.5 1.6 3.5 3.5S6.9 20.5 5 20.5zm5.8-10l2.4-2.4.8.8c1.3 1.3 3 2.1 5.1 2.1V11c-1.5 0-2.7-.6-3.6-1.5l-1.9-1.9c-.5-.4-1-.6-1.6-.6s-1.1.2-1.4.6L7.8 10.4C7.4 10.8 7 11.4 7 12c0 .6.3 1.2.8 1.6l3.3 2.4V20h2v-5l-3.3-2.5 2-2.3z"/></svg>
+                </div>
+                <div class="intro-img-label">Sandnes Hairstyle</div>
+              </div>
+            </div>
+            <div class="intro-float-card">
+              <div class="intro-float-num">15+</div>
+              <div class="intro-float-label">Års erfaring</div>
+              <div class="intro-float-sub">I Sandnes sentrum</div>
+            </div>
+          </div>
+
+          <div class="intro-text">
+            <div class="label-row reveal">
+              <div class="label-tick"></div>
+              <span class="label-text">Om oss</span>
+            </div>
+            <h2 class="reveal delay-1">
+              Mer enn et klipp.<br>
+              <em>Et uttrykk.</em>
+            </h2>
+            <div class="intro-divider reveal delay-2"></div>
+            <p class="reveal delay-2">
+              Sandnes Hairstyle er en etablert frisørsalong med hjerte i Sandnes sentrum. Vi holder til i Langgata 94 — én av byens mest sentrale gater — og har betjent Sandnes-folk i over 15 år.
+            </p>
+            <p class="reveal delay-3">
+              Hos oss møter du erfarne stylister som tar deg på alvor. Enten du vil ha et klassisk klipp, prøve noe nytt med farge, eller forberede deg til bryllup — vi har tid og kompetanse til å gi deg det du er ute etter.
+            </p>
+            <div class="intro-pillars reveal delay-4">
+              <div class="intro-pillar">
+                <div class="intro-pillar-val">3</div>
+                <div class="intro-pillar-label">Dyktige stylister</div>
+              </div>
+              <div class="intro-pillar">
+                <div class="intro-pillar-val">5</div>
+                <div class="intro-pillar-label">Spesialiteter</div>
+              </div>
+              <div class="intro-pillar">
+                <div class="intro-pillar-val">100%</div>
+                <div class="intro-pillar-label">Fokus på deg</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services-section" id="tjenester">
+    <div class="services-inner">
+      <div class="services-header">
+        <div>
+          <div class="label-row reveal">
+            <div class="label-tick"></div>
+            <span class="label-text" style="color: var(--nude);">Tjenester</span>
+          </div>
+          <h2 class="section-h2 section-h2-light reveal delay-1">Det vi er best på</h2>
+        </div>
+        <p class="services-header-right reveal delay-2">
+          Fra hverdagsklipp til avansert fargeteknikk. Vi tilpasser oss deg — og gir råd som passer ditt hår og din livsstil.
+        </p>
+      </div>
+
+      <div class="services-list">
+        <div class="service-row reveal">
+          <span class="service-row-num">01</span>
+          <span class="service-row-name">Klipp & Styling</span>
+          <div class="service-row-items">
+            <span class="service-chip">Dame</span>
+            <span class="service-chip">Herre</span>
+            <span class="service-chip">Barn</span>
+            <span class="service-chip">Oppsamling</span>
+            <span class="service-chip">Blowout</span>
+          </div>
+          <div class="service-row-cta">
+            <a href="#booking" class="service-row-link">
+              Book
+              <span class="service-row-link-arrow"></span>
+            </a>
+          </div>
+        </div>
+
+        <div class="service-row reveal delay-1">
+          <span class="service-row-num">02</span>
+          <span class="service-row-name">Farge & Teknikk</span>
+          <div class="service-row-items">
+            <span class="service-chip">Helfarging</span>
+            <span class="service-chip">Reflekser</span>
+            <span class="service-chip">Balayage</span>
+            <span class="service-chip">Ombré</span>
+            <span class="service-chip">Fargekorreksjon</span>
+          </div>
+          <div class="service-row-cta">
+            <a href="#booking" class="service-row-link">
+              Book
+              <span class="service-row-link-arrow"></span>
+            </a>
+          </div>
+        </div>
+
+        <div class="service-row reveal delay-2">
+          <span class="service-row-num">03</span>
+          <span class="service-row-name">Behandlinger</span>
+          <div class="service-row-items">
+            <span class="service-chip">Keratin</span>
+            <span class="service-chip">Permanent</span>
+            <span class="service-chip">Glattbehandling</span>
+            <span class="service-chip">Dyppleie</span>
+            <span class="service-chip">Protein</span>
+          </div>
+          <div class="service-row-cta">
+            <a href="#booking" class="service-row-link">
+              Book
+              <span class="service-row-link-arrow"></span>
+            </a>
+          </div>
+        </div>
+
+        <div class="service-row reveal delay-3">
+          <span class="service-row-num">04</span>
+          <span class="service-row-name">Extensions</span>
+          <div class="service-row-items">
+            <span class="service-chip">Tape-in</span>
+            <span class="service-chip">Clip-in</span>
+            <span class="service-chip">Nano-ring</span>
+            <span class="service-chip">Vedlikehold</span>
+          </div>
+          <div class="service-row-cta">
+            <a href="#booking" class="service-row-link">
+              Book
+              <span class="service-row-link-arrow"></span>
+            </a>
+          </div>
+        </div>
+
+        <div class="service-row service-row-bridal reveal delay-4">
+          <span class="service-row-num">05</span>
+          <span class="service-row-name">Bryllup & Event</span>
+          <div class="service-row-items">
+            <span class="service-chip">Brudehår</span>
+            <span class="service-chip">Brudefølge</span>
+            <span class="service-chip">Prøvestyling</span>
+            <span class="service-chip">Oppsett</span>
+            <span class="service-chip">Eventpakke</span>
+          </div>
+          <div class="service-row-cta">
+            <a href="#booking" class="service-row-link">
+              Book
+              <span class="service-row-link-arrow"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="team-section" id="teamet">
+    <div class="team-inner">
+      <div class="team-header">
+        <div>
+          <div class="label-row reveal">
+            <div class="label-tick"></div>
+            <span class="label-text">Vårt team</span>
+          </div>
+          <h2 class="section-h2 reveal delay-1">Møt stylistene</h2>
+        </div>
+        <p class="team-header-right reveal delay-2">
+          Alle stylistene hos Sandnes Hairstyle er fagutdannede og brenner for faget. Vi er et lite, tett team som setter kunden i sentrum — alltid.
+        </p>
+      </div>
+
+      <div class="team-grid">
+        <div class="stylist-card reveal">
+          <div class="stylist-portrait">
+            <div class="stylist-portrait-bg"></div>
+            <div class="stylist-portrait-overlay"></div>
+            <div class="stylist-portrait-initials">
+              <div class="stylist-initials-circle">HB</div>
+              <div class="stylist-portrait-label">Stylist</div>
+            </div>
+          </div>
+          <div class="stylist-info">
+            <h3 class="stylist-name">Hanne B.</h3>
+            <p class="stylist-title">Daglig leder & Stylist</p>
+            <p class="stylist-bio">Mer enn 18 år i bransjen. Spesialist på fargeteknikk og har gjort bryllupshår til en spesialitet. Hanne driver salongen med høye krav til kvalitet og kundeopplevelse.</p>
+            <div class="stylist-tags">
+              <span class="stylist-tag">Farge</span>
+              <span class="stylist-tag">Balayage</span>
+              <span class="stylist-tag">Bryllup</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="stylist-card reveal delay-1">
+          <div class="stylist-portrait">
+            <div class="stylist-portrait-bg"></div>
+            <div class="stylist-portrait-overlay"></div>
+            <div class="stylist-portrait-initials">
+              <div class="stylist-initials-circle">RE</div>
+              <div class="stylist-portrait-label">Stylist</div>
+            </div>
+          </div>
+          <div class="stylist-info">
+            <h3 class="stylist-name">Randi E.</h3>
+            <p class="stylist-title">Senior Frisør</p>
+            <p class="stylist-bio">Randi er kjent for sin rolige tilnærming og teft for hva som passer den enkelte. Spesielt god på klipp og strukturering av forskjellige hårtyper.</p>
+            <div class="stylist-tags">
+              <span class="stylist-tag">Klipp</span>
+              <span class="stylist-tag">Styling</span>
+              <span class="stylist-tag">Behandlinger</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="stylist-card reveal delay-2">
+          <div class="stylist-portrait">
+            <div class="stylist-portrait-bg"></div>
+            <div class="stylist-portrait-overlay"></div>
+            <div class="stylist-portrait-initials">
+              <div class="stylist-initials-circle">LS</div>
+              <div class="stylist-portrait-label">Stylist</div>
+            </div>
+          </div>
+          <div class="stylist-info">
+            <h3 class="stylist-name">Lena S.</h3>
+            <p class="stylist-title">Frisør & Extensions-spesialist</p>
+            <p class="stylist-bio">Lena er salongens spesialist på extensions og hårlengde. Utdannet innen flere extensions-metoder og holder seg alltid oppdatert på nye teknikker og trender.</p>
+            <div class="stylist-tags">
+              <span class="stylist-tag">Extensions</span>
+              <span class="stylist-tag">Farge</span>
+              <span class="stylist-tag">Ombré</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery-section" id="galleri">
+    <div class="gallery-inner">
+      <div class="gallery-header">
+        <div>
+          <div class="label-row reveal">
+            <div class="label-tick"></div>
+            <span class="label-text" style="color: var(--nude);">Galleri</span>
+          </div>
+          <h2 class="section-h2 section-h2-light reveal delay-1">Resultater vi er stolte av</h2>
+        </div>
+        <a href="#booking" class="gallery-cta-link reveal delay-2">
+          Book din time
+          <span class="gallery-cta-arrow"></span>
+        </a>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item reveal">
+          <div class="gallery-item-bg"></div>
+          <div class="gallery-item-overlay"></div>
+          <div class="gallery-item-center">
+            <svg class="gallery-scissors" viewBox="0 0 24 24" fill="rgba(212,168,122,0.3)"><path d="M9.64 7.64c.23-.5.36-1.05.36-1.64 0-2.21-1.79-4-4-4S2 3.79 2 6s1.79 4 4 4c.59 0 1.14-.13 1.64-.36L10 12l-2.36 2.36C7.14 14.13 6.59 14 6 14c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4c0-.59-.13-1.14-.36-1.64L12 14l7 7h3v-1L9.64 7.64zM6 8c-1.1 0-2-.89-2-2s.9-2 2-2 2 .89 2 2-.9 2-2 2zm0 12c-1.1 0-2-.89-2-2s.9-2 2-2 2 .89 2 2-.9 2-2 2zm6-7.5c-.28 0-.5-.22-.5-.5s.22-.5.5-.5.5.22.5.5-.22.5-.5.5zM19 3l-7 7 2 2 7.5-7.5V3z"/></svg>
+          </div>
+          <span class="gallery-item-label">Fargebehandling</span>
+        </div>
+        <div class="gallery-item reveal delay-1">
+          <div class="gallery-item-bg"></div>
+          <div class="gallery-item-overlay"></div>
+          <span class="gallery-item-label">Balayage</span>
+        </div>
+        <div class="gallery-item reveal delay-2">
+          <div class="gallery-item-bg"></div>
+          <div class="gallery-item-overlay"></div>
+          <span class="gallery-item-label">Klipp & Styling</span>
+        </div>
+        <div class="gallery-item reveal delay-3">
+          <div class="gallery-item-bg"></div>
+          <div class="gallery-item-overlay"></div>
+          <span class="gallery-item-label">Extensions</span>
+        </div>
+        <div class="gallery-item reveal delay-4">
+          <div class="gallery-item-bg"></div>
+          <div class="gallery-item-overlay"></div>
+          <span class="gallery-item-label">Brudehår</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing-section" id="priser">
+    <div class="pricing-inner">
+      <div class="pricing-header">
+        <div class="label-row reveal">
+          <div class="label-tick"></div>
+          <span class="label-text">Prisliste</span>
+        </div>
+        <h2 class="section-h2 reveal delay-1">Klare priser</h2>
+        <p class="section-lead reveal delay-2" style="margin-top: 16px;">
+          Vi tror på transparent prising. Her er veiledende priser — for nøyaktig tilbud ring oss på 51 62 20 00.
+        </p>
+      </div>
+
+      <div class="pricing-cols">
+        <div class="price-col reveal">
+          <h3 class="price-col-title">Klipp & Styling</h3>
+          <p class="price-col-sub">For dame, herre og barn</p>
+          <div class="price-col-divider"></div>
+          <div class="price-item">
+            <div>
+              <div class="price-item-name">Klipp dame</div>
+              <div class="price-item-note">inkl. vask og føning</div>
+            </div>
+            <span class="price-item-val">fra 420 kr</span>
+          </div>
+          <div class="price-item">
+            <div>
+              <div class="price-item-name">Klipp herre</div>
+            </div>
+            <span class="price-item-val">fra 290 kr</span>
+          </div>
+          <div class="price-item">
+            <div>
+              <div class="price-item-name">Klipp barn</div>
+              <div class="price-item-note">under 12 år</div>
+            </div>
+            <span class="price-item-val">fra 210 kr</span>
+          </div>
+          <div class="price-item">
+            <div>
+              <div class="price-item-name">Blowout / føning</div>
+            </div>
+            <span class="price-item-val">fra 260 kr</span>
+          </div>
+          <div class="price-item">
+            <div>
+              <div class="price-item-name">Oppsamling / flette</div>
+            </div>
+            <span class="price-item-val">fra 320 kr</span>
+          </div>
+          <div class="price-item">
+            <div>
+              <div class="price-item-name">Brudehår</div>
+              <div class="price-item-note">inkl. prøvetime</div>
+            </div>
+            <span class="price-item-val">fra 1 600 kr</span>
+          </div>
+        </div>
+
+        <div class="price-col price-col-featured reveal delay-1">
+          <h3 class="price-col-title">Farge & Teknikk</h3>
+          <p class="price-col-sub">Alle fargebehandlinger</p>
+          <div class="price-col-divider"></div>
+          <div class="price-item">
+            <div>
+              <div class="price-item-name">Helfarging</div>
+            </div>
+            <span class="price-item-val">fra 780 kr</span>
+          </div>
+          <div class="price-item">
+            <div>
+              <div class="price-item-name">Reflekser / folie</div>
+            </div>
+            <span class="price-item-val">fra 640 kr</span>
+          </div>
+          <div class="price-item">
+            <div>
+              <div class="price-item-name">Balayage</div>
+            </div>
+            <span class="price-item-val">fra 1 100 kr</span>
+          </div>
+          <div class="price-item">
+            <div>
+              <div class="price-item-name">Ombré / sombre</div>
+            </div>
+            <span class="price-item-val">fra 980 kr</span>
+          </div>
+          <div class="price-item">
+            <div>
+              <div class="price-item-name">Fargekorreksjon</div>
+              <div class="price-item-note">pris etter konsultasjon</div>
+            </div>
+            <span class="price-item-val">fra 1 600 kr</span>
+          </div>
+          <div class="price-item">
+            <div>
+              <div class="price-item-name">Toning / glans</div>
+            </div>
+            <span class="price-item-val">fra 340 kr</span>
+          </div>
+        </div>
+
+        <div class="price-col reveal delay-2">
+          <h3 class="price-col-title">Behandlinger & Extensions</h3>
+          <p class="price-col-sub">Spesialbehandlinger</p>
+          <div class="price-col-divider"></div>
+          <div class="price-item">
+            <div>
+              <div class="price-item-name">Keratin-behandling</div>
+            </div>
+            <span class="price-item-val">fra 1 300 kr</span>
+          </div>
+          <div class="price-item">
+            <div>
+              <div class="price-item-name">Glattbehandling</div>
+            </div>
+            <span class="price-item-val">fra 1 100 kr</span>
+          </div>
+          <div class="price-item">
+            <div>
+              <div class="price-item-name">Permanent</div>
+            </div>
+            <span class="price-item-val">fra 720 kr</span>
+          </div>
+          <div class="price-item">
+            <div>
+              <div class="price-item-name">Dyppleie / protein</div>
+            </div>
+            <span class="price-item-val">fra 280 kr</span>
+          </div>
+          <div class="price-item">
+            <div>
+              <div class="price-item-name">Extensions tape-in</div>
+              <div class="price-item-note">inkl. montering</div>
+            </div>
+            <span class="price-item-val">fra 2 200 kr</span>
+          </div>
+          <div class="price-item">
+            <div>
+              <div class="price-item-name">Extensions vedlikehold</div>
+            </div>
+            <span class="price-item-val">fra 680 kr</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pricing-note reveal">
+        <strong>Merk:</strong> Prisene er veiledende og avhenger av hårlengde, mengde produkt og behandlingstid. Ring <strong>51 62 20 00</strong> for gratis konsultasjon og nøyaktig prisoverslag.
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATION -->
+  <section class="location-section">
+    <div class="location-inner">
+      <div class="location-grid">
+        <div class="location-text">
+          <div class="label-row reveal">
+            <div class="label-tick"></div>
+            <span class="label-text" style="color: var(--nude);">Beliggenhet</span>
+          </div>
+          <h2 class="reveal delay-1">
+            Rett i hjertet<br>
+            av <em>Sandnes sentrum</em>
+          </h2>
+          <p class="reveal delay-2">
+            Langgata er Sandnes sin mest kjente handlegate. Du finner oss i nummer 94 — lett tilgjengelig, kjent adresse og rett i byens pulserende sentrum.
+          </p>
+          <div class="location-details reveal delay-3">
+            <div class="location-detail">
+              <div class="location-detail-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              </div>
+              <div class="location-detail-text">
+                <strong>Langgata 94, 4306 Sandnes</strong>
+                Sandnes sentrum — landets travleste handlegate
+              </div>
+            </div>
+            <div class="location-detail">
+              <div class="location-detail-icon">
+                <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+              </div>
+              <div class="location-detail-text">
+                <strong>51 62 20 00</strong>
+                Ring oss for booking og spørsmål
+              </div>
+            </div>
+            <div class="location-detail">
+              <div class="location-detail-icon">
+                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              </div>
+              <div class="location-detail-text">
+                <strong>post@sandneshairstyle.no</strong>
+                Booking og henvendelser på e-post
+              </div>
+            </div>
+            <div class="location-detail">
+              <div class="location-detail-icon">
+                <svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+              </div>
+              <div class="location-detail-text">
+                <strong>Parkering</strong>
+                Offentlig parkering rett ved salongen
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="location-map reveal-right">
+          <div class="location-map-grid"></div>
+          <div class="location-pin">
+            <div class="location-pin-marker">
+              <div class="location-pin-marker-inner">✦</div>
+            </div>
+            <div class="location-pin-street">Langgata 94</div>
+            <div class="location-pin-city">Sandnes, Rogaland</div>
+            <div class="location-pin-badge">Sandnes Sentrum</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING / CONTACT -->
+  <section class="booking-section" id="booking">
+    <div class="booking-inner">
+      <div class="label-row reveal" style="margin-bottom: 48px;">
+        <div class="label-tick"></div>
+        <span class="label-text">Book time</span>
+      </div>
+
+      <div class="booking-grid" id="kontakt">
+        <div class="booking-info">
+          <h2 class="reveal">Klar for en<br>ny look?</h2>
+          <p class="reveal delay-1">
+            Fyll ut skjemaet eller ring oss direkte. Vi bekrefter din bestilling så raskt vi kan og gleder oss til å se deg.
+          </p>
+
+          <div class="booking-contact-rows reveal delay-2">
+            <div class="booking-contact-row">
+              <div class="booking-contact-icon">
+                <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+              </div>
+              <div>
+                <div class="booking-contact-val">51 62 20 00</div>
+                <div class="booking-contact-label">Telefon — ring eller SMS</div>
+              </div>
+            </div>
+            <div class="booking-contact-row">
+              <div class="booking-contact-icon">
+                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              </div>
+              <div>
+                <div class="booking-contact-val">post@sandneshairstyle.no</div>
+                <div class="booking-contact-label">E-post</div>
+              </div>
+            </div>
+            <div class="booking-contact-row">
+              <div class="booking-contact-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              </div>
+              <div>
+                <div class="booking-contact-val">Langgata 94, Sandnes</div>
+                <div class="booking-contact-label">Adresse</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="booking-hours reveal delay-3">
+            <div class="booking-hours-title">Åpningstider</div>
+            <div class="booking-hour-row"><span class="booking-hour-day">Mandag</span><span class="booking-hour-time">09:00–18:00</span></div>
+            <div class="booking-hour-row"><span class="booking-hour-day">Tirsdag</span><span class="booking-hour-time">09:00–18:00</span></div>
+            <div class="booking-hour-row"><span class="booking-hour-day">Onsdag</span><span class="booking-hour-time">09:00–18:00</span></div>
+            <div class="booking-hour-row"><span class="booking-hour-day">Torsdag</span><span class="booking-hour-time">09:00–20:00</span></div>
+            <div class="booking-hour-row"><span class="booking-hour-day">Fredag</span><span class="booking-hour-time">09:00–18:00</span></div>
+            <div class="booking-hour-row"><span class="booking-hour-day">Lørdag</span><span class="booking-hour-time">09:00–16:00</span></div>
+          </div>
+        </div>
+
+        <div class="booking-form reveal delay-2">
+          <h3 class="booking-form-title">Book time online</h3>
+          <p class="booking-form-sub">Vi bekrefter innen kort tid</p>
+
+          <form onsubmit="return false;">
+            <div class="form-row-2">
+              <div class="form-group">
+                <label>Fornavn</label>
+                <input type="text" placeholder="Ole">
+              </div>
+              <div class="form-group">
+                <label>Etternavn</label>
+                <input type="text" placeholder="Hansen">
+              </div>
+            </div>
+            <div class="form-row-2">
+              <div class="form-group">
+                <label>Telefon</label>
+                <input type="tel" placeholder="40 00 00 00">
+              </div>
+              <div class="form-group">
+                <label>E-post</label>
+                <input type="email" placeholder="e@post.no">
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Ønsket behandling</label>
+              <select>
+                <option value="">Velg behandling</option>
+                <option>Klipp dame</option>
+                <option>Klipp herre</option>
+                <option>Klipp barn</option>
+                <option>Helfarging</option>
+                <option>Balayage / ombré</option>
+                <option>Reflekser</option>
+                <option>Keratin-behandling</option>
+                <option>Extensions</option>
+                <option>Brudehår</option>
+                <option>Annet</option>
+              </select>
+            </div>
+            <div class="form-row-2">
+              <div class="form-group">
+                <label>Stylist (valgfritt)</label>
+                <select>
+                  <option value="">Ingen preferanse</option>
+                  <option>Hanne B.</option>
+                  <option>Randi E.</option>
+                  <option>Lena S.</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Ønsket dato</label>
+                <input type="date">
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Melding (valgfritt)</label>
+              <textarea rows="3" placeholder="Har du noe du vil fortelle oss på forhånd?"></textarea>
+            </div>
+            <button type="submit" class="form-btn">Send forespørsel</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <div class="footer-nude-bar"></div>
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <div class="footer-wordmark">SANDNES HAIRSTYLE</div>
+          <div class="footer-word-sub">Langgata 94 · Sandnes</div>
+          <p class="footer-about">
+            Din lokale frisørsalong i hjertet av Sandnes sentrum. Profesjonelle stylister, moderne teknikker og et varmt mottakelse — siden vi åpnet dørene i Langgata.
+          </p>
+        </div>
+        <div>
+          <div class="footer-col-h">Tjenester</div>
+          <ul class="footer-links">
+            <li><a href="#tjenester">Klipp & Styling</a></li>
+            <li><a href="#tjenester">Farge & Teknikk</a></li>
+            <li><a href="#tjenester">Behandlinger</a></li>
+            <li><a href="#tjenester">Extensions</a></li>
+            <li><a href="#tjenester">Brudehår</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-h">Informasjon</div>
+          <ul class="footer-links">
+            <li><a href="#priser">Prisliste</a></li>
+            <li><a href="#teamet">Teamet</a></li>
+            <li><a href="#galleri">Galleri</a></li>
+            <li><a href="#booking">Book time</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-h">Kontakt</div>
+          <ul class="footer-links">
+            <li><a href="tel:51622000">51 62 20 00</a></li>
+            <li><a href="mailto:post@sandneshairstyle.no">post@sandneshairstyle.no</a></li>
+            <li><a href="#kontakt">Langgata 94, Sandnes</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2024 Sandnes Hairstyle. Alle rettigheter forbeholdt.</p>
+        <p class="footer-copy">Nettside av <a href="#">Folkestad Designs</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Intersection Observer for scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    hamburger.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+      const spans = hamburger.querySelectorAll('span');
+      if (mobileMenu.classList.contains('open')) {
+        spans[0].style.transform = 'translateY(7px) rotate(45deg)';
+        spans[1].style.opacity = '0';
+        spans[2].style.transform = 'translateY(-7px) rotate(-45deg)';
+      } else {
+        spans[0].style.transform = '';
+        spans[1].style.opacity = '';
+        spans[2].style.transform = '';
+      }
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        const spans = hamburger.querySelectorAll('span');
+        spans[0].style.transform = '';
+        spans[1].style.opacity = '';
+        spans[2].style.transform = '';
+      });
+    });
+
+    // Nav background on scroll
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 60) {
+        nav.style.background = 'rgba(10, 10, 10, 0.99)';
+      } else {
+        nav.style.background = 'rgba(26, 26, 26, 0.97)';
+      }
+    });
+  </script>
+</body>
+</html>

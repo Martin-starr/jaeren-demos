@@ -1,0 +1,2405 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jæren Dekk – Dekkspesialisten på Jæren | Klepp, Voll</title>
+  <meta name="description" content="Jæren Dekk er din lokale dekkspesialist på Jæren. Vi tilbyr dekkskift, dekkhotell, balansering, TPMS-kontroll og piggdekk. Rett dekk. Rett pris. Jæren.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%231A1A1A' rx='8'/><circle cx='32' cy='32' r='22' fill='none' stroke='%23F7B731' stroke-width='5'/><circle cx='32' cy='32' r='8' fill='%23F7B731'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #1A1A1A;
+      --carbon: #111111;
+      --yellow: #F7B731;
+      --yellow-dark: #D9960A;
+      --white: #F5F5F5;
+      --rubber: #444444;
+      --grey-mid: #666666;
+      --grey-light: #888888;
+      --border: #2A2A2A;
+      --font: 'IBM Plex Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--carbon);
+      color: var(--white);
+      overflow-x: hidden;
+      line-height: 1.7;
+    }
+
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--carbon); }
+    ::-webkit-scrollbar-thumb { background: var(--yellow); border-radius: 2px; }
+
+    /* ── SCROLL ANIMATIONS ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    .fade-left {
+      opacity: 0;
+      transform: translateX(-32px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-left.visible { opacity: 1; transform: translateX(0); }
+
+    .fade-right {
+      opacity: 0;
+      transform: translateX(32px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-right.visible { opacity: 1; transform: translateX(0); }
+
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+    .delay-4 { transition-delay: 0.4s; }
+    .delay-5 { transition-delay: 0.5s; }
+
+    /* ── TIRE TREAD PATTERN ── */
+    .tread-bg {
+      background-image:
+        repeating-linear-gradient(
+          90deg,
+          rgba(247,183,49,0.04) 0px,
+          rgba(247,183,49,0.04) 6px,
+          transparent 6px,
+          transparent 18px
+        ),
+        repeating-linear-gradient(
+          0deg,
+          rgba(247,183,49,0.03) 0px,
+          rgba(247,183,49,0.03) 3px,
+          transparent 3px,
+          transparent 24px
+        );
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      height: 68px;
+      background: rgba(17,17,17,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.3s;
+    }
+
+    .nav-logo {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      gap: 1px;
+    }
+    .nav-logo-main {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--white);
+      line-height: 1;
+    }
+    .nav-logo-main span { color: var(--yellow); }
+    .nav-logo-sub {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--grey-light);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--grey-light);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-cta {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--black);
+      background: var(--yellow);
+      padding: 10px 22px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--yellow-dark); }
+
+    .nav-burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .nav-burger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--white);
+      transition: all 0.3s;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 68px;
+      left: 0;
+      right: 0;
+      background: var(--carbon);
+      border-bottom: 1px solid var(--border);
+      padding: 24px 5%;
+      z-index: 99;
+      flex-direction: column;
+      gap: 0;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--grey-light);
+      text-decoration: none;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      transition: color 0.2s;
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a:hover { color: var(--white); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      padding: 120px 5% 80px;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 55% 55% at 75% 45%, rgba(247,183,49,0.1) 0%, transparent 65%),
+        linear-gradient(160deg, #111111 0%, #141414 100%);
+    }
+
+    /* Large tire ring decoration */
+    .hero-tire-ring {
+      position: absolute;
+      right: 5%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: clamp(320px, 42vw, 560px);
+      height: clamp(320px, 42vw, 560px);
+      border-radius: 50%;
+      border: clamp(40px, 6vw, 80px) solid rgba(247,183,49,0.06);
+      box-shadow:
+        0 0 0 clamp(8px, 1.5vw, 16px) rgba(247,183,49,0.03),
+        inset 0 0 0 clamp(6px, 1vw, 12px) rgba(247,183,49,0.03);
+    }
+
+    .hero-tire-ring-2 {
+      position: absolute;
+      right: 5%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: clamp(220px, 28vw, 380px);
+      height: clamp(220px, 28vw, 380px);
+      border-radius: 50%;
+      border: 2px solid rgba(247,183,49,0.12);
+    }
+
+    .hero-tire-center {
+      position: absolute;
+      right: calc(5% + (clamp(320px, 42vw, 560px) / 2) - (clamp(60px, 8vw, 100px) / 2));
+      top: 50%;
+      transform: translateY(-50%);
+      width: clamp(60px, 8vw, 100px);
+      height: clamp(60px, 8vw, 100px);
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(247,183,49,0.15) 0%, rgba(247,183,49,0.05) 100%);
+      border: 2px solid rgba(247,183,49,0.25);
+    }
+
+    /* Tread lines on tire ring */
+    .hero-tread-overlay {
+      position: absolute;
+      right: 5%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: clamp(320px, 42vw, 560px);
+      height: clamp(320px, 42vw, 560px);
+      border-radius: 50%;
+      overflow: hidden;
+      opacity: 0.08;
+      background-image:
+        repeating-linear-gradient(
+          0deg,
+          var(--yellow) 0px,
+          var(--yellow) 3px,
+          transparent 3px,
+          transparent 20px
+        );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 620px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--black);
+      background: var(--yellow);
+      padding: 8px 16px;
+      margin-bottom: 28px;
+    }
+    .hero-badge::before {
+      content: '●';
+      font-size: 6px;
+    }
+
+    .hero-title {
+      font-size: clamp(48px, 7vw, 88px);
+      font-weight: 700;
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      color: var(--white);
+      margin-bottom: 24px;
+    }
+    .hero-title .yellow { color: var(--yellow); }
+
+    .hero-tagline {
+      font-size: clamp(16px, 2vw, 20px);
+      font-weight: 600;
+      color: rgba(245,245,245,0.9);
+      letter-spacing: 0.02em;
+      margin-bottom: 12px;
+    }
+
+    .hero-sub {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--grey-light);
+      line-height: 1.75;
+      max-width: 440px;
+      margin-bottom: 40px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--black);
+      background: var(--yellow);
+      padding: 16px 32px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover {
+      background: var(--yellow-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: transparent;
+      border: 1px solid rgba(245,245,245,0.2);
+      padding: 16px 32px;
+      text-decoration: none;
+      transition: border-color 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--white); }
+
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      margin-top: 56px;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+    .hero-stat-num {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--yellow);
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+    .hero-stat-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--grey-light);
+      margin-top: 5px;
+    }
+
+    /* ── URGENT SEASON BANNER ── */
+    .season-banner {
+      background: var(--yellow);
+      padding: 18px 5%;
+    }
+    .season-banner-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .season-banner-text {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .season-icon {
+      font-size: 24px;
+    }
+    .season-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(26,26,26,0.7);
+    }
+    .season-msg {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--black);
+    }
+    .season-cta {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--black);
+      padding: 10px 22px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+    .season-cta:hover { background: #333; }
+
+    /* ── SECTION BASE ── */
+    section { padding: 96px 5%; }
+    .container { max-width: 1160px; margin: 0 auto; }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      margin-bottom: 16px;
+    }
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--yellow);
+    }
+
+    .section-title {
+      font-size: clamp(30px, 4vw, 50px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .section-lead {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--grey-light);
+      line-height: 1.75;
+      max-width: 540px;
+      margin-bottom: 60px;
+    }
+
+    /* ── TJENESTER ── */
+    #tjenester {
+      background: var(--black);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .service-card {
+      background: #1E1E1E;
+      padding: 36px 32px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+    }
+    .service-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--yellow);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s;
+    }
+    .service-card:hover::after { transform: scaleX(1); }
+    .service-card:hover { background: #222222; }
+
+    .service-num {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--yellow);
+      margin-bottom: 16px;
+    }
+
+    .service-icon-large {
+      font-size: 32px;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .service-name {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+    }
+
+    .service-desc {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--grey-light);
+      line-height: 1.7;
+    }
+
+    .service-tag {
+      display: inline-block;
+      margin-top: 16px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      background: rgba(247,183,49,0.1);
+      border: 1px solid rgba(247,183,49,0.2);
+      padding: 4px 10px;
+    }
+
+    /* ── SESONG SECTION ── */
+    #sesong {
+      background: var(--carbon);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #sesong .tread-bg {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .sesong-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .sesong-card {
+      position: relative;
+      padding: 48px 40px;
+      overflow: hidden;
+    }
+
+    .sesong-winter {
+      background: linear-gradient(145deg, #1c2228, #141b21);
+      border: 1px solid rgba(100,140,180,0.2);
+    }
+
+    .sesong-summer {
+      background: linear-gradient(145deg, #1f1a0d, #161308);
+      border: 1px solid rgba(247,183,49,0.2);
+    }
+
+    .sesong-season-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .sesong-winter .sesong-season-label { color: #7eb8d4; }
+    .sesong-summer .sesong-season-label { color: var(--yellow); }
+
+    .sesong-title {
+      font-size: clamp(24px, 3vw, 34px);
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+      line-height: 1.1;
+    }
+
+    .sesong-deadline {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .sesong-deadline-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--grey-light);
+    }
+    .sesong-deadline-date {
+      font-size: 14px;
+      font-weight: 700;
+      padding: 4px 12px;
+    }
+    .sesong-winter .sesong-deadline-date {
+      color: #111;
+      background: #7eb8d4;
+    }
+    .sesong-summer .sesong-deadline-date {
+      color: var(--black);
+      background: var(--yellow);
+    }
+
+    .sesong-info {
+      font-size: 14px;
+      color: var(--grey-light);
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    .sesong-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 12px 24px;
+      transition: opacity 0.2s;
+    }
+    .sesong-cta:hover { opacity: 0.85; }
+    .sesong-winter .sesong-cta { color: #111; background: #7eb8d4; }
+    .sesong-summer .sesong-cta { color: var(--black); background: var(--yellow); }
+
+    .sesong-bg-icon {
+      position: absolute;
+      right: 24px;
+      bottom: 24px;
+      font-size: 80px;
+      opacity: 0.06;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    /* ── DEKKHOTELL ── */
+    #dekkhotell {
+      background: var(--black);
+    }
+
+    .dekkhotell-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .dekkhotell-visual {
+      position: relative;
+      height: 440px;
+    }
+
+    /* Stacked tire visual */
+    .tire-stack {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .tire-row {
+      display: flex;
+      gap: 14px;
+    }
+
+    .tire-circle {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 50% 50%, #2a2a2a, #111);
+      border: 8px solid #3a3a3a;
+      box-shadow:
+        0 4px 16px rgba(0,0,0,0.6),
+        inset 0 1px 2px rgba(255,255,255,0.05);
+      position: relative;
+    }
+    .tire-circle::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: #111;
+      border: 2px solid rgba(247,183,49,0.3);
+    }
+    .tire-circle.yellow-rim { border-color: rgba(247,183,49,0.4); }
+
+    .dekkhotell-shelf {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 60%;
+      background: linear-gradient(180deg, transparent, rgba(247,183,49,0.04));
+      border: 1px solid var(--border);
+      border-top: none;
+    }
+
+    .dekkhotell-label {
+      position: absolute;
+      top: 24px;
+      left: 24px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      background: rgba(247,183,49,0.1);
+      padding: 6px 12px;
+      border: 1px solid rgba(247,183,49,0.2);
+    }
+
+    .dh-features {
+      list-style: none;
+      margin: 28px 0;
+    }
+    .dh-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+      color: var(--grey-light);
+      line-height: 1.5;
+    }
+    .dh-features li:last-child { border-bottom: none; }
+    .dh-check {
+      color: var(--yellow);
+      font-weight: 700;
+      flex-shrink: 0;
+      font-size: 13px;
+      margin-top: 2px;
+    }
+    .dh-features strong { color: var(--white); font-weight: 600; }
+
+    /* ── PRISER ── */
+    #priser {
+      background: var(--carbon);
+    }
+
+    .pricing-table {
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .pricing-header {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      background: #222222;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .pricing-col-head {
+      padding: 14px 20px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--grey-light);
+      border-right: 1px solid var(--border);
+    }
+    .pricing-col-head:last-child { border-right: none; }
+    .pricing-col-head.highlight { color: var(--yellow); }
+
+    .pricing-row {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.2s;
+    }
+    .pricing-row:last-child { border-bottom: none; }
+    .pricing-row:hover { background: rgba(247,183,49,0.02); }
+    .pricing-row.featured-row {
+      background: rgba(247,183,49,0.04);
+      border-left: 2px solid var(--yellow);
+    }
+
+    .pricing-cell {
+      padding: 18px 20px;
+      border-right: 1px solid var(--border);
+      font-size: 14px;
+      color: var(--grey-light);
+      display: flex;
+      align-items: center;
+    }
+    .pricing-cell:last-child { border-right: none; }
+    .pricing-cell.service-cell {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 3px;
+    }
+    .pricing-service-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--white);
+    }
+    .pricing-service-note {
+      font-size: 12px;
+      color: var(--grey-light);
+    }
+    .price-val {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .price-val.yellow { color: var(--yellow); }
+    .price-suffix {
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--grey-light);
+      margin-left: 3px;
+    }
+
+    .pricing-note {
+      margin-top: 20px;
+      padding: 16px 20px;
+      border: 1px solid var(--border);
+      background: rgba(247,183,49,0.04);
+      font-size: 13px;
+      color: var(--grey-light);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .pricing-note::before {
+      content: '!';
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border: 1px solid var(--yellow);
+      color: var(--yellow);
+      font-size: 12px;
+      font-weight: 700;
+      flex-shrink: 0;
+      border-radius: 50%;
+    }
+
+    /* ── KALKULATOR ── */
+    #kalkulator {
+      background: var(--black);
+    }
+
+    .calc-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .calc-box {
+      border: 1px solid var(--border);
+      background: #1E1E1E;
+      padding: 40px;
+    }
+
+    .calc-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+    .calc-sub {
+      font-size: 13px;
+      color: var(--grey-light);
+      margin-bottom: 28px;
+    }
+
+    .calc-field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+    .calc-field label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--grey-light);
+    }
+    .calc-field select,
+    .calc-field input {
+      font-family: var(--font);
+      font-size: 14px;
+      background: #111;
+      border: 1px solid var(--border);
+      color: var(--white);
+      padding: 12px 16px;
+      outline: none;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+      appearance: none;
+      border-radius: 0;
+    }
+    .calc-field select:focus,
+    .calc-field input:focus { border-color: var(--yellow); }
+
+    .calc-result {
+      margin-top: 24px;
+      padding: 20px;
+      background: rgba(247,183,49,0.08);
+      border: 1px solid rgba(247,183,49,0.2);
+    }
+    .calc-result-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      margin-bottom: 8px;
+    }
+    .calc-result-val {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.02em;
+    }
+    .calc-result-note {
+      font-size: 12px;
+      color: var(--grey-light);
+      margin-top: 4px;
+    }
+
+    .calc-btn {
+      font-family: var(--font);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--black);
+      background: var(--yellow);
+      border: none;
+      padding: 13px 28px;
+      cursor: pointer;
+      margin-top: 16px;
+      transition: background 0.2s;
+      border-radius: 0;
+    }
+    .calc-btn:hover { background: var(--yellow-dark); }
+
+    /* Info side */
+    .tpms-info {
+      padding: 36px 0;
+    }
+    .tpms-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+    .tpms-body {
+      font-size: 14px;
+      color: var(--grey-light);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .tpms-list {
+      list-style: none;
+      border: 1px solid var(--border);
+    }
+    .tpms-list li {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--grey-light);
+    }
+    .tpms-list li:last-child { border-bottom: none; }
+    .tpms-list .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--yellow);
+      flex-shrink: 0;
+    }
+
+    /* ── OM OSS ── */
+    #om-oss {
+      background: var(--carbon);
+    }
+
+    .om-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .om-visual {
+      position: relative;
+      height: 420px;
+    }
+
+    .om-shape-main {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(145deg, #1e1e1e, #141414);
+      border: 1px solid var(--border);
+    }
+
+    .om-inner-ring {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      border: 28px solid rgba(247,183,49,0.07);
+      box-shadow: 0 0 0 1px rgba(247,183,49,0.08), inset 0 0 0 1px rgba(247,183,49,0.08);
+    }
+
+    .om-inner-ring-2 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 1px solid rgba(247,183,49,0.15);
+      background: rgba(247,183,49,0.04);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .om-logo-circle {
+      text-align: center;
+    }
+    .om-logo-text {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--yellow);
+    }
+    .om-logo-sub {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--grey-light);
+      margin-top: 2px;
+    }
+
+    .om-corner-label {
+      position: absolute;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--grey-light);
+    }
+    .om-corner-tl { top: 20px; left: 20px; }
+    .om-corner-br { bottom: 20px; right: 20px; }
+
+    .om-text p {
+      font-size: 15px;
+      color: var(--grey-light);
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+    .om-text strong { color: var(--white); font-weight: 600; }
+
+    .om-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 36px;
+    }
+    .om-stat {
+      background: #1E1E1E;
+      padding: 20px;
+    }
+    .om-stat-num {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--yellow);
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+    .om-stat-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--grey-light);
+      margin-top: 5px;
+    }
+
+    /* ── STRIP ── */
+    .strip-yellow {
+      background: var(--yellow);
+      padding: 14px 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .strip-track {
+      display: inline-flex;
+      animation: marquee 22s linear infinite;
+    }
+    .strip-item {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--black);
+      padding: 0 28px;
+    }
+    .strip-dot {
+      color: rgba(26,26,26,0.4);
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ── KONTAKT ── */
+    #kontakt {
+      background: var(--black);
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+    }
+
+    .contact-info-block {
+      padding-right: 40px;
+      border-right: 1px solid var(--border);
+    }
+
+    .contact-detail {
+      display: flex;
+      gap: 16px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+      align-items: flex-start;
+    }
+    .contact-detail:first-of-type { padding-top: 0; }
+
+    .contact-icon {
+      width: 42px;
+      height: 42px;
+      background: rgba(247,183,49,0.1);
+      border: 1px solid rgba(247,183,49,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 18px;
+    }
+
+    .contact-detail-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--grey-light);
+      margin-bottom: 4px;
+    }
+    .contact-detail-value {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--white);
+    }
+    .contact-detail-value a {
+      color: var(--white);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .contact-detail-value a:hover { color: var(--yellow); }
+
+    .contact-hours {
+      margin-top: 28px;
+      border: 1px solid var(--border);
+      background: #1E1E1E;
+      overflow: hidden;
+    }
+    .contact-hours-header {
+      background: var(--yellow);
+      padding: 10px 20px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--black);
+    }
+    .hour-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 20px;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+    }
+    .hour-row:last-child { border-bottom: none; }
+    .hour-day { color: var(--grey-light); }
+    .hour-time { color: var(--white); font-weight: 600; }
+    .hour-time.closed { color: var(--grey-mid); font-weight: 400; }
+
+    .contact-map-placeholder {
+      margin-top: 24px;
+      height: 160px;
+      border: 1px solid var(--border);
+      background: #1A1A1A;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .map-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(247,183,49,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(247,183,49,0.05) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+    .map-pin {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+    .map-pin-icon {
+      font-size: 28px;
+    }
+    .map-pin-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      margin-top: 6px;
+    }
+
+    /* CONTACT FORM */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .form-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 6px;
+      letter-spacing: -0.01em;
+    }
+    .form-subtitle {
+      font-size: 13px;
+      color: var(--grey-light);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .form-group label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--grey-light);
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      font-family: var(--font);
+      font-size: 14px;
+      background: #1E1E1E;
+      border: 1px solid var(--border);
+      color: var(--white);
+      padding: 13px 16px;
+      outline: none;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+      appearance: none;
+      border-radius: 0;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--yellow); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-submit {
+      font-family: var(--font);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--black);
+      background: var(--yellow);
+      border: none;
+      padding: 16px 32px;
+      cursor: pointer;
+      transition: background 0.2s;
+      align-self: flex-start;
+      border-radius: 0;
+    }
+    .form-submit:hover { background: var(--yellow-dark); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0D0D0D;
+      border-top: 2px solid var(--yellow);
+    }
+
+    .footer-top {
+      padding: 48px 5%;
+      border-bottom: 1px solid var(--border);
+    }
+    .footer-top-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 48px;
+    }
+    .footer-brand {}
+    .footer-logo {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+    .footer-logo span { color: var(--yellow); }
+    .footer-logo-sub {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--grey-light);
+      margin-bottom: 16px;
+    }
+    .footer-desc {
+      font-size: 13px;
+      color: var(--grey-light);
+      line-height: 1.7;
+    }
+
+    .footer-col-title {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      margin-bottom: 16px;
+    }
+    .footer-col-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-col-links a {
+      font-size: 13px;
+      color: var(--grey-light);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-col-links a:hover { color: var(--white); }
+
+    .footer-bottom {
+      padding: 24px 5%;
+    }
+    .footer-bottom-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-copy {
+      font-size: 12px;
+      color: var(--grey-mid);
+    }
+    .footer-slogan {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--yellow);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .sesong-grid { grid-template-columns: 1fr; }
+      .dekkhotell-layout { grid-template-columns: 1fr; gap: 48px; }
+      .dekkhotell-visual { height: 300px; }
+      .om-layout { grid-template-columns: 1fr; gap: 48px; }
+      .om-visual { height: 300px; }
+      .calc-layout { grid-template-columns: 1fr; gap: 40px; }
+      .footer-top-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .pricing-header,
+      .pricing-row { grid-template-columns: 2fr 1fr 1fr; }
+      .pricing-col-head:nth-child(4),
+      .pricing-cell:nth-child(4) { display: none; }
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 5%; }
+      .nav-links, .nav-cta { display: none; }
+      .nav-burger { display: flex; }
+      section { padding: 64px 5%; }
+      .services-grid { grid-template-columns: 1fr; }
+      .contact-layout { grid-template-columns: 1fr; }
+      .contact-info-block { border-right: none; padding-right: 0; }
+      .pricing-header,
+      .pricing-row { grid-template-columns: 1.5fr 1fr; }
+      .pricing-col-head:nth-child(3),
+      .pricing-col-head:nth-child(4),
+      .pricing-cell:nth-child(3),
+      .pricing-cell:nth-child(4) { display: none; }
+      .footer-top-inner { grid-template-columns: 1fr; gap: 28px; }
+      .footer-bottom-inner { flex-direction: column; align-items: flex-start; }
+      .form-row { grid-template-columns: 1fr; }
+      .om-stats { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-actions { flex-direction: column; }
+      .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+      .hero-tire-ring, .hero-tire-ring-2, .hero-tread-overlay, .hero-tire-center { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="main-nav">
+    <a href="#" class="nav-logo">
+      <span class="nav-logo-main">Jæren <span>Dekk</span></span>
+      <span class="nav-logo-sub">Dekkspesialisten</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#tjenester">Tjenester</a></li>
+      <li><a href="#sesong">Sesong</a></li>
+      <li><a href="#dekkhotell">Dekkhotell</a></li>
+      <li><a href="#priser">Priser</a></li>
+      <li><a href="#om-oss">Om oss</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+    <a href="#kontakt" class="nav-cta">Bestill dekkskift</a>
+    <button class="nav-burger" id="burger" aria-label="Åpne meny">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#tjenester" onclick="closeMobile()">Tjenester</a>
+    <a href="#sesong" onclick="closeMobile()">Sesongoversikt</a>
+    <a href="#dekkhotell" onclick="closeMobile()">Dekkhotell</a>
+    <a href="#priser" onclick="closeMobile()">Priser</a>
+    <a href="#om-oss" onclick="closeMobile()">Om Jæren Dekk</a>
+    <a href="#kontakt" onclick="closeMobile()">Bestill dekkskift</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-tire-ring"></div>
+    <div class="hero-tread-overlay"></div>
+    <div class="hero-tire-ring-2"></div>
+    <div class="hero-tire-center"></div>
+
+    <div class="hero-content">
+      <div class="hero-badge fade-up">Lokal dekkspesialist siden dag én</div>
+      <h1 class="hero-title fade-up delay-1">
+        Dekk<span class="yellow">spesialisten</span><br>
+        på Jæren.
+      </h1>
+      <p class="hero-tagline fade-up delay-2">Rett dekk. Rett pris. Jæren.</p>
+      <p class="hero-sub fade-up delay-3">
+        Vi er din lokale dekkpartner på Jæren — fra Klepp og Voll til hele Rogaland.
+        Dekkskift, dekkhotell, balansering og TPMS. Rask, ærlig, lokal.
+      </p>
+      <div class="hero-actions fade-up delay-4">
+        <a href="#kontakt" class="btn-primary">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1L15 8L8 15M15 8H1" stroke="#1A1A1A" stroke-width="2" stroke-linecap="square"/></svg>
+          Bestill dekkskift nå
+        </a>
+        <a href="#priser" class="btn-secondary">
+          Se priser
+        </a>
+      </div>
+      <div class="hero-stats fade-up delay-5">
+        <div>
+          <div class="hero-stat-num">2 min</div>
+          <div class="hero-stat-label">Å booke time</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">45 min</div>
+          <div class="hero-stat-label">Gjennomsnittlig dekkskift</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">Lokale</div>
+          <div class="hero-stat-label">Voll, Klepp, Jæren</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEASON BANNER -->
+  <div class="season-banner">
+    <div class="season-banner-inner">
+      <div class="season-banner-text">
+        <span class="season-icon">❄️</span>
+        <div>
+          <div class="season-label">Sesongvarsel</div>
+          <div class="season-msg">Vinterdekksesongen starter 1. november — bestill tid allerede nå og unngå kø</div>
+        </div>
+      </div>
+      <a href="#kontakt" class="season-cta">Bestill vinterdekk →</a>
+    </div>
+  </div>
+
+  <!-- TJENESTER -->
+  <section id="tjenester">
+    <div class="container">
+      <div class="section-label fade-up">Hva vi tilbyr</div>
+      <h2 class="section-title fade-up delay-1">Tjenester</h2>
+      <p class="section-lead fade-up delay-2">
+        Alt du trenger fra én dekkspesialist.
+        Vi jobber effektivt og ærlig — uten unødvendige tillegg.
+      </p>
+
+      <div class="services-grid">
+
+        <div class="service-card fade-up">
+          <div class="service-num">01</div>
+          <span class="service-icon-large">🔄</span>
+          <div class="service-name">Dekkskift</div>
+          <div class="service-desc">
+            Sesongskift av dekk — fra vinterdekk til sommerdekk og tilbake.
+            Vi monterer, balanserer og kontrollerer lufttrykket.
+            Ferdig på under én time.
+          </div>
+          <span class="service-tag">Bestill time</span>
+        </div>
+
+        <div class="service-card fade-up delay-1">
+          <div class="service-num">02</div>
+          <span class="service-icon-large">🏨</span>
+          <div class="service-name">Dekkhotell</div>
+          <div class="service-desc">
+            Lagre dekkene dine hos oss mellom sesongene. Dekkene merkes,
+            lagres trygt og er klare når sesongen skifter. Spar plass hjemme.
+          </div>
+          <span class="service-tag">Populær</span>
+        </div>
+
+        <div class="service-card fade-up delay-2">
+          <div class="service-num">03</div>
+          <span class="service-icon-large">⚙️</span>
+          <div class="service-name">Hjulunderstell</div>
+          <div class="service-desc">
+            Vi kontrollerer bremseklosser, fjæring og hjullagre ved hver service.
+            Finner vi noe, varsler vi deg — ingen overraskelser på regningen.
+          </div>
+          <span class="service-tag">Inkludert sjekk</span>
+        </div>
+
+        <div class="service-card fade-up delay-3">
+          <div class="service-num">04</div>
+          <span class="service-icon-large">⚖️</span>
+          <div class="service-name">Balansering</div>
+          <div class="service-desc">
+            Ubalanserte hjul sliter unødvendig på dekk og kjøretøy.
+            Vi balanserer med moderne utstyr for jevnt slitasje og bedre kjørekomfort.
+          </div>
+          <span class="service-tag">Anbefalt</span>
+        </div>
+
+        <div class="service-card fade-up delay-4">
+          <div class="service-num">05</div>
+          <span class="service-icon-large">📡</span>
+          <div class="service-name">TPMS-kontroll</div>
+          <div class="service-desc">
+            Trykkmonitorering (TPMS) er påbudt på nyere biler og må
+            programmeres ved dekkskift. Vi håndterer TPMS-kalibrering
+            som del av hvert dekkskift.
+          </div>
+          <span class="service-tag">Inkludert</span>
+        </div>
+
+        <div class="service-card fade-up delay-5">
+          <div class="service-num">06</div>
+          <span class="service-icon-large">❄️</span>
+          <div class="service-name">Pigg- og piggfrie dekk</div>
+          <div class="service-desc">
+            Vi fører et bredt utvalg av piggdekk og piggfrie vinterdekk
+            fra ledende merker. Vi hjelper deg velge riktig for ditt kjøremønster.
+          </div>
+          <span class="service-tag">Bredt utvalg</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SESONG -->
+  <section id="sesong">
+    <div class="tread-bg"></div>
+    <div class="container" style="position:relative;z-index:1;">
+      <div class="section-label fade-up">Viktige datoer</div>
+      <h2 class="section-title fade-up delay-1">Planlegg sesongen</h2>
+      <p class="section-lead fade-up delay-2">
+        Norsk lov krever riktig dekk til riktig tid. Book i god tid —
+        kapasiteten fylles raskt i skiftesesongene.
+      </p>
+
+      <div class="sesong-grid">
+
+        <div class="sesong-card sesong-winter fade-left">
+          <div class="sesong-season-label">❄️ Vinter</div>
+          <h3 class="sesong-title">Vinterdekk<br>på plass</h3>
+          <div class="sesong-deadline">
+            <span class="sesong-deadline-label">Siste frist:</span>
+            <span class="sesong-deadline-date">1. november</span>
+          </div>
+          <p class="sesong-info">
+            Fra 1. november anbefales vinterdekk sterkt. Piggdekk er lovlig
+            fra 1. oktober. Mange venter til siste liten — book allerede nå.
+            Vi har utvidet åpningstider i oktober.
+          </p>
+          <a href="#kontakt" class="sesong-cta">Book vinterdekk →</a>
+          <span class="sesong-bg-icon">❄️</span>
+        </div>
+
+        <div class="sesong-card sesong-summer fade-right">
+          <div class="sesong-season-label">☀️ Sommer</div>
+          <h3 class="sesong-title">Sommerdekk<br>tilbake</h3>
+          <div class="sesong-deadline">
+            <span class="sesong-deadline-label">Fra og med:</span>
+            <span class="sesong-deadline-date">Påske / 1. april</span>
+          </div>
+          <p class="sesong-info">
+            Piggdekk er påbudt fjernet innen 1. mai på Jæren.
+            Mange bytter rundt påske. Unngå ventekøen — book etter 15. mars
+            for raskest mulig levering.
+          </p>
+          <a href="#kontakt" class="sesong-cta">Book sommerdekk →</a>
+          <span class="sesong-bg-icon">☀️</span>
+        </div>
+
+      </div>
+
+      <div style="margin-top:24px;padding:24px;border:1px solid var(--border);background:rgba(247,183,49,0.04);display:flex;align-items:center;gap:16px;" class="fade-up">
+        <span style="font-size:24px;">💡</span>
+        <p style="font-size:14px;color:var(--grey-light);line-height:1.6;">
+          <strong style="color:var(--white);">Tips:</strong> Kunder med dekkhotell hos oss får automatisk SMS-påminnelse
+          når sesongen nærmer seg — og prioritert timebooking.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEKKHOTELL -->
+  <section id="dekkhotell">
+    <div class="container">
+      <div class="dekkhotell-layout">
+
+        <div class="dekkhotell-visual fade-left">
+          <div class="dekkhotell-shelf"></div>
+          <div class="tire-stack">
+            <div class="tire-row">
+              <div class="tire-circle"></div>
+              <div class="tire-circle yellow-rim"></div>
+              <div class="tire-circle"></div>
+            </div>
+            <div class="tire-row">
+              <div class="tire-circle yellow-rim"></div>
+              <div class="tire-circle"></div>
+              <div class="tire-circle yellow-rim"></div>
+            </div>
+            <div class="tire-row">
+              <div class="tire-circle"></div>
+              <div class="tire-circle yellow-rim"></div>
+              <div class="tire-circle"></div>
+            </div>
+          </div>
+          <div class="dekkhotell-label">Dekkhotell</div>
+        </div>
+
+        <div class="fade-right">
+          <div class="section-label">Lagring</div>
+          <h2 class="section-title">Dekkhotell —<br>slipper du å tenke</h2>
+          <p style="font-size:15px;color:var(--grey-light);line-height:1.8;margin-bottom:8px;">
+            Har du fire sett dekk stående i garasjen? La dem stå hos oss i stedet.
+            Vi merker, lagrer og holder oversikt — du trenger bare å møte opp
+            når sesongen skifter.
+          </p>
+          <ul class="dh-features">
+            <li>
+              <span class="dh-check">✓</span>
+              <span><strong>Ryddig lagring</strong> — dekkene dine merkes med navn, bil og dato</span>
+            </li>
+            <li>
+              <span class="dh-check">✓</span>
+              <span><strong>Tilstandskontroll</strong> — vi sjekker slitasje og profilybde hvert bytte</span>
+            </li>
+            <li>
+              <span class="dh-check">✓</span>
+              <span><strong>Sesong-SMS</strong> — vi sender deg påminnelse når det er tid for bytte</span>
+            </li>
+            <li>
+              <span class="dh-check">✓</span>
+              <span><strong>Prioritert time</strong> — dekkhotelljkunder hopper over køen</span>
+            </li>
+            <li>
+              <span class="dh-check">✓</span>
+              <span><strong>Trygt og forsikret</strong> — dekkene er forsikret mens de lagres hos oss</span>
+            </li>
+          </ul>
+          <a href="#kontakt" class="btn-primary">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1L15 8L8 15M15 8H1" stroke="#1A1A1A" stroke-width="2" stroke-linecap="square"/></svg>
+            Start dekkhotell
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PRISER -->
+  <section id="priser">
+    <div class="container">
+      <div class="section-label fade-up">Åpen prising</div>
+      <h2 class="section-title fade-up delay-1">Priser</h2>
+      <p class="section-lead fade-up delay-2">
+        Vi tror på tydelige priser uten skjulte avgifter.
+        Her er en oversikt — kontakt oss for eksakt tilbud.
+      </p>
+
+      <div class="pricing-table fade-up delay-1">
+        <div class="pricing-header">
+          <div class="pricing-col-head">Tjeneste</div>
+          <div class="pricing-col-head highlight">Personbil</div>
+          <div class="pricing-col-head">SUV / Stasjonsvogn</div>
+          <div class="pricing-col-head">Varebil / Stor</div>
+        </div>
+
+        <div class="pricing-row featured-row">
+          <div class="pricing-cell service-cell">
+            <span class="pricing-service-name">Dekkskift</span>
+            <span class="pricing-service-note">Inkl. balansering og lufttrykksjekk</span>
+          </div>
+          <div class="pricing-cell">
+            <span class="price-val yellow">499<span class="price-suffix">kr</span></span>
+          </div>
+          <div class="pricing-cell">
+            <span class="price-val">649<span class="price-suffix">kr</span></span>
+          </div>
+          <div class="pricing-cell">
+            <span class="price-val">799<span class="price-suffix">kr</span></span>
+          </div>
+        </div>
+
+        <div class="pricing-row">
+          <div class="pricing-cell service-cell">
+            <span class="pricing-service-name">Dekkskift + TPMS</span>
+            <span class="pricing-service-note">Med programmering av trykkmonitorering</span>
+          </div>
+          <div class="pricing-cell">
+            <span class="price-val">649<span class="price-suffix">kr</span></span>
+          </div>
+          <div class="pricing-cell">
+            <span class="price-val">799<span class="price-suffix">kr</span></span>
+          </div>
+          <div class="pricing-cell">
+            <span class="price-val">949<span class="price-suffix">kr</span></span>
+          </div>
+        </div>
+
+        <div class="pricing-row">
+          <div class="pricing-cell service-cell">
+            <span class="pricing-service-name">Dekkhotell</span>
+            <span class="pricing-service-note">Per sesong (6 mnd lagring)</span>
+          </div>
+          <div class="pricing-cell">
+            <span class="price-val">490<span class="price-suffix">kr/sesong</span></span>
+          </div>
+          <div class="pricing-cell">
+            <span class="price-val">590<span class="price-suffix">kr/sesong</span></span>
+          </div>
+          <div class="pricing-cell">
+            <span class="price-val">690<span class="price-suffix">kr/sesong</span></span>
+          </div>
+        </div>
+
+        <div class="pricing-row">
+          <div class="pricing-cell service-cell">
+            <span class="pricing-service-name">Balansering</span>
+            <span class="pricing-service-note">Per hjul — ekstra ved behov</span>
+          </div>
+          <div class="pricing-cell">
+            <span class="price-val">99<span class="price-suffix">kr/hjul</span></span>
+          </div>
+          <div class="pricing-cell">
+            <span class="price-val">119<span class="price-suffix">kr/hjul</span></span>
+          </div>
+          <div class="pricing-cell">
+            <span class="price-val">149<span class="price-suffix">kr/hjul</span></span>
+          </div>
+        </div>
+
+        <div class="pricing-row">
+          <div class="pricing-cell service-cell">
+            <span class="pricing-service-name">Dekkmontering (kun montering)</span>
+            <span class="pricing-service-note">Uten balansering</span>
+          </div>
+          <div class="pricing-cell">
+            <span class="price-val">349<span class="price-suffix">kr</span></span>
+          </div>
+          <div class="pricing-cell">
+            <span class="price-val">449<span class="price-suffix">kr</span></span>
+          </div>
+          <div class="pricing-cell">
+            <span class="price-val">549<span class="price-suffix">kr</span></span>
+          </div>
+        </div>
+
+        <div class="pricing-row">
+          <div class="pricing-cell service-cell">
+            <span class="pricing-service-name">Hjulunderstell + bremsekontroll</span>
+            <span class="pricing-service-note">Visuell kontroll uten demontering</span>
+          </div>
+          <div class="pricing-cell">
+            <span class="price-val">Gratis<span class="price-suffix"></span></span>
+          </div>
+          <div class="pricing-cell">
+            <span class="price-val">Gratis<span class="price-suffix"></span></span>
+          </div>
+          <div class="pricing-cell">
+            <span class="price-val">Gratis<span class="price-suffix"></span></span>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="pricing-note fade-up">
+        Priser er veiledende. Endelig pris avhenger av bil og eventuell ekstrautstyr.
+        Dekkkjøp prises separat — vi hjelper deg finne rett dekk til bilen din.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- KALKULATOR + TPMS -->
+  <section id="kalkulator">
+    <div class="container">
+      <div class="section-label fade-up">Planlegging</div>
+      <h2 class="section-title fade-up delay-1">Dekkfinner &amp; TPMS-info</h2>
+      <p class="section-lead fade-up delay-2">
+        Usikker på hvilke dekk du trenger — eller hva TPMS egentlig er?
+        Vi hjelper deg finne ut av det.
+      </p>
+
+      <div class="calc-layout">
+
+        <div class="calc-box fade-left">
+          <div class="calc-title">Finn riktig dekkstørrelse</div>
+          <div class="calc-sub">Fyll inn bilinfo så hjelper vi deg finne riktig dekk</div>
+
+          <div class="calc-field">
+            <label>Bilmerke</label>
+            <select id="calc-make">
+              <option value="" disabled selected>Velg bilmerke...</option>
+              <option>Toyota</option>
+              <option>Volkswagen</option>
+              <option>BMW</option>
+              <option>Audi</option>
+              <option>Ford</option>
+              <option>Hyundai / Kia</option>
+              <option>Volvo</option>
+              <option>Mercedes-Benz</option>
+              <option>Tesla</option>
+              <option>Nissan</option>
+              <option>Annet</option>
+            </select>
+          </div>
+
+          <div class="calc-field">
+            <label>Modell</label>
+            <input type="text" id="calc-model" placeholder="F.eks. RAV4 / Golf / 3-serie">
+          </div>
+
+          <div class="form-row" style="gap:12px;">
+            <div class="calc-field">
+              <label>Årsmodell</label>
+              <select id="calc-year">
+                <option value="" disabled selected>År...</option>
+                <option>2024</option><option>2023</option><option>2022</option>
+                <option>2021</option><option>2020</option><option>2019</option>
+                <option>2018</option><option>2017</option><option>2016</option>
+                <option>2015 og eldre</option>
+              </select>
+            </div>
+            <div class="calc-field">
+              <label>Dekknavn</label>
+              <select id="calc-type">
+                <option value="" disabled selected>Type...</option>
+                <option>Sommerdekk</option>
+                <option>Vinterdekk (piggfritt)</option>
+                <option>Piggdekk</option>
+                <option>Helårsdekk</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="calc-result" id="calc-result" style="display:none;">
+            <div class="calc-result-label">Anbefalt dekkstørrelse</div>
+            <div class="calc-result-val" id="calc-result-val">—</div>
+            <div class="calc-result-note">Kontakt oss for å bestille — vi finner det beste tilbudet for deg</div>
+          </div>
+
+          <button class="calc-btn" onclick="runCalc()">Finn dekkstørrelse →</button>
+        </div>
+
+        <div class="tpms-info fade-right">
+          <div class="tpms-title">Hva er TPMS?</div>
+          <p class="tpms-body">
+            TPMS (Tyre Pressure Monitoring System) er et elektronisk system som overvåker
+            lufttrykket i dekkene i sanntid. Fra 2014 er TPMS påbudt på alle nye personbiler
+            solgt i EU/Norge.
+          </p>
+          <p class="tpms-body">
+            Når du skifter sesongdekk på en bil med TPMS, må systemet programmeres på nytt —
+            ellers lyser advarsellampen. Vi gjør dette som en del av hvert dekkskift.
+          </p>
+
+          <ul class="tpms-list">
+            <li><span class="dot"></span> Redusert lufttrykk øker drivstofforbruket med 0.5% per 10 kPa</li>
+            <li><span class="dot"></span> Riktig lufttrykk forlenger dekklevetiden med opptil 25%</li>
+            <li><span class="dot"></span> TPMS-programmering inkludert i alle dekkskift hos oss</li>
+            <li><span class="dot"></span> Vi kontrollerer også TPMS-sensor-batteri ved hvert bytte</li>
+          </ul>
+
+          <div style="margin-top:28px;">
+            <a href="#kontakt" class="btn-primary" style="display:inline-flex;">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1L15 8L8 15M15 8H1" stroke="#1A1A1A" stroke-width="2" stroke-linecap="square"/></svg>
+              Spør om TPMS
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- STRIP -->
+  <div class="strip-yellow">
+    <div class="strip-track">
+      <span class="strip-item">Dekkskift</span>
+      <span class="strip-item strip-dot">◆</span>
+      <span class="strip-item">Dekkhotell</span>
+      <span class="strip-item strip-dot">◆</span>
+      <span class="strip-item">Balansering</span>
+      <span class="strip-item strip-dot">◆</span>
+      <span class="strip-item">TPMS</span>
+      <span class="strip-item strip-dot">◆</span>
+      <span class="strip-item">Piggdekk</span>
+      <span class="strip-item strip-dot">◆</span>
+      <span class="strip-item">Voll, Klepp, Jæren</span>
+      <span class="strip-item strip-dot">◆</span>
+      <span class="strip-item">Dekkskift</span>
+      <span class="strip-item strip-dot">◆</span>
+      <span class="strip-item">Dekkhotell</span>
+      <span class="strip-item strip-dot">◆</span>
+      <span class="strip-item">Balansering</span>
+      <span class="strip-item strip-dot">◆</span>
+      <span class="strip-item">TPMS</span>
+      <span class="strip-item strip-dot">◆</span>
+      <span class="strip-item">Piggdekk</span>
+      <span class="strip-item strip-dot">◆</span>
+      <span class="strip-item">Voll, Klepp, Jæren</span>
+      <span class="strip-item strip-dot">◆</span>
+    </div>
+  </div>
+
+  <!-- OM OSS -->
+  <section id="om-oss">
+    <div class="container">
+      <div class="om-layout">
+
+        <div class="fade-left">
+          <div class="section-label">Om oss</div>
+          <h2 class="section-title">Din dekkpartner på Jæren</h2>
+          <div class="om-text">
+            <p>
+              <strong>Jæren Dekk</strong> holder til i Solavegen 464 på Voll, rett utenfor Klepp.
+              Vi er et lokalt verksted med fokus på ett: dekk og alt rundt dem.
+            </p>
+            <p>
+              Vi tror at fagkunnskap og ærlighet er de beste salgsargumentene.
+              Hos oss får du råd uten skjult agenda — vi anbefaler det dekket som passer
+              <em>deg</em>, ikke det med best margin.
+            </p>
+            <p>
+              <strong>Vi kjenner Jæren.</strong> Vi vet hvordan veiene er i Klepp om vinteren,
+              og vi vet hva lokale kjøreforhold krever av dekk gjennom hele året.
+            </p>
+          </div>
+          <div class="om-stats">
+            <div class="om-stat fade-up delay-1">
+              <div class="om-stat-num">1000+</div>
+              <div class="om-stat-label">Dekkskift per år</div>
+            </div>
+            <div class="om-stat fade-up delay-2">
+              <div class="om-stat-num">Lokale</div>
+              <div class="om-stat-label">Voll / Klepp</div>
+            </div>
+            <div class="om-stat fade-up delay-3">
+              <div class="om-stat-num">Fast pris</div>
+              <div class="om-stat-label">Ingen skjulte gebyrer</div>
+            </div>
+          </div>
+          <div style="margin-top:36px;">
+            <a href="#kontakt" class="btn-primary">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1L15 8L8 15M15 8H1" stroke="#1A1A1A" stroke-width="2" stroke-linecap="square"/></svg>
+              Kontakt oss
+            </a>
+          </div>
+        </div>
+
+        <div class="om-visual fade-right">
+          <div class="om-shape-main">
+            <div class="om-inner-ring"></div>
+            <div class="om-inner-ring-2">
+              <div class="om-logo-circle">
+                <div class="om-logo-text">Jæren<br>Dekk</div>
+                <div class="om-logo-sub">Voll · Klepp</div>
+              </div>
+            </div>
+            <div class="om-corner-label om-corner-tl">Dekkspesialisten</div>
+            <div class="om-corner-label om-corner-br">Solavegen 464</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTAKT -->
+  <section id="kontakt">
+    <div class="container">
+      <div class="section-label fade-up">Book time</div>
+      <h2 class="section-title fade-up delay-1">Bestill dekkskift<br>eller send melding</h2>
+
+      <div class="contact-layout" style="margin-top:56px;">
+
+        <div class="contact-info-block fade-left">
+
+          <div class="contact-detail">
+            <div class="contact-icon">📞</div>
+            <div>
+              <div class="contact-detail-label">Telefon</div>
+              <div class="contact-detail-value"><a href="tel:94169535">94 16 95 35</a></div>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="contact-icon">✉️</div>
+            <div>
+              <div class="contact-detail-label">E-post</div>
+              <div class="contact-detail-value"><a href="mailto:post@jaerendarekk.no">post@jaerendarekk.no</a></div>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="contact-icon">📍</div>
+            <div>
+              <div class="contact-detail-label">Adresse</div>
+              <div class="contact-detail-value">Solavegen 464<br>4352 Voll (Klepp)</div>
+            </div>
+          </div>
+
+          <div class="contact-hours">
+            <div class="contact-hours-header">Åpningstider</div>
+            <div class="hour-row">
+              <span class="hour-day">Mandag–fredag</span>
+              <span class="hour-time">08:00–17:00</span>
+            </div>
+            <div class="hour-row">
+              <span class="hour-day">Lørdag</span>
+              <span class="hour-time">08:00–13:00</span>
+            </div>
+            <div class="hour-row">
+              <span class="hour-day">Søndag</span>
+              <span class="hour-time closed">Stengt</span>
+            </div>
+            <div class="hour-row" style="background:rgba(247,183,49,0.06);">
+              <span class="hour-day" style="color:var(--yellow);font-weight:600;">Oktober / November ↑</span>
+              <span class="hour-time" style="color:var(--yellow);">Utvidet tid</span>
+            </div>
+          </div>
+
+          <div class="contact-map-placeholder">
+            <div class="map-grid"></div>
+            <div class="map-pin">
+              <div class="map-pin-icon">📌</div>
+              <div class="map-pin-label">Solavegen 464, Voll</div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="contact-form fade-right">
+          <div class="form-title">Bestill time</div>
+          <div class="form-subtitle">
+            Vi svarer innen én arbeidsdag. Ring oss for raskere bestilling —
+            vi tar gjerne imot deg på direkten ved ledig kapasitet.
+          </div>
+
+          <form onsubmit="return false;">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="navn">Navn</label>
+                <input type="text" id="navn" placeholder="Ditt fulle navn">
+              </div>
+              <div class="form-group">
+                <label for="telefon">Telefon</label>
+                <input type="tel" id="telefon" placeholder="Mobilnummer">
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-top:16px;">
+              <label for="tjeneste">Tjeneste</label>
+              <select id="tjeneste">
+                <option value="" disabled selected>Velg tjeneste...</option>
+                <option>Dekkskift — vinterdekk på</option>
+                <option>Dekkskift — sommerdekk på</option>
+                <option>Dekkskift + TPMS-programmering</option>
+                <option>Dekkhotell (oppstart)</option>
+                <option>Balansering</option>
+                <option>Dekkkjøp + montering</option>
+                <option>Annet / vet ikke ennå</option>
+              </select>
+            </div>
+
+            <div class="form-group" style="margin-top:16px;">
+              <label for="bil">Bilmodell og årsmodell</label>
+              <input type="text" id="bil" placeholder="F.eks. Toyota RAV4 2021">
+            </div>
+
+            <div class="form-group" style="margin-top:16px;">
+              <label for="dekkstorrelse">Dekkstørrelse (valgfritt)</label>
+              <input type="text" id="dekkstorrelse" placeholder="F.eks. 205/55 R16">
+            </div>
+
+            <div class="form-group" style="margin-top:16px;">
+              <label for="melding">Kommentar</label>
+              <textarea id="melding" placeholder="Ønsket tidspunkt, spørsmål, spesielle behov..."></textarea>
+            </div>
+
+            <div style="margin-top:20px;display:flex;gap:14px;flex-wrap:wrap;align-items:center;">
+              <button type="submit" class="form-submit">Send bestilling →</button>
+              <a href="tel:94169535" style="font-size:13px;font-weight:600;color:var(--yellow);text-decoration:none;letter-spacing:0.06em;">
+                eller ring: 94 16 95 35
+              </a>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-top-inner">
+        <div class="footer-brand">
+          <div class="footer-logo">Jæren <span>Dekk</span></div>
+          <div class="footer-logo-sub">Dekkspesialisten</div>
+          <p class="footer-desc">
+            Din lokale dekkpartner på Jæren.
+            Dekkskift, dekkhotell og spesialistkompetanse
+            fra Solavegen 464, Voll.
+          </p>
+        </div>
+        <div>
+          <div class="footer-col-title">Tjenester</div>
+          <ul class="footer-col-links">
+            <li><a href="#tjenester">Dekkskift</a></li>
+            <li><a href="#dekkhotell">Dekkhotell</a></li>
+            <li><a href="#tjenester">Balansering</a></li>
+            <li><a href="#kalkulator">TPMS</a></li>
+            <li><a href="#tjenester">Piggdekk</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Sesong</div>
+          <ul class="footer-col-links">
+            <li><a href="#sesong">Vinterdekk (1. nov)</a></li>
+            <li><a href="#sesong">Sommerdekk (1. april)</a></li>
+            <li><a href="#sesong">Sesongoversikt</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Kontakt</div>
+          <ul class="footer-col-links">
+            <li><a href="tel:94169535">94 16 95 35</a></li>
+            <li><a href="mailto:post@jaerendarekk.no">post@jaerendarekk.no</a></li>
+            <li><a href="#kontakt">Solavegen 464, Voll</a></li>
+            <li><a href="#kontakt">Bestill time</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-inner">
+        <span class="footer-copy">© 2025 Jæren Dekk — Solavegen 464, 4352 Voll</span>
+        <span class="footer-slogan">Rett dekk. Rett pris. Jæren.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ── SCROLL ANIMATIONS ──
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-up, .fade-left, .fade-right').forEach(el => {
+      observer.observe(el);
+    });
+
+    // ── NAV BURGER ──
+    const burger = document.getElementById('burger');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    burger.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+    });
+
+    function closeMobile() {
+      mobileMenu.classList.remove('open');
+    }
+
+    // ── NAV SCROLL ──
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('main-nav');
+      if (window.scrollY > 80) {
+        nav.style.borderBottomColor = 'rgba(247,183,49,0.3)';
+      } else {
+        nav.style.borderBottomColor = 'var(--border)';
+      }
+    });
+
+    // ── SIMPLE TIRE SIZE CALCULATOR ──
+    const sizeMap = {
+      'toyota': {
+        'rav4': { '2021': '225/65 R17', '2022': '225/65 R17', '2023': '225/65 R17' },
+        'corolla': { '2021': '205/55 R16', '2022': '205/55 R16', '2023': '215/55 R16' },
+        'yaris': { '2021': '175/65 R15', '2022': '175/65 R15', '2023': '185/60 R15' },
+      },
+      'volkswagen': {
+        'golf': { '2021': '205/55 R16', '2022': '205/55 R16', '2023': '215/55 R17' },
+        'passat': { '2021': '215/55 R17', '2022': '215/55 R17', '2023': '215/55 R17' },
+        'tiguan': { '2021': '235/50 R18', '2022': '235/50 R18', '2023': '235/50 R19' },
+      }
+    };
+
+    function runCalc() {
+      const make = document.getElementById('calc-make').value;
+      const model = document.getElementById('calc-model').value.toLowerCase().trim();
+      const year = document.getElementById('calc-year').value;
+      const typeEl = document.getElementById('calc-type').value;
+
+      if (!make || !model || !year) {
+        alert('Fyll inn bilmerke, modell og årsmodell for å finne dekkstørrelse.');
+        return;
+      }
+
+      const resultBox = document.getElementById('calc-result');
+      const resultVal = document.getElementById('calc-result-val');
+
+      const makeKey = make.toLowerCase().split(' ')[0];
+      let sizeResult = null;
+
+      if (sizeMap[makeKey]) {
+        for (const modelKey in sizeMap[makeKey]) {
+          if (model.includes(modelKey)) {
+            const yearData = sizeMap[makeKey][modelKey];
+            sizeResult = yearData[year] || Object.values(yearData)[0];
+            break;
+          }
+        }
+      }
+
+      if (sizeResult) {
+        resultVal.textContent = sizeResult;
+      } else {
+        resultVal.textContent = 'Kontakt oss';
+        resultVal.style.fontSize = '22px';
+      }
+
+      resultBox.style.display = 'block';
+    }
+
+    // ── ACTIVE NAV LINKS ──
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          navLinks.forEach(link => {
+            link.style.color = '';
+            if (link.getAttribute('href') === '#' + id) {
+              link.style.color = 'var(--white)';
+            }
+          });
+        }
+      });
+    }, { threshold: 0.4 });
+
+    sections.forEach(s => sectionObserver.observe(s));
+  </script>
+
+</body>
+</html>

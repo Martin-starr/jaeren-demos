@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo-nettsider — Martin Folkestad</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'IBM Plex Sans', sans-serif; background: #F6F2EA; color: #1A1A1A; }
+        .header { background: #1C3A5C; color: white; padding: 48px 40px; }
+        .header h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; }
+        .header p { margin-top: 8px; font-size: 15px; color: rgba(255,255,255,0.65); font-weight: 300; }
+        .grid { max-width: 960px; margin: 48px auto; padding: 0 40px; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+        .card { background: white; border: 1px solid rgba(28,58,92,0.1); padding: 28px; text-decoration: none; color: inherit; display: block; transition: border-color 0.2s, transform 0.15s; }
+        .card:hover { border-color: #B8993A; transform: translateY(-2px); }
+        .card-tag { font-size: 10px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #B8993A; margin-bottom: 10px; }
+        .card h2 { font-size: 18px; font-weight: 700; color: #1C3A5C; letter-spacing: -0.015em; }
+        .card p { margin-top: 6px; font-size: 13px; color: #5A6270; line-height: 1.6; }
+        .card-price { margin-top: 16px; font-size: 13px; font-weight: 600; color: #1C3A5C; }
+        .footer { text-align: center; padding: 40px; font-size: 12px; color: #5A6270; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Demo-nettsider</h1>
+        <p>Martin Folkestad  -  Klepp Stasjon  -  Nettsider for lokale bedrifter</p>
+    </div>
+    <div class="grid">
+        <a href="miljogartneriet.html" class="card">
+            <div class="card-tag">Gartneri - Naerbo</div>
+            <h2>Miljogartneriet AS</h2>
+            <p>77 000 kvm under glass. Nordens ledende kortreiste gronnsaksprodusent.</p>
+            <div class="card-price">28 000 kr</div>
+        </a>
+        <a href="smia-cafe.html" class="card">
+            <div class="card-tag">Kafe / Restaurant - Bryne</div>
+            <h2>Smia Cafe</h2>
+            <p>Dag og kveld. Smia by Night. Eget domene, eget Google-treff.</p>
+            <div class="card-price">7 500 kr</div>
+        </a>
+        <a href="murmester-heskje.html" class="card">
+            <div class="card-tag">Murmester - Bryne</div>
+            <h2>Murmester Heskje AS</h2>
+            <p>50+ ar i bransjen. Heritage-uttrykk som formidler handverket.</p>
+            <div class="card-price">13 000 kr</div>
+        </a>
+        <a href="saxobryn.html" class="card">
+            <div class="card-tag">PMU / Salong - Kleppe</div>
+            <h2>Saxobryn</h2>
+            <p>Editorial design for Oda Hodnes PMU-salong. Galleri, priser, booking.</p>
+            <div class="card-price">9 000 kr</div>
+        </a>
+        <a href="hommersak-bil.html" class="card">
+            <div class="card-tag">Bilverksted - Hommersak</div>
+            <h2>Hommersak Bil AS</h2>
+            <p>Verksted, utleie og bruktbilsalg samlet pa en side.</p>
+            <div class="card-price">11 000 kr</div>
+        </a>
+        <a href="joers-kjokken.html" class="card">
+            <div class="card-tag">Restaurant - Klepp Stasjon</div>
+            <h2>Joers Kjokken</h2>
+            <p>Moderne restaurantside med meny, booking og apningstider.</p>
+            <div class="card-price">8-12 000 kr</div>
+        </a>
+        <a href="berland-bilverksted.html" class="card">
+            <div class="card-tag">Bilverksted - Klepp Stasjon</div>
+            <h2>Berland Bilverksted</h2>
+            <p>Egen identitet og SEO. Uavhengig av MECA-portalen.</p>
+            <div class="card-price">8-12 000 kr</div>
+        </a>
+        <a href="orstad-ror.html" class="card">
+            <div class="card-tag">Rorlegger - Klepp Stasjon</div>
+            <h2>Orstad Ror AS</h2>
+            <p>Hansgrohe-partner med showroom. Premium uttrykk.</p>
+            <div class="card-price">12-15 000 kr</div>
+        </a>
+        <a href="arilds-frisor.html" class="card">
+            <div class="card-tag">Frisor - Sandnes</div>
+            <h2>Arilds Frisor</h2>
+            <p>Fra tom side til editorial design med priser og booking.</p>
+            <div class="card-price">8-12 000 kr</div>
+        </a>
+        <a href="bjergabygg.html" class="card">
+            <div class="card-tag">Byggmester - Sandnes</div>
+            <h2>Bjergabygg AS</h2>
+            <p>28 ar og Sentral godkjenning. Prosjektmosaikk og foresporselform.</p>
+            <div class="card-price">12-15 000 kr</div>
+        </a>
+        <a href="hodne-gartneri-masterpiece.html" class="card">
+            <div class="card-tag">Gartneri - Bryne</div>
+            <h2>Hodne Gartneri</h2>
+            <p>Masterpiece-utgave. Arstidshistorie, plantegalleri, butikk og besokssenter.</p>
+            <div class="card-price">14 000 kr</div>
+        </a>
+    </div>
+    <div class="footer">Martin Folkestad - Klepp Stasjon</div>
+</body>
+</html>

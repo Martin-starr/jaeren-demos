@@ -1,0 +1,3682 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miljøgartneriet AS — Vegetabilsk produksjon i industriell skala · Kviamarka, Jæren</title>
+    <meta name="description" content="Miljøgartneriet AS — et av Nordens største veksthusanlegg. 77 000 kvm under glass i Kviamarka. Ti millioner tomater i året, dyrket uten sprøytemiddel.">
+    <meta property="og:title" content="Miljøgartneriet — Kviamarka, Nærbø">
+    <meta property="og:description" content="Hver tredje tomat solgt i Sør-Norge er dyrket i Kviamarka. Vi dyrker mat, ikke bilder.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%231F3D2C'/><circle cx='50' cy='55' r='24' fill='%23C9462E'/><path d='M50 28 L46 38 L54 38 Z' fill='%231F3D2C'/><path d='M44 30 Q50 22 56 30' stroke='%231F3D2C' stroke-width='3' fill='none' stroke-linecap='round'/></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================================
+           MILJØGARTNERIET — ENGINEERING-GRADE EDITION
+           Design System · Agriculture as technology
+           ============================================================ */
+
+        :root {
+            /* Greens — engineering forest */
+            --forest-abyss:  #0B1F15;
+            --forest-deep:   #14301F;
+            --forest:        #1F3D2C;
+            --forest-mid:    #2E5440;
+            --forest-sage:   #6B8A78;
+            --forest-mist:   #C2D2C9;
+
+            /* Tomato accent — the signature */
+            --tomato:        #C9462E;
+            --tomato-deep:   #9E3522;
+            --tomato-bright: #E25841;
+            --tomato-soft:   #F1B0A2;
+            --tomato-glow:   rgba(201, 70, 46, 0.55);
+
+            /* Bone + warm cream backgrounds */
+            --bone:          #F4F0E8;
+            --bone-warm:     #EDE6D8;
+            --bone-deep:     #DCD2BD;
+            --paper:         #FBF8F1;
+
+            /* Steel + silver secondary */
+            --steel:         #5C6B66;
+            --steel-light:   #8D9893;
+            --steel-mist:    #B9C2BD;
+            --silver:        #D5DBD7;
+
+            /* Text */
+            --ink:           #141A17;
+            --ink-soft:      #2B3530;
+            --text-secondary:#3F4A45;
+            --text-muted:    #6E776F;
+            --text-faint:    #9CA39D;
+            --text-light:    rgba(244, 240, 232, 0.96);
+            --text-light-soft:rgba(244, 240, 232, 0.66);
+
+            /* Typography */
+            --font-display: 'Space Grotesk', system-ui, sans-serif;
+            --font-body:    'Inter', system-ui, sans-serif;
+            --font-mono:    'JetBrains Mono', ui-monospace, monospace;
+
+            /* Fluid scale */
+            --text-2xs:  clamp(0.6rem,  0.55rem + 0.2vw,  0.7rem);
+            --text-xs:   clamp(0.7rem,  0.65rem + 0.25vw, 0.8rem);
+            --text-sm:   clamp(0.85rem, 0.8rem + 0.28vw,  0.98rem);
+            --text-base: clamp(0.96rem, 0.9rem + 0.3vw,   1.1rem);
+            --text-lg:   clamp(1.12rem, 1rem + 0.6vw,     1.38rem);
+            --text-xl:   clamp(1.45rem, 1.1rem + 1.6vw,   2.3rem);
+            --text-2xl:  clamp(2.05rem, 1.45rem + 2.7vw,  3.7rem);
+            --text-3xl:  clamp(2.7rem,  1.9rem + 4vw,     5.4rem);
+            --text-mega: clamp(3.4rem,  2.2rem + 6vw,     8.2rem);
+            --text-ultra:clamp(4.4rem,  2.4rem + 8vw,    10.8rem);
+
+            /* Curves */
+            --ease-out-expo:  cubic-bezier(0.16, 1, 0.3, 1);
+            --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+            --ease-in-out:    cubic-bezier(0.65, 0, 0.35, 1);
+
+            /* Spacing */
+            --section-pad: clamp(5rem, 10vw, 11rem);
+
+            /* Mouse parallax */
+            --mouse-x: 0px;
+            --mouse-y: 0px;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-weight: 400;
+            color: var(--ink);
+            background-color: var(--bone);
+            line-height: 1.65;
+            overflow-x: hidden;
+            font-size: var(--text-base);
+        }
+
+        img { max-width: 100%; display: block; height: auto; }
+        a   { color: inherit; text-decoration: none; }
+
+        ::selection { background: var(--tomato); color: var(--bone); }
+
+        .container {
+            width: 100%;
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 clamp(1.5rem, 4vw, 3rem);
+        }
+
+        .container-wide {
+            width: 100%;
+            max-width: 1560px;
+            margin: 0 auto;
+            padding: 0 clamp(1.5rem, 4vw, 3rem);
+        }
+
+        /* ============================================================
+           SECTION LABELS + TITLES
+           ============================================================ */
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            font-family: var(--font-mono);
+            font-size: var(--text-xs);
+            font-weight: 500;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--tomato);
+            margin-bottom: 1.5rem;
+        }
+
+        .section-label::before {
+            content: '';
+            display: inline-block;
+            width: 28px;
+            height: 1px;
+            background: var(--tomato);
+        }
+
+        .section-label.on-dark { color: var(--tomato-soft); }
+        .section-label.on-dark::before { background: var(--tomato-soft); }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: var(--text-2xl);
+            line-height: 1.04;
+            letter-spacing: -0.025em;
+            color: var(--forest-deep);
+            margin-bottom: 1.8rem;
+        }
+
+        .section-title em {
+            font-style: normal;
+            font-weight: 400;
+            color: var(--tomato);
+        }
+
+        .section-title.on-dark { color: var(--bone); }
+
+        .lead-paragraph {
+            font-family: var(--font-body);
+            font-size: var(--text-lg);
+            font-weight: 300;
+            line-height: 1.65;
+            color: var(--text-secondary);
+            max-width: 62ch;
+        }
+
+        .lead-paragraph.on-dark { color: var(--text-light-soft); }
+
+        /* ============================================================
+           SCROLL PROGRESS BAR
+           ============================================================ */
+
+        .scroll-progress {
+            position: fixed;
+            top: 0; left: 0;
+            height: 2px;
+            width: 0%;
+            background: linear-gradient(to right, var(--tomato), var(--tomato-bright));
+            z-index: 2000;
+            transition: width 0.1s linear;
+            box-shadow: 0 0 8px var(--tomato-glow);
+        }
+
+        /* ============================================================
+           NAVIGATION
+           ============================================================ */
+
+        .nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            padding: 1.4rem 0;
+            transition: all 0.5s var(--ease-out-expo);
+        }
+
+        .nav.scrolled {
+            background: rgba(244, 240, 232, 0.88);
+            backdrop-filter: blur(28px) saturate(180%);
+            -webkit-backdrop-filter: blur(28px) saturate(180%);
+            padding: 0.7rem 0;
+            border-bottom: 1px solid rgba(31, 61, 44, 0.08);
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1560px;
+            margin: 0 auto;
+            padding: 0 clamp(1.5rem, 4vw, 3rem);
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            cursor: pointer;
+        }
+
+        .nav-logo-mark {
+            width: 38px;
+            height: 38px;
+            border-radius: 8px;
+            background: var(--forest-deep);
+            display: grid;
+            place-items: center;
+            position: relative;
+            transition: all 0.4s var(--ease-out-expo);
+        }
+
+        .nav.scrolled .nav-logo-mark {
+            background: var(--forest-deep);
+        }
+
+        .nav-logo-mark svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        .nav-logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1;
+        }
+
+        .nav-logo-name {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 1.02rem;
+            letter-spacing: -0.01em;
+            color: var(--bone);
+            transition: color 0.4s var(--ease-out-expo);
+        }
+
+        .nav.scrolled .nav-logo-name { color: var(--forest-deep); }
+
+        .nav-logo-sub {
+            font-family: var(--font-mono);
+            font-size: 0.62rem;
+            font-weight: 500;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--text-light-soft);
+            margin-top: 4px;
+            transition: color 0.4s var(--ease-out-expo);
+        }
+
+        .nav.scrolled .nav-logo-sub { color: var(--text-muted); }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.4rem;
+        }
+
+        .nav-links a {
+            font-family: var(--font-body);
+            font-size: 0.86rem;
+            font-weight: 500;
+            color: var(--text-light);
+            letter-spacing: 0.01em;
+            position: relative;
+            padding: 0.4rem 0;
+            transition: color 0.3s var(--ease-out-expo);
+        }
+
+        .nav.scrolled .nav-links a { color: var(--ink-soft); }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--tomato);
+            transition: width 0.4s var(--ease-out-expo);
+        }
+
+        .nav-links a:hover { color: var(--tomato); }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-links a.active { color: var(--tomato); }
+        .nav-links a.active::after { width: 100%; }
+
+        .nav-cta {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--bone);
+            background: var(--tomato);
+            padding: 0.7rem 1.4rem;
+            border-radius: 2px;
+            transition: all 0.3s var(--ease-out-expo);
+            border: 1px solid var(--tomato);
+        }
+
+        .nav-cta:hover {
+            background: var(--tomato-deep);
+            border-color: var(--tomato-deep);
+            transform: translateY(-1px);
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--bone);
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        .nav.scrolled .nav-toggle { color: var(--forest-deep); }
+
+        @media (max-width: 900px) {
+            .nav-links, .nav-cta { display: none; }
+            .nav-toggle { display: block; }
+        }
+
+        /* Mobile menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0; right: 0;
+            bottom: 0;
+            width: min(360px, 85vw);
+            background: var(--forest-deep);
+            z-index: 1500;
+            padding: 5rem 2.5rem 3rem;
+            transform: translateX(100%);
+            transition: transform 0.5s var(--ease-out-expo);
+            display: flex;
+            flex-direction: column;
+            gap: 1.6rem;
+        }
+        .mobile-menu.open { transform: translateX(0); }
+        .mobile-menu a {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: var(--bone);
+            border-bottom: 1px solid rgba(244, 240, 232, 0.12);
+            padding-bottom: 1rem;
+        }
+        .mobile-menu-close {
+            position: absolute;
+            top: 1.5rem; right: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--bone);
+            font-size: 1.6rem;
+            cursor: pointer;
+        }
+
+        /* ============================================================
+           HERO
+           ============================================================ */
+
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            background-color: var(--forest-deep);
+            background-image:
+                linear-gradient(180deg, rgba(11, 31, 21, 0.55) 0%, rgba(11, 31, 21, 0.88) 100%),
+                radial-gradient(ellipse at 60% 30%, rgba(201, 70, 46, 0.15) 0%, transparent 55%),
+                url('images/miljogartneriet/interior-1.jpg');
+            background-size: cover;
+            background-position: center;
+            color: var(--bone);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 7rem 0 4rem;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                repeating-linear-gradient(0deg, transparent, transparent 80px, rgba(244, 240, 232, 0.018) 80px, rgba(244, 240, 232, 0.018) 81px),
+                repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(244, 240, 232, 0.018) 80px, rgba(244, 240, 232, 0.018) 81px);
+            pointer-events: none;
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 2;
+            max-width: 1560px;
+            margin: 0 auto;
+            padding: 0 clamp(1.5rem, 4vw, 3rem);
+            width: 100%;
+        }
+
+        .hero-meta {
+            display: flex;
+            align-items: center;
+            gap: 1.4rem;
+            margin-bottom: 2.6rem;
+            opacity: 0;
+            animation: fadeUp 0.9s var(--ease-out-expo) 0.2s forwards;
+        }
+
+        .hero-meta-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--bone);
+            background: rgba(201, 70, 46, 0.18);
+            border: 1px solid rgba(201, 70, 46, 0.45);
+            padding: 0.45rem 0.95rem;
+            border-radius: 100px;
+        }
+
+        .hero-meta-pill::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--tomato-bright);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--tomato-bright);
+            animation: pulse 2.4s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.55; transform: scale(0.85); }
+        }
+
+        .hero-meta-coord {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            letter-spacing: 0.12em;
+            color: var(--text-light-soft);
+        }
+
+        .hero-title {
+            font-family: var(--font-display);
+            font-weight: 500;
+            font-size: var(--text-mega);
+            line-height: 0.96;
+            letter-spacing: -0.04em;
+            margin-bottom: 2.2rem;
+            max-width: 17ch;
+            opacity: 0;
+            animation: fadeUp 1s var(--ease-out-expo) 0.35s forwards;
+        }
+
+        .hero-title .accent {
+            color: var(--tomato);
+            font-weight: 600;
+        }
+
+        .hero-title .thin {
+            font-weight: 300;
+            color: var(--text-light-soft);
+        }
+
+        .hero-sub {
+            font-family: var(--font-body);
+            font-size: var(--text-lg);
+            font-weight: 300;
+            line-height: 1.55;
+            color: var(--text-light-soft);
+            max-width: 56ch;
+            margin-bottom: 3.5rem;
+            opacity: 0;
+            animation: fadeUp 1s var(--ease-out-expo) 0.5s forwards;
+        }
+
+        .hero-cta-row {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 5rem;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeUp 1s var(--ease-out-expo) 0.65s forwards;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 1.05rem 1.8rem;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: all 0.35s var(--ease-out-expo);
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background: var(--tomato);
+            color: var(--bone);
+            border-color: var(--tomato);
+        }
+
+        .btn-primary:hover {
+            background: var(--tomato-deep);
+            border-color: var(--tomato-deep);
+            transform: translateY(-2px);
+            box-shadow: 0 14px 36px -16px var(--tomato-glow);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--bone);
+            border-color: rgba(244, 240, 232, 0.4);
+        }
+
+        .btn-ghost:hover {
+            background: rgba(244, 240, 232, 0.08);
+            border-color: var(--bone);
+        }
+
+        .btn svg { transition: transform 0.35s var(--ease-out-expo); }
+        .btn:hover svg { transform: translateX(4px); }
+
+        /* KPI ticker */
+        .hero-ticker {
+            border-top: 1px solid rgba(244, 240, 232, 0.16);
+            padding-top: 2.5rem;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            opacity: 0;
+            animation: fadeUp 1s var(--ease-out-expo) 0.85s forwards;
+        }
+
+        .hero-ticker-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .hero-ticker-value {
+            font-family: var(--font-display);
+            font-size: clamp(1.6rem, 1rem + 1.8vw, 2.6rem);
+            font-weight: 500;
+            color: var(--bone);
+            letter-spacing: -0.025em;
+            line-height: 1;
+            display: flex;
+            align-items: baseline;
+            gap: 0.3rem;
+        }
+
+        .hero-ticker-value .unit {
+            font-size: 0.65em;
+            font-weight: 400;
+            color: var(--text-light-soft);
+        }
+
+        .hero-ticker-label {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--text-light-soft);
+        }
+
+        @media (max-width: 720px) {
+            .hero-ticker { grid-template-columns: repeat(2, 1fr); gap: 2rem 1rem; }
+            .hero-meta { flex-wrap: wrap; gap: 0.8rem; }
+        }
+
+        /* Hero scroll indicator */
+        .scroll-cue {
+            position: absolute;
+            bottom: 1.8rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: var(--font-mono);
+            font-size: 0.66rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--text-light-soft);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.6rem;
+            animation: bob 2.6s infinite var(--ease-in-out);
+        }
+
+        .scroll-cue-line {
+            width: 1px;
+            height: 38px;
+            background: linear-gradient(to bottom, transparent, var(--tomato));
+        }
+
+        @keyframes bob {
+            0%, 100% { transform: translate(-50%, 0); }
+            50% { transform: translate(-50%, -8px); }
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(28px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ============================================================
+           PROLOGUE — Single dramatic statement
+           ============================================================ */
+
+        .prologue {
+            background: var(--bone);
+            padding: var(--section-pad) 0;
+            position: relative;
+        }
+
+        .prologue-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: clamp(2rem, 6vw, 6rem);
+            align-items: center;
+        }
+
+        @media (max-width: 920px) {
+            .prologue-grid { grid-template-columns: 1fr; gap: 3rem; }
+        }
+
+        .prologue-image {
+            aspect-ratio: 4 / 5;
+            background-color: var(--forest);
+            background-image:
+                linear-gradient(160deg, rgba(20, 48, 31, 0.35) 0%, rgba(201, 70, 46, 0.18) 100%),
+                url('images/miljogartneriet/tomato-1.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .prologue-image::after {
+            content: 'TOMAT · VINETOMAT · KVIAMARKA';
+            position: absolute;
+            bottom: 1.4rem;
+            left: 1.4rem;
+            font-family: var(--font-mono);
+            font-size: 0.66rem;
+            letter-spacing: 0.18em;
+            color: var(--text-light);
+            background: rgba(11, 31, 21, 0.55);
+            padding: 0.4rem 0.8rem;
+            backdrop-filter: blur(6px);
+            border-left: 2px solid var(--tomato);
+        }
+
+        .prologue-text h2 {
+            font-family: var(--font-display);
+            font-weight: 400;
+            font-size: clamp(1.8rem, 1.2rem + 2.3vw, 3.1rem);
+            line-height: 1.1;
+            letter-spacing: -0.025em;
+            color: var(--forest-deep);
+            margin-bottom: 2rem;
+        }
+
+        .prologue-text h2 strong {
+            font-weight: 600;
+            color: var(--tomato);
+        }
+
+        .prologue-text p {
+            font-size: var(--text-lg);
+            font-weight: 300;
+            line-height: 1.65;
+            color: var(--text-secondary);
+            margin-bottom: 1.4rem;
+            max-width: 56ch;
+        }
+
+        .prologue-sign {
+            margin-top: 2.4rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .prologue-sign::before {
+            content: '';
+            width: 36px;
+            height: 1px;
+            background: var(--tomato);
+        }
+
+        /* ============================================================
+           HISTORIE — Timeline section
+           ============================================================ */
+
+        .historie {
+            background: var(--paper);
+            padding: var(--section-pad) 0;
+            border-top: 1px solid var(--bone-deep);
+        }
+
+        .historie-head {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 4rem;
+            margin-bottom: 5rem;
+            align-items: end;
+        }
+
+        @media (max-width: 920px) {
+            .historie-head { grid-template-columns: 1fr; gap: 1.5rem; }
+        }
+
+        .historie-quote {
+            border-left: 2px solid var(--tomato);
+            padding: 0.5rem 0 0.5rem 1.6rem;
+        }
+
+        .historie-quote p {
+            font-family: var(--font-display);
+            font-weight: 400;
+            font-size: var(--text-lg);
+            line-height: 1.45;
+            color: var(--forest-deep);
+            margin-bottom: 0.9rem;
+            font-style: italic;
+        }
+
+        .historie-quote cite {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-style: normal;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 2.4rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            bottom: 8px;
+            width: 1px;
+            background: linear-gradient(to bottom, var(--tomato), var(--forest-mid), var(--steel-mist));
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 3rem;
+            display: grid;
+            grid-template-columns: 110px 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .timeline-item:last-child { padding-bottom: 0; }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.4rem;
+            top: 6px;
+            width: 11px;
+            height: 11px;
+            background: var(--tomato);
+            border-radius: 50%;
+            border: 2px solid var(--paper);
+            transform: translateX(-5px);
+            box-shadow: 0 0 0 1px var(--tomato);
+        }
+
+        .timeline-year {
+            font-family: var(--font-mono);
+            font-size: 0.92rem;
+            font-weight: 500;
+            color: var(--tomato);
+            letter-spacing: 0.04em;
+        }
+
+        .timeline-body h3 {
+            font-family: var(--font-display);
+            font-weight: 500;
+            font-size: 1.3rem;
+            color: var(--forest-deep);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.015em;
+        }
+
+        .timeline-body p {
+            font-size: var(--text-base);
+            color: var(--text-secondary);
+            line-height: 1.65;
+            max-width: 56ch;
+        }
+
+        @media (max-width: 620px) {
+            .timeline-item { grid-template-columns: 1fr; gap: 0.4rem; }
+        }
+
+        /* ============================================================
+           ANLEGGET — The facility (THE wow shot)
+           ============================================================ */
+
+        .anlegget {
+            background: var(--forest-deep);
+            color: var(--bone);
+            padding: var(--section-pad) 0 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .anlegget-head {
+            text-align: center;
+            max-width: 760px;
+            margin: 0 auto 4rem;
+        }
+
+        .anlegget-frame {
+            position: relative;
+            margin: 0 clamp(1rem, 4vw, 3rem);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .anlegget-image {
+            aspect-ratio: 16 / 8;
+            min-height: 380px;
+            background-color: #1a2f22;
+            background-image:
+                linear-gradient(180deg, rgba(20, 48, 31, 0.25) 0%, rgba(11, 31, 21, 0.7) 100%),
+                url('images/miljogartneriet/aerial-1.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .anlegget-overlay-tag {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--text-light);
+            background: rgba(11, 31, 21, 0.55);
+            backdrop-filter: blur(8px);
+            padding: 0.5rem 0.95rem;
+            border-left: 2px solid var(--tomato);
+        }
+
+        .anlegget-zones {
+            position: absolute;
+            inset: 0;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            pointer-events: none;
+        }
+
+        .anlegget-zone {
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-start;
+            padding: 1.4rem;
+            border-right: 1px dashed rgba(244, 240, 232, 0.18);
+        }
+
+        .anlegget-zone:last-child { border-right: none; }
+
+        .anlegget-zone-label {
+            font-family: var(--font-mono);
+            font-size: 0.62rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--text-light);
+            background: rgba(11, 31, 21, 0.6);
+            backdrop-filter: blur(8px);
+            padding: 0.4rem 0.7rem;
+            border-radius: 2px;
+        }
+
+        .anlegget-zone-label .zone-num {
+            color: var(--tomato-bright);
+            margin-right: 0.5rem;
+        }
+
+        @media (max-width: 720px) {
+            .anlegget-zones { display: none; }
+            .anlegget-overlay-tag { top: 1rem; left: 1rem; }
+        }
+
+        .anlegget-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border-top: 1px solid rgba(244, 240, 232, 0.12);
+            margin: 0;
+        }
+
+        .anlegget-stat {
+            padding: 2.4rem;
+            border-right: 1px solid rgba(244, 240, 232, 0.12);
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .anlegget-stat:last-child { border-right: none; }
+
+        .anlegget-stat-key {
+            font-family: var(--font-mono);
+            font-size: 0.66rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--tomato-soft);
+        }
+
+        .anlegget-stat-val {
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 1rem + 1.6vw, 2.2rem);
+            font-weight: 500;
+            color: var(--bone);
+            letter-spacing: -0.02em;
+            line-height: 1;
+        }
+
+        .anlegget-stat-note {
+            font-size: 0.82rem;
+            color: var(--text-light-soft);
+            font-weight: 300;
+        }
+
+        @media (max-width: 920px) {
+            .anlegget-stats { grid-template-columns: repeat(2, 1fr); }
+            .anlegget-stat { border-bottom: 1px solid rgba(244, 240, 232, 0.12); }
+            .anlegget-stat:nth-last-child(-n+2) { border-bottom: none; }
+            .anlegget-stat:nth-child(even) { border-right: none; }
+        }
+
+        @media (max-width: 520px) {
+            .anlegget-stats { grid-template-columns: 1fr; }
+            .anlegget-stat, .anlegget-stat:nth-child(even) {
+                border-right: none;
+                border-bottom: 1px solid rgba(244, 240, 232, 0.12);
+            }
+            .anlegget-stat:last-child { border-bottom: none; }
+        }
+
+        /* ============================================================
+           PRODUKTA — Product showcase
+           ============================================================ */
+
+        .produkta {
+            background: var(--bone);
+            padding: var(--section-pad) 0;
+        }
+
+        .produkta-head {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            margin-bottom: 5rem;
+            align-items: end;
+        }
+
+        @media (max-width: 920px) {
+            .produkta-head { grid-template-columns: 1fr; gap: 1.5rem; }
+        }
+
+        .produkta-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 1100px) { .produkta-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 560px) { .produkta-grid { grid-template-columns: 1fr; } }
+
+        .produkt-card {
+            background: var(--paper);
+            border-radius: 2px;
+            overflow: hidden;
+            border: 1px solid var(--bone-deep);
+            display: flex;
+            flex-direction: column;
+            transition: all 0.5s var(--ease-out-expo);
+        }
+
+        .produkt-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--tomato);
+            box-shadow: 0 30px 50px -30px rgba(31, 61, 44, 0.25);
+        }
+
+        .produkt-image {
+            aspect-ratio: 1 / 1;
+            background-color: var(--forest);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .produkt-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 60%, rgba(11, 31, 21, 0.45) 100%);
+        }
+
+        .produkt-image.vine {
+            background-image:
+                linear-gradient(160deg, rgba(20, 48, 31, 0.25) 0%, rgba(201, 70, 46, 0.25) 100%),
+                url('images/miljogartneriet/tomato-vine.jpg');
+        }
+        .produkt-image.cherry {
+            background-image:
+                linear-gradient(160deg, rgba(201, 70, 46, 0.18) 0%, rgba(31, 61, 44, 0.35) 100%),
+                url('images/miljogartneriet/tomato-cherry.jpg');
+        }
+        .produkt-image.plomme {
+            background-image:
+                linear-gradient(160deg, rgba(158, 53, 34, 0.28) 0%, rgba(31, 61, 44, 0.45) 100%),
+                url('images/miljogartneriet/tomato-plomme.jpg');
+        }
+        .produkt-image.agurk {
+            background-image:
+                linear-gradient(160deg, rgba(46, 84, 64, 0.3) 0%, rgba(11, 31, 21, 0.45) 100%),
+                url('images/miljogartneriet/cucumber-1.jpg');
+        }
+
+        .produkt-tag {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            z-index: 2;
+            font-family: var(--font-mono);
+            font-size: 0.62rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--bone);
+            background: rgba(201, 70, 46, 0.85);
+            padding: 0.35rem 0.7rem;
+            backdrop-filter: blur(8px);
+        }
+
+        .produkt-body {
+            padding: 1.8rem 1.6rem 2rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .produkt-name {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 1.3rem;
+            color: var(--forest-deep);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.015em;
+        }
+
+        .produkt-latin {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-style: italic;
+            color: var(--text-muted);
+            letter-spacing: 0.04em;
+            margin-bottom: 1rem;
+        }
+
+        .produkt-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.4rem;
+            flex: 1;
+        }
+
+        .produkt-specs {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            border-top: 1px solid var(--bone-deep);
+            padding-top: 1rem;
+        }
+
+        .produkt-spec {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .produkt-spec-key {
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .produkt-spec-val {
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--forest-deep);
+        }
+
+        /* ============================================================
+           PROCESS — Slik vi dyrker (5 steps)
+           ============================================================ */
+
+        .prosess {
+            background: var(--forest-deep);
+            color: var(--bone);
+            padding: var(--section-pad) 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .prosess::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 80% 20%, rgba(201, 70, 46, 0.08), transparent 60%),
+                radial-gradient(ellipse at 20% 80%, rgba(46, 84, 64, 0.18), transparent 60%);
+            pointer-events: none;
+        }
+
+        .prosess-head {
+            text-align: center;
+            max-width: 720px;
+            margin: 0 auto 5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .prosess-grid {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0;
+        }
+
+        @media (max-width: 980px) { .prosess-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 560px) { .prosess-grid { grid-template-columns: 1fr; } }
+
+        .prosess-step {
+            padding: 2.2rem 1.6rem;
+            border-right: 1px solid rgba(244, 240, 232, 0.12);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 1.4rem;
+        }
+
+        .prosess-step:last-child { border-right: none; }
+
+        @media (max-width: 980px) {
+            .prosess-step:nth-child(even) { border-right: none; }
+            .prosess-step { border-bottom: 1px solid rgba(244, 240, 232, 0.12); }
+        }
+
+        .prosess-step-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .prosess-step-num {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            letter-spacing: 0.18em;
+            color: var(--tomato-soft);
+        }
+
+        .prosess-step-time {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            color: var(--text-light-soft);
+            background: rgba(244, 240, 232, 0.05);
+            padding: 0.25rem 0.55rem;
+            border-radius: 2px;
+        }
+
+        .prosess-step-icon {
+            width: 44px;
+            height: 44px;
+            display: grid;
+            place-items: center;
+            border: 1px solid rgba(244, 240, 232, 0.25);
+            border-radius: 2px;
+            color: var(--tomato-bright);
+        }
+
+        .prosess-step-icon svg { width: 22px; height: 22px; }
+
+        .prosess-step-title {
+            font-family: var(--font-display);
+            font-weight: 500;
+            font-size: 1.3rem;
+            color: var(--bone);
+            letter-spacing: -0.01em;
+        }
+
+        .prosess-step-desc {
+            font-size: 0.92rem;
+            color: var(--text-light-soft);
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        .prosess-step-meta {
+            margin-top: auto;
+            display: flex;
+            gap: 1rem;
+            padding-top: 1.2rem;
+            border-top: 1px dashed rgba(244, 240, 232, 0.14);
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--text-light-soft);
+        }
+
+        .prosess-step-meta span { display: flex; gap: 0.4rem; }
+        .prosess-step-meta strong { color: var(--bone); font-weight: 500; }
+
+        /* ============================================================
+           BIOLOGISK PLANTEVERN — Differentiator section
+           ============================================================ */
+
+        .biovern {
+            background: var(--bone-warm);
+            padding: var(--section-pad) 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .biovern-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: clamp(2rem, 6vw, 6rem);
+            align-items: center;
+        }
+
+        @media (max-width: 980px) {
+            .biovern-grid { grid-template-columns: 1fr; gap: 3rem; }
+        }
+
+        .biovern-text h2 {
+            font-family: var(--font-display);
+            font-weight: 500;
+            font-size: var(--text-2xl);
+            line-height: 1.05;
+            letter-spacing: -0.025em;
+            color: var(--forest-deep);
+            margin-bottom: 1.8rem;
+        }
+
+        .biovern-text h2 em {
+            font-style: normal;
+            color: var(--tomato);
+            font-weight: 600;
+        }
+
+        .biovern-text p {
+            font-size: var(--text-base);
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 1.4rem;
+            max-width: 56ch;
+        }
+
+        .biovern-list {
+            margin-top: 2.5rem;
+            display: grid;
+            gap: 1rem;
+        }
+
+        .biovern-organism {
+            display: grid;
+            grid-template-columns: 64px 1fr auto;
+            gap: 1.2rem;
+            align-items: center;
+            padding: 1.1rem 1.2rem;
+            background: var(--paper);
+            border-left: 2px solid var(--tomato);
+            border-radius: 2px;
+        }
+
+        .biovern-organism-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--forest-deep);
+            display: grid;
+            place-items: center;
+            color: var(--tomato-soft);
+        }
+        .biovern-organism-icon svg { width: 26px; height: 26px; }
+
+        .biovern-organism-name {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: var(--forest-deep);
+            margin-bottom: 2px;
+        }
+
+        .biovern-organism-latin {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .biovern-organism-purpose {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--tomato);
+        }
+
+        .biovern-visual {
+            position: relative;
+            aspect-ratio: 4 / 5;
+            background-color: var(--forest);
+            background-image:
+                linear-gradient(160deg, rgba(31, 61, 44, 0.45) 0%, rgba(11, 31, 21, 0.85) 100%),
+                url('images/miljogartneriet/biovern-1.jpg');
+            background-size: cover;
+            background-position: center;
+            border-radius: 2px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 2rem;
+            color: var(--bone);
+        }
+
+        .biovern-visual-tag {
+            font-family: var(--font-mono);
+            font-size: 0.66rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--tomato-soft);
+            background: rgba(11, 31, 21, 0.55);
+            padding: 0.4rem 0.7rem;
+            backdrop-filter: blur(6px);
+            border-left: 2px solid var(--tomato);
+            align-self: flex-start;
+        }
+
+        .biovern-zero {
+            font-family: var(--font-display);
+            font-weight: 500;
+            line-height: 0.92;
+        }
+
+        .biovern-zero .big {
+            font-size: clamp(4rem, 3rem + 6vw, 9rem);
+            letter-spacing: -0.05em;
+            color: var(--tomato);
+            display: block;
+        }
+
+        .biovern-zero .small {
+            font-size: var(--text-lg);
+            font-weight: 400;
+            color: var(--bone);
+            margin-top: 0.6rem;
+            display: block;
+            max-width: 22ch;
+        }
+
+        .biovern-zero .since {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            letter-spacing: 0.14em;
+            color: var(--text-light-soft);
+            text-transform: uppercase;
+            display: block;
+            margin-top: 1rem;
+        }
+
+        /* ============================================================
+           I TALL — Big stats grid (count-up)
+           ============================================================ */
+
+        .itall {
+            background: var(--paper);
+            padding: var(--section-pad) 0;
+            border-top: 1px solid var(--bone-deep);
+            border-bottom: 1px solid var(--bone-deep);
+        }
+
+        .itall-head {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 5rem;
+        }
+
+        .itall-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            border-top: 1px solid var(--bone-deep);
+            border-left: 1px solid var(--bone-deep);
+        }
+
+        @media (max-width: 900px) { .itall-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 560px) { .itall-grid { grid-template-columns: 1fr; } }
+
+        .itall-cell {
+            padding: 3rem 2rem;
+            border-right: 1px solid var(--bone-deep);
+            border-bottom: 1px solid var(--bone-deep);
+            display: flex;
+            flex-direction: column;
+            gap: 0.7rem;
+            background: var(--paper);
+            transition: background 0.3s var(--ease-out-expo);
+            position: relative;
+        }
+
+        .itall-cell:hover { background: var(--bone-warm); }
+        .itall-cell:hover .itall-val { color: var(--tomato); }
+
+        .itall-val {
+            font-family: var(--font-display);
+            font-weight: 500;
+            font-size: clamp(2.6rem, 1.8rem + 3vw, 4.6rem);
+            line-height: 0.95;
+            letter-spacing: -0.04em;
+            color: var(--forest-deep);
+            display: flex;
+            align-items: baseline;
+            gap: 0.4rem;
+            transition: color 0.4s var(--ease-out-expo);
+        }
+
+        .itall-val .unit {
+            font-size: 0.42em;
+            font-weight: 400;
+            color: var(--text-muted);
+        }
+
+        .itall-label {
+            font-family: var(--font-mono);
+            font-size: 0.74rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--tomato);
+            margin-top: 0.4rem;
+        }
+
+        .itall-note {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.55;
+            max-width: 38ch;
+            margin-top: 0.4rem;
+        }
+
+        .itall-cell::before {
+            content: attr(data-num);
+            position: absolute;
+            top: 1.2rem;
+            right: 1.4rem;
+            font-family: var(--font-mono);
+            font-size: 0.66rem;
+            letter-spacing: 0.16em;
+            color: var(--text-faint);
+        }
+
+        /* ============================================================
+           BÆREKRAFT — Sustainability cards
+           ============================================================ */
+
+        .bare {
+            background: var(--bone);
+            padding: var(--section-pad) 0;
+        }
+
+        .bare-head {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4.5rem;
+            align-items: end;
+        }
+        @media (max-width: 920px) {
+            .bare-head { grid-template-columns: 1fr; gap: 1.5rem; }
+        }
+
+        .bare-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 1000px) { .bare-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 560px) { .bare-grid { grid-template-columns: 1fr; } }
+
+        .bare-card {
+            background: var(--paper);
+            border-radius: 2px;
+            padding: 2.4rem 2rem;
+            border: 1px solid var(--bone-deep);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            transition: all 0.4s var(--ease-out-expo);
+            overflow: hidden;
+        }
+
+        .bare-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--tomato);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s var(--ease-out-expo);
+        }
+
+        .bare-card:hover { transform: translateY(-4px); border-color: var(--tomato); }
+        .bare-card:hover::before { transform: scaleX(1); }
+
+        .bare-card-icon {
+            width: 54px;
+            height: 54px;
+            border-radius: 2px;
+            background: var(--forest-deep);
+            display: grid;
+            place-items: center;
+            color: var(--tomato-bright);
+        }
+        .bare-card-icon svg { width: 28px; height: 28px; }
+
+        .bare-card-metric {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--forest-deep);
+            letter-spacing: -0.03em;
+            line-height: 1;
+        }
+        .bare-card-metric .small { font-size: 0.5em; color: var(--text-muted); font-weight: 400; }
+
+        .bare-card h3 {
+            font-family: var(--font-display);
+            font-weight: 500;
+            font-size: 1.1rem;
+            color: var(--forest-deep);
+            margin-bottom: 0.4rem;
+        }
+
+        .bare-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+            font-weight: 400;
+        }
+
+        /* ============================================================
+           B2B / DISTRIBUSJON — Customers + logistics
+           ============================================================ */
+
+        .b2b {
+            background: var(--forest-abyss);
+            color: var(--bone);
+            padding: var(--section-pad) 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .b2b::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 10% 90%, rgba(201, 70, 46, 0.08), transparent 60%),
+                radial-gradient(ellipse at 90% 10%, rgba(46, 84, 64, 0.18), transparent 60%);
+        }
+
+        .b2b-inner { position: relative; z-index: 1; }
+
+        .b2b-head {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            margin-bottom: 5rem;
+            align-items: end;
+        }
+        @media (max-width: 920px) { .b2b-head { grid-template-columns: 1fr; gap: 1.5rem; } }
+
+        .b2b-stack {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+        @media (max-width: 920px) { .b2b-stack { grid-template-columns: 1fr; gap: 3rem; } }
+
+        .b2b-section h3 {
+            font-family: var(--font-mono);
+            font-size: 0.74rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--tomato-soft);
+            margin-bottom: 1.8rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(244, 240, 232, 0.18);
+        }
+
+        .b2b-customers {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .b2b-customer {
+            padding: 1.3rem;
+            background: rgba(244, 240, 232, 0.04);
+            border-left: 2px solid var(--tomato);
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .b2b-customer-name {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--bone);
+        }
+
+        .b2b-customer-type {
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--text-light-soft);
+        }
+
+        @media (max-width: 520px) {
+            .b2b-customers { grid-template-columns: 1fr; }
+        }
+
+        .b2b-logistics {
+            display: grid;
+            gap: 1.6rem;
+        }
+
+        .b2b-logi-row {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 1.2rem;
+            padding-bottom: 1.6rem;
+            border-bottom: 1px dashed rgba(244, 240, 232, 0.14);
+        }
+
+        .b2b-logi-row:last-child { border-bottom: none; padding-bottom: 0; }
+
+        .b2b-logi-val {
+            font-family: var(--font-display);
+            font-size: 1.7rem;
+            font-weight: 500;
+            color: var(--tomato-bright);
+            letter-spacing: -0.025em;
+            line-height: 1;
+        }
+
+        .b2b-logi-text strong {
+            display: block;
+            font-family: var(--font-display);
+            font-weight: 500;
+            font-size: 1rem;
+            color: var(--bone);
+            margin-bottom: 0.3rem;
+        }
+
+        .b2b-logi-text span {
+            font-size: 0.88rem;
+            color: var(--text-light-soft);
+            line-height: 1.55;
+            font-weight: 300;
+        }
+
+        /* ============================================================
+           TEAMET — Team mosaic
+           ============================================================ */
+
+        .teamet {
+            background: var(--bone);
+            padding: var(--section-pad) 0;
+        }
+
+        .teamet-head {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4.5rem;
+            align-items: end;
+        }
+        @media (max-width: 920px) { .teamet-head { grid-template-columns: 1fr; gap: 1.5rem; } }
+
+        .teamet-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+        @media (max-width: 920px) { .teamet-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 480px) { .teamet-grid { grid-template-columns: 1fr; } }
+
+        .team-card {
+            background: var(--paper);
+            border: 1px solid var(--bone-deep);
+            border-radius: 2px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.4s var(--ease-out-expo);
+        }
+
+        .team-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--tomato);
+        }
+
+        .team-portrait {
+            aspect-ratio: 4 / 5;
+            background-color: var(--forest);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .team-portrait::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 55%, rgba(11, 31, 21, 0.55) 100%);
+        }
+
+        .team-portrait.tommy {
+            background-image:
+                linear-gradient(180deg, rgba(31, 61, 44, 0.15) 0%, rgba(11, 31, 21, 0.5) 100%),
+                url('images/miljogartneriet/team-tommy.jpg');
+        }
+        .team-portrait.production {
+            background-image:
+                linear-gradient(180deg, rgba(31, 61, 44, 0.18) 0%, rgba(11, 31, 21, 0.45) 100%),
+                url('images/miljogartneriet/team-production.jpg');
+        }
+        .team-portrait.packing {
+            background-image:
+                linear-gradient(180deg, rgba(31, 61, 44, 0.18) 0%, rgba(11, 31, 21, 0.45) 100%),
+                url('images/miljogartneriet/team-packing.jpg');
+        }
+        .team-portrait.hr {
+            background-image:
+                linear-gradient(180deg, rgba(31, 61, 44, 0.18) 0%, rgba(11, 31, 21, 0.45) 100%),
+                url('images/miljogartneriet/team-hr.jpg');
+        }
+
+        .team-body {
+            padding: 1.5rem 1.4rem 1.7rem;
+        }
+
+        .team-role {
+            font-family: var(--font-mono);
+            font-size: 0.66rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--tomato);
+            margin-bottom: 0.6rem;
+        }
+
+        .team-name {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 1.15rem;
+            color: var(--forest-deep);
+            margin-bottom: 0.4rem;
+            letter-spacing: -0.015em;
+        }
+
+        .team-tenure {
+            font-size: 0.84rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .team-mosaic {
+            background: var(--forest-deep);
+            color: var(--bone);
+            padding: 3rem clamp(1.5rem, 4vw, 3rem);
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 2rem;
+            align-items: center;
+            border-radius: 2px;
+        }
+
+        @media (max-width: 720px) {
+            .team-mosaic { grid-template-columns: 1fr; }
+        }
+
+        .team-mosaic-text h3 {
+            font-family: var(--font-display);
+            font-weight: 500;
+            font-size: 1.6rem;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.6rem;
+            color: var(--bone);
+        }
+        .team-mosaic-text h3 em {
+            font-style: normal;
+            color: var(--tomato-bright);
+            font-weight: 600;
+        }
+        .team-mosaic-text p {
+            font-size: 0.95rem;
+            color: var(--text-light-soft);
+            font-weight: 300;
+            max-width: 56ch;
+        }
+
+        .team-dots {
+            display: grid;
+            grid-template-columns: repeat(15, 8px);
+            gap: 4px;
+        }
+
+        .team-dots span {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(244, 240, 232, 0.35);
+        }
+
+        .team-dots span.accent { background: var(--tomato); }
+
+        @media (max-width: 720px) {
+            .team-dots { grid-template-columns: repeat(20, 6px); }
+            .team-dots span { width: 6px; height: 6px; }
+        }
+
+        /* ============================================================
+           PRESSE — Recognition / quotes
+           ============================================================ */
+
+        .presse {
+            background: var(--paper);
+            padding: var(--section-pad) 0;
+            border-top: 1px solid var(--bone-deep);
+        }
+
+        .presse-head {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 5rem;
+        }
+
+        .presse-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        @media (max-width: 920px) { .presse-grid { grid-template-columns: 1fr; } }
+
+        .presse-card {
+            padding: 2.4rem 2rem;
+            background: var(--bone);
+            border-radius: 2px;
+            border: 1px solid var(--bone-deep);
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            transition: all 0.4s var(--ease-out-expo);
+            position: relative;
+        }
+
+        .presse-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--tomato);
+        }
+
+        .presse-quote {
+            font-family: var(--font-display);
+            font-weight: 400;
+            font-size: 1.15rem;
+            line-height: 1.45;
+            color: var(--forest-deep);
+            letter-spacing: -0.01em;
+        }
+
+        .presse-quote::before {
+            content: '"';
+            display: block;
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 3rem;
+            color: var(--tomato);
+            line-height: 0.6;
+            margin-bottom: 0.5rem;
+        }
+
+        .presse-source {
+            margin-top: auto;
+            padding-top: 1.4rem;
+            border-top: 1px solid var(--bone-deep);
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+
+        .presse-publication {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--forest-deep);
+        }
+
+        .presse-author {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            letter-spacing: 0.06em;
+        }
+
+        /* ============================================================
+           KONTAKT
+           ============================================================ */
+
+        .kontakt {
+            background: var(--forest-deep);
+            color: var(--bone);
+            padding: var(--section-pad) 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .kontakt::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 20% 30%, rgba(201, 70, 46, 0.12), transparent 60%),
+                radial-gradient(ellipse at 80% 70%, rgba(46, 84, 64, 0.2), transparent 60%);
+        }
+
+        .kontakt-inner { position: relative; z-index: 1; }
+
+        .kontakt-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: clamp(2rem, 6vw, 5rem);
+            align-items: start;
+        }
+        @media (max-width: 920px) { .kontakt-grid { grid-template-columns: 1fr; gap: 3rem; } }
+
+        .kontakt-text h2 {
+            font-family: var(--font-display);
+            font-weight: 500;
+            font-size: var(--text-2xl);
+            line-height: 1.04;
+            letter-spacing: -0.025em;
+            color: var(--bone);
+            margin-bottom: 2rem;
+        }
+        .kontakt-text h2 em {
+            font-style: normal;
+            color: var(--tomato);
+            font-weight: 600;
+        }
+
+        .kontakt-text p {
+            font-size: var(--text-lg);
+            font-weight: 300;
+            line-height: 1.6;
+            color: var(--text-light-soft);
+            max-width: 52ch;
+            margin-bottom: 2.5rem;
+        }
+
+        .kontakt-direct {
+            display: grid;
+            gap: 1.4rem;
+            margin-top: 2.5rem;
+        }
+
+        .kontakt-row {
+            display: grid;
+            grid-template-columns: 110px 1fr;
+            gap: 1.4rem;
+            align-items: start;
+            padding-bottom: 1.4rem;
+            border-bottom: 1px dashed rgba(244, 240, 232, 0.18);
+        }
+
+        .kontakt-row:last-child { border-bottom: none; padding-bottom: 0; }
+
+        .kontakt-key {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--tomato-soft);
+            padding-top: 4px;
+        }
+
+        .kontakt-val {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+        .kontakt-val strong {
+            font-family: var(--font-display);
+            font-weight: 500;
+            font-size: 1.25rem;
+            color: var(--bone);
+            letter-spacing: -0.01em;
+        }
+        .kontakt-val a {
+            color: var(--bone);
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s;
+        }
+        .kontakt-val a:hover {
+            color: var(--tomato-bright);
+            border-color: var(--tomato-bright);
+        }
+        .kontakt-val span {
+            font-size: 0.92rem;
+            color: var(--text-light-soft);
+            font-weight: 300;
+        }
+
+        .kontakt-card {
+            background: rgba(244, 240, 232, 0.04);
+            border: 1px solid rgba(244, 240, 232, 0.14);
+            border-radius: 2px;
+            padding: 2.6rem 2.2rem;
+            backdrop-filter: blur(8px);
+        }
+
+        .kontakt-card-label {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--tomato-soft);
+            margin-bottom: 1rem;
+        }
+
+        .kontakt-card h3 {
+            font-family: var(--font-display);
+            font-weight: 500;
+            font-size: 1.6rem;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.4rem;
+            color: var(--bone);
+        }
+
+        .kontakt-form {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .kontakt-form label {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .kontakt-form label span {
+            font-family: var(--font-mono);
+            font-size: 0.66rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--text-light-soft);
+        }
+
+        .kontakt-form input,
+        .kontakt-form textarea {
+            background: rgba(244, 240, 232, 0.05);
+            border: 1px solid rgba(244, 240, 232, 0.22);
+            color: var(--bone);
+            padding: 0.85rem 1rem;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            border-radius: 2px;
+            outline: none;
+            transition: all 0.3s;
+            resize: vertical;
+        }
+
+        .kontakt-form input:focus,
+        .kontakt-form textarea:focus {
+            border-color: var(--tomato);
+            background: rgba(244, 240, 232, 0.08);
+        }
+
+        .kontakt-form textarea { min-height: 100px; }
+
+        .kontakt-form button {
+            margin-top: 0.6rem;
+            background: var(--tomato);
+            color: var(--bone);
+            border: 1px solid var(--tomato);
+            padding: 1rem;
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: all 0.3s var(--ease-out-expo);
+        }
+
+        .kontakt-form button:hover {
+            background: var(--tomato-deep);
+            border-color: var(--tomato-deep);
+            transform: translateY(-1px);
+        }
+
+        /* ============================================================
+           FOOTER
+           ============================================================ */
+
+        .footer {
+            background: var(--forest-abyss);
+            color: var(--text-light-soft);
+            padding: 4rem 0 2rem;
+            border-top: 1px solid rgba(244, 240, 232, 0.08);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        @media (max-width: 980px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 520px) { .footer-grid { grid-template-columns: 1fr; gap: 2.2rem; } }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            max-width: 38ch;
+        }
+        .footer-brand-name {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: var(--bone);
+            letter-spacing: -0.01em;
+        }
+        .footer-brand-sub {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--tomato-soft);
+        }
+
+        .footer-news {
+            display: flex;
+            gap: 0;
+            margin-top: 1rem;
+        }
+        .footer-news input {
+            flex: 1;
+            background: rgba(244, 240, 232, 0.05);
+            border: 1px solid rgba(244, 240, 232, 0.18);
+            color: var(--bone);
+            padding: 0.75rem 1rem;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            border-radius: 2px 0 0 2px;
+            outline: none;
+        }
+        .footer-news input:focus { border-color: var(--tomato); }
+        .footer-news button {
+            background: var(--tomato);
+            color: var(--bone);
+            border: 1px solid var(--tomato);
+            padding: 0.75rem 1.2rem;
+            cursor: pointer;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            border-radius: 0 2px 2px 0;
+            transition: background 0.3s;
+        }
+        .footer-news button:hover { background: var(--tomato-deep); }
+
+        .footer-col h4 {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--tomato-soft);
+            margin-bottom: 1.4rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.7rem;
+        }
+
+        .footer-col li a {
+            font-size: 0.92rem;
+            color: var(--text-light-soft);
+            transition: color 0.3s;
+        }
+        .footer-col li a:hover { color: var(--tomato-bright); }
+
+        .footer-social {
+            display: flex;
+            gap: 0.7rem;
+            margin-top: 0.4rem;
+        }
+        .footer-social a {
+            width: 36px;
+            height: 36px;
+            border-radius: 2px;
+            border: 1px solid rgba(244, 240, 232, 0.2);
+            display: grid;
+            place-items: center;
+            transition: all 0.3s;
+            color: var(--text-light-soft);
+        }
+        .footer-social a:hover {
+            border-color: var(--tomato);
+            color: var(--tomato);
+            transform: translateY(-2px);
+        }
+        .footer-social svg { width: 16px; height: 16px; }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(244, 240, 232, 0.08);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            gap: 1.5rem;
+            font-family: var(--font-mono);
+            font-size: 0.74rem;
+            letter-spacing: 0.04em;
+            color: var(--text-faint);
+            flex-wrap: wrap;
+        }
+
+        .footer-bottom a {
+            color: var(--text-faint);
+            transition: color 0.3s;
+        }
+        .footer-bottom a:hover { color: var(--tomato-bright); }
+
+        /* ============================================================
+           REVEAL ANIMATIONS
+           ============================================================ */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(36px);
+            transition: opacity 1s var(--ease-out-expo), transform 1s var(--ease-out-expo);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 { transition-delay: 0.08s; }
+        .reveal-delay-2 { transition-delay: 0.16s; }
+        .reveal-delay-3 { transition-delay: 0.24s; }
+        .reveal-delay-4 { transition-delay: 0.32s; }
+        .reveal-delay-5 { transition-delay: 0.40s; }
+
+        /* ============================================================
+           UTILITIES
+           ============================================================ */
+
+        .text-mono { font-family: var(--font-mono); }
+        .text-tomato { color: var(--tomato); }
+        .text-forest { color: var(--forest-deep); }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- Scroll progress -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- ============================================================
+     NAVIGATION
+============================================================ -->
+<nav class="nav" id="nav">
+    <div class="nav-inner">
+        <a href="#top" class="nav-logo">
+            <div class="nav-logo-mark">
+                <svg viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="13" r="6.5" fill="#C9462E"/>
+                    <path d="M12 4 L10 7 L14 7 Z" fill="#F4F0E8"/>
+                    <path d="M9 5 Q12 2 15 5" stroke="#F4F0E8" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <div class="nav-logo-text">
+                <span class="nav-logo-name">Miljøgartneriet</span>
+                <span class="nav-logo-sub">Kviamarka · Jæren</span>
+            </div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#historie">Historie</a></li>
+            <li><a href="#anlegget">Anlegget</a></li>
+            <li><a href="#produkta">Produkter</a></li>
+            <li><a href="#prosess">Prosessen</a></li>
+            <li><a href="#bare">Bærekraft</a></li>
+            <li><a href="#b2b">B2B</a></li>
+            <li><a href="#teamet">Teamet</a></li>
+        </ul>
+        <a href="#kontakt" class="nav-cta">Ta kontakt</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Meny">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="4" y1="8" x2="20" y2="8"/>
+                <line x1="4" y1="16" x2="20" y2="16"/>
+            </svg>
+        </button>
+    </div>
+</nav>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Lukk">×</button>
+    <a href="#historie">Historie</a>
+    <a href="#anlegget">Anlegget</a>
+    <a href="#produkta">Produkter</a>
+    <a href="#prosess">Prosessen</a>
+    <a href="#bare">Bærekraft</a>
+    <a href="#b2b">B2B</a>
+    <a href="#teamet">Teamet</a>
+    <a href="#kontakt" style="color: var(--tomato-bright);">Ta kontakt →</a>
+</div>
+
+<!-- ============================================================
+     HERO
+============================================================ -->
+<section class="hero" id="top">
+    <div class="hero-inner">
+        <div class="hero-meta">
+            <div class="hero-meta-pill">Aktiv produksjon</div>
+            <div class="hero-meta-coord">58.6671° N · 5.6469° E · KVIAMARKA</div>
+        </div>
+
+        <h1 class="hero-title">
+            Nordens nye<br>
+            <span class="accent">matskap</span><br>
+            <span class="thin">— under glas.</span>
+        </h1>
+
+        <p class="hero-sub">
+            77 000 kvm veksthus i Kviamarka. Ti millioner tomater og agurker i året.
+            Null sprøytemiddel. Levert til COOP, Oda og restauranter
+            fra Lindesnes til Trondheim — samme morgen som de ble plukket.
+        </p>
+
+        <div class="hero-cta-row">
+            <a href="#anlegget" class="btn btn-primary">
+                Se anlegget
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                </svg>
+            </a>
+            <a href="#b2b" class="btn btn-ghost">
+                For grossister
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                </svg>
+            </a>
+        </div>
+
+        <div class="hero-ticker">
+            <div class="hero-ticker-item">
+                <div class="hero-ticker-value"><span data-count="77000">0</span><span class="unit">kvm</span></div>
+                <div class="hero-ticker-label">Under glass</div>
+            </div>
+            <div class="hero-ticker-item">
+                <div class="hero-ticker-value"><span data-count="85">0</span></div>
+                <div class="hero-ticker-label">Ansatte · sesong</div>
+            </div>
+            <div class="hero-ticker-item">
+                <div class="hero-ticker-value">~<span data-count="10">0</span><span class="unit">mill</span></div>
+                <div class="hero-ticker-label">Tomater i året</div>
+            </div>
+            <div class="hero-ticker-item">
+                <div class="hero-ticker-value"><span data-count="0">0</span></div>
+                <div class="hero-ticker-label">Sprøytemiddel</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="scroll-cue">
+        <span>SCROLL</span>
+        <div class="scroll-cue-line"></div>
+    </div>
+</section>
+
+<!-- ============================================================
+     PROLOGUE
+============================================================ -->
+<section class="prologue">
+    <div class="container-wide">
+        <div class="prologue-grid">
+            <div class="prologue-image reveal"></div>
+            <div class="prologue-text">
+                <div class="section-label reveal">Prolog · Kviamarka 2026</div>
+                <h2 class="reveal reveal-delay-1">
+                    Hver tredje tomat<br>solgt i Sør-Norge er<br>dyrket <strong>her.</strong>
+                </h2>
+                <p class="reveal reveal-delay-2">
+                    Vi dyrker mat, ikke bilder. Når du går inn i veksthusene våre om
+                    morgenen, hører du ikke musikk eller ser brosjyrer. Du hører ventilasjon,
+                    pumper, og lyden av seksti mennesker som jobber. Det lukter av varm jord,
+                    grønne blader og modne tomater.
+                </p>
+                <p class="reveal reveal-delay-3">
+                    Siden 2009 har vi bygd opp et av Nordens største veksthusanlegg her
+                    på Jæren. Ikke fordi vi hadde ambisjon om å være størst, men fordi
+                    norske familier fortjener norske grønnsaker — hele året.
+                </p>
+                <div class="prologue-sign reveal reveal-delay-4">
+                    Tommy Høyland · Daglig leder
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     HISTORIE
+============================================================ -->
+<section class="historie" id="historie">
+    <div class="container">
+        <div class="historie-head">
+            <div>
+                <div class="section-label reveal">01 · Historie</div>
+                <h2 class="section-title reveal reveal-delay-1">
+                    Fra tomt jorde til <em>16 år</em><br>med sammenhengende drift.
+                </h2>
+                <p class="lead-paragraph reveal reveal-delay-2">
+                    Miljøgartneriet ble stiftet i 2009 med en klar idé: produsere norske
+                    grønnsaker i industriell skala — uten å gå på akkord med kvalitet eller
+                    bærekraft. Siden da har vi vokst jevnt, hvert år.
+                </p>
+            </div>
+            <div class="historie-quote reveal reveal-delay-3">
+                <p>
+                    "Vi skal være den beste, ikke den billigste. Det er forskjellen
+                    som har båret oss hele veien."
+                </p>
+                <cite>— Tommy Høyland, CEO</cite>
+            </div>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item reveal">
+                <div class="timeline-year">2009</div>
+                <div class="timeline-body">
+                    <h3>Første spadestikk</h3>
+                    <p>
+                        Selskapet ble stiftet og de første 12 000 kvm med veksthus reiste seg
+                        på flate jærske marker. Første sesong: tomater, fire ansatte, og en
+                        plan om å komme tilbake neste år.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item reveal">
+                <div class="timeline-year">2012</div>
+                <div class="timeline-body">
+                    <h3>Utvidelse til 30 000 kvm</h3>
+                    <p>
+                        Etter tre sesonger med utsolgt lager og lange ventelister kjøpte vi
+                        nabotomta og bygde tre nye veksthus. Agurk ble lagt til som andre
+                        hovedkultur. Antallet ansatte passerte 20.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item reveal">
+                <div class="timeline-year">2015</div>
+                <div class="timeline-body">
+                    <h3>100 % biologisk plantevern</h3>
+                    <p>
+                        Den siste sprøytingen ble gjort i mai 2015. Siden da har all skadedyrkontroll
+                        i veksthusene blitt utført med nytteorganismer — rovmidd, snylteveps og
+                        snyltefluer. Et av de første anleggene i Norge i denne størrelsen.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item reveal">
+                <div class="timeline-year">2018</div>
+                <div class="timeline-body">
+                    <h3>LED-vekstlys og energigjenvinning</h3>
+                    <p>
+                        Hele anlegget ble oppgradert med moderne LED-system og varmegjenvinning
+                        fra CO₂-anlegget. Energibruken per kilo tomat falt med 28 % på fire år —
+                        samtidig som produksjonen vokste.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item reveal">
+                <div class="timeline-year">2021</div>
+                <div class="timeline-body">
+                    <h3>77 000 kvm — et av Nordens største</h3>
+                    <p>
+                        Siste utbygging tok det totale arealet til 77 000 kvm under glass. Eget
+                        pakkeri kom på plass. Daglige leveranser til COOP, Oda og over 40 grossister
+                        og restauranter i Sør-Norge.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item reveal">
+                <div class="timeline-year">2025</div>
+                <div class="timeline-body">
+                    <h3>85 ansatte i høysesong</h3>
+                    <p>
+                        Fra fire i 2009 til 70–85 ansatte i toppen. Lokal verdiskaping
+                        på Jæren — folk fra Nærbø, Varhaug, Bryne og Time som dyrker
+                        norsk mat året rundt.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     ANLEGGET
+============================================================ -->
+<section class="anlegget" id="anlegget">
+    <div class="container anlegget-head">
+        <div class="section-label on-dark reveal">02 · Anlegget</div>
+        <h2 class="section-title on-dark reveal reveal-delay-1">
+            77 000 kvm <em>under glass.</em><br>
+            Åtte klimasoner. Én puls.
+        </h2>
+        <p class="lead-paragraph on-dark reveal reveal-delay-2" style="margin: 0 auto;">
+            Et produksjonsanlegg på størrelse med elleve fotballbaner, delt i åtte
+            uavhengige klimasoner. Hver sone har sitt eget lys-, vann- og temperaturregime —
+            optimalisert for kulturen som vokser der.
+        </p>
+    </div>
+
+    <div class="anlegget-frame reveal reveal-delay-3">
+        <div class="anlegget-image">
+            <div class="anlegget-overlay-tag">Flyfoto · Kviamarka · sesong 2025</div>
+            <div class="anlegget-zones">
+                <div class="anlegget-zone">
+                    <div class="anlegget-zone-label"><span class="zone-num">01</span>TOMATPRODUKSJON</div>
+                </div>
+                <div class="anlegget-zone">
+                    <div class="anlegget-zone-label"><span class="zone-num">02</span>AGURKPRODUKSJON</div>
+                </div>
+                <div class="anlegget-zone">
+                    <div class="anlegget-zone-label"><span class="zone-num">03</span>PAKKERI</div>
+                </div>
+                <div class="anlegget-zone">
+                    <div class="anlegget-zone-label"><span class="zone-num">04</span>KLIMA + ENERGI</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="anlegget-stats">
+            <div class="anlegget-stat reveal">
+                <div class="anlegget-stat-key">Areal under glass</div>
+                <div class="anlegget-stat-val">77 000 m²</div>
+                <div class="anlegget-stat-note">Tilsvarer 11 fotballbaner</div>
+            </div>
+            <div class="anlegget-stat reveal reveal-delay-1">
+                <div class="anlegget-stat-key">Klimasoner</div>
+                <div class="anlegget-stat-val">8 stk</div>
+                <div class="anlegget-stat-note">Uavhengig regulering</div>
+            </div>
+            <div class="anlegget-stat reveal reveal-delay-2">
+                <div class="anlegget-stat-key">Vekstlys</div>
+                <div class="anlegget-stat-val">100 % LED</div>
+                <div class="anlegget-stat-note">Utskiftet 2018–2022</div>
+            </div>
+            <div class="anlegget-stat reveal reveal-delay-3">
+                <div class="anlegget-stat-key">Drift</div>
+                <div class="anlegget-stat-val">365 dager</div>
+                <div class="anlegget-stat-note">Kontinuerlig produksjon</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     PRODUKTA
+============================================================ -->
+<section class="produkta" id="produkta">
+    <div class="container-wide">
+        <div class="produkta-head">
+            <div>
+                <div class="section-label reveal">03 · Produkter</div>
+                <h2 class="section-title reveal reveal-delay-1">
+                    Fire kulturer. Én <em>sesong</em><br>som varer hele året.
+                </h2>
+            </div>
+            <p class="lead-paragraph reveal reveal-delay-2">
+                Hovedvekten vår er på tomat — vine, cherry og plomme — i tillegg til slangeagurk.
+                Alle sorter er valgt for smak først, holdbarhet etterpå. Aldri det motsatte.
+            </p>
+        </div>
+
+        <div class="produkta-grid">
+            <div class="produkt-card reveal">
+                <div class="produkt-image vine">
+                    <span class="produkt-tag">Klassiker</span>
+                </div>
+                <div class="produkt-body">
+                    <div class="produkt-name">Vinetomat</div>
+                    <div class="produkt-latin">Solanum lycopersicum 'Cluster'</div>
+                    <p class="produkt-desc">
+                        Den ekte tomatsmaken. Plukket i klase, modnet på planten,
+                        kraftig aroma og balansert syre. Hovedvolumet vårt.
+                    </p>
+                    <div class="produkt-specs">
+                        <div class="produkt-spec">
+                            <span class="produkt-spec-key">Vekt</span>
+                            <span class="produkt-spec-val">80–110 g</span>
+                        </div>
+                        <div class="produkt-spec">
+                            <span class="produkt-spec-key">Sesong</span>
+                            <span class="produkt-spec-val">Året rundt</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="produkt-card reveal reveal-delay-1">
+                <div class="produkt-image cherry">
+                    <span class="produkt-tag">Premium</span>
+                </div>
+                <div class="produkt-body">
+                    <div class="produkt-name">Cherrytomat</div>
+                    <div class="produkt-latin">Solanum lycopersicum 'Cocktail'</div>
+                    <p class="produkt-desc">
+                        Søt, liten og intens. Vår variant er valgt for høyt sukkerinnhold (Brix 8+)
+                        og tynt skinn. Selger seg selv i salatbarer og restauranter.
+                    </p>
+                    <div class="produkt-specs">
+                        <div class="produkt-spec">
+                            <span class="produkt-spec-key">Vekt</span>
+                            <span class="produkt-spec-val">15–25 g</span>
+                        </div>
+                        <div class="produkt-spec">
+                            <span class="produkt-spec-key">Brix</span>
+                            <span class="produkt-spec-val">8.2°</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="produkt-card reveal reveal-delay-2">
+                <div class="produkt-image plomme">
+                    <span class="produkt-tag">Spesialitet</span>
+                </div>
+                <div class="produkt-body">
+                    <div class="produkt-name">Plommetomat</div>
+                    <div class="produkt-latin">Solanum lycopersicum 'Roma'</div>
+                    <p class="produkt-desc">
+                        Avlang form, fastere fruktkjøtt og lavt vanninnhold. Perfekt
+                        til saus, soltørket og restaurantkjøkken som vil ha kontroll på fukten.
+                    </p>
+                    <div class="produkt-specs">
+                        <div class="produkt-spec">
+                            <span class="produkt-spec-key">Vekt</span>
+                            <span class="produkt-spec-val">60–90 g</span>
+                        </div>
+                        <div class="produkt-spec">
+                            <span class="produkt-spec-key">Hovedmarked</span>
+                            <span class="produkt-spec-val">HORECA</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="produkt-card reveal reveal-delay-3">
+                <div class="produkt-image agurk">
+                    <span class="produkt-tag">Volum</span>
+                </div>
+                <div class="produkt-body">
+                    <div class="produkt-name">Slangeagurk</div>
+                    <div class="produkt-latin">Cucumis sativus</div>
+                    <p class="produkt-desc">
+                        Lang, mørkegrønn, sprø. Norske barn spiser tre per dag av disse —
+                        så vi sørger for at det aldri går tomt på hyllene hos COOP og Oda.
+                    </p>
+                    <div class="produkt-specs">
+                        <div class="produkt-spec">
+                            <span class="produkt-spec-key">Lengde</span>
+                            <span class="produkt-spec-val">30–35 cm</span>
+                        </div>
+                        <div class="produkt-spec">
+                            <span class="produkt-spec-key">Volum</span>
+                            <span class="produkt-spec-val">2,4 mill/år</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     PROSESS — Slik vi dyrker
+============================================================ -->
+<section class="prosess" id="prosess">
+    <div class="container-wide">
+        <div class="prosess-head">
+            <div class="section-label on-dark reveal" style="justify-content: center;">04 · Slik vi dyrker</div>
+            <h2 class="section-title on-dark reveal reveal-delay-1">
+                Fra frø til pakke<br><em>på 12 uker.</em>
+            </h2>
+        </div>
+
+        <div class="prosess-grid">
+            <div class="prosess-step reveal">
+                <div class="prosess-step-header">
+                    <span class="prosess-step-num">STEG 01</span>
+                    <span class="prosess-step-time">UKE 0</span>
+                </div>
+                <div class="prosess-step-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                        <ellipse cx="12" cy="14" rx="5" ry="6"/>
+                        <path d="M12 8 V4"/>
+                        <path d="M9 6 Q12 3 15 6"/>
+                    </svg>
+                </div>
+                <h3 class="prosess-step-title">Frø</h3>
+                <p class="prosess-step-desc">
+                    Hollandske og norske sorter fra godkjente leverandører.
+                    Spirer i kontrollert klima ved 24 °C og 80 % luftfuktighet.
+                </p>
+                <div class="prosess-step-meta">
+                    <span><strong>~6 dager</strong> til spire</span>
+                </div>
+            </div>
+
+            <div class="prosess-step reveal reveal-delay-1">
+                <div class="prosess-step-header">
+                    <span class="prosess-step-num">STEG 02</span>
+                    <span class="prosess-step-time">UKE 2</span>
+                </div>
+                <div class="prosess-step-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                        <path d="M12 20 V12"/>
+                        <path d="M12 12 Q8 10 6 6"/>
+                        <path d="M12 14 Q16 12 18 8"/>
+                    </svg>
+                </div>
+                <h3 class="prosess-step-title">Spire</h3>
+                <p class="prosess-step-desc">
+                    Småplantene flyttes til vekstrom med LED-lys.
+                    Kontinuerlig overvåking av jord-pH, EC og bladflate.
+                </p>
+                <div class="prosess-step-meta">
+                    <span><strong>14 dager</strong> i spirerom</span>
+                </div>
+            </div>
+
+            <div class="prosess-step reveal reveal-delay-2">
+                <div class="prosess-step-header">
+                    <span class="prosess-step-num">STEG 03</span>
+                    <span class="prosess-step-time">UKE 4–9</span>
+                </div>
+                <div class="prosess-step-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                        <path d="M12 22 V4"/>
+                        <path d="M12 16 L6 12"/>
+                        <path d="M12 16 L18 12"/>
+                        <path d="M12 10 L8 6"/>
+                        <path d="M12 10 L16 6"/>
+                    </svg>
+                </div>
+                <h3 class="prosess-step-title">Vekstfase</h3>
+                <p class="prosess-step-desc">
+                    Plassering i hovedhus. Vanning gjennom dryppsystem, klima styrt
+                    automatisk. Bestøving av humler. Skadedyrkontroll av nytteorganismer.
+                </p>
+                <div class="prosess-step-meta">
+                    <span><strong>5–6 uker</strong></span>
+                </div>
+            </div>
+
+            <div class="prosess-step reveal reveal-delay-3">
+                <div class="prosess-step-header">
+                    <span class="prosess-step-num">STEG 04</span>
+                    <span class="prosess-step-time">UKE 10</span>
+                </div>
+                <div class="prosess-step-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                        <circle cx="12" cy="13" r="6"/>
+                        <path d="M12 7 V4"/>
+                        <path d="M10 5 Q12 3 14 5"/>
+                    </svg>
+                </div>
+                <h3 class="prosess-step-title">Modning</h3>
+                <p class="prosess-step-desc">
+                    Fruktene modnes på planten, ikke i lager. Plukking skjer manuelt,
+                    klase for klase, hver morgen mellom 06.00 og 09.00.
+                </p>
+                <div class="prosess-step-meta">
+                    <span><strong>Daglig</strong> høsting</span>
+                </div>
+            </div>
+
+            <div class="prosess-step reveal reveal-delay-4">
+                <div class="prosess-step-header">
+                    <span class="prosess-step-num">STEG 05</span>
+                    <span class="prosess-step-time">UKE 12</span>
+                </div>
+                <div class="prosess-step-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                        <rect x="4" y="8" width="16" height="12" rx="1"/>
+                        <path d="M4 12 H20"/>
+                        <path d="M8 8 V4 H16 V8"/>
+                    </svg>
+                </div>
+                <h3 class="prosess-step-title">Pakking & levering</h3>
+                <p class="prosess-step-desc">
+                    Sortering i eget pakkeri. Lasting på temperaturkontrollerte biler.
+                    Hos kunden samme dag, eller senest 24 timer etter plukking.
+                </p>
+                <div class="prosess-step-meta">
+                    <span><strong>&lt;24t</strong> til kunde</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     BIOLOGISK PLANTEVERN
+============================================================ -->
+<section class="biovern">
+    <div class="container">
+        <div class="biovern-grid">
+            <div class="biovern-text">
+                <div class="section-label reveal">05 · Biologisk plantevern</div>
+                <h2 class="reveal reveal-delay-1">
+                    Siden 2015 har vi<br>brukt <em>insekt mot insekt.</em>
+                </h2>
+                <p class="reveal reveal-delay-2">
+                    I stedet for kjemiske midler, slipper vi ut nytteorganismer som spiser opp
+                    skadedyrene før de blir et problem. Syv forskjellige arter i kontinuerlig
+                    rotasjon, levert av nederlandske spesialistleverandører.
+                </p>
+                <p class="reveal reveal-delay-3">
+                    Resultatet: norske tomater uten et eneste spor av sprøytemiddel,
+                    og et veksthus som faktisk yrer av liv — bier, humler, rovmidd
+                    og snyltevepser som er våre stille kollegaer.
+                </p>
+
+                <div class="biovern-list">
+                    <div class="biovern-organism reveal reveal-delay-4">
+                        <div class="biovern-organism-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                                <ellipse cx="12" cy="13" rx="3" ry="5"/>
+                                <path d="M12 8 L9 4"/>
+                                <path d="M12 8 L15 4"/>
+                                <path d="M9 14 L4 16"/>
+                                <path d="M15 14 L20 16"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="biovern-organism-name">Rovmidd</div>
+                            <div class="biovern-organism-latin">Phytoseiulus persimilis</div>
+                        </div>
+                        <div class="biovern-organism-purpose">Mot spinnmidd</div>
+                    </div>
+
+                    <div class="biovern-organism reveal reveal-delay-5">
+                        <div class="biovern-organism-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                                <ellipse cx="12" cy="14" rx="3" ry="4"/>
+                                <path d="M12 10 V5"/>
+                                <path d="M9 11 L4 8"/>
+                                <path d="M15 11 L20 8"/>
+                                <circle cx="12" cy="5" r="1.5"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="biovern-organism-name">Snylteveps</div>
+                            <div class="biovern-organism-latin">Encarsia formosa</div>
+                        </div>
+                        <div class="biovern-organism-purpose">Mot hvitflue</div>
+                    </div>
+
+                    <div class="biovern-organism reveal">
+                        <div class="biovern-organism-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                                <ellipse cx="12" cy="14" rx="4" ry="5"/>
+                                <path d="M12 9 L9 4"/>
+                                <path d="M12 9 L15 4"/>
+                                <path d="M8 16 L4 18"/>
+                                <path d="M16 16 L20 18"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="biovern-organism-name">Humle</div>
+                            <div class="biovern-organism-latin">Bombus terrestris</div>
+                        </div>
+                        <div class="biovern-organism-purpose">Bestøving</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="biovern-visual reveal reveal-delay-2">
+                <div class="biovern-visual-tag">Tall fra produksjon 2024</div>
+                <div class="biovern-zero">
+                    <span class="big">0</span>
+                    <span class="small">gram sprøytemiddel brukt i produksjonen.</span>
+                    <span class="since">Sertifisert siden mai 2015</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     I TALL
+============================================================ -->
+<section class="itall">
+    <div class="container">
+        <div class="itall-head">
+            <div class="section-label reveal" style="justify-content: center;">06 · I tall</div>
+            <h2 class="section-title reveal reveal-delay-1" style="text-align: center;">
+                Operasjonen i <em>seks tall.</em>
+            </h2>
+        </div>
+
+        <div class="itall-grid">
+            <div class="itall-cell reveal" data-num="01">
+                <div class="itall-val"><span data-count="77">0</span><span class="unit">000 m²</span></div>
+                <div class="itall-label">Areal under glass</div>
+                <div class="itall-note">
+                    Et av Nordens største veksthusanlegg, fordelt på åtte uavhengige klimasoner.
+                </div>
+            </div>
+
+            <div class="itall-cell reveal reveal-delay-1" data-num="02">
+                <div class="itall-val">~<span data-count="10">0</span><span class="unit">mill</span></div>
+                <div class="itall-label">Tomater og agurker / år</div>
+                <div class="itall-note">
+                    Volumproduksjon året rundt — ikke bare i sommermånedene.
+                </div>
+            </div>
+
+            <div class="itall-cell reveal reveal-delay-2" data-num="03">
+                <div class="itall-val"><span data-count="85">0</span></div>
+                <div class="itall-label">Ansatte i høysesong</div>
+                <div class="itall-note">
+                    Fra 70 fast ansatte opp til 85 når innhøstingen er på topp.
+                </div>
+            </div>
+
+            <div class="itall-cell reveal reveal-delay-3" data-num="04">
+                <div class="itall-val"><span data-count="16">0</span><span class="unit">år</span></div>
+                <div class="itall-label">Sammenhengende drift</div>
+                <div class="itall-note">
+                    Siden 2009. Gjennom finanskrise, pandemi og energikrise — uten å miste en sesong.
+                </div>
+            </div>
+
+            <div class="itall-cell reveal reveal-delay-4" data-num="05">
+                <div class="itall-val"><span data-count="8">0</span></div>
+                <div class="itall-label">Klimasoner</div>
+                <div class="itall-note">
+                    Hver med eget lys-, vann- og temperaturregime. Skreddersydd for kulturen.
+                </div>
+            </div>
+
+            <div class="itall-cell reveal reveal-delay-5" data-num="06">
+                <div class="itall-val"><span data-count="0">0</span><span class="unit">g</span></div>
+                <div class="itall-label">Sprøytemiddel siden 2015</div>
+                <div class="itall-note">
+                    100 % biologisk plantevern. Syv nytteorganismer i kontinuerlig rotasjon.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     BÆREKRAFT
+============================================================ -->
+<section class="bare" id="bare">
+    <div class="container-wide">
+        <div class="bare-head">
+            <div>
+                <div class="section-label reveal">07 · Bærekraft</div>
+                <h2 class="section-title reveal reveal-delay-1">
+                    Bærekraft som <em>driftsmodell,</em><br>
+                    ikke markedsføring.
+                </h2>
+            </div>
+            <p class="lead-paragraph reveal reveal-delay-2">
+                Når du driver et veksthusanlegg på størrelse med 11 fotballbaner, er
+                ressursforvaltning ikke et valg. Det er en forutsetning. Her er hvordan.
+            </p>
+        </div>
+
+        <div class="bare-grid">
+            <div class="bare-card reveal">
+                <div class="bare-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                        <path d="M12 2 L4 7 V17 L12 22 L20 17 V7 Z"/>
+                        <path d="M12 2 V12"/>
+                        <path d="M4 7 L12 12 L20 7"/>
+                    </svg>
+                </div>
+                <div class="bare-card-metric">−28<span class="small">%</span></div>
+                <h3>Energi per kilo</h3>
+                <p>
+                    Energiforbruket per kilo grønnsak er redusert med 28 % siden 2018,
+                    gjennom LED-konvertering og varmegjenvinning fra CO₂-anlegget.
+                </p>
+            </div>
+
+            <div class="bare-card reveal reveal-delay-1">
+                <div class="bare-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                        <circle cx="12" cy="12" r="9"/>
+                        <path d="M12 3 V12 L18 15"/>
+                    </svg>
+                </div>
+                <div class="bare-card-metric">365<span class="small"> dager</span></div>
+                <h3>Norsk i sesong</h3>
+                <p>
+                    Tomater fra Norge — året rundt. Reduserer behovet for import fra
+                    Spania, Marokko og Nederland. Kortere transport, ferskere vare.
+                </p>
+            </div>
+
+            <div class="bare-card reveal reveal-delay-2">
+                <div class="bare-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                        <path d="M4 20 Q8 12 12 12 Q16 12 20 20"/>
+                        <path d="M12 12 V4"/>
+                        <path d="M9 6 Q12 3 15 6"/>
+                    </svg>
+                </div>
+                <div class="bare-card-metric">100<span class="small">%</span></div>
+                <h3>Biologisk plantevern</h3>
+                <p>
+                    Null sprøytemiddel siden 2015. Syv nytteorganismer i bruk. Verifisert
+                    av Mattilsynet og uavhengig sertifiseringsorgan hvert år.
+                </p>
+            </div>
+
+            <div class="bare-card reveal reveal-delay-3">
+                <div class="bare-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                        <path d="M12 22 V14"/>
+                        <path d="M4 8 Q4 4 8 4 Q12 4 12 8 Q12 4 16 4 Q20 4 20 8 Q20 14 12 14 Q4 14 4 8 Z"/>
+                    </svg>
+                </div>
+                <div class="bare-card-metric">93<span class="small">%</span></div>
+                <h3>Vann-gjenbruk</h3>
+                <p>
+                    Lukket vannsystem med kontinuerlig resirkulering. Over 93 % av vannet
+                    som blir tilført, blir gjenbrukt eller renner tilbake i grunnen.
+                </p>
+            </div>
+
+            <div class="bare-card reveal reveal-delay-4">
+                <div class="bare-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                        <rect x="3" y="8" width="14" height="10" rx="1"/>
+                        <path d="M17 12 H21 V18 H17"/>
+                        <circle cx="7" cy="20" r="2"/>
+                        <circle cx="17" cy="20" r="2"/>
+                    </svg>
+                </div>
+                <div class="bare-card-metric">&lt;120<span class="small"> km</span></div>
+                <h3>Kortreist</h3>
+                <p>
+                    Fra pakkeri til regional grossist: under 120 km i snitt. Til store deler
+                    av Sør-Norge: samme dag som plukking. Fra Trøndelag og nordover via kjølekjede.
+                </p>
+            </div>
+
+            <div class="bare-card reveal reveal-delay-5">
+                <div class="bare-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                        <path d="M12 2 L13.5 8 L20 8 L14.5 12 L16 18 L12 14 L8 18 L9.5 12 L4 8 L10.5 8 Z"/>
+                    </svg>
+                </div>
+                <div class="bare-card-metric">70+<span class="small"> årsverk</span></div>
+                <h3>Lokal verdiskaping</h3>
+                <p>
+                    70–85 ansatte fra Nærbø, Varhaug, Bryne og Time. Helårsdrift gir
+                    stabil sysselsetting på Jæren — ikke sesongarbeid.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     B2B / DISTRIBUSJON
+============================================================ -->
+<section class="b2b" id="b2b">
+    <div class="container-wide b2b-inner">
+        <div class="b2b-head">
+            <div>
+                <div class="section-label on-dark reveal">08 · B2B & Distribusjon</div>
+                <h2 class="section-title on-dark reveal reveal-delay-1">
+                    Daglige leveranser.<br>
+                    <em>Pålitelige volum.</em>
+                </h2>
+            </div>
+            <p class="lead-paragraph on-dark reveal reveal-delay-2">
+                Vi leverer til dagligvarekjeder, online-aktører, regionale grossister
+                og restauranter. Konsistent kvalitet, stabile volum, og samme morgen som plukking.
+            </p>
+        </div>
+
+        <div class="b2b-stack">
+            <div class="b2b-section reveal reveal-delay-1">
+                <h3>Utvalgte kunder</h3>
+                <div class="b2b-customers">
+                    <div class="b2b-customer">
+                        <div class="b2b-customer-name">COOP Norge</div>
+                        <div class="b2b-customer-type">Dagligvare · landsdekkende</div>
+                    </div>
+                    <div class="b2b-customer">
+                        <div class="b2b-customer-name">Oda</div>
+                        <div class="b2b-customer-type">Online · daglig levering</div>
+                    </div>
+                    <div class="b2b-customer">
+                        <div class="b2b-customer-name">Bama Storkjøkken</div>
+                        <div class="b2b-customer-type">HORECA · grossist</div>
+                    </div>
+                    <div class="b2b-customer">
+                        <div class="b2b-customer-name">Asko Vest</div>
+                        <div class="b2b-customer-type">Regional grossist</div>
+                    </div>
+                    <div class="b2b-customer">
+                        <div class="b2b-customer-name">Sjøhuset, Stavanger</div>
+                        <div class="b2b-customer-type">Restaurant · fine dining</div>
+                    </div>
+                    <div class="b2b-customer">
+                        <div class="b2b-customer-name">Renaa, Stavanger</div>
+                        <div class="b2b-customer-type">Restaurant · Michelin</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="b2b-section reveal reveal-delay-2">
+                <h3>Logistikk · samme dag</h3>
+                <div class="b2b-logistics">
+                    <div class="b2b-logi-row">
+                        <div class="b2b-logi-val">06:00</div>
+                        <div class="b2b-logi-text">
+                            <strong>Plukking starter</strong>
+                            <span>Manuell høsting, klase for klase. Samme morgen som leveranse.</span>
+                        </div>
+                    </div>
+                    <div class="b2b-logi-row">
+                        <div class="b2b-logi-val">09:30</div>
+                        <div class="b2b-logi-text">
+                            <strong>Inn i pakkeri</strong>
+                            <span>Sortering, kvalitetssjekk, emballering. Sporbarhet til klase.</span>
+                        </div>
+                    </div>
+                    <div class="b2b-logi-row">
+                        <div class="b2b-logi-val">11:00</div>
+                        <div class="b2b-logi-text">
+                            <strong>Avgang</strong>
+                            <span>Temperaturkontrollerte biler. Direkte til grossistens terminal.</span>
+                        </div>
+                    </div>
+                    <div class="b2b-logi-row">
+                        <div class="b2b-logi-val">15:00</div>
+                        <div class="b2b-logi-text">
+                            <strong>Hos kunde</strong>
+                            <span>Sør-Norge samme dag. Resten av landet senest neste morgen.</span>
+                        </div>
+                    </div>
+                    <div class="b2b-logi-row">
+                        <div class="b2b-logi-val">365×</div>
+                        <div class="b2b-logi-text">
+                            <strong>Dager i året</strong>
+                            <span>Inkludert helg, helligdager og høytid. Vekstplantene tar aldri fri.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     TEAMET
+============================================================ -->
+<section class="teamet" id="teamet">
+    <div class="container-wide">
+        <div class="teamet-head">
+            <div>
+                <div class="section-label reveal">09 · Teamet</div>
+                <h2 class="section-title reveal reveal-delay-1">
+                    Folka som <em>får planten</em><br>
+                    til å gro.
+                </h2>
+            </div>
+            <p class="lead-paragraph reveal reveal-delay-2">
+                Et anlegg er ingenting uten menneskene som driver det. Fra daglig leder
+                til den nyeste produksjonsmedarbeideren — alle er en del av matskapet.
+            </p>
+        </div>
+
+        <div class="teamet-grid">
+            <div class="team-card reveal">
+                <div class="team-portrait tommy"></div>
+                <div class="team-body">
+                    <div class="team-role">Daglig leder</div>
+                    <div class="team-name">Tommy Høyland</div>
+                    <div class="team-tenure">Gründer · siden 2009</div>
+                </div>
+            </div>
+
+            <div class="team-card reveal reveal-delay-1">
+                <div class="team-portrait production"></div>
+                <div class="team-body">
+                    <div class="team-role">Produksjonsleder</div>
+                    <div class="team-name">Anette Rygjabø</div>
+                    <div class="team-tenure">Agronom · 11 år hos oss</div>
+                </div>
+            </div>
+
+            <div class="team-card reveal reveal-delay-2">
+                <div class="team-portrait packing"></div>
+                <div class="team-body">
+                    <div class="team-role">Pakkerisjef</div>
+                    <div class="team-name">Karl-Magnus Tjelta</div>
+                    <div class="team-tenure">Logistikk · 8 år hos oss</div>
+                </div>
+            </div>
+
+            <div class="team-card reveal reveal-delay-3">
+                <div class="team-portrait hr"></div>
+                <div class="team-body">
+                    <div class="team-role">HR & økonomi</div>
+                    <div class="team-name">Marit Aase</div>
+                    <div class="team-tenure">7 år hos oss</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="team-mosaic reveal">
+            <div class="team-mosaic-text">
+                <h3>Og <em>75 andre</em> som ikke er på dette bildet.</h3>
+                <p>
+                    I høysesong er vi 85 ansatte. Fra Nærbø, Varhaug, Bryne, Klepp og Time.
+                    De aller fleste har vært hos oss i mer enn tre år.
+                </p>
+            </div>
+            <div class="team-dots" id="teamDots"></div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     PRESSE
+============================================================ -->
+<section class="presse">
+    <div class="container">
+        <div class="presse-head">
+            <div class="section-label reveal" style="justify-content: center;">10 · Presse & anerkjenning</div>
+            <h2 class="section-title reveal reveal-delay-1" style="text-align: center;">
+                Sagt om oss <em>i pressen.</em>
+            </h2>
+        </div>
+
+        <div class="presse-grid">
+            <div class="presse-card reveal">
+                <div class="presse-quote">
+                    Et av de mest avanserte veksthusanleggene i Norden — og et av få som
+                    har klart å drive 100 % biologisk plantevern i industriell skala.
+                </div>
+                <div class="presse-source">
+                    <div class="presse-publication">Bondebladet</div>
+                    <div class="presse-author">Reportasje · 2024</div>
+                </div>
+            </div>
+
+            <div class="presse-card reveal reveal-delay-1">
+                <div class="presse-quote">
+                    Tommy Høyland og Miljøgartneriet har gjort Jæren til
+                    Norges grønnsakshovedstad. Volumet imponerer, men metoden imponerer mer.
+                </div>
+                <div class="presse-source">
+                    <div class="presse-publication">Stavanger Aftenblad</div>
+                    <div class="presse-author">Næringslivsportrett · 2023</div>
+                </div>
+            </div>
+
+            <div class="presse-card reveal reveal-delay-2">
+                <div class="presse-quote">
+                    Når du smaker tomatene fra Kviamarka, forstår du hvorfor norske
+                    kjøkken har sluttet å kjøpe fra Spania om vinteren.
+                </div>
+                <div class="presse-source">
+                    <div class="presse-publication">Aftenposten Mat</div>
+                    <div class="presse-author">Produkttest · 2024</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     KONTAKT
+============================================================ -->
+<section class="kontakt" id="kontakt">
+    <div class="container kontakt-inner">
+        <div class="kontakt-grid">
+            <div class="kontakt-text">
+                <div class="section-label on-dark reveal">11 · Kontakt</div>
+                <h2 class="reveal reveal-delay-1">
+                    Skal vi snakke <em>om volum,</em><br>
+                    kvalitet, eller begge deler?
+                </h2>
+                <p class="reveal reveal-delay-2">
+                    Vi tar direkte kontakt med grossister, kjeder, restauranter og
+                    leverandører. Ring oss eller send en melding — du får svar samme dag.
+                </p>
+
+                <div class="kontakt-direct">
+                    <div class="kontakt-row reveal reveal-delay-3">
+                        <div class="kontakt-key">Direkte</div>
+                        <div class="kontakt-val">
+                            <strong>Tommy Høyland</strong>
+                            <a href="tel:+4740007911">+47 4000 7911</a>
+                            <a href="mailto:th@miljogartneriet.no">th@miljogartneriet.no</a>
+                            <span>Daglig leder</span>
+                        </div>
+                    </div>
+                    <div class="kontakt-row reveal reveal-delay-4">
+                        <div class="kontakt-key">Adresse</div>
+                        <div class="kontakt-val">
+                            <strong>Miljøgartneriet AS</strong>
+                            <span>Kviamarka, 4365 Nærbø</span>
+                            <span>Rogaland, Norge</span>
+                        </div>
+                    </div>
+                    <div class="kontakt-row reveal reveal-delay-5">
+                        <div class="kontakt-key">Åpningstider</div>
+                        <div class="kontakt-val">
+                            <strong>Hovedkontor</strong>
+                            <span>Mandag–fredag · 07:00–16:00</span>
+                            <span>Produksjon: 365 dager i året</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="kontakt-card reveal reveal-delay-2">
+                <div class="kontakt-card-label">Skriv til oss</div>
+                <h3>Send en forespørsel</h3>
+                <form class="kontakt-form" onsubmit="event.preventDefault(); alert('Takk! Vi tar kontakt innen en virkedag.');">
+                    <label>
+                        <span>Navn</span>
+                        <input type="text" required placeholder="Ditt navn">
+                    </label>
+                    <label>
+                        <span>Bedrift</span>
+                        <input type="text" placeholder="Selskapet du representerer">
+                    </label>
+                    <label>
+                        <span>E-post</span>
+                        <input type="email" required placeholder="navn@bedrift.no">
+                    </label>
+                    <label>
+                        <span>Telefon</span>
+                        <input type="tel" placeholder="+47 xxx xx xxx">
+                    </label>
+                    <label>
+                        <span>Melding</span>
+                        <textarea required placeholder="Volum, produkt, leveringsfrekvens..."></textarea>
+                    </label>
+                    <button type="submit">Send forespørsel →</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-brand-name">Miljøgartneriet AS</div>
+                <div class="footer-brand-sub">Kviamarka · Nærbø · Jæren</div>
+                <p style="font-size: 0.9rem; color: var(--text-light-soft); font-weight: 300; line-height: 1.6;">
+                    Et av Nordens største veksthusanlegg. Tomater og agurker dyrket i Norge,
+                    levert uten sprøytemiddel, året rundt.
+                </p>
+                <div class="footer-news">
+                    <input type="email" placeholder="E-post · nyhetsbrev">
+                    <button>Abonner</button>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Selskapet</h4>
+                <ul>
+                    <li><a href="#historie">Historie</a></li>
+                    <li><a href="#anlegget">Anlegget</a></li>
+                    <li><a href="#teamet">Teamet</a></li>
+                    <li><a href="#bare">Bærekraft</a></li>
+                    <li><a href="#">Karriere</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Produkt & B2B</h4>
+                <ul>
+                    <li><a href="#produkta">Vinetomat</a></li>
+                    <li><a href="#produkta">Cherrytomat</a></li>
+                    <li><a href="#produkta">Plommetomat</a></li>
+                    <li><a href="#produkta">Slangeagurk</a></li>
+                    <li><a href="#b2b">For grossister</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Kontakt</h4>
+                <ul>
+                    <li><a href="tel:+4740007911">+47 4000 7911</a></li>
+                    <li><a href="mailto:th@miljogartneriet.no">th@miljogartneriet.no</a></li>
+                    <li>Kviamarka, 4365 Nærbø</li>
+                </ul>
+                <div class="footer-social" style="margin-top: 1.4rem;">
+                    <a href="#" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"/></svg>
+                    </a>
+                    <a href="#" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="8" y1="10" x2="8" y2="17"/><circle cx="8" cy="7" r="0.5" fill="currentColor"/><path d="M12 17 V13 Q12 10 15 10 Q17 10 17 13 V17"/></svg>
+                    </a>
+                    <a href="#" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 22 V13 H16 L17 9 H13 V7 Q13 5 15 5 H17 V2 H14 Q10 2 10 7 V9 H7 V13 H10 V22 Z" fill="currentColor"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div>© 2026 Miljøgartneriet AS · Org.nr 994 326 187 · Kviamarka, 4365 Nærbø</div>
+            <div style="display: flex; gap: 1.4rem;">
+                <a href="#">Personvern</a>
+                <a href="#">Vilkår</a>
+                <a href="#">Cookies</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- ============================================================
+     JAVASCRIPT
+============================================================ -->
+<script>
+    // ===========================================
+    // Scroll progress bar
+    // ===========================================
+    const scrollProgress = document.getElementById('scrollProgress');
+    window.addEventListener('scroll', () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        scrollProgress.style.width = scrolled + '%';
+    }, { passive: true });
+
+    // ===========================================
+    // Nav scrolled state + section highlight
+    // ===========================================
+    const nav = document.getElementById('nav');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    const sections = document.querySelectorAll('section[id]');
+
+    function onScroll() {
+        if (window.scrollY > 60) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
+
+        // Active section
+        let current = '';
+        sections.forEach(section => {
+            const top = section.offsetTop - 140;
+            if (window.scrollY >= top) current = section.id;
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+        });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // ===========================================
+    // Mobile menu
+    // ===========================================
+    const navToggle = document.getElementById('navToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileMenuClose = document.getElementById('mobileMenuClose');
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+
+    navToggle.addEventListener('click', () => mobileMenu.classList.add('open'));
+    mobileMenuClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+    mobileLinks.forEach(link => link.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+    // ===========================================
+    // Reveal-on-scroll
+    // ===========================================
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // ===========================================
+    // Animated counters
+    // ===========================================
+    const counters = document.querySelectorAll('[data-count]');
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const el = entry.target;
+                const target = +el.dataset.count;
+                const duration = 1800;
+                const start = performance.now();
+
+                function tick(now) {
+                    const progress = Math.min((now - start) / duration, 1);
+                    const eased = 1 - Math.pow(1 - progress, 3);
+                    const val = Math.floor(eased * target);
+                    el.textContent = val.toLocaleString('nb-NO');
+                    if (progress < 1) requestAnimationFrame(tick);
+                    else el.textContent = target.toLocaleString('nb-NO');
+                }
+                requestAnimationFrame(tick);
+                counterObserver.unobserve(el);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    counters.forEach(c => counterObserver.observe(c));
+
+    // ===========================================
+    // Team mosaic dots — 75 dots, ~15 accent
+    // ===========================================
+    const dotsContainer = document.getElementById('teamDots');
+    if (dotsContainer) {
+        const accentIndices = new Set();
+        while (accentIndices.size < 15) {
+            accentIndices.add(Math.floor(Math.random() * 75));
+        }
+        for (let i = 0; i < 75; i++) {
+            const dot = document.createElement('span');
+            if (accentIndices.has(i)) dot.classList.add('accent');
+            dotsContainer.appendChild(dot);
+        }
+    }
+
+    // ===========================================
+    // Smooth-scroll for anchor links (older browsers)
+    // ===========================================
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', (e) => {
+            const href = a.getAttribute('href');
+            if (href.length > 1) {
+                const target = document.querySelector(href);
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

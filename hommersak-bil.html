@@ -1,0 +1,3835 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hommersåk Bil AS — Verksted, bilutleie og bruktbilsalg på Hommersåk</title>
+    <meta name="description" content="Hommersåk Bil AS — verksted, bilutleie og bruktbilsalg under ett tak. EU-kontroll, service, daglig utleie og kvalitetssikrede bruktbiler i Sandnes kommune.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%2323272A'/><g stroke='%23E58A2E' stroke-width='5.5' stroke-linecap='round' stroke-linejoin='round' fill='none'><path d='M18 70 L28 48 L46 48 L52 70'/><circle cx='30' cy='70' r='4.5' fill='%23E58A2E'/><circle cx='44' cy='70' r='4.5' fill='%23E58A2E'/></g><g stroke='%23C7B89A' stroke-width='5.5' stroke-linecap='round' stroke-linejoin='round' fill='none'><path d='M54 70 L62 52 L82 52 L88 70'/><circle cx='64' cy='70' r='4.5' fill='%23C7B89A'/><circle cx='80' cy='70' r='4.5' fill='%23C7B89A'/></g></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================
+           HOMMERSÅK BIL — Design System
+           Rural multi-line. Warm charcoal × sand × signal orange.
+           Three businesses, one workshop, one phone number.
+           ============================================ */
+
+        :root {
+            /* Surfaces */
+            --ink: #23272A;
+            --ink-deep: #1B1E20;
+            --ink-soft: #2C3033;
+            --ink-line: #353A3E;
+
+            /* Warm rural palette */
+            --sand: #C7B89A;
+            --sand-deep: #A89A7B;
+            --sand-soft: #E3D9C2;
+
+            --bone: #F4EFE4;
+            --bone-warm: #EDE6D5;
+            --bone-card: #FBF8F1;
+
+            --bg: #FBF8F1;
+            --bg-warm: #EDE6D5;
+            --bg-card: #FFFFFF;
+            --line: #DDD3BD;
+            --line-soft: #E6DEC8;
+
+            /* Signal accent — warmer than Berland's clean amber */
+            --orange: #E58A2E;
+            --orange-deep: #C36F1B;
+            --orange-soft: #F8DDB8;
+            --orange-glow: rgba(229, 138, 46, 0.22);
+
+            /* Text */
+            --text-primary: #23272A;
+            --text-secondary: #4F555A;
+            --text-muted: #7A8085;
+            --text-light: rgba(244, 239, 228, 0.88);
+
+            /* Type */
+            --font-display: 'Archivo', system-ui, sans-serif;
+            --font-body: 'Manrope', system-ui, sans-serif;
+
+            /* Scales */
+            --text-xs: clamp(0.7rem, 0.65rem + 0.2vw, 0.8rem);
+            --text-sm: clamp(0.84rem, 0.8rem + 0.2vw, 0.94rem);
+            --text-base: clamp(0.96rem, 0.92rem + 0.2vw, 1.06rem);
+            --text-lg: clamp(1.1rem, 1rem + 0.5vw, 1.32rem);
+            --text-xl: clamp(1.4rem, 1.15rem + 1.2vw, 2.05rem);
+            --text-2xl: clamp(2rem, 1.5rem + 2.4vw, 3.4rem);
+            --text-3xl: clamp(2.6rem, 1.9rem + 3.6vw, 4.6rem);
+            --text-hero: clamp(2.9rem, 1.9rem + 5.4vw, 6.8rem);
+
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+            --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+
+            --radius-sm: 4px;
+            --radius: 8px;
+            --radius-lg: 14px;
+            --radius-xl: 22px;
+
+            --shadow-soft: 0 1px 2px rgba(35,39,42,0.04), 0 10px 28px rgba(35,39,42,0.07);
+            --shadow-strong: 0 6px 14px rgba(35,39,42,0.09), 0 22px 50px rgba(35,39,42,0.14);
+            --shadow-card: 0 1px 0 rgba(35,39,42,0.04), 0 2px 6px rgba(35,39,42,0.05), 0 16px 36px rgba(35,39,42,0.07);
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-weight: 400;
+            color: var(--text-primary);
+            background: var(--bg);
+            line-height: 1.65;
+            overflow-x: hidden;
+            font-size: var(--text-base);
+        }
+
+        a { color: inherit; text-decoration: none; }
+
+        img { max-width: 100%; display: block; }
+
+        ::selection {
+            background: var(--orange);
+            color: #fff;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1260px;
+            margin: 0 auto;
+            padding: 0 clamp(1.25rem, 3.5vw, 2.5rem);
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            font-family: var(--font-body);
+            font-size: var(--text-xs);
+            font-weight: 700;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+            color: var(--orange-deep);
+            margin-bottom: 1.3rem;
+        }
+
+        .eyebrow::before {
+            content: '';
+            width: 32px;
+            height: 2px;
+            background: var(--orange);
+            border-radius: 2px;
+        }
+
+        .eyebrow--light {
+            color: var(--orange);
+        }
+
+        .eyebrow--light::before {
+            background: var(--orange);
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: var(--text-2xl);
+            line-height: 1.04;
+            letter-spacing: -0.025em;
+            color: var(--ink);
+            margin-bottom: 1.4rem;
+        }
+
+        .section-title .italic {
+            font-style: italic;
+            font-weight: 500;
+            color: var(--orange-deep);
+        }
+
+        .section-intro {
+            font-size: var(--text-lg);
+            line-height: 1.6;
+            color: var(--text-secondary);
+            max-width: 58ch;
+            font-weight: 300;
+        }
+
+        section {
+            padding: clamp(4.5rem, 9vw, 8rem) 0;
+            position: relative;
+        }
+
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--line), transparent);
+            border: none;
+            margin: 0;
+        }
+
+        /* ===== NAVIGATION ===== */
+
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1.15rem 0;
+            transition: all 0.45s var(--ease-out-expo);
+        }
+
+        .nav.scrolled {
+            background: rgba(35, 39, 42, 0.94);
+            backdrop-filter: blur(22px);
+            -webkit-backdrop-filter: blur(22px);
+            padding: 0.7rem 0;
+            box-shadow: 0 1px 0 rgba(255,255,255,0.05);
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1260px;
+            margin: 0 auto;
+            padding: 0 clamp(1.25rem, 3.5vw, 2.5rem);
+            gap: 2rem;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-family: var(--font-display);
+            font-size: 0.94rem;
+            font-weight: 800;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--text-light);
+        }
+
+        .nav-logo-mark {
+            width: 34px;
+            height: 34px;
+            border-radius: 8px;
+            background: var(--ink-deep);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(199, 184, 154, 0.22);
+        }
+
+        .nav-logo-mark svg { width: 22px; height: 22px; }
+
+        .nav-logo-text small {
+            display: block;
+            font-size: 0.62rem;
+            font-weight: 500;
+            letter-spacing: 0.22em;
+            color: var(--sand);
+            margin-top: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.1rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-family: var(--font-body);
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: var(--text-light);
+            opacity: 0.82;
+            transition: opacity 0.3s, color 0.3s;
+        }
+
+        .nav-links a:hover { opacity: 1; color: var(--orange); }
+
+        .nav-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.7rem 1.15rem;
+            border-radius: var(--radius);
+            background: var(--orange);
+            color: #fff !important;
+            font-weight: 700 !important;
+            opacity: 1 !important;
+            font-size: 0.86rem !important;
+            transition: background 0.3s, transform 0.3s;
+            box-shadow: 0 4px 14px rgba(229, 138, 46, 0.32);
+        }
+
+        .nav-cta:hover { background: var(--orange-deep); transform: translateY(-1px); }
+
+        .nav-cta svg { width: 14px; height: 14px; }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+            z-index: 1001;
+        }
+
+        .nav-toggle span {
+            display: block;
+            width: 26px;
+            height: 2px;
+            background: var(--text-light);
+            transition: all 0.35s var(--ease-out-expo);
+            border-radius: 2px;
+        }
+
+        .nav-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .nav-toggle.active span:nth-child(2) { opacity: 0; }
+        .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        /* ===== HERO ===== */
+
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            align-items: center;
+            background: var(--ink);
+            color: #fff;
+            overflow: hidden;
+            padding-top: 7rem;
+            padding-bottom: 4rem;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 88% 12%, rgba(229, 138, 46, 0.16) 0%, transparent 55%),
+                radial-gradient(ellipse at 10% 90%, rgba(199, 184, 154, 0.08) 0%, transparent 60%),
+                linear-gradient(170deg, #23272A 0%, #1B1E20 100%);
+            pointer-events: none;
+        }
+
+        .hero-grain {
+            position: absolute;
+            inset: 0;
+            opacity: 0.4;
+            background-image:
+                radial-gradient(circle at 20% 30%, rgba(199, 184, 154, 0.04) 0, transparent 12%),
+                radial-gradient(circle at 75% 70%, rgba(199, 184, 154, 0.04) 0, transparent 14%),
+                radial-gradient(circle at 50% 10%, rgba(229, 138, 46, 0.05) 0, transparent 10%);
+            pointer-events: none;
+        }
+
+        .hero-inner {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1.35fr 1fr;
+            gap: clamp(2rem, 5vw, 4.5rem);
+            align-items: center;
+            width: 100%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.55rem;
+            margin-bottom: 2.2rem;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.46rem 0.9rem;
+            font-size: 0.74rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(244, 239, 228, 0.86);
+            background: rgba(244, 239, 228, 0.05);
+            border: 1px solid rgba(244, 239, 228, 0.12);
+            border-radius: 100px;
+            backdrop-filter: blur(8px);
+        }
+
+        .badge-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--orange);
+            box-shadow: 0 0 0 3px rgba(229, 138, 46, 0.2);
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: var(--text-hero);
+            font-weight: 700;
+            line-height: 0.96;
+            letter-spacing: -0.035em;
+            margin-bottom: 1.6rem;
+            color: #fff;
+        }
+
+        .hero h1 .line {
+            display: block;
+        }
+
+        .hero h1 .accent {
+            color: var(--orange);
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        .hero h1 .sand {
+            color: var(--sand);
+            font-weight: 500;
+        }
+
+        .hero-sub {
+            font-size: var(--text-lg);
+            line-height: 1.55;
+            color: rgba(244, 239, 228, 0.75);
+            font-weight: 300;
+            max-width: 54ch;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-ctas {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+            margin-bottom: 3rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 1rem 1.5rem;
+            font-family: var(--font-body);
+            font-size: 0.94rem;
+            font-weight: 600;
+            letter-spacing: 0.005em;
+            border-radius: var(--radius);
+            border: 1.5px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s var(--ease-out-expo);
+            white-space: nowrap;
+        }
+
+        .btn svg { width: 16px; height: 16px; transition: transform 0.3s; }
+        .btn:hover svg { transform: translateX(2px); }
+
+        .btn-primary {
+            background: var(--orange);
+            color: #fff;
+            border-color: var(--orange);
+        }
+
+        .btn-primary:hover {
+            background: var(--orange-deep);
+            border-color: var(--orange-deep);
+            transform: translateY(-2px);
+            box-shadow: 0 14px 28px rgba(229, 138, 46, 0.32);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: #fff;
+            border-color: rgba(244, 239, 228, 0.22);
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--sand);
+            background: rgba(199, 184, 154, 0.06);
+            color: var(--sand);
+        }
+
+        .btn-dark {
+            background: var(--ink);
+            color: #fff;
+            border-color: var(--ink);
+        }
+
+        .btn-dark:hover {
+            background: var(--ink-deep);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-strong);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--ink);
+            border-color: var(--ink);
+        }
+
+        .btn-outline:hover {
+            background: var(--ink);
+            color: #fff;
+        }
+
+        /* Hero mini-CTAs (three business lines) */
+        .hero-mini-ctas {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.8rem;
+            max-width: 640px;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(244, 239, 228, 0.1);
+        }
+
+        .mini-cta {
+            display: block;
+            padding: 1.15rem 1.2rem;
+            background: rgba(244, 239, 228, 0.035);
+            border: 1px solid rgba(244, 239, 228, 0.1);
+            border-radius: var(--radius);
+            transition: all 0.35s var(--ease-out-expo);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mini-cta::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--orange);
+            transform: scaleY(0);
+            transform-origin: bottom;
+            transition: transform 0.35s var(--ease-out-expo);
+        }
+
+        .mini-cta:hover {
+            background: rgba(244, 239, 228, 0.06);
+            border-color: rgba(244, 239, 228, 0.18);
+            transform: translateY(-2px);
+        }
+
+        .mini-cta:hover::after {
+            transform: scaleY(1);
+            transform-origin: top;
+        }
+
+        .mini-cta-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--orange);
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+        }
+
+        .mini-cta-title {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 0.3rem;
+            letter-spacing: -0.01em;
+        }
+
+        .mini-cta-text {
+            font-size: 0.8rem;
+            color: rgba(244, 239, 228, 0.55);
+            line-height: 1.4;
+        }
+
+        /* Hero visual — workshop facade */
+        .hero-visual {
+            position: relative;
+            z-index: 2;
+            aspect-ratio: 4/5;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-strong);
+            border: 1px solid rgba(244, 239, 228, 0.08);
+        }
+
+        .hero-photo {
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(160deg, rgba(35,39,42,0.55) 0%, rgba(35,39,42,0.15) 50%, rgba(229,138,46,0.18) 100%),
+                linear-gradient(180deg, #3A3F44 0%, #23272A 60%, #1B1E20 100%);
+            display: flex;
+            align-items: flex-end;
+            padding: 1.6rem;
+        }
+
+        .hero-photo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 55%;
+            background:
+                /* "sky" with autumn light */
+                linear-gradient(180deg, rgba(199, 184, 154, 0.15) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .hero-photo::after {
+            content: '';
+            position: absolute;
+            bottom: 35%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(199,184,154,0.2), transparent);
+        }
+
+        /* Garage door bays */
+        .garage-bays {
+            position: absolute;
+            bottom: 8%;
+            left: 12%;
+            right: 12%;
+            height: 38%;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 4%;
+        }
+
+        .garage-bay {
+            position: relative;
+            background: linear-gradient(180deg, #1B1E20 0%, #0F1112 100%);
+            border-radius: 4px 4px 0 0;
+            border: 1px solid rgba(199, 184, 154, 0.1);
+            border-bottom: none;
+            overflow: hidden;
+        }
+
+        .garage-bay::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(
+                180deg,
+                transparent 0,
+                transparent 12px,
+                rgba(199, 184, 154, 0.06) 12px,
+                rgba(199, 184, 154, 0.06) 13px
+            );
+        }
+
+        .bay-light {
+            position: absolute;
+            top: 6%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 18%;
+            background: radial-gradient(ellipse at center, rgba(229, 138, 46, 0.65) 0%, transparent 70%);
+            filter: blur(2px);
+        }
+
+        .bay-vehicle {
+            position: absolute;
+            bottom: 0;
+            left: 12%;
+            right: 12%;
+            height: 26%;
+            background: linear-gradient(180deg, var(--sand) 0%, var(--sand-deep) 100%);
+            border-radius: 30% 30% 4px 4px / 60% 60% 4px 4px;
+            opacity: 0.85;
+        }
+
+        .bay-vehicle.alt-1 {
+            background: linear-gradient(180deg, #5A6770 0%, #3F484F 100%);
+            border-radius: 24% 24% 4px 4px / 50% 50% 4px 4px;
+        }
+
+        .bay-vehicle.alt-2 {
+            background: linear-gradient(180deg, #8C2D2D 0%, #5E1D1D 100%);
+            border-radius: 28% 28% 4px 4px / 55% 55% 4px 4px;
+        }
+
+        .hero-overlay-panel {
+            position: absolute;
+            bottom: 1.4rem;
+            left: 1.4rem;
+            right: 1.4rem;
+            padding: 1.1rem 1.3rem;
+            background: rgba(27, 30, 32, 0.78);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(199, 184, 154, 0.18);
+            border-radius: 10px;
+            color: #fff;
+            z-index: 3;
+        }
+
+        .panel-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .panel-label {
+            font-size: 0.66rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--sand);
+            margin-bottom: 0.3rem;
+        }
+
+        .panel-value {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: -0.01em;
+        }
+
+        .panel-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.35rem 0.7rem;
+            background: rgba(229, 138, 46, 0.18);
+            border: 1px solid rgba(229, 138, 46, 0.45);
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--orange);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .pulse-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--orange);
+            animation: pulse 1.8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(229, 138, 46, 0.7); }
+            50% { box-shadow: 0 0 0 7px rgba(229, 138, 46, 0); }
+        }
+
+        /* ===== TRE TENESTER — the heart section ===== */
+        .three-services {
+            background: var(--bone);
+            position: relative;
+        }
+
+        .three-services::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--line), transparent);
+        }
+
+        .three-services-head {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+
+        .three-services-head .section-intro {
+            margin: 0 auto;
+        }
+
+        .ts-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.4rem;
+        }
+
+        .ts-card {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.45s var(--ease-out-expo);
+            position: relative;
+        }
+
+        .ts-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-strong);
+            border-color: var(--sand);
+        }
+
+        .ts-card-image {
+            aspect-ratio: 4/3;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ts-card-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 50%, rgba(27, 30, 32, 0.55) 100%);
+        }
+
+        .ts-image-workshop {
+            background:
+                radial-gradient(circle at 30% 80%, rgba(229,138,46,0.4) 0%, transparent 50%),
+                linear-gradient(160deg, #3A3F44 0%, #23272A 100%);
+        }
+
+        .ts-image-rental {
+            background:
+                radial-gradient(circle at 70% 70%, rgba(199,184,154,0.3) 0%, transparent 55%),
+                linear-gradient(160deg, #2F3438 0%, #1B1E20 100%);
+        }
+
+        .ts-image-used {
+            background:
+                radial-gradient(circle at 50% 30%, rgba(229,138,46,0.25) 0%, transparent 55%),
+                linear-gradient(160deg, #4A4239 0%, #2A251E 100%);
+        }
+
+        .ts-card-num {
+            position: absolute;
+            top: 1.2rem;
+            left: 1.2rem;
+            font-family: var(--font-display);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--orange);
+            z-index: 2;
+            background: rgba(35, 39, 42, 0.7);
+            padding: 0.4rem 0.7rem;
+            border-radius: 100px;
+            border: 1px solid rgba(229, 138, 46, 0.4);
+        }
+
+        .ts-card-icon {
+            position: absolute;
+            bottom: 1.4rem;
+            left: 1.4rem;
+            width: 56px;
+            height: 56px;
+            background: rgba(244, 239, 228, 0.92);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        .ts-card-icon svg {
+            width: 30px;
+            height: 30px;
+            color: var(--ink);
+        }
+
+        .ts-card-body {
+            padding: 1.8rem 1.8rem 2rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .ts-card-title {
+            font-family: var(--font-display);
+            font-size: 1.55rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--ink);
+            margin-bottom: 0.7rem;
+        }
+
+        .ts-card-desc {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.4rem;
+            flex: 1;
+        }
+
+        .ts-card-list {
+            list-style: none;
+            margin-bottom: 1.6rem;
+            border-top: 1px dashed var(--line);
+            padding-top: 1.2rem;
+        }
+
+        .ts-card-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            padding: 0.35rem 0;
+        }
+
+        .ts-card-list li::before {
+            content: '';
+            width: 5px;
+            height: 5px;
+            background: var(--orange);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .ts-card-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.9rem 1.4rem;
+            background: var(--ink);
+            color: #fff;
+            border-radius: var(--radius);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s var(--ease-out-expo);
+            align-self: flex-start;
+        }
+
+        .ts-card-cta svg { width: 14px; height: 14px; transition: transform 0.3s; }
+
+        .ts-card-cta:hover {
+            background: var(--orange);
+            transform: translateY(-2px);
+        }
+
+        .ts-card-cta:hover svg { transform: translateX(3px); }
+
+        /* ===== VERKSTED ===== */
+        section#verksted {
+            background: var(--bg);
+        }
+
+        .verksted-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: clamp(2.5rem, 5vw, 5rem);
+            align-items: start;
+        }
+
+        .verksted-head {
+            position: sticky;
+            top: 100px;
+        }
+
+        .verksted-services {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.9rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .vs-item {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 1.2rem 1.3rem;
+            transition: all 0.3s;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.85rem;
+        }
+
+        .vs-item:hover {
+            border-color: var(--orange);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .vs-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 8px;
+            background: var(--orange-soft);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .vs-icon svg { width: 18px; height: 18px; color: var(--orange-deep); }
+
+        .vs-content h4 {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 0.98rem;
+            color: var(--ink);
+            margin-bottom: 0.25rem;
+        }
+
+        .vs-content p {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.45;
+        }
+
+        /* Tabs */
+        .v-tabs {
+            display: flex;
+            gap: 0.3rem;
+            background: var(--bone-warm);
+            padding: 0.35rem;
+            border-radius: var(--radius);
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--line-soft);
+        }
+
+        .v-tab {
+            flex: 1;
+            padding: 0.65rem 0.8rem;
+            border: none;
+            background: transparent;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s var(--ease-out-expo);
+            text-align: center;
+            letter-spacing: 0.01em;
+        }
+
+        .v-tab.active {
+            background: var(--ink);
+            color: #fff;
+        }
+
+        .v-tab:not(.active):hover {
+            color: var(--ink);
+        }
+
+        .v-tab-content {
+            display: none;
+        }
+
+        .v-tab-content.active {
+            display: block;
+            animation: fadeIn 0.4s var(--ease-out-quart);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Booking form */
+        .booking-card {
+            background: var(--ink);
+            color: #fff;
+            border-radius: var(--radius-lg);
+            padding: clamp(1.8rem, 3.5vw, 2.6rem);
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-strong);
+        }
+
+        .booking-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 60%;
+            height: 80%;
+            background: radial-gradient(circle, rgba(229, 138, 46, 0.18) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .booking-card-head {
+            position: relative;
+            margin-bottom: 1.8rem;
+        }
+
+        .booking-card h3 {
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 1.3rem + 0.8vw, 1.95rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.6rem;
+            line-height: 1.1;
+        }
+
+        .booking-card-sub {
+            color: rgba(244, 239, 228, 0.65);
+            font-size: 0.95rem;
+            line-height: 1.55;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.9rem;
+            position: relative;
+        }
+
+        .form-field {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-field.full { grid-column: 1 / -1; }
+
+        .form-field label {
+            font-size: 0.74rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--sand);
+            margin-bottom: 0.45rem;
+        }
+
+        .form-field input,
+        .form-field select,
+        .form-field textarea {
+            background: rgba(244, 239, 228, 0.04);
+            border: 1px solid rgba(244, 239, 228, 0.12);
+            border-radius: var(--radius);
+            padding: 0.85rem 1rem;
+            color: #fff;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+
+        .form-field input::placeholder,
+        .form-field textarea::placeholder {
+            color: rgba(244, 239, 228, 0.4);
+        }
+
+        .form-field input:focus,
+        .form-field select:focus,
+        .form-field textarea:focus {
+            outline: none;
+            border-color: var(--orange);
+            background: rgba(244, 239, 228, 0.06);
+        }
+
+        .form-field select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23C7B89A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 14px;
+            padding-right: 2.5rem;
+        }
+
+        .form-field textarea {
+            min-height: 90px;
+            resize: vertical;
+            font-family: var(--font-body);
+        }
+
+        .form-submit {
+            width: 100%;
+            margin-top: 0.4rem;
+            justify-content: center;
+            padding: 1.15rem;
+            font-size: 1rem;
+        }
+
+        .form-note {
+            text-align: center;
+            font-size: 0.78rem;
+            color: rgba(244, 239, 228, 0.45);
+            margin-top: 1rem;
+        }
+
+        /* ===== BILUTLEIGE ===== */
+        section#utleige {
+            background: var(--bone-warm);
+            position: relative;
+        }
+
+        section#utleige::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--line), transparent);
+        }
+
+        .utleige-head {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            align-items: end;
+        }
+
+        .utleige-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.4rem;
+            padding: 1.4rem;
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: var(--radius-lg);
+        }
+
+        .ul-stat {
+            text-align: center;
+        }
+
+        .ul-stat-num {
+            font-family: var(--font-display);
+            font-size: 1.85rem;
+            font-weight: 700;
+            color: var(--ink);
+            letter-spacing: -0.02em;
+            line-height: 1;
+            margin-bottom: 0.3rem;
+        }
+
+        .ul-stat-num .unit { color: var(--orange); font-size: 1.05rem; font-weight: 600; }
+
+        .ul-stat-label {
+            font-size: 0.72rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .fleet-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.3rem;
+        }
+
+        .fleet-card {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: all 0.4s var(--ease-out-expo);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .fleet-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-card);
+            border-color: var(--sand);
+        }
+
+        .fleet-img {
+            aspect-ratio: 16/10;
+            position: relative;
+            background: var(--bone-warm);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .fleet-img-1 { background: linear-gradient(160deg, #C7B89A 0%, #A89A7B 100%); }
+        .fleet-img-2 { background: linear-gradient(160deg, #4A535F 0%, #2C3338 100%); }
+        .fleet-img-3 { background: linear-gradient(160deg, #6B7C8F 0%, #3F4B5A 100%); }
+        .fleet-img-4 { background: linear-gradient(160deg, #8B7355 0%, #5A4A33 100%); }
+        .fleet-img-5 { background: linear-gradient(160deg, #E3D9C2 0%, #B5A985 100%); }
+        .fleet-img-6 { background: linear-gradient(160deg, #354048 0%, #1B2228 100%); }
+
+        .fleet-img-car {
+            width: 70%;
+            height: 50%;
+            background: rgba(35, 39, 42, 0.4);
+            border-radius: 36% 36% 6px 6px / 65% 65% 6px 6px;
+            position: relative;
+            box-shadow:
+                0 6px 16px rgba(0,0,0,0.18),
+                inset 0 -10px 20px rgba(255,255,255,0.08);
+        }
+
+        .fleet-img-car::before,
+        .fleet-img-car::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            width: 18%;
+            height: 18%;
+            background: #15181A;
+            border-radius: 50%;
+            border: 2px solid rgba(255,255,255,0.1);
+        }
+
+        .fleet-img-car::before { left: 12%; }
+        .fleet-img-car::after { right: 12%; }
+
+        .fleet-badge {
+            position: absolute;
+            top: 0.9rem;
+            left: 0.9rem;
+            padding: 0.32rem 0.65rem;
+            background: rgba(35, 39, 42, 0.88);
+            color: var(--sand);
+            font-size: 0.66rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            border-radius: 100px;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(199, 184, 154, 0.3);
+        }
+
+        .fleet-badge.available {
+            background: rgba(229, 138, 46, 0.92);
+            color: #fff;
+            border-color: var(--orange);
+        }
+
+        .fleet-body {
+            padding: 1.3rem 1.4rem 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .fleet-category {
+            font-size: 0.68rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+        }
+
+        .fleet-title {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 0.3rem;
+            letter-spacing: -0.015em;
+        }
+
+        .fleet-desc {
+            font-size: 0.86rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .fleet-specs {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.2rem;
+        }
+
+        .fleet-spec {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.3rem 0.6rem;
+            background: var(--bone-warm);
+            border-radius: 4px;
+            font-size: 0.74rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .fleet-spec svg { width: 11px; height: 11px; color: var(--text-muted); }
+
+        .fleet-prices {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding-top: 1rem;
+            border-top: 1px dashed var(--line);
+            margin-top: auto;
+        }
+
+        .fleet-price-main {
+            font-family: var(--font-display);
+            font-size: 1.45rem;
+            font-weight: 700;
+            color: var(--ink);
+            letter-spacing: -0.02em;
+            line-height: 1;
+        }
+
+        .fleet-price-unit {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .fleet-price-alt {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            text-align: right;
+        }
+
+        .fleet-price-alt strong { color: var(--text-primary); font-weight: 600; }
+
+        .utleige-cta {
+            margin-top: 3rem;
+            text-align: center;
+            padding: 2.5rem;
+            background: #fff;
+            border: 1px dashed var(--line);
+            border-radius: var(--radius-lg);
+        }
+
+        .utleige-cta p {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.4rem;
+            max-width: 50ch;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ===== BRUKTBIL ===== */
+        section#bruktbil {
+            background: var(--bg);
+        }
+
+        .bruktbil-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 2rem;
+            margin-bottom: 3.5rem;
+            flex-wrap: wrap;
+        }
+
+        .bruktbil-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.4rem;
+        }
+
+        .used-card {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: all 0.4s var(--ease-out-expo);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .used-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-card);
+            border-color: var(--sand);
+        }
+
+        .used-img {
+            aspect-ratio: 16/11;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .used-img-1 { background: linear-gradient(150deg, #5A4631 0%, #2E2419 100%); }
+        .used-img-2 { background: linear-gradient(150deg, #1F4250 0%, #0F2128 100%); }
+        .used-img-3 { background: linear-gradient(150deg, #B5A985 0%, #7A6F4E 100%); }
+        .used-img-4 { background: linear-gradient(150deg, #2C3338 0%, #15181A 100%); }
+        .used-img-5 { background: linear-gradient(150deg, #6E2424 0%, #3E1414 100%); }
+        .used-img-6 { background: linear-gradient(150deg, #4A535F 0%, #252B33 100%); }
+
+        .used-img-car {
+            width: 75%;
+            height: 55%;
+            background: rgba(244, 239, 228, 0.18);
+            border-radius: 32% 32% 6px 6px / 60% 60% 6px 6px;
+            position: relative;
+            box-shadow:
+                0 8px 18px rgba(0,0,0,0.25),
+                inset 0 -8px 16px rgba(255,255,255,0.1);
+        }
+
+        .used-img-car::before,
+        .used-img-car::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            width: 16%;
+            height: 16%;
+            background: #15181A;
+            border-radius: 50%;
+            border: 2px solid rgba(255,255,255,0.12);
+        }
+
+        .used-img-car::before { left: 14%; }
+        .used-img-car::after { right: 14%; }
+
+        .used-img-light {
+            position: absolute;
+            top: 14%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70%;
+            height: 30%;
+            background: radial-gradient(ellipse at center, rgba(199, 184, 154, 0.25) 0%, transparent 70%);
+            filter: blur(2px);
+            pointer-events: none;
+        }
+
+        .used-tag {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.4rem 0.8rem;
+            background: var(--orange);
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border-radius: 100px;
+            box-shadow: 0 4px 10px rgba(229, 138, 46, 0.4);
+        }
+
+        .used-tag.new { background: var(--ink); }
+        .used-tag.sold { background: var(--text-muted); }
+
+        .used-body {
+            padding: 1.4rem 1.5rem 1.6rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .used-year {
+            font-size: 0.78rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--orange-deep);
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+        }
+
+        .used-title {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 0.2rem;
+            letter-spacing: -0.018em;
+            line-height: 1.15;
+        }
+
+        .used-trim {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            margin-bottom: 1.1rem;
+        }
+
+        .used-meta {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.6rem;
+            padding: 0.9rem 0;
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+            margin-bottom: 1.2rem;
+        }
+
+        .used-meta-item {
+            text-align: center;
+        }
+
+        .used-meta-label {
+            font-size: 0.66rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .used-meta-value {
+            font-size: 0.86rem;
+            font-weight: 600;
+            color: var(--ink);
+        }
+
+        .used-foot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+        }
+
+        .used-price {
+            font-family: var(--font-display);
+            font-size: 1.55rem;
+            font-weight: 700;
+            color: var(--ink);
+            letter-spacing: -0.02em;
+            line-height: 1;
+        }
+
+        .used-price-sub {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 0.2rem;
+        }
+
+        .used-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.6rem 1rem;
+            background: var(--ink);
+            color: #fff;
+            border-radius: var(--radius);
+            font-size: 0.84rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .used-link:hover {
+            background: var(--orange);
+            transform: translateY(-1px);
+        }
+
+        .used-link svg { width: 12px; height: 12px; transition: transform 0.3s; }
+        .used-link:hover svg { transform: translateX(3px); }
+
+        .bruktbil-foot {
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        /* ===== OM OSS ===== */
+        section#om {
+            background: var(--ink);
+            color: #fff;
+            overflow: hidden;
+        }
+
+        section#om::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 12% 20%, rgba(199, 184, 154, 0.07) 0%, transparent 50%),
+                radial-gradient(ellipse at 88% 75%, rgba(229, 138, 46, 0.08) 0%, transparent 55%);
+            pointer-events: none;
+        }
+
+        .om-grid {
+            display: grid;
+            grid-template-columns: 1.05fr 1fr;
+            gap: clamp(2.5rem, 5vw, 5rem);
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        section#om .section-title { color: #fff; }
+        section#om .section-title .italic { color: var(--orange); }
+
+        .om-text p {
+            color: rgba(244, 239, 228, 0.78);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 1.2rem;
+            font-weight: 300;
+            max-width: 56ch;
+        }
+
+        .om-text p:first-of-type {
+            font-size: 1.18rem;
+            color: rgba(244, 239, 228, 0.92);
+            font-weight: 400;
+        }
+
+        .om-quote {
+            margin-top: 2rem;
+            padding: 1.6rem 1.8rem;
+            border-left: 3px solid var(--orange);
+            background: rgba(244, 239, 228, 0.03);
+            border-radius: 0 var(--radius) var(--radius) 0;
+        }
+
+        .om-quote p {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-weight: 400;
+            font-size: 1.05rem;
+            color: var(--sand);
+            margin-bottom: 0.7rem;
+        }
+
+        .om-quote cite {
+            font-style: normal;
+            font-size: 0.82rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .om-visual {
+            position: relative;
+            aspect-ratio: 4/5;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid rgba(199, 184, 154, 0.18);
+            box-shadow: var(--shadow-strong);
+            background:
+                radial-gradient(circle at 30% 40%, rgba(229, 138, 46, 0.18) 0%, transparent 60%),
+                linear-gradient(170deg, #3A3F44 0%, #1B1E20 100%);
+        }
+
+        .om-visual::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 40%, rgba(27, 30, 32, 0.7) 100%);
+        }
+
+        .om-visual-content {
+            position: absolute;
+            inset: 0;
+            padding: 1.8rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            z-index: 2;
+        }
+
+        .om-visual-top {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .om-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.45rem 0.85rem;
+            background: rgba(27, 30, 32, 0.65);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(199, 184, 154, 0.22);
+            border-radius: 100px;
+            font-size: 0.7rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--sand);
+            font-weight: 700;
+        }
+
+        .om-visual-bottom {
+            position: relative;
+            z-index: 3;
+        }
+
+        .om-name {
+            font-family: var(--font-display);
+            font-size: 1.55rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.3rem;
+            letter-spacing: -0.02em;
+        }
+
+        .om-role {
+            font-size: 0.92rem;
+            color: var(--sand);
+            margin-bottom: 1rem;
+        }
+
+        .om-years {
+            display: flex;
+            gap: 1.4rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(244, 239, 228, 0.12);
+        }
+
+        .om-year-num {
+            font-family: var(--font-display);
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--orange);
+            letter-spacing: -0.02em;
+            line-height: 1;
+            margin-bottom: 0.2rem;
+        }
+
+        .om-year-label {
+            font-size: 0.72rem;
+            color: rgba(244, 239, 228, 0.55);
+            letter-spacing: 0.1em;
+        }
+
+        /* ===== HVORFOR ===== */
+        section#hvorfor {
+            background: var(--bone);
+        }
+
+        .hvorfor-head {
+            text-align: center;
+            max-width: 720px;
+            margin: 0 auto 4rem;
+        }
+
+        .hvorfor-head .section-intro { margin: 0 auto; }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+        }
+
+        .pillar {
+            padding: 2rem 1.6rem;
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: var(--radius-lg);
+            transition: all 0.4s var(--ease-out-expo);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pillar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--orange);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s var(--ease-out-expo);
+        }
+
+        .pillar:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-card);
+            border-color: var(--sand);
+        }
+
+        .pillar:hover::before { transform: scaleX(1); }
+
+        .pillar-num {
+            font-family: var(--font-display);
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--orange);
+            letter-spacing: 0.2em;
+            margin-bottom: 1.1rem;
+        }
+
+        .pillar-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            background: var(--orange-soft);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.2rem;
+        }
+
+        .pillar-icon svg {
+            width: 22px;
+            height: 22px;
+            color: var(--orange-deep);
+        }
+
+        .pillar h3 {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 0.7rem;
+            letter-spacing: -0.015em;
+            line-height: 1.2;
+        }
+
+        .pillar p {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* ===== I TALL ===== */
+        section#tall {
+            background: linear-gradient(180deg, var(--ink) 0%, var(--ink-deep) 100%);
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        section#tall::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(229, 138, 46, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(199, 184, 154, 0.06) 0%, transparent 40%);
+        }
+
+        .tall-head {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        section#tall .section-title { color: #fff; }
+        section#tall .section-title .italic { color: var(--orange); }
+
+        section#tall .section-intro {
+            color: rgba(244, 239, 228, 0.65);
+            margin: 0 auto;
+        }
+
+        .tall-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .tall-item {
+            text-align: center;
+            padding: 2.2rem 1.4rem;
+            background: rgba(244, 239, 228, 0.03);
+            border: 1px solid rgba(244, 239, 228, 0.08);
+            border-radius: var(--radius-lg);
+            transition: all 0.4s var(--ease-out-expo);
+        }
+
+        .tall-item:hover {
+            background: rgba(244, 239, 228, 0.05);
+            border-color: var(--orange);
+            transform: translateY(-3px);
+        }
+
+        .tall-num {
+            font-family: var(--font-display);
+            font-size: clamp(2.4rem, 1.8rem + 2vw, 3.6rem);
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: -0.035em;
+            line-height: 1;
+            margin-bottom: 0.6rem;
+        }
+
+        .tall-num .unit {
+            color: var(--orange);
+            font-size: 0.55em;
+            font-weight: 600;
+            margin-left: 0.15em;
+        }
+
+        .tall-label {
+            font-size: 0.92rem;
+            color: var(--sand);
+            font-weight: 500;
+            letter-spacing: 0.01em;
+        }
+
+        /* ===== KONTAKT ===== */
+        section#kontakt {
+            background: var(--bg);
+        }
+
+        .kontakt-head {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+
+        .kontakt-head .section-intro { margin: 0 auto; }
+
+        .kontakt-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .kontakt-info {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: var(--radius-lg);
+            padding: 2.4rem;
+        }
+
+        .kontakt-info h3 {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 1.4rem;
+            letter-spacing: -0.018em;
+        }
+
+        .kontakt-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.1rem 0;
+            border-bottom: 1px dashed var(--line);
+        }
+
+        .kontakt-row:last-child { border-bottom: none; }
+
+        .kontakt-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 8px;
+            background: var(--orange-soft);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .kontakt-icon svg { width: 18px; height: 18px; color: var(--orange-deep); }
+
+        .kontakt-label {
+            font-size: 0.74rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .kontakt-value {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--ink);
+            letter-spacing: -0.01em;
+            line-height: 1.3;
+        }
+
+        .kontakt-value a:hover { color: var(--orange-deep); }
+
+        .kontakt-sub {
+            font-size: 0.86rem;
+            color: var(--text-muted);
+            margin-top: 0.3rem;
+        }
+
+        /* Opening hours */
+        .hours {
+            background: var(--ink);
+            color: #fff;
+            border-radius: var(--radius-lg);
+            padding: 2.4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hours::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            right: -10%;
+            width: 50%;
+            height: 60%;
+            background: radial-gradient(circle, rgba(229, 138, 46, 0.15) 0%, transparent 70%);
+        }
+
+        .hours-head {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 1.4rem;
+        }
+
+        .hours h3 {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: -0.018em;
+        }
+
+        .hours-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.4rem 0.8rem;
+            background: rgba(229, 138, 46, 0.16);
+            border: 1px solid rgba(229, 138, 46, 0.42);
+            border-radius: 100px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--orange);
+        }
+
+        .hours-list {
+            position: relative;
+            list-style: none;
+        }
+
+        .hours-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.85rem 0;
+            border-bottom: 1px solid rgba(244, 239, 228, 0.08);
+            transition: all 0.3s;
+        }
+
+        .hours-row:last-child { border-bottom: none; }
+
+        .hours-row.today {
+            color: var(--orange);
+        }
+
+        .hours-row.today .hours-day {
+            font-weight: 700;
+        }
+
+        .hours-row.today::before {
+            content: 'I dag';
+            font-size: 0.62rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--orange);
+            background: rgba(229, 138, 46, 0.16);
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            margin-right: 0.7rem;
+        }
+
+        .hours-day {
+            font-size: 0.96rem;
+            font-weight: 500;
+            color: rgba(244, 239, 228, 0.88);
+            flex: 1;
+        }
+
+        .hours-row.today .hours-day {
+            color: var(--orange);
+        }
+
+        .hours-time {
+            font-family: var(--font-display);
+            font-size: 0.94rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            color: var(--sand);
+        }
+
+        .hours-row.today .hours-time {
+            color: var(--orange);
+        }
+
+        .hours-time.closed {
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .hours-foot {
+            margin-top: 1.5rem;
+            padding-top: 1.2rem;
+            border-top: 1px dashed rgba(244, 239, 228, 0.1);
+            font-size: 0.86rem;
+            color: rgba(244, 239, 228, 0.55);
+            line-height: 1.55;
+        }
+
+        /* Map */
+        .map-card {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 300px;
+        }
+
+        .map-card-content {
+            padding: 2.2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .map-card-content h3 {
+            font-family: var(--font-display);
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 0.6rem;
+            letter-spacing: -0.018em;
+        }
+
+        .map-card-content p {
+            color: var(--text-secondary);
+            font-size: 0.96rem;
+            margin-bottom: 1.6rem;
+            line-height: 1.6;
+        }
+
+        .map-visual {
+            position: relative;
+            background:
+                radial-gradient(circle at 50% 50%, rgba(229, 138, 46, 0.18) 0%, transparent 50%),
+                linear-gradient(160deg, #2C3338 0%, #1B1E20 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .map-visual::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(199, 184, 154, 0.08) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(199, 184, 154, 0.08) 1px, transparent 1px);
+            background-size: 28px 28px;
+            mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+            -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+        }
+
+        .map-pin {
+            position: relative;
+            z-index: 3;
+            width: 54px;
+            height: 54px;
+            background: var(--orange);
+            border-radius: 50% 50% 50% 0;
+            transform: rotate(-45deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 22px rgba(229, 138, 46, 0.45);
+        }
+
+        .map-pin svg {
+            width: 22px;
+            height: 22px;
+            color: #fff;
+            transform: rotate(45deg);
+        }
+
+        .map-ripple {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 2px solid var(--orange);
+            opacity: 0;
+            animation: ripple 2.4s ease-out infinite;
+        }
+
+        .map-ripple:nth-child(2) { animation-delay: 0.8s; }
+        .map-ripple:nth-child(3) { animation-delay: 1.6s; }
+
+        @keyframes ripple {
+            0% { width: 60px; height: 60px; opacity: 0.7; }
+            100% { width: 220px; height: 220px; opacity: 0; }
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--ink-deep);
+            color: var(--text-light);
+            padding: 5rem 0 1.8rem;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(199, 184, 154, 0.18), transparent);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr 1fr 1fr;
+            gap: 2.5rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            color: #fff;
+            margin-bottom: 1.2rem;
+        }
+
+        .footer-brand-mark {
+            width: 38px;
+            height: 38px;
+            border-radius: 8px;
+            background: var(--ink);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(199, 184, 154, 0.18);
+        }
+
+        .footer-brand-mark svg { width: 24px; height: 24px; }
+
+        .footer-tagline {
+            color: rgba(244, 239, 228, 0.62);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            max-width: 38ch;
+            margin-bottom: 1.4rem;
+            font-weight: 300;
+        }
+
+        .footer-certs {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-cert {
+            display: inline-block;
+            padding: 0.35rem 0.7rem;
+            background: rgba(244, 239, 228, 0.05);
+            border: 1px solid rgba(244, 239, 228, 0.1);
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--sand);
+        }
+
+        .footer-col h4 {
+            font-family: var(--font-display);
+            font-size: 0.84rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 1.1rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .footer-col ul { list-style: none; }
+
+        .footer-col li {
+            margin-bottom: 0.55rem;
+            font-size: 0.92rem;
+            color: rgba(244, 239, 228, 0.65);
+            font-weight: 300;
+        }
+
+        .footer-col li a {
+            transition: color 0.3s;
+        }
+
+        .footer-col li a:hover { color: var(--orange); }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1.8rem;
+            border-top: 1px solid rgba(244, 239, 228, 0.08);
+            font-size: 0.82rem;
+            color: rgba(244, 239, 228, 0.45);
+            font-weight: 300;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        /* Sticky call button (mobile) */
+        .call-sticky {
+            position: fixed;
+            bottom: 1.2rem;
+            right: 1.2rem;
+            z-index: 999;
+            display: none;
+            align-items: center;
+            gap: 0.55rem;
+            padding: 0.95rem 1.3rem;
+            background: var(--orange);
+            color: #fff;
+            border-radius: 100px;
+            font-weight: 700;
+            font-size: 0.92rem;
+            box-shadow: 0 8px 22px rgba(229, 138, 46, 0.48);
+            transition: transform 0.3s;
+        }
+
+        .call-sticky:hover {
+            transform: translateY(-2px);
+        }
+
+        .call-sticky svg { width: 16px; height: 16px; }
+
+        /* Fade-in observer */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.85s var(--ease-out-expo), transform 0.85s var(--ease-out-expo);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 1100px) {
+            .pillars-grid { grid-template-columns: repeat(2, 1fr); }
+            .tall-grid { grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+            .ts-grid { grid-template-columns: 1fr; }
+            .fleet-grid { grid-template-columns: repeat(2, 1fr); }
+            .bruktbil-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 960px) {
+            .hero-inner { grid-template-columns: 1fr; }
+            .hero-visual { aspect-ratio: 4/3; max-width: 540px; margin: 0 auto; }
+            .hero-mini-ctas { grid-template-columns: 1fr; }
+            .verksted-grid { grid-template-columns: 1fr; }
+            .verksted-head { position: static; }
+            .om-grid { grid-template-columns: 1fr; }
+            .om-visual { max-width: 460px; }
+            .utleige-head { grid-template-columns: 1fr; }
+            .kontakt-grid { grid-template-columns: 1fr; }
+            .map-card { grid-template-columns: 1fr; }
+            .map-visual { min-height: 240px; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                inset: 0;
+                background: var(--ink-deep);
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                padding: 5rem 2rem 2rem;
+                gap: 1.6rem;
+                transform: translateY(-100%);
+                transition: transform 0.45s var(--ease-out-expo);
+                z-index: 998;
+            }
+
+            .nav-links.open { transform: translateY(0); }
+
+            .nav-links a { font-size: 1.4rem; font-weight: 600; }
+
+            .nav-toggle { display: flex; }
+
+            .nav-cta { display: none; }
+
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+            .footer-brand-block { grid-column: 1 / -1; }
+            .pillars-grid { grid-template-columns: 1fr; }
+            .tall-grid { grid-template-columns: repeat(2, 1fr); }
+            .fleet-grid { grid-template-columns: 1fr; }
+            .bruktbil-grid { grid-template-columns: 1fr; }
+            .form-grid { grid-template-columns: 1fr; }
+            .verksted-services { grid-template-columns: 1fr; }
+            .utleige-stats { grid-template-columns: 1fr; }
+            .bruktbil-head { flex-direction: column; align-items: flex-start; }
+            .footer-bottom { flex-direction: column; align-items: flex-start; }
+            .call-sticky { display: inline-flex; }
+        }
+
+        @media (max-width: 480px) {
+            .hero { padding-top: 5.5rem; }
+            .hero-ctas .btn { width: 100%; justify-content: center; }
+            .booking-card { padding: 1.6rem; }
+            .kontakt-info, .hours { padding: 1.6rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ================ NAV ================ -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">
+                <span class="nav-logo-mark">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <g stroke="#E58A2E" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none">
+                            <path d="M18 70 L28 48 L46 48 L52 70"/>
+                            <circle cx="30" cy="70" r="4.5" fill="#E58A2E"/>
+                            <circle cx="44" cy="70" r="4.5" fill="#E58A2E"/>
+                        </g>
+                        <g stroke="#C7B89A" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none">
+                            <path d="M54 70 L62 52 L82 52 L88 70"/>
+                            <circle cx="64" cy="70" r="4.5" fill="#C7B89A"/>
+                            <circle cx="80" cy="70" r="4.5" fill="#C7B89A"/>
+                        </g>
+                    </svg>
+                </span>
+                <span class="nav-logo-text">
+                    Hommersåk Bil
+                    <small>Verksted · Utleie · Bruktbil</small>
+                </span>
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#tjenester">Tre tjenester</a></li>
+                <li><a href="#verksted">Verksted</a></li>
+                <li><a href="#utleige">Utleie</a></li>
+                <li><a href="#bruktbil">Bruktbil</a></li>
+                <li><a href="#om">Om oss</a></li>
+                <li><a href="#kontakt">Kontakt</a></li>
+                <li>
+                    <a href="tel:+4751977550" class="nav-cta">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+                        51 97 75 50
+                    </a>
+                </li>
+            </ul>
+
+            <button class="nav-toggle" id="navToggle" aria-label="Meny">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ================ HERO ================ -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-grain"></div>
+        <div class="container">
+            <div class="hero-inner">
+                <div class="hero-content fade-in">
+                    <div class="hero-badges">
+                        <span class="badge"><span class="badge-dot"></span>Åpent nå — verksted og salg</span>
+                        <span class="badge">Statens Vegvesen-godkjent</span>
+                        <span class="badge">Hommersåk · Sandnes</span>
+                    </div>
+
+                    <h1>
+                        <span class="line">Tre tjenester.</span>
+                        <span class="line"><span class="accent">Ett verksted.</span></span>
+                        <span class="line sand">Hele bilen din.</span>
+                    </h1>
+
+                    <p class="hero-sub">
+                        Hommersåk Bil AS holder til på Esseveien — verksted, bilutleie og bruktbilsalg under samme tak. Lokal drift, tydelige svar, faste priser. Det blir gjort på Hommersåk.
+                    </p>
+
+                    <div class="hero-ctas">
+                        <a href="#kontakt" class="btn btn-primary">
+                            Bestill time hos verkstedet
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </a>
+                        <a href="tel:+4751977550" class="btn btn-ghost">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+                            Ring 51 97 75 50
+                        </a>
+                    </div>
+
+                    <div class="hero-mini-ctas">
+                        <a href="#verksted" class="mini-cta">
+                            <div class="mini-cta-label">01 — Verksted</div>
+                            <div class="mini-cta-title">EU-kontroll & service</div>
+                            <div class="mini-cta-text">Bestill time her</div>
+                        </a>
+                        <a href="#utleige" class="mini-cta">
+                            <div class="mini-cta-label">02 — Utleie</div>
+                            <div class="mini-cta-title">Biler fra 595,–/dag</div>
+                            <div class="mini-cta-text">Se tilgjengelig flåte</div>
+                        </a>
+                        <a href="#bruktbil" class="mini-cta">
+                            <div class="mini-cta-label">03 — Bruktbil</div>
+                            <div class="mini-cta-title">Kvalitetssikret salg</div>
+                            <div class="mini-cta-text">Se bilene på lager</div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero-visual fade-in">
+                    <div class="hero-photo" style="background-image: url('images/hommersak/hero-exterior.jpg'); background-size: cover; background-position: center;">
+                        <div class="garage-bays">
+                            <div class="garage-bay">
+                                <div class="bay-light"></div>
+                                <div class="bay-vehicle"></div>
+                            </div>
+                            <div class="garage-bay">
+                                <div class="bay-light"></div>
+                                <div class="bay-vehicle alt-1"></div>
+                            </div>
+                            <div class="garage-bay">
+                                <div class="bay-light"></div>
+                                <div class="bay-vehicle alt-2"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-overlay-panel">
+                        <div class="panel-row">
+                            <div>
+                                <div class="panel-label">Esseveien 2 · 4311 Hommersåk</div>
+                                <div class="panel-value">Tre porter åpne nå</div>
+                            </div>
+                            <div class="panel-status">
+                                <span class="pulse-dot"></span>
+                                Ledig kapasitet
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================ TRE TENESTER ================ -->
+    <section class="three-services" id="tjenester">
+        <div class="container">
+            <div class="three-services-head fade-in">
+                <div class="eyebrow">Det vi gjør</div>
+                <h2 class="section-title">Tre tjenester. <span class="italic">Ett og samme telefonnummer.</span></h2>
+                <p class="section-intro">Hommersåk Bil er ikke bare et verksted. Vi reparerer bilen din, leier ut imens og finner deg en god bruktbil når tiden er inne. Tre fagområder — samme gjeng, samme kvalitetsstandard, samme garasje på Esseveien.</p>
+            </div>
+
+            <div class="ts-grid">
+                <!-- VERKSTED -->
+                <article class="ts-card fade-in">
+                    <div class="ts-card-image ts-image-workshop" style="background-image: url('images/hommersak/workshop-interior.jpg'); background-size: cover; background-position: center;">
+                        <div class="ts-card-num">01 — Verksted</div>
+                        <div class="ts-card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                        </div>
+                    </div>
+                    <div class="ts-card-body">
+                        <h3 class="ts-card-title">Verksted</h3>
+                        <p class="ts-card-desc">EU-kontroll, service, dekkskift, bremser, diagnose og reparasjon — på alle merker. SVV-godkjent kontrollorgan, faste priser og bil tilbake samme dag der det går.</p>
+                        <ul class="ts-card-list">
+                            <li>EU-kontroll på alle merker</li>
+                            <li>Service etter fabrikkprogram</li>
+                            <li>Dekkskift og hotell</li>
+                            <li>AC- og klimaservice</li>
+                        </ul>
+                        <a href="#verksted" class="ts-card-cta">
+                            Bestill verkstedtime
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- BILUTLEIGE -->
+                <article class="ts-card fade-in">
+                    <div class="ts-card-image ts-image-rental" style="background-image: url('images/hommersak/rental-fleet.jpg'); background-size: cover; background-position: center;">
+                        <div class="ts-card-num">02 — Bilutleie</div>
+                        <div class="ts-card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                        </div>
+                    </div>
+                    <div class="ts-card-body">
+                        <h3 class="ts-card-title">Bilutleie</h3>
+                        <p class="ts-card-desc">Trenger du bil mens din er på verkstedet? Eller bare en varebil i helga? Vi har flåte for hver situasjon — dag, uke eller måned. Henting og levering i lokalområdet.</p>
+                        <ul class="ts-card-list">
+                            <li>Bybil, familiebil, stasjonsvogn</li>
+                            <li>Varebil og 4×4</li>
+                            <li>Daglig, ukes- og månedsutleie</li>
+                            <li>Forsikring og km inkludert</li>
+                        </ul>
+                        <a href="#utleige" class="ts-card-cta">
+                            Se utleieflåten
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- BRUKTBIL -->
+                <article class="ts-card fade-in">
+                    <div class="ts-card-image ts-image-used" style="background-image: url('images/hommersak/used-car-display.jpg'); background-size: cover; background-position: center;">
+                        <div class="ts-card-num">03 — Bruktbilsalg</div>
+                        <div class="ts-card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17a2 2 0 1 0 4 0M15 17a2 2 0 1 0 4 0"/><path d="M3 13l1.5-5h13L21 13M3 13v4h2M21 13v4h-2M5 17h10"/></svg>
+                        </div>
+                    </div>
+                    <div class="ts-card-body">
+                        <h3 class="ts-card-title">Bruktbilsalg</h3>
+                        <p class="ts-card-desc">Hver bil vi selger har vært gjennom vårt eget verksted først. Tilstandsrapport, garanti og full åpenhet om historikk. Vi tar også inn bilen din i innbytte.</p>
+                        <ul class="ts-card-list">
+                            <li>Kontrollert i eget verksted</li>
+                            <li>Tilstandsrapport på alle biler</li>
+                            <li>Innbytte og finansiering</li>
+                            <li>Inntil 12 mnd garanti</li>
+                        </ul>
+                        <a href="#bruktbil" class="ts-card-cta">
+                            Se bilene våre
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================ VERKSTED ================ -->
+    <section id="verksted">
+        <div class="container">
+            <div class="verksted-grid">
+                <div class="verksted-head fade-in">
+                    <div class="eyebrow">01 — Verksted</div>
+                    <h2 class="section-title">Faste priser. <span class="italic">Ekte svar.</span></h2>
+                    <p class="section-intro" style="margin-bottom: 2.5rem;">SVV-godkjent kontrollorgan for EU-kontroll. Vi jobber på alle merker, med originaldeler eller likeverdige deler etter ditt valg. Du får alltid pristilbud før vi tar til.</p>
+
+                    <div class="verksted-services">
+                        <div class="vs-item">
+                            <div class="vs-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+                            </div>
+                            <div class="vs-content">
+                                <h4>EU-kontroll</h4>
+                                <p>Fra 690,– · neste dag</p>
+                            </div>
+                        </div>
+                        <div class="vs-item">
+                            <div class="vs-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+                            </div>
+                            <div class="vs-content">
+                                <h4>Oljeservice</h4>
+                                <p>Fra 1 490,– alt inkl.</p>
+                            </div>
+                        </div>
+                        <div class="vs-item">
+                            <div class="vs-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/></svg>
+                            </div>
+                            <div class="vs-content">
+                                <h4>Dekkskift</h4>
+                                <p>Fra 590,– · venterom</p>
+                            </div>
+                        </div>
+                        <div class="vs-item">
+                            <div class="vs-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+                            </div>
+                            <div class="vs-content">
+                                <h4>AC-service</h4>
+                                <p>R134a + R1234yf</p>
+                            </div>
+                        </div>
+                        <div class="vs-item">
+                            <div class="vs-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
+                            </div>
+                            <div class="vs-content">
+                                <h4>Bremser</h4>
+                                <p>Skiver, klosser, væske</p>
+                            </div>
+                        </div>
+                        <div class="vs-item">
+                            <div class="vs-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                            </div>
+                            <div class="vs-content">
+                                <h4>Diagnose</h4>
+                                <p>Feilkode + rapport · 595,–</p>
+                            </div>
+                        </div>
+                        <div class="vs-item">
+                            <div class="vs-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M12 3v18"/></svg>
+                            </div>
+                            <div class="vs-content">
+                                <h4>Eksos</h4>
+                                <p>Lyddemper, partikkelfilter</p>
+                            </div>
+                        </div>
+                        <div class="vs-item">
+                            <div class="vs-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                            </div>
+                            <div class="vs-content">
+                                <h4>Klimaanlegg</h4>
+                                <p>Pollenfilter, desinfeksjon</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Booking -->
+                <div class="booking-card fade-in" id="bestill">
+                    <div class="booking-card-head">
+                        <div class="eyebrow eyebrow--light">Bestill verkstedtime</div>
+                        <h3>Få bilen din inn. <br>Vi ringer deg tilbake samme dag.</h3>
+                        <p class="booking-card-sub">Velg tjeneste og dato. Vi tar kontakt for å bekrefte tiden som passer deg best.</p>
+                    </div>
+
+                    <div class="v-tabs" role="tablist">
+                        <button class="v-tab active" data-tab="service" role="tab">Service</button>
+                        <button class="v-tab" data-tab="dekk" role="tab">Dekk</button>
+                        <button class="v-tab" data-tab="reparasjon" role="tab">Reparasjon</button>
+                    </div>
+
+                    <form class="v-tab-content active" data-tab="service" onsubmit="handleBooking(event)">
+                        <div class="form-grid">
+                            <div class="form-field">
+                                <label for="navn-s">Navn</label>
+                                <input type="text" id="navn-s" name="navn" placeholder="Ola Nordmann" required>
+                            </div>
+                            <div class="form-field">
+                                <label for="tlf-s">Telefon</label>
+                                <input type="tel" id="tlf-s" name="tlf" placeholder="900 12 345" required>
+                            </div>
+                            <div class="form-field">
+                                <label for="bil-s">Reg.nr / bilmodell</label>
+                                <input type="text" id="bil-s" name="bil" placeholder="AB 12345 / VW Golf 2018" required>
+                            </div>
+                            <div class="form-field">
+                                <label for="teneste-s">Tjeneste</label>
+                                <select id="teneste-s" name="teneste" required>
+                                    <option value="">Velg tjeneste</option>
+                                    <option>EU-kontroll</option>
+                                    <option>Oljeservice / fullservice</option>
+                                    <option>Bremser</option>
+                                    <option>Diagnose</option>
+                                    <option>Annet — beskriv under</option>
+                                </select>
+                            </div>
+                            <div class="form-field">
+                                <label for="dato">Ønsket dato</label>
+                                <input type="date" id="dato" name="dato">
+                            </div>
+                            <div class="form-field">
+                                <label for="leigebil">Trenger leiebil?</label>
+                                <select id="leigebil" name="leigebil">
+                                    <option>Nei takk</option>
+                                    <option>Ja, helst bybil</option>
+                                    <option>Ja, familiebil</option>
+                                    <option>Ja, varebil</option>
+                                </select>
+                            </div>
+                            <div class="form-field full">
+                                <label for="kommentar-s">Kommentar</label>
+                                <textarea id="kommentar-s" name="kommentar" placeholder="Beskrivelse av problemet, eller andre ønsker"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary form-submit full">
+                                Send forespørsel
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                            </button>
+                        </div>
+                        <p class="form-note">Vi tar kontakt innen dagen. Eller ring oss direkte på 51 97 75 50.</p>
+                    </form>
+
+                    <form class="v-tab-content" data-tab="dekk" onsubmit="handleBooking(event)">
+                        <div class="form-grid">
+                            <div class="form-field">
+                                <label for="navn-d">Navn</label>
+                                <input type="text" id="navn-d" placeholder="Ola Nordmann" required>
+                            </div>
+                            <div class="form-field">
+                                <label for="tlf-d">Telefon</label>
+                                <input type="tel" id="tlf-d" placeholder="900 12 345" required>
+                            </div>
+                            <div class="form-field">
+                                <label for="bil-d">Reg.nr / dekkstørrelse</label>
+                                <input type="text" id="bil-d" placeholder="AB 12345 / 205/55 R16" required>
+                            </div>
+                            <div class="form-field">
+                                <label for="type-d">Type</label>
+                                <select id="type-d" required>
+                                    <option value="">Velg</option>
+                                    <option>Skifte (jeg har dekkene)</option>
+                                    <option>Skifte + dekkhotell</option>
+                                    <option>Kjøpe nye sommerdekk</option>
+                                    <option>Kjøpe nye vinterdekk</option>
+                                    <option>Punktering / reparasjon</option>
+                                </select>
+                            </div>
+                            <div class="form-field full">
+                                <label for="kommentar-d">Kommentar</label>
+                                <textarea id="kommentar-d" placeholder="Tidspunkt som passer, eller andre ønsker"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary form-submit full">
+                                Send forespørsel
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                            </button>
+                        </div>
+                        <p class="form-note">Vi tar kontakt innen dagen. Eller ring oss direkte på 51 97 75 50.</p>
+                    </form>
+
+                    <form class="v-tab-content" data-tab="reparasjon" onsubmit="handleBooking(event)">
+                        <div class="form-grid">
+                            <div class="form-field">
+                                <label for="navn-r">Navn</label>
+                                <input type="text" id="navn-r" placeholder="Ola Nordmann" required>
+                            </div>
+                            <div class="form-field">
+                                <label for="tlf-r">Telefon</label>
+                                <input type="tel" id="tlf-r" placeholder="900 12 345" required>
+                            </div>
+                            <div class="form-field full">
+                                <label for="bil-r">Reg.nr / bilmodell</label>
+                                <input type="text" id="bil-r" placeholder="AB 12345 / VW Golf 2018" required>
+                            </div>
+                            <div class="form-field full">
+                                <label for="problem-r">Beskrivelse av problem</label>
+                                <textarea id="problem-r" placeholder="Lyd, varsellampe, atferd — hva har du opplevd?" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary form-submit full">
+                                Send forespørsel
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                            </button>
+                        </div>
+                        <p class="form-note">Vi diagnostiserer først, og gir deg prisestimat før vi tar til.</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================ BILUTLEIGE ================ -->
+    <section id="utleige">
+        <div class="container">
+            <div class="utleige-head fade-in">
+                <div>
+                    <div class="eyebrow">02 — Bilutleie</div>
+                    <h2 class="section-title">Bil når du <span class="italic">trenger den.</span></h2>
+                    <p class="section-intro">En flåte for alle situasjoner — bytur, ferie, varetransport eller fjelltur. Forsikring og 200 km/dag er inkludert. Trenger du mer, ordner vi det.</p>
+                </div>
+                <div class="utleige-stats">
+                    <div class="ul-stat">
+                        <div class="ul-stat-num">14</div>
+                        <div class="ul-stat-label">Biler i flåten</div>
+                    </div>
+                    <div class="ul-stat">
+                        <div class="ul-stat-num">595<span class="unit">,–</span></div>
+                        <div class="ul-stat-label">Fra pr. dag</div>
+                    </div>
+                    <div class="ul-stat">
+                        <div class="ul-stat-num">7</div>
+                        <div class="ul-stat-label">Dager i uka</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="fleet-grid">
+                <!-- 1 -->
+                <article class="fleet-card fade-in">
+                    <div class="fleet-img fleet-img-1" style="background-image: url('images/hommersak/rental-car-1.jpg'); background-size: cover; background-position: center;">
+                        <div class="fleet-img-car"></div>
+                        <span class="fleet-badge available">Ledig nå</span>
+                    </div>
+                    <div class="fleet-body">
+                        <div class="fleet-category">Liten bybil · Automat</div>
+                        <h3 class="fleet-title">Toyota Aygo X</h3>
+                        <p class="fleet-desc">Smidig i Sandnes sentrum og enkel å parkere. 5-dørs, lavt drivstofforbruk.</p>
+                        <div class="fleet-specs">
+                            <span class="fleet-spec">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                                4 personer
+                            </span>
+                            <span class="fleet-spec">Bensin</span>
+                            <span class="fleet-spec">Automat</span>
+                        </div>
+                        <div class="fleet-prices">
+                            <div>
+                                <div class="fleet-price-main">595<span class="fleet-price-unit">,– / dag</span></div>
+                                <div class="fleet-price-sub" style="font-size: 0.74rem; color: var(--text-muted); margin-top: 0.25rem;">3 290,– / uke</div>
+                            </div>
+                            <div class="fleet-price-alt">
+                                <strong>200 km</strong><br>inkl.
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 2 -->
+                <article class="fleet-card fade-in">
+                    <div class="fleet-img fleet-img-2" style="background-image: url('images/hommersak/rental-car-2.jpg'); background-size: cover; background-position: center;">
+                        <div class="fleet-img-car"></div>
+                        <span class="fleet-badge available">Ledig nå</span>
+                    </div>
+                    <div class="fleet-body">
+                        <div class="fleet-category">Familiebil · Hybrid</div>
+                        <h3 class="fleet-title">Skoda Octavia</h3>
+                        <p class="fleet-desc">Romslig, gjerrig og bekvem. God til hytteturen eller foreldretransport.</p>
+                        <div class="fleet-specs">
+                            <span class="fleet-spec">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                                5 personer
+                            </span>
+                            <span class="fleet-spec">Hybrid</span>
+                            <span class="fleet-spec">Automat</span>
+                        </div>
+                        <div class="fleet-prices">
+                            <div>
+                                <div class="fleet-price-main">890<span class="fleet-price-unit">,– / dag</span></div>
+                                <div class="fleet-price-sub" style="font-size: 0.74rem; color: var(--text-muted); margin-top: 0.25rem;">4 990,– / uke</div>
+                            </div>
+                            <div class="fleet-price-alt">
+                                <strong>200 km</strong><br>inkl.
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 3 -->
+                <article class="fleet-card fade-in">
+                    <div class="fleet-img fleet-img-3" style="background-image: url('images/hommersak/rental-car-3.jpg'); background-size: cover; background-position: center;">
+                        <div class="fleet-img-car"></div>
+                        <span class="fleet-badge">Tilbake fredag</span>
+                    </div>
+                    <div class="fleet-body">
+                        <div class="fleet-category">Stasjonsvogn · Diesel</div>
+                        <h3 class="fleet-title">VW Passat Variant</h3>
+                        <p class="fleet-desc">Stort bagasjerom for IKEA-turen, ski eller hund. Diesel, automat.</p>
+                        <div class="fleet-specs">
+                            <span class="fleet-spec">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                                5 personer
+                            </span>
+                            <span class="fleet-spec">Diesel</span>
+                            <span class="fleet-spec">Hengerfeste</span>
+                        </div>
+                        <div class="fleet-prices">
+                            <div>
+                                <div class="fleet-price-main">990<span class="fleet-price-unit">,– / dag</span></div>
+                                <div class="fleet-price-sub" style="font-size: 0.74rem; color: var(--text-muted); margin-top: 0.25rem;">5 490,– / uke</div>
+                            </div>
+                            <div class="fleet-price-alt">
+                                <strong>250 km</strong><br>inkl.
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 4 -->
+                <article class="fleet-card fade-in">
+                    <div class="fleet-img fleet-img-4" style="background-image: url('images/hommersak/rental-car-4.jpg'); background-size: cover; background-position: center;">
+                        <div class="fleet-img-car"></div>
+                        <span class="fleet-badge available">Ledig nå</span>
+                    </div>
+                    <div class="fleet-body">
+                        <div class="fleet-category">Varebil · Diesel</div>
+                        <h3 class="fleet-title">Ford Transit Custom</h3>
+                        <p class="fleet-desc">9 m³ lasterom. Til flytteslepet, byggevarer eller MC-transport.</p>
+                        <div class="fleet-specs">
+                            <span class="fleet-spec">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                                9 m³
+                            </span>
+                            <span class="fleet-spec">Diesel</span>
+                            <span class="fleet-spec">B-førerkort</span>
+                        </div>
+                        <div class="fleet-prices">
+                            <div>
+                                <div class="fleet-price-main">1 190<span class="fleet-price-unit">,– / dag</span></div>
+                                <div class="fleet-price-sub" style="font-size: 0.74rem; color: var(--text-muted); margin-top: 0.25rem;">6 490,– / uke</div>
+                            </div>
+                            <div class="fleet-price-alt">
+                                <strong>300 km</strong><br>inkl.
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 5 -->
+                <article class="fleet-card fade-in">
+                    <div class="fleet-img fleet-img-5" style="background-image: url('images/hommersak/rental-car-5.jpg'); background-size: cover; background-position: center;">
+                        <div class="fleet-img-car"></div>
+                        <span class="fleet-badge">Reservert</span>
+                    </div>
+                    <div class="fleet-body">
+                        <div class="fleet-category">SUV · 4WD</div>
+                        <h3 class="fleet-title">Volvo XC60</h3>
+                        <p class="fleet-desc">Fjelltur, vinter, lange turer. Komfort, sikkerhet og 4-hjulstrekk.</p>
+                        <div class="fleet-specs">
+                            <span class="fleet-spec">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                                5 personer
+                            </span>
+                            <span class="fleet-spec">Diesel · AWD</span>
+                            <span class="fleet-spec">Hengerfeste</span>
+                        </div>
+                        <div class="fleet-prices">
+                            <div>
+                                <div class="fleet-price-main">1 290<span class="fleet-price-unit">,– / dag</span></div>
+                                <div class="fleet-price-sub" style="font-size: 0.74rem; color: var(--text-muted); margin-top: 0.25rem;">7 490,– / uke</div>
+                            </div>
+                            <div class="fleet-price-alt">
+                                <strong>250 km</strong><br>inkl.
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 6 -->
+                <article class="fleet-card fade-in">
+                    <div class="fleet-img fleet-img-6" style="background-image: url('images/hommersak/rental-car-6.jpg'); background-size: cover; background-position: center;">
+                        <div class="fleet-img-car"></div>
+                        <span class="fleet-badge available">Ledig nå</span>
+                    </div>
+                    <div class="fleet-body">
+                        <div class="fleet-category">Kompakt · El-bil</div>
+                        <h3 class="fleet-title">VW ID.3</h3>
+                        <p class="fleet-desc">Fullelektrisk, 350 km rekkevidde. Gratis ladekabel inkludert.</p>
+                        <div class="fleet-specs">
+                            <span class="fleet-spec">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                                5 personer
+                            </span>
+                            <span class="fleet-spec">El · 350 km</span>
+                            <span class="fleet-spec">Automat</span>
+                        </div>
+                        <div class="fleet-prices">
+                            <div>
+                                <div class="fleet-price-main">790<span class="fleet-price-unit">,– / dag</span></div>
+                                <div class="fleet-price-sub" style="font-size: 0.74rem; color: var(--text-muted); margin-top: 0.25rem;">4 490,– / uke</div>
+                            </div>
+                            <div class="fleet-price-alt">
+                                <strong>Fri km</strong><br>i Rogaland
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="utleige-cta fade-in">
+                <p>Trenger du månedsutleie, langtidsleie eller bil ut over flåten du ser her? Vi finner en løsning — ring oss på 51 97 75 50.</p>
+                <div class="hero-ctas" style="margin: 0; justify-content: center;">
+                    <a href="tel:+4751977550" class="btn btn-outline">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+                        Ring for langtidsleie
+                    </a>
+                    <a href="#kontakt" class="btn btn-dark">
+                        Send oss melding
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================ BRUKTBIL ================ -->
+    <section id="bruktbil">
+        <div class="container">
+            <div class="bruktbil-head fade-in">
+                <div>
+                    <div class="eyebrow">03 — Bruktbilsalg</div>
+                    <h2 class="section-title">Brukt — men <span class="italic">grundig sjekket.</span></h2>
+                    <p class="section-intro">Hver bil blir gått gjennom i vårt eget verksted før den blir lagt ut. Du får full tilstandsrapport, klar historikk og inntil 12 mnd garanti.</p>
+                </div>
+                <div class="hero-ctas" style="margin: 0;">
+                    <a href="#kontakt" class="btn btn-outline">
+                        Verdivurdering av din bil
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="bruktbil-grid">
+                <!-- 1 -->
+                <article class="used-card fade-in">
+                    <div class="used-img used-img-1" style="background-image: url('images/hommersak/used-car-1.jpg'); background-size: cover; background-position: center;">
+                        <div class="used-img-light"></div>
+                        <div class="used-img-car"></div>
+                        <span class="used-tag">Nylig inn</span>
+                    </div>
+                    <div class="used-body">
+                        <div class="used-year">2020 · Diesel · Automat</div>
+                        <h3 class="used-title">Volvo XC60 D4</h3>
+                        <p class="used-trim">Momentum Pro · AWD · Skinn</p>
+                        <div class="used-meta">
+                            <div class="used-meta-item">
+                                <div class="used-meta-label">Km</div>
+                                <div class="used-meta-value">68 400</div>
+                            </div>
+                            <div class="used-meta-item">
+                                <div class="used-meta-label">EU-kontroll</div>
+                                <div class="used-meta-value">2027</div>
+                            </div>
+                            <div class="used-meta-item">
+                                <div class="used-meta-label">Garanti</div>
+                                <div class="used-meta-value">12 mnd</div>
+                            </div>
+                        </div>
+                        <div class="used-foot">
+                            <div>
+                                <div class="used-price">389 000<span style="font-size: 0.7rem; color: var(--text-muted); margin-left: 0.2rem;">,–</span></div>
+                                <div class="used-price-sub">Fra 4 290,– / mnd</div>
+                            </div>
+                            <a href="#kontakt" class="used-link">
+                                Se
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 2 -->
+                <article class="used-card fade-in">
+                    <div class="used-img used-img-2" style="background-image: url('images/hommersak/used-car-2.jpg'); background-size: cover; background-position: center;">
+                        <div class="used-img-light"></div>
+                        <div class="used-img-car"></div>
+                    </div>
+                    <div class="used-body">
+                        <div class="used-year">2019 · Hybrid · Automat</div>
+                        <h3 class="used-title">Toyota RAV4 Hybrid</h3>
+                        <p class="used-trim">Executive · AWD · Komfortpakke</p>
+                        <div class="used-meta">
+                            <div class="used-meta-item">
+                                <div class="used-meta-label">Km</div>
+                                <div class="used-meta-value">94 100</div>
+                            </div>
+                            <div class="used-meta-item">
+                                <div class="used-meta-label">EU-kontroll</div>
+                                <div class="used-meta-value">2026</div>
+                            </div>
+                            <div class="used-meta-item">
+                                <div class="used-meta-label">Garanti</div>
+                                <div class="used-meta-value">6 mnd</div>
+                            </div>
+                        </div>
+                        <div class="used-foot">
+                            <div>
+                                <div class="used-price">329 000<span style="font-size: 0.7rem; color: var(--text-muted); margin-left: 0.2rem;">,–</span></div>
+                                <div class="used-price-sub">Fra 3 590,– / mnd</div>
+                            </div>
+                            <a href="#kontakt" class="used-link">
+                                Se
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 3 -->
+                <article class="used-card fade-in">
+                    <div class="used-img used-img-3" style="background-image: url('images/hommersak/used-car-3.jpg'); background-size: cover; background-position: center;">
+                        <div class="used-img-light"></div>
+                        <div class="used-img-car"></div>
+                        <span class="used-tag new">Prisredusert</span>
+                    </div>
+                    <div class="used-body">
+                        <div class="used-year">2021 · El · Automat</div>
+                        <h3 class="used-title">VW ID.4 Pro</h3>
+                        <p class="used-trim">77 kWh · Varmepumpe · Skinn</p>
+                        <div class="used-meta">
+                            <div class="used-meta-item">
+                                <div class="used-meta-label">Km</div>
+                                <div class="used-meta-value">42 800</div>
+                            </div>
+                            <div class="used-meta-item">
+                                <div class="used-meta-label">EU-kontroll</div>
+                                <div class="used-meta-value">2027</div>
+                            </div>
+                            <div class="used-meta-item">
+                                <div class="used-meta-label">Garanti</div>
+                                <div class="used-meta-value">12 mnd</div>
+                            </div>
+                        </div>
+                        <div class="used-foot">
+                            <div>
+                                <div class="used-price">329 900<span style="font-size: 0.7rem; color: var(--text-muted); margin-left: 0.2rem;">,–</span></div>
+                                <div class="used-price-sub">Var 359 000,–</div>
+                            </div>
+                            <a href="#kontakt" class="used-link">
+                                Se
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 4 -->
+                <article class="used-card fade-in">
+                    <div class="used-img used-img-4" style="background-image: url('images/hommersak/used-car-4.jpg'); background-size: cover; background-position: center;">
+                        <div class="used-img-light"></div>
+                        <div class="used-img-car"></div>
+                    </div>
+                    <div class="used-body">
+                        <div class="used-year">2018 · Bensin · Manuell</div>
+                        <h3 class="used-title">VW Golf TSI</h3>
+                        <p class="used-trim">Comfortline · 5-dørs · Klimaanlegg</p>
+                        <div class="used-meta">
+                            <div class="used-meta-item">
+                                <div class="used-meta-label">Km</div>
+                                <div class="used-meta-value">112 300</div>
+                            </div>
+                            <div class="used-meta-item">
+                                <div class="used-meta-label">EU-kontroll</div>
+                                <div class="used-meta-value">2026</div>
+                            </div>
+                            <div class="used-meta-item">
+                                <div class="used-meta-label">Garanti</div>
+                                <div class="used-meta-value">6 mnd</div>
+                            </div>
+                        </div>
+                        <div class="used-foot">
+                            <div>
+                                <div class="used-price">169 000<span style="font-size: 0.7rem; color: var(--text-muted); margin-left: 0.2rem;">,–</span></div>
+                                <div class="used-price-sub">Fra 1 890,– / mnd</div>
+                            </div>
+                            <a href="#kontakt" class="used-link">
+                                Se
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 5 -->
+                <article class="used-card fade-in">
+                    <div class="used-img used-img-5" style="background-image: url('images/hommersak/used-car-5.jpg'); background-size: cover; background-position: center;">
+                        <div class="used-img-light"></div>
+                        <div class="used-img-car"></div>
+                        <span class="used-tag sold">Solgt</span>
+                    </div>
+                    <div class="used-body">
+                        <div class="used-year">2017 · Diesel · Automat</div>
+                        <h3 class="used-title">BMW 320d xDrive</h3>
+                        <p class="used-trim">Touring · M-sportpakke · Skinn</p>
+                        <div class="used-meta">
+                            <div class="used-meta-item">
+                                <div class="used-meta-label">Km</div>
+                                <div class="used-meta-value">147 500</div>
+                            </div>
+                            <div class="used-meta-item">
+                                <div class="used-meta-label">EU-kontroll</div>
+                                <div class="used-meta-value">2025</div>
+                            </div>
+                            <div class="used-meta-item">
+                                <div class="used-meta-label">Garanti</div>
+                                <div class="used-meta-value">3 mnd</div>
+                            </div>
+                        </div>
+                        <div class="used-foot">
+                            <div>
+                                <div class="used-price">219 000<span style="font-size: 0.7rem; color: var(--text-muted); margin-left: 0.2rem;">,–</span></div>
+                                <div class="used-price-sub">Solgt 12. oktober</div>
+                            </div>
+                            <a href="#kontakt" class="used-link" style="background: var(--text-muted); pointer-events: none;">
+                                Reservert
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 6 -->
+                <article class="used-card fade-in">
+                    <div class="used-img used-img-6" style="background-image: url('images/hommersak/used-car-6.jpg'); background-size: cover; background-position: center;">
+                        <div class="used-img-light"></div>
+                        <div class="used-img-car"></div>
+                    </div>
+                    <div class="used-body">
+                        <div class="used-year">2022 · Hybrid · Automat</div>
+                        <h3 class="used-title">Kia Sportage HEV</h3>
+                        <p class="used-trim">GT-Line · AWD · Panoramatak</p>
+                        <div class="used-meta">
+                            <div class="used-meta-item">
+                                <div class="used-meta-label">Km</div>
+                                <div class="used-meta-value">38 900</div>
+                            </div>
+                            <div class="used-meta-item">
+                                <div class="used-meta-label">EU-kontroll</div>
+                                <div class="used-meta-value">2028</div>
+                            </div>
+                            <div class="used-meta-item">
+                                <div class="used-meta-label">Garanti</div>
+                                <div class="used-meta-value">12 mnd</div>
+                            </div>
+                        </div>
+                        <div class="used-foot">
+                            <div>
+                                <div class="used-price">419 000<span style="font-size: 0.7rem; color: var(--text-muted); margin-left: 0.2rem;">,–</span></div>
+                                <div class="used-price-sub">Fra 4 590,– / mnd</div>
+                            </div>
+                            <a href="#kontakt" class="used-link">
+                                Se
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="bruktbil-foot fade-in">
+                <p style="color: var(--text-secondary); margin-bottom: 1.4rem;">Vi tar også inn bilen din i innbytte. Finansiering fra Santander og Sparebank 1.</p>
+                <div class="hero-ctas" style="margin: 0; justify-content: center;">
+                    <a href="#kontakt" class="btn btn-outline">
+                        Be om verdivurdering
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                    <a href="tel:+4751977550" class="btn btn-dark">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+                        Ring og prat
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================ OM OSS ================ -->
+    <section id="om">
+        <div class="container">
+            <div class="om-grid">
+                <div class="om-text fade-in">
+                    <div class="eyebrow eyebrow--light">Om oss</div>
+                    <h2 class="section-title">Lokal i Hommersåk <span class="italic">siden 2003.</span></h2>
+                    <p>
+                        Hommersåk Bil startet som et lite verksted med en heisrampe, en hund og én mann som visste hva som var galt med en varsellampe. Det er det fortsatt — bare litt større.
+                    </p>
+                    <p>
+                        Vi gikk inn i bilutleie i 2011 fordi folk spurte etter erstatningsbil mens deres egen stod til service. Bruktbilsalget kom som en naturlig forlengelse — folk begynte å spørre om vi ikke hadde noen biler de kunne kjøpe, siden vi allerede hadde kontrollert dem.
+                    </p>
+                    <p>
+                        I dag er vi seks ansatte på Esseveien — mekanikere, en bilselger og en dame som holder orden på utleieflåten. Vi er lokal arbeidsgiver, sponsor for Hommersåk IL, og behandler ungene som spør etter klistremerker som om de var kunder.
+                    </p>
+
+                    <div class="om-quote">
+                        <p>"Vi er ikke den billigste på Nord-Jæren. Vi er den som faktisk svarer når du ringer, og som sier ifra hvis vi ikke finner feilen før vi har søkt etter den."</p>
+                        <cite>— Tor Egil Hellestø, daglig leder</cite>
+                    </div>
+                </div>
+
+                <div class="om-visual fade-in" style="background-image: url('images/hommersak/team.jpg'); background-size: cover; background-position: center;">
+                    <div class="om-visual-content">
+                        <div class="om-visual-top">
+                            <span class="om-tag">Eierstyrt siden 2003</span>
+                        </div>
+                        <div class="om-visual-bottom">
+                            <div class="om-name">Tor Egil Hellestø</div>
+                            <div class="om-role">Daglig leder · sertifisert kontrollør</div>
+                            <div class="om-years">
+                                <div>
+                                    <div class="om-year-num">22</div>
+                                    <div class="om-year-label">år i bransjen</div>
+                                </div>
+                                <div>
+                                    <div class="om-year-num">6</div>
+                                    <div class="om-year-label">ansatte</div>
+                                </div>
+                                <div>
+                                    <div class="om-year-num">3</div>
+                                    <div class="om-year-label">tjenester</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================ HVORFOR ================ -->
+    <section id="hvorfor">
+        <div class="container">
+            <div class="hvorfor-head fade-in">
+                <div class="eyebrow">Hvorfor Hommersåk Bil</div>
+                <h2 class="section-title">Fire ting du <span class="italic">slipper å lure på.</span></h2>
+                <p class="section-intro">Lokalt eierskap, klare priser, alle tjenestene under samme tak. Det er ikke magi — det er bare slik vi har gjort det siden 2003.</p>
+            </div>
+
+            <div class="pillars-grid">
+                <article class="pillar fade-in">
+                    <div class="pillar-num">01</div>
+                    <div class="pillar-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    </div>
+                    <h3>Tre tjenester, ett telefonnummer</h3>
+                    <p>Verksted, utleie og salg — alt under samme tak. Du slipper å ringe rundt; vi koordinerer det internt.</p>
+                </article>
+
+                <article class="pillar fade-in">
+                    <div class="pillar-num">02</div>
+                    <div class="pillar-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L4 7v10l8 5 8-5V7l-8-5z"/><path d="M12 22V12"/><path d="M20 7l-8 5-8-5"/></svg>
+                    </div>
+                    <h3>Lokal i Hommersåk siden 2003</h3>
+                    <p>Vi bor her, ungene våre går på Hommersåk skole, og halvparten av kundene våre er på fornavn med oss.</p>
+                </article>
+
+                <article class="pillar fade-in">
+                    <div class="pillar-num">03</div>
+                    <div class="pillar-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c2.5 0 4.78 1.02 6.42 2.66"/></svg>
+                    </div>
+                    <h3>Statens Vegvesen-godkjent</h3>
+                    <p>Godkjent kontrollorgan for EU-kontroll. Vi rapporterer direkte til SVV — du trenger ikke gjøre noe.</p>
+                </article>
+
+                <article class="pillar fade-in">
+                    <div class="pillar-num">04</div>
+                    <div class="pillar-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    </div>
+                    <h3>Faste priser, tydelige svar</h3>
+                    <p>Du får alltid kostnadsoverslag før vi tar til. Vi ringer hvis noe blir dyrere — vi tar ikke sjansen for deg.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================ I TALL ================ -->
+    <section id="tall">
+        <div class="container">
+            <div class="tall-head fade-in">
+                <div class="eyebrow eyebrow--light">I tall</div>
+                <h2 class="section-title">22 år drift. <span class="italic">Tallet bærer seg selv.</span></h2>
+                <p class="section-intro">Tre tjenester, men én felles standard. Her er noen tall fra året som har gått.</p>
+            </div>
+
+            <div class="tall-grid">
+                <div class="tall-item fade-in">
+                    <div class="tall-num">22<span class="unit">år</span></div>
+                    <div class="tall-label">drift på Hommersåk</div>
+                </div>
+                <div class="tall-item fade-in">
+                    <div class="tall-num">1 840<span class="unit">+</span></div>
+                    <div class="tall-label">servicer årlig</div>
+                </div>
+                <div class="tall-item fade-in">
+                    <div class="tall-num">14<span class="unit"></span></div>
+                    <div class="tall-label">biler i utleieflåten</div>
+                </div>
+                <div class="tall-item fade-in">
+                    <div class="tall-num">128<span class="unit"></span></div>
+                    <div class="tall-label">bruktbiler solgt i 2025</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================ KONTAKT ================ -->
+    <section id="kontakt">
+        <div class="container">
+            <div class="kontakt-head fade-in">
+                <div class="eyebrow">Kontakt & åpningstider</div>
+                <h2 class="section-title">Kom innom — <span class="italic">eller ring.</span></h2>
+                <p class="section-intro">Vi sitter på Esseveien 2, like ved Hommersåk sentrum. Stor parkering, kaffe på huset, og vi tar oss tid til å forklare.</p>
+            </div>
+
+            <div class="kontakt-grid">
+                <div class="kontakt-info fade-in">
+                    <h3>Slik når du oss</h3>
+
+                    <div class="kontakt-row">
+                        <div class="kontakt-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+                        </div>
+                        <div>
+                            <div class="kontakt-label">Telefon</div>
+                            <div class="kontakt-value"><a href="tel:+4751977550">51 97 75 50</a></div>
+                            <div class="kontakt-sub">Samme nummer til verksted, utleie og salg</div>
+                        </div>
+                    </div>
+
+                    <div class="kontakt-row">
+                        <div class="kontakt-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        </div>
+                        <div>
+                            <div class="kontakt-label">E-post</div>
+                            <div class="kontakt-value"><a href="mailto:post@hommersakbil.no">post@hommersakbil.no</a></div>
+                            <div class="kontakt-sub">Vi svarer samme dag</div>
+                        </div>
+                    </div>
+
+                    <div class="kontakt-row">
+                        <div class="kontakt-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        </div>
+                        <div>
+                            <div class="kontakt-label">Adresse</div>
+                            <div class="kontakt-value">Esseveien 2 · 4311 Hommersåk</div>
+                            <div class="kontakt-sub">Sandnes kommune · ved Riska skole</div>
+                        </div>
+                    </div>
+
+                    <div class="kontakt-row">
+                        <div class="kontakt-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                        </div>
+                        <div>
+                            <div class="kontakt-label">Org.nr</div>
+                            <div class="kontakt-value">920 614 882</div>
+                            <div class="kontakt-sub">Hommersåk Bil AS</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hours fade-in">
+                    <div class="hours-head">
+                        <h3>Åpningstider</h3>
+                        <span class="hours-status">
+                            <span class="pulse-dot"></span>
+                            Åpent nå
+                        </span>
+                    </div>
+
+                    <ul class="hours-list">
+                        <li class="hours-row" data-day="1">
+                            <span class="hours-day">Mandag</span>
+                            <span class="hours-time">07:30 – 16:30</span>
+                        </li>
+                        <li class="hours-row" data-day="2">
+                            <span class="hours-day">Tirsdag</span>
+                            <span class="hours-time">07:30 – 16:30</span>
+                        </li>
+                        <li class="hours-row" data-day="3">
+                            <span class="hours-day">Onsdag</span>
+                            <span class="hours-time">07:30 – 16:30</span>
+                        </li>
+                        <li class="hours-row" data-day="4">
+                            <span class="hours-day">Torsdag</span>
+                            <span class="hours-time">07:30 – 18:00</span>
+                        </li>
+                        <li class="hours-row" data-day="5">
+                            <span class="hours-day">Fredag</span>
+                            <span class="hours-time">07:30 – 16:00</span>
+                        </li>
+                        <li class="hours-row" data-day="6">
+                            <span class="hours-day">Lørdag</span>
+                            <span class="hours-time">10:00 – 14:00</span>
+                        </li>
+                        <li class="hours-row" data-day="0">
+                            <span class="hours-day">Søndag</span>
+                            <span class="hours-time closed">Stengt</span>
+                        </li>
+                    </ul>
+
+                    <div class="hours-foot">
+                        Akutt? Trenger du bil på sparket? Ring uansett — vi prøver å ordne det. Bruktbilvisning etter avtale også utenom åpningstid.
+                    </div>
+                </div>
+            </div>
+
+            <div class="map-card fade-in">
+                <div class="map-card-content">
+                    <h3>Esseveien 2, 4311 Hommersåk</h3>
+                    <p>Like ved Riska Bru og Hommersåk sentrum. Stor parkering ute, tre verkstedsporter, utstillingsplass for bruktbilene og leieflåten på baksiden.</p>
+                    <div class="hero-ctas" style="margin: 0;">
+                        <a href="https://www.google.com/maps/search/?api=1&query=Esseveien+2+4311+Hommersåk" target="_blank" rel="noopener" class="btn btn-primary">
+                            Vis på kart
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                        </a>
+                        <a href="tel:+4751977550" class="btn btn-outline">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+                            Ring oss
+                        </a>
+                    </div>
+                </div>
+                <div class="map-visual">
+                    <div class="map-ripple"></div>
+                    <div class="map-ripple"></div>
+                    <div class="map-ripple"></div>
+                    <div class="map-pin">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================ FOOTER ================ -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand-block">
+                    <div class="footer-brand">
+                        <span class="footer-brand-mark">
+                            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <g stroke="#E58A2E" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none">
+                                    <path d="M18 70 L28 48 L46 48 L52 70"/>
+                                    <circle cx="30" cy="70" r="4.5" fill="#E58A2E"/>
+                                    <circle cx="44" cy="70" r="4.5" fill="#E58A2E"/>
+                                </g>
+                                <g stroke="#C7B89A" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none">
+                                    <path d="M54 70 L62 52 L82 52 L88 70"/>
+                                    <circle cx="64" cy="70" r="4.5" fill="#C7B89A"/>
+                                    <circle cx="80" cy="70" r="4.5" fill="#C7B89A"/>
+                                </g>
+                            </svg>
+                        </span>
+                        Hommersåk Bil AS
+                    </div>
+                    <p class="footer-tagline">
+                        Tre tjenester. Ett verksted. Hele bilen din — fra service til salg, siden 2003 på Esseveien.
+                    </p>
+                    <div class="footer-certs">
+                        <span class="footer-cert">SVV-godkjent</span>
+                        <span class="footer-cert">Automester</span>
+                        <span class="footer-cert">Lokal siden 2003</span>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Verksted</h4>
+                    <ul>
+                        <li><a href="#verksted">EU-kontroll</a></li>
+                        <li><a href="#verksted">Service</a></li>
+                        <li><a href="#verksted">Dekkskift</a></li>
+                        <li><a href="#verksted">AC-service</a></li>
+                        <li><a href="#bestill">Bestill time</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Utleie & salg</h4>
+                    <ul>
+                        <li><a href="#utleige">Utleieflåte</a></li>
+                        <li><a href="#utleige">Varebilutleie</a></li>
+                        <li><a href="#bruktbil">Bruktbiler</a></li>
+                        <li><a href="#bruktbil">Innbytte</a></li>
+                        <li><a href="#bruktbil">Finansiering</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Kontakt</h4>
+                    <ul>
+                        <li>Esseveien 2</li>
+                        <li>4311 Hommersåk</li>
+                        <li><a href="tel:+4751977550">51 97 75 50</a></li>
+                        <li><a href="mailto:post@hommersakbil.no">post@hommersakbil.no</a></li>
+                        <li>Org.nr 920 614 882</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>© 2026 Hommersåk Bil AS · Esseveien 2 · 4311 Hommersåk</span>
+                <span>Personvern · Vilkår · Cookies</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile sticky call -->
+    <a href="tel:+4751977550" class="call-sticky" aria-label="Ring Hommersåk Bil">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+        Ring 51 97 75 50
+    </a>
+
+    <script>
+        // Navigation scroll state
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 30) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
+        }, { passive: true });
+
+        // Mobile menu
+        const toggle = document.getElementById('navToggle');
+        const links = document.getElementById('navLinks');
+        toggle.addEventListener('click', () => {
+            toggle.classList.toggle('active');
+            links.classList.toggle('open');
+        });
+        links.querySelectorAll('a').forEach(a => {
+            a.addEventListener('click', () => {
+                toggle.classList.remove('active');
+                links.classList.remove('open');
+            });
+        });
+
+        // Fade-in observer
+        const fadeObs = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    fadeObs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.fade-in').forEach(el => fadeObs.observe(el));
+
+        // Verksted tabs
+        document.querySelectorAll('.v-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                const target = tab.dataset.tab;
+                document.querySelectorAll('.v-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.v-tab-content').forEach(c => c.classList.remove('active'));
+                tab.classList.add('active');
+                document.querySelector(`.v-tab-content[data-tab="${target}"]`).classList.add('active');
+            });
+        });
+
+        // Highlight today's opening hours
+        (function highlightToday(){
+            const today = new Date().getDay();
+            const row = document.querySelector(`.hours-row[data-day="${today}"]`);
+            if (row) row.classList.add('today');
+        })();
+
+        // Set min date on booking date input
+        (function setBookingMinDate(){
+            const dateEl = document.getElementById('dato');
+            if (!dateEl) return;
+            const d = new Date();
+            const iso = d.toISOString().split('T')[0];
+            dateEl.setAttribute('min', iso);
+        })();
+
+        // Booking form handler (demo)
+        function handleBooking(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('.form-submit');
+            const original = btn.innerHTML;
+            btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Sendt — vi ringer deg samme dag';
+            btn.style.background = '#7AB988';
+            btn.style.borderColor = '#7AB988';
+            setTimeout(() => {
+                btn.innerHTML = original;
+                btn.style.background = '';
+                btn.style.borderColor = '';
+                e.target.reset();
+            }, 3500);
+        }
+    </script>
+</body>
+</html>

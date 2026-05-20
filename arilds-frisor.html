@@ -1,0 +1,1643 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arilds Frisør — Sandnes. Klipt hår i over 30 år.</title>
+    <meta name="description" content="Arilds Frisør i Sandnes. Klipp, farging, striper og brudefrisyrer. Godt håndverk og ærlige råd siden 1992. Gjesdalveien 18.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%232A1F1A'/><text x='50' y='68' font-family='Georgia,serif' font-size='62' font-style='italic' fill='%23F2EAE0' text-anchor='middle'>A</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,300;1,9..144,400;1,9..144,500;1,9..144,600&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================
+           ARILDS FRISØR — Design System
+           Editorial hair-magazine. Warm monochrome.
+           ============================================ */
+
+        :root {
+            /* Core palette — warm espresso monochrome */
+            --espresso: #2A1F1A;
+            --espresso-deep: #1C140F;
+            --espresso-soft: #3D2E26;
+            --mocha: #5C463A;
+            --taupe: #8B7567;
+
+            --cream: #F2EAE0;
+            --cream-warm: #EADFCF;
+            --cream-light: #F7F1E8;
+            --cream-deep: #DCCEBA;
+
+            --rose: #C99C92;
+            --rose-deep: #B07F73;
+            --rose-soft: #E2C4BC;
+
+            --ink: #1A1A1A;
+            --paper: #FBFBF9;
+
+            /* Hair-color gradients for gallery */
+            --hair-naturell: linear-gradient(135deg, #6B4A35 0%, #3A2418 60%, #1F1410 100%);
+            --hair-kobber: linear-gradient(135deg, #C97A4A 0%, #8B3E1F 55%, #4A1F0E 100%);
+            --hair-asketone: linear-gradient(135deg, #C9B79A 0%, #8A7560 55%, #4D3F32 100%);
+            --hair-sjokolade: linear-gradient(135deg, #4A2E20 0%, #261410 55%, #110806 100%);
+            --hair-platina: linear-gradient(135deg, #F5EFE3 0%, #C9BFB0 55%, #8A7E6B 100%);
+            --hair-karamell: linear-gradient(135deg, #E0B080 0%, #A8723F 55%, #5C3618 100%);
+            --hair-honning: linear-gradient(135deg, #E8C883 0%, #B58844 55%, #6B4A1F 100%);
+            --hair-rod: linear-gradient(135deg, #B8412A 0%, #7A1F12 55%, #3F0C06 100%);
+            --hair-cool: linear-gradient(135deg, #ADA294 0%, #6B5F52 55%, #2E251D 100%);
+
+            --font-display: 'Fraunces', Georgia, serif;
+            --font-body: 'Outfit', system-ui, sans-serif;
+
+            --text-xs: clamp(0.66rem, 0.6rem + 0.22vw, 0.78rem);
+            --text-sm: clamp(0.82rem, 0.76rem + 0.28vw, 0.95rem);
+            --text-base: clamp(0.96rem, 0.9rem + 0.28vw, 1.1rem);
+            --text-lg: clamp(1.12rem, 1rem + 0.55vw, 1.4rem);
+            --text-xl: clamp(1.5rem, 1.15rem + 1.6vw, 2.4rem);
+            --text-2xl: clamp(2.2rem, 1.55rem + 3vw, 4.2rem);
+            --text-3xl: clamp(3rem, 2rem + 4.8vw, 6rem);
+            --text-hero: clamp(4rem, 2.4rem + 8vw, 11rem);
+
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+            --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-weight: 300;
+            color: var(--espresso);
+            background-color: var(--cream);
+            line-height: 1.7;
+            overflow-x: hidden;
+            font-size: var(--text-base);
+            letter-spacing: 0.005em;
+        }
+
+        a { color: inherit; text-decoration: none; }
+        img { max-width: 100%; display: block; }
+
+        ::selection { background: var(--espresso); color: var(--cream); }
+
+        .container {
+            width: 100%;
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 clamp(1.4rem, 4vw, 3rem);
+        }
+
+        .label {
+            font-family: var(--font-body);
+            font-size: var(--text-xs);
+            font-weight: 500;
+            letter-spacing: 0.32em;
+            text-transform: uppercase;
+            color: var(--mocha);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+        .label::before {
+            content: '';
+            width: 28px;
+            height: 1px;
+            background: var(--rose-deep);
+        }
+
+        h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 400; line-height: 1.05; letter-spacing: -0.02em; }
+        em, .italic { font-style: italic; font-family: var(--font-display); font-weight: 300; }
+
+        /* ============================================
+           NAVIGATION
+           ============================================ */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1.2rem 0;
+            background: rgba(242, 234, 224, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(42, 31, 26, 0.08);
+            transition: all 0.4s var(--ease-out-quart);
+        }
+        .nav.scrolled {
+            background: rgba(242, 234, 224, 0.92);
+            padding: 0.85rem 0;
+        }
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+        .nav-logo {
+            font-family: var(--font-display);
+            font-size: 1.35rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            color: var(--espresso);
+        }
+        .nav-logo em { font-weight: 300; color: var(--rose-deep); }
+        .nav-links {
+            display: flex;
+            gap: 2.2rem;
+            list-style: none;
+            font-size: 0.88rem;
+            font-weight: 400;
+            letter-spacing: 0.04em;
+        }
+        .nav-links a {
+            position: relative;
+            padding: 0.3rem 0;
+            color: var(--espresso);
+            transition: color 0.3s;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--rose-deep);
+            transition: width 0.35s var(--ease-out-quart);
+        }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.7rem 1.4rem;
+            background: var(--espresso);
+            color: var(--cream);
+            font-size: 0.82rem;
+            font-weight: 500;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            border-radius: 1px;
+        }
+        .nav-cta:hover { background: var(--rose-deep); transform: translateY(-1px); }
+        .nav-cta-dot {
+            width: 6px; height: 6px; background: var(--rose); border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.3); }
+        }
+        @media (max-width: 860px) {
+            .nav-links { display: none; }
+        }
+
+        /* ============================================
+           HERO
+           ============================================ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 9rem 0 4rem;
+            background: var(--cream);
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; right: -5%;
+            width: 55%;
+            height: 100%;
+            background:
+                radial-gradient(ellipse at 40% 30%, rgba(201, 156, 146, 0.18), transparent 60%),
+                linear-gradient(135deg, #3D2E26 0%, #1C140F 100%);
+            opacity: 0.92;
+            clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
+        }
+        @media (max-width: 900px) {
+            .hero::before { display: none; }
+        }
+        .hero-inner {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            width: 100%;
+        }
+        @media (max-width: 900px) {
+            .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+        }
+        .hero-label { margin-bottom: 2rem; }
+        .hero-title {
+            font-size: var(--text-hero);
+            line-height: 0.92;
+            letter-spacing: -0.035em;
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+        .hero-title .line { display: block; overflow: hidden; }
+        .hero-title em { font-style: italic; font-weight: 300; color: var(--rose-deep); }
+        .hero-sub {
+            font-size: var(--text-lg);
+            font-weight: 300;
+            line-height: 1.5;
+            color: var(--espresso-soft);
+            max-width: 540px;
+            margin-bottom: 2.8rem;
+        }
+        .hero-sub strong { font-weight: 500; color: var(--espresso); }
+        .hero-actions {
+            display: flex;
+            gap: 1.4rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1.15rem 2rem;
+            background: var(--espresso);
+            color: var(--cream);
+            font-size: 0.86rem;
+            font-weight: 500;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: all 0.35s var(--ease-out-quart);
+            border-radius: 1px;
+        }
+        .btn-primary:hover { background: var(--rose-deep); transform: translateY(-2px); box-shadow: 0 14px 40px -16px rgba(42, 31, 26, 0.5); }
+        .btn-primary svg { transition: transform 0.3s; }
+        .btn-primary:hover svg { transform: translateX(4px); }
+
+        .btn-ghost {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            padding: 1.15rem 0;
+            color: var(--espresso);
+            font-size: 0.86rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            border-bottom: 1px solid var(--espresso);
+            transition: all 0.3s;
+        }
+        .btn-ghost:hover { color: var(--rose-deep); border-color: var(--rose-deep); }
+
+        .hero-portrait {
+            position: relative;
+            aspect-ratio: 3/4;
+            border-radius: 2px;
+            overflow: hidden;
+            background:
+                radial-gradient(ellipse at 30% 25%, rgba(255, 240, 220, 0.5), transparent 50%),
+                linear-gradient(165deg, #5C463A 0%, #2A1F1A 55%, #110806 100%);
+            box-shadow: 0 30px 80px -30px rgba(42, 31, 26, 0.6);
+        }
+        .hero-portrait::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 65% 35%, rgba(201, 156, 146, 0.35), transparent 45%),
+                radial-gradient(ellipse at 25% 75%, rgba(28, 20, 15, 0.5), transparent 50%);
+        }
+        .hero-portrait-tag {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 1.5rem;
+            right: 1.5rem;
+            z-index: 3;
+            color: var(--cream);
+            font-family: var(--font-display);
+            font-style: italic;
+            font-weight: 300;
+            font-size: 1.05rem;
+            letter-spacing: 0.01em;
+            line-height: 1.4;
+        }
+        .hero-portrait-tag::before {
+            content: '';
+            display: block;
+            width: 30px;
+            height: 1px;
+            background: var(--rose);
+            margin-bottom: 0.8rem;
+        }
+
+        .hero-meta {
+            position: absolute;
+            bottom: 3rem;
+            left: 0;
+            right: 0;
+            z-index: 2;
+        }
+        .hero-meta-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 2rem;
+            border-top: 1px solid rgba(42, 31, 26, 0.18);
+            padding-top: 1.8rem;
+            flex-wrap: wrap;
+        }
+        .hero-meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+        .hero-meta-key {
+            font-size: 0.7rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            font-weight: 500;
+            color: var(--mocha);
+        }
+        .hero-meta-val {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: var(--espresso);
+        }
+        .hero-meta-val a:hover { color: var(--rose-deep); }
+        @media (max-width: 900px) {
+            .hero-meta { position: static; margin-top: 2rem; }
+        }
+
+        /* ============================================
+           MARQUEE STRIP
+           ============================================ */
+        .strip {
+            background: var(--espresso);
+            color: var(--cream);
+            padding: 1.4rem 0;
+            overflow: hidden;
+            border-top: 1px solid rgba(242, 234, 224, 0.08);
+            border-bottom: 1px solid rgba(242, 234, 224, 0.08);
+        }
+        .strip-track {
+            display: flex;
+            gap: 3rem;
+            animation: scroll 40s linear infinite;
+            white-space: nowrap;
+            width: max-content;
+        }
+        .strip-item {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-weight: 300;
+            font-size: 1.4rem;
+            letter-spacing: 0.01em;
+            display: inline-flex;
+            align-items: center;
+            gap: 3rem;
+        }
+        .strip-item::after {
+            content: '✦';
+            color: var(--rose);
+            font-style: normal;
+            font-size: 0.9rem;
+        }
+        @keyframes scroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        /* ============================================
+           SECTION BASE
+           ============================================ */
+        section { padding: clamp(5rem, 10vw, 9rem) 0; position: relative; }
+
+        .section-head {
+            display: grid;
+            grid-template-columns: 1fr 1.4fr;
+            gap: 4rem;
+            margin-bottom: clamp(3rem, 6vw, 5rem);
+            align-items: end;
+        }
+        @media (max-width: 800px) {
+            .section-head { grid-template-columns: 1fr; gap: 1.5rem; }
+        }
+        .section-head-left .label { margin-bottom: 1.5rem; }
+        .section-title {
+            font-size: var(--text-2xl);
+            font-weight: 400;
+            line-height: 1;
+            letter-spacing: -0.025em;
+        }
+        .section-title em { color: var(--rose-deep); }
+        .section-head-right {
+            font-size: var(--text-lg);
+            font-weight: 300;
+            line-height: 1.55;
+            color: var(--espresso-soft);
+            max-width: 560px;
+            padding-bottom: 0.6rem;
+        }
+
+        /* ============================================
+           SERVICES / PRICES
+           ============================================ */
+        .services { background: var(--cream); }
+        .price-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0;
+            border-top: 1px solid rgba(42, 31, 26, 0.15);
+        }
+        @media (max-width: 760px) {
+            .price-grid { grid-template-columns: 1fr; }
+        }
+        .price-row {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 1.5rem;
+            align-items: baseline;
+            padding: 1.8rem 2rem;
+            border-bottom: 1px solid rgba(42, 31, 26, 0.15);
+            position: relative;
+            transition: background 0.4s var(--ease-out-quart);
+            cursor: default;
+        }
+        .price-row:nth-child(odd) { border-right: 1px solid rgba(42, 31, 26, 0.15); }
+        @media (max-width: 760px) {
+            .price-row:nth-child(odd) { border-right: none; }
+        }
+        .price-row:hover { background: var(--cream-warm); }
+        .price-row:hover .price-num { color: var(--rose-deep); }
+        .price-num {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-weight: 300;
+            font-size: 0.95rem;
+            color: var(--taupe);
+            min-width: 30px;
+            transition: color 0.3s;
+        }
+        .price-info { display: flex; flex-direction: column; gap: 0.3rem; }
+        .price-name {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 400;
+            line-height: 1.15;
+            letter-spacing: -0.01em;
+        }
+        .price-desc {
+            font-size: 0.85rem;
+            color: var(--taupe);
+            font-weight: 300;
+            line-height: 1.5;
+        }
+        .price-amount {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: var(--espresso);
+            white-space: nowrap;
+        }
+        .price-amount em {
+            font-size: 0.78rem;
+            font-style: normal;
+            font-weight: 300;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--taupe);
+            display: block;
+            margin-bottom: 0.1rem;
+            font-family: var(--font-body);
+        }
+        .price-foot {
+            margin-top: 2.5rem;
+            padding-top: 2.5rem;
+            border-top: 1px solid rgba(42, 31, 26, 0.15);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .price-foot-note {
+            font-style: italic;
+            font-family: var(--font-display);
+            font-weight: 300;
+            color: var(--mocha);
+            font-size: 1.05rem;
+            max-width: 540px;
+        }
+
+        /* ============================================
+           GALLERY
+           ============================================ */
+        .gallery { background: var(--cream-light); }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1.25rem;
+        }
+        .gallery-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 2px;
+            cursor: pointer;
+            background: var(--espresso);
+            min-height: 280px;
+        }
+        .gallery-card .bg {
+            position: absolute;
+            inset: 0;
+            transition: transform 0.9s var(--ease-out-quart), filter 0.6s;
+        }
+        .gallery-card:hover .bg { transform: scale(1.06); filter: brightness(0.7); }
+        .gallery-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 50%, rgba(28, 20, 15, 0.65) 100%);
+        }
+        .gallery-card .meta {
+            position: absolute;
+            bottom: 1.2rem;
+            left: 1.4rem;
+            right: 1.4rem;
+            z-index: 2;
+            color: var(--cream);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 1rem;
+        }
+        .gallery-card .meta-name {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-weight: 300;
+            font-size: 1.45rem;
+            line-height: 1.1;
+            letter-spacing: -0.01em;
+        }
+        .gallery-card .meta-num {
+            font-size: 0.72rem;
+            letter-spacing: 0.22em;
+            font-weight: 500;
+            opacity: 0.7;
+        }
+        .gallery-card .reveal {
+            position: absolute;
+            top: 1.4rem;
+            left: 1.4rem;
+            z-index: 2;
+            font-size: 0.72rem;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+            color: var(--rose);
+            font-weight: 500;
+            opacity: 0;
+            transform: translateY(-8px);
+            transition: all 0.4s var(--ease-out-quart);
+        }
+        .gallery-card:hover .reveal { opacity: 1; transform: translateY(0); }
+
+        /* card sizing */
+        .gc-1 { grid-column: span 5; grid-row: span 2; min-height: 480px; }
+        .gc-2 { grid-column: span 4; min-height: 260px; }
+        .gc-3 { grid-column: span 3; min-height: 260px; }
+        .gc-4 { grid-column: span 4; min-height: 260px; }
+        .gc-5 { grid-column: span 3; min-height: 260px; }
+        .gc-6 { grid-column: span 3; grid-row: span 2; min-height: 540px; }
+        .gc-7 { grid-column: span 3; min-height: 240px; }
+        .gc-8 { grid-column: span 3; min-height: 240px; }
+        .gc-9 { grid-column: span 3; min-height: 240px; }
+
+        @media (max-width: 900px) {
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            .gc-1, .gc-2, .gc-3, .gc-4, .gc-5, .gc-6, .gc-7, .gc-8, .gc-9 {
+                grid-column: span 1;
+                grid-row: auto;
+                min-height: 280px;
+            }
+            .gc-1 { grid-column: span 2; min-height: 380px; }
+        }
+
+        /* ============================================
+           ABOUT ARILD
+           ============================================ */
+        .about {
+            background: var(--espresso);
+            color: var(--cream);
+        }
+        .about .label { color: var(--rose); }
+        .about .label::before { background: var(--rose); }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 5rem;
+            align-items: center;
+        }
+        @media (max-width: 900px) {
+            .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+        }
+        .about-portrait {
+            aspect-ratio: 4/5;
+            border-radius: 2px;
+            background:
+                radial-gradient(ellipse at 50% 30%, rgba(242, 234, 224, 0.18), transparent 55%),
+                linear-gradient(170deg, #5C463A 0%, #3D2E26 50%, #1C140F 100%);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 30px 70px -25px rgba(0, 0, 0, 0.6);
+        }
+        .about-portrait::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 30% 70%, rgba(201, 156, 146, 0.22), transparent 55%);
+        }
+        .about-portrait .tag {
+            position: absolute;
+            bottom: 1.4rem;
+            left: 1.4rem;
+            right: 1.4rem;
+            z-index: 2;
+            font-family: var(--font-display);
+            font-style: italic;
+            font-weight: 300;
+            font-size: 0.95rem;
+            color: var(--cream);
+            opacity: 0.85;
+        }
+        .about-portrait .tag::before {
+            content: '';
+            display: block;
+            width: 24px; height: 1px;
+            background: var(--rose);
+            margin-bottom: 0.7rem;
+        }
+        .about-title {
+            font-size: var(--text-2xl);
+            font-weight: 400;
+            line-height: 1;
+            letter-spacing: -0.025em;
+            margin-bottom: 2rem;
+            color: var(--cream);
+        }
+        .about-title em { color: var(--rose); }
+        .about-text {
+            font-size: var(--text-lg);
+            line-height: 1.65;
+            font-weight: 300;
+            color: rgba(242, 234, 224, 0.82);
+            margin-bottom: 1.5rem;
+        }
+        .about-text:last-of-type { margin-bottom: 2.5rem; }
+        .about-sig {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-weight: 400;
+            font-size: 2rem;
+            color: var(--rose);
+            line-height: 1;
+        }
+        .about-sig small {
+            display: block;
+            font-family: var(--font-body);
+            font-size: 0.72rem;
+            font-style: normal;
+            letter-spacing: 0.28em;
+            color: var(--taupe);
+            text-transform: uppercase;
+            margin-top: 0.6rem;
+            font-weight: 500;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 3.5rem;
+            border-top: 1px solid rgba(242, 234, 224, 0.15);
+            padding-top: 2.5rem;
+        }
+        .about-stat-num {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 400;
+            line-height: 1;
+            color: var(--cream);
+            letter-spacing: -0.03em;
+        }
+        .about-stat-num em { color: var(--rose); font-weight: 300; }
+        .about-stat-lab {
+            font-size: 0.72rem;
+            letter-spacing: 0.26em;
+            text-transform: uppercase;
+            color: var(--taupe);
+            margin-top: 0.6rem;
+            font-weight: 500;
+        }
+
+        /* ============================================
+           REVIEWS
+           ============================================ */
+        .reviews { background: var(--cream-warm); }
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+        @media (max-width: 760px) { .reviews-grid { grid-template-columns: 1fr; } }
+        .review {
+            background: var(--cream-light);
+            padding: 2.5rem 2.2rem;
+            border-radius: 2px;
+            border: 1px solid rgba(42, 31, 26, 0.08);
+            position: relative;
+            transition: all 0.4s var(--ease-out-quart);
+        }
+        .review:hover {
+            border-color: var(--rose);
+            transform: translateY(-3px);
+            box-shadow: 0 22px 50px -28px rgba(42, 31, 26, 0.3);
+        }
+        .review-stars {
+            color: var(--rose-deep);
+            letter-spacing: 0.1em;
+            margin-bottom: 1.3rem;
+            font-size: 0.95rem;
+        }
+        .review-quote {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-weight: 300;
+            font-size: 1.3rem;
+            line-height: 1.45;
+            letter-spacing: -0.005em;
+            color: var(--espresso);
+            margin-bottom: 1.6rem;
+        }
+        .review-quote::before {
+            content: '"';
+            font-size: 2.5rem;
+            color: var(--rose-deep);
+            line-height: 0.5;
+            margin-right: 0.1rem;
+            vertical-align: -0.2em;
+        }
+        .review-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(42, 31, 26, 0.12);
+        }
+        .review-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--rose-soft), var(--rose-deep));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--cream);
+            font-family: var(--font-display);
+            font-weight: 500;
+            font-size: 1.05rem;
+        }
+        .review-by { display: flex; flex-direction: column; }
+        .review-name {
+            font-weight: 500;
+            color: var(--espresso);
+            font-size: 0.95rem;
+        }
+        .review-where {
+            font-size: 0.78rem;
+            color: var(--taupe);
+            letter-spacing: 0.06em;
+        }
+
+        /* ============================================
+           BOOKING
+           ============================================ */
+        .booking { background: var(--cream); }
+        .booking-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+            align-items: start;
+        }
+        @media (max-width: 900px) {
+            .booking-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+        }
+        .booking-side .label { margin-bottom: 1.5rem; }
+        .booking-side h2 {
+            font-size: var(--text-2xl);
+            font-weight: 400;
+            line-height: 1;
+            letter-spacing: -0.025em;
+            margin-bottom: 1.8rem;
+        }
+        .booking-side h2 em { color: var(--rose-deep); }
+        .booking-side p {
+            font-size: var(--text-lg);
+            font-weight: 300;
+            line-height: 1.55;
+            color: var(--espresso-soft);
+            margin-bottom: 2.5rem;
+        }
+        .booking-call {
+            border-top: 1px solid rgba(42, 31, 26, 0.18);
+            padding-top: 2rem;
+        }
+        .booking-call-lab {
+            font-size: 0.72rem;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            font-weight: 500;
+            color: var(--taupe);
+            margin-bottom: 0.7rem;
+        }
+        .booking-call-num {
+            font-family: var(--font-display);
+            font-size: 2.4rem;
+            font-weight: 400;
+            color: var(--espresso);
+            letter-spacing: -0.01em;
+            transition: color 0.3s;
+            display: inline-block;
+        }
+        .booking-call-num:hover { color: var(--rose-deep); }
+
+        .form {
+            background: var(--paper);
+            padding: clamp(2rem, 4vw, 3rem);
+            border: 1px solid rgba(42, 31, 26, 0.1);
+            border-radius: 2px;
+            box-shadow: 0 30px 70px -40px rgba(42, 31, 26, 0.25);
+        }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+        @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
+        .field { margin-bottom: 1.3rem; display: flex; flex-direction: column; gap: 0.5rem; }
+        .field label {
+            font-size: 0.7rem;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+            font-weight: 500;
+            color: var(--mocha);
+        }
+        .field input, .field select {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            padding: 0.9rem 1rem;
+            background: var(--cream-light);
+            border: 1px solid rgba(42, 31, 26, 0.12);
+            color: var(--espresso);
+            border-radius: 1px;
+            outline: none;
+            transition: all 0.3s;
+        }
+        .field input:focus, .field select:focus {
+            border-color: var(--rose-deep);
+            background: var(--paper);
+        }
+        .form-submit {
+            width: 100%;
+            padding: 1.2rem;
+            background: var(--espresso);
+            color: var(--cream);
+            font-family: var(--font-body);
+            font-size: 0.86rem;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s var(--ease-out-quart);
+            border-radius: 1px;
+            margin-top: 0.6rem;
+        }
+        .form-submit:hover { background: var(--rose-deep); transform: translateY(-2px); }
+        .form-note {
+            font-size: 0.78rem;
+            color: var(--taupe);
+            margin-top: 1rem;
+            font-style: italic;
+            font-family: var(--font-display);
+            font-weight: 300;
+            text-align: center;
+        }
+
+        /* ============================================
+           CONTACT + HOURS
+           ============================================ */
+        .contact { background: var(--cream-light); border-top: 1px solid rgba(42, 31, 26, 0.08); }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1.2fr;
+            gap: 3rem;
+            align-items: start;
+        }
+        @media (max-width: 900px) {
+            .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+        }
+        .contact-block h3 {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-weight: 300;
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+            color: var(--espresso);
+        }
+        .contact-block p, .contact-block a {
+            font-size: 1.02rem;
+            line-height: 1.7;
+            color: var(--espresso-soft);
+            font-weight: 300;
+        }
+        .contact-block a:hover { color: var(--rose-deep); }
+        .hours-list { list-style: none; }
+        .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.55rem 0;
+            border-bottom: 1px dashed rgba(42, 31, 26, 0.13);
+            font-size: 0.98rem;
+            color: var(--espresso-soft);
+            font-weight: 300;
+        }
+        .hours-list li:last-child { border-bottom: none; }
+        .hours-list .day { font-weight: 500; color: var(--espresso); letter-spacing: 0.03em; }
+        .hours-list .closed { color: var(--taupe); font-style: italic; font-family: var(--font-display); }
+
+        .map {
+            aspect-ratio: 4/3;
+            border-radius: 2px;
+            background:
+                linear-gradient(180deg, rgba(242, 234, 224, 0.3), transparent 30%),
+                repeating-linear-gradient(0deg, rgba(42, 31, 26, 0.04) 0px, rgba(42, 31, 26, 0.04) 1px, transparent 1px, transparent 32px),
+                repeating-linear-gradient(90deg, rgba(42, 31, 26, 0.04) 0px, rgba(42, 31, 26, 0.04) 1px, transparent 1px, transparent 32px),
+                linear-gradient(135deg, #EADFCF 0%, #DCCEBA 100%);
+            position: relative;
+            border: 1px solid rgba(42, 31, 26, 0.1);
+            overflow: hidden;
+        }
+        .map::before {
+            content: '';
+            position: absolute;
+            top: 38%;
+            left: 0; right: 0;
+            height: 3px;
+            background: var(--rose);
+            opacity: 0.5;
+            transform: rotate(-8deg);
+        }
+        .map::after {
+            content: '';
+            position: absolute;
+            top: 60%;
+            left: 0; right: 0;
+            height: 5px;
+            background: var(--mocha);
+            opacity: 0.4;
+            transform: rotate(12deg);
+        }
+        .map-pin {
+            position: absolute;
+            top: 50%;
+            left: 55%;
+            transform: translate(-50%, -100%);
+            z-index: 2;
+        }
+        .map-pin-dot {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--espresso);
+            border: 3px solid var(--cream);
+            box-shadow: 0 4px 12px rgba(42, 31, 26, 0.4);
+        }
+        .map-pin-pulse {
+            position: absolute;
+            top: 8px; left: 8px;
+            width: 16px; height: 16px;
+            border-radius: 50%;
+            background: var(--rose-deep);
+            transform: translate(-50%, -50%);
+            animation: ping 2.2s infinite;
+        }
+        @keyframes ping {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
+            100% { transform: translate(-50%, -50%) scale(4); opacity: 0; }
+        }
+        .map-label {
+            position: absolute;
+            bottom: 1rem;
+            left: 1rem;
+            background: var(--cream-light);
+            padding: 0.6rem 1rem;
+            border-radius: 1px;
+            font-size: 0.78rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            color: var(--espresso);
+            border: 1px solid rgba(42, 31, 26, 0.12);
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        .footer {
+            background: var(--espresso-deep);
+            color: var(--cream);
+            padding: 3.5rem 0 2rem;
+        }
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid rgba(242, 234, 224, 0.12);
+        }
+        .footer-logo {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+        }
+        .footer-logo em { font-style: italic; font-weight: 300; color: var(--rose); }
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            font-size: 0.86rem;
+            letter-spacing: 0.06em;
+        }
+        .footer-links a { color: rgba(242, 234, 224, 0.75); transition: color 0.3s; }
+        .footer-links a:hover { color: var(--rose); }
+        .footer-bottom {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+            font-size: 0.78rem;
+            color: rgba(242, 234, 224, 0.55);
+            letter-spacing: 0.08em;
+        }
+
+        /* ============================================
+           REVEAL ANIMATIONS
+           ============================================ */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.9s var(--ease-out-quart), transform 0.9s var(--ease-out-quart);
+        }
+        .reveal-up.in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-up.delay-1 { transition-delay: 0.1s; }
+        .reveal-up.delay-2 { transition-delay: 0.2s; }
+        .reveal-up.delay-3 { transition-delay: 0.3s; }
+    </style>
+</head>
+<body>
+
+    <!-- ============================== NAV ============================== -->
+    <nav class="nav" id="nav">
+        <div class="container nav-inner">
+            <a href="#" class="nav-logo">Arilds <em>Frisør</em></a>
+            <ul class="nav-links">
+                <li><a href="#tjenester">Tjenester</a></li>
+                <li><a href="#galleri">Galleri</a></li>
+                <li><a href="#arild">Om Arild</a></li>
+                <li><a href="#anmeldelser">Anmeldelser</a></li>
+                <li><a href="#kontakt">Kontakt</a></li>
+            </ul>
+            <a href="#bestill" class="nav-cta">
+                <span class="nav-cta-dot"></span>
+                Bestill time
+            </a>
+        </div>
+    </nav>
+
+    <!-- ============================== HERO ============================== -->
+    <header class="hero">
+        <div class="container">
+            <div class="hero-inner">
+                <div>
+                    <div class="hero-label label reveal-up in">Sandnes — Siden 1992</div>
+                    <h1 class="hero-title reveal-up in delay-1">
+                        <span class="line">Arilds</span>
+                        <span class="line"><em>Frisør</em>.</span>
+                    </h1>
+                    <p class="hero-sub reveal-up in delay-2">
+                        <strong>Godt håndverk og ærlige råd.</strong> Klipp, farge og hårpleie i Sandnes i over tretti år. Ingen drama, ingen pakketilbud — bare hår som passer deg.
+                    </p>
+                    <div class="hero-actions reveal-up in delay-3">
+                        <a href="#bestill" class="btn-primary">
+                            Bestill time
+                            <svg width="16" height="11" viewBox="0 0 16 11" fill="none"><path d="M1 5.5h13.5M10 1l4.5 4.5L10 10" stroke="currentColor" stroke-width="1.4" stroke-linecap="square"/></svg>
+                        </a>
+                        <a href="tel:+4751665965" class="btn-ghost">
+                            Ring 51 66 59 65
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-portrait reveal-up in delay-2">
+                    <div class="hero-portrait-tag">
+                        Ekte håndverk.<br>Ekte mennesker.<br>I Gjesdalveien 18.
+                    </div>
+                </div>
+            </div>
+            <div class="hero-meta">
+                <div class="hero-meta-inner">
+                    <div class="hero-meta-item">
+                        <span class="hero-meta-key">Adresse</span>
+                        <span class="hero-meta-val">Gjesdalveien 18, Sandnes</span>
+                    </div>
+                    <div class="hero-meta-item">
+                        <span class="hero-meta-key">Telefon</span>
+                        <span class="hero-meta-val"><a href="tel:+4751665965">51 66 59 65</a></span>
+                    </div>
+                    <div class="hero-meta-item">
+                        <span class="hero-meta-key">Åpent i dag</span>
+                        <span class="hero-meta-val">09 — 18</span>
+                    </div>
+                    <div class="hero-meta-item">
+                        <span class="hero-meta-key">Etablert</span>
+                        <span class="hero-meta-val"><em class="italic">Nittentonitti</em></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============================== MARQUEE ============================== -->
+    <div class="strip" aria-hidden="true">
+        <div class="strip-track">
+            <span class="strip-item">Klipp</span>
+            <span class="strip-item">Farging</span>
+            <span class="strip-item">Striper</span>
+            <span class="strip-item">Brudefrisyrer</span>
+            <span class="strip-item">Hårpleie</span>
+            <span class="strip-item">Pensjonisttirsdager</span>
+            <span class="strip-item">Klipp</span>
+            <span class="strip-item">Farging</span>
+            <span class="strip-item">Striper</span>
+            <span class="strip-item">Brudefrisyrer</span>
+            <span class="strip-item">Hårpleie</span>
+            <span class="strip-item">Pensjonisttirsdager</span>
+        </div>
+    </div>
+
+    <!-- ============================== SERVICES ============================== -->
+    <section class="services" id="tjenester">
+        <div class="container">
+            <div class="section-head">
+                <div class="section-head-left reveal-up">
+                    <div class="label">Tjenester</div>
+                    <h2 class="section-title">Prisliste<br><em>uten knep.</em></h2>
+                </div>
+                <p class="section-head-right reveal-up delay-1">
+                    Faste priser. Ingen skjulte tillegg. Spesielle ønsker eller spesielt langt hår avtales i forkant — ærlig pris før klippen begynner.
+                </p>
+            </div>
+            <div class="price-grid reveal-up">
+                <div class="price-row">
+                    <span class="price-num">01</span>
+                    <div class="price-info">
+                        <span class="price-name">Dameklipp</span>
+                        <span class="price-desc">Konsultasjon, vask, klipp og styling.</span>
+                    </div>
+                    <span class="price-amount"><em>fra</em>kr 595</span>
+                </div>
+                <div class="price-row">
+                    <span class="price-num">02</span>
+                    <div class="price-info">
+                        <span class="price-name">Herreklipp</span>
+                        <span class="price-desc">Saks eller maskin. Inkluderer nakke og kanter.</span>
+                    </div>
+                    <span class="price-amount"><em>fra</em>kr 395</span>
+                </div>
+                <div class="price-row">
+                    <span class="price-num">03</span>
+                    <div class="price-info">
+                        <span class="price-name">Barneklipp</span>
+                        <span class="price-desc">Under 12 år. Rolig og uten stress.</span>
+                    </div>
+                    <span class="price-amount"><em>fra</em>kr 295</span>
+                </div>
+                <div class="price-row">
+                    <span class="price-num">04</span>
+                    <div class="price-info">
+                        <span class="price-name">Farging</span>
+                        <span class="price-desc">Helfarge, rotfarge eller ny tone. Pleieprodukter inkl.</span>
+                    </div>
+                    <span class="price-amount"><em>fra</em>kr 1 295</span>
+                </div>
+                <div class="price-row">
+                    <span class="price-num">05</span>
+                    <div class="price-info">
+                        <span class="price-name">Striper / foiles</span>
+                        <span class="price-desc">Slør, balayage eller klassisk folie.</span>
+                    </div>
+                    <span class="price-amount"><em>fra</em>kr 1 495</span>
+                </div>
+                <div class="price-row">
+                    <span class="price-num">06</span>
+                    <div class="price-info">
+                        <span class="price-name">Hårpleie-behandling</span>
+                        <span class="price-desc">Dyptpleie, Olaplex eller proteinkur.</span>
+                    </div>
+                    <span class="price-amount"><em>fra</em>kr 495</span>
+                </div>
+                <div class="price-row">
+                    <span class="price-num">07</span>
+                    <div class="price-info">
+                        <span class="price-name">Brudefrisyre</span>
+                        <span class="price-desc">Prøvetime og selve dagen. Med eller uten makeup-partner.</span>
+                    </div>
+                    <span class="price-amount"><em>etter</em>avtale</span>
+                </div>
+                <div class="price-row">
+                    <span class="price-num">08</span>
+                    <div class="price-info">
+                        <span class="price-name">Pensjonistklipp</span>
+                        <span class="price-desc">Hver tirsdag. Tar god tid, koster mindre.</span>
+                    </div>
+                    <span class="price-amount"><em>tirsdager</em>kr 395</span>
+                </div>
+            </div>
+            <div class="price-foot reveal-up">
+                <p class="price-foot-note">«Prisen skal aldri overraske noen i kassa. Det er det første jeg lærte.»</p>
+                <a href="#bestill" class="btn-ghost">Sett av tid →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== GALLERY ============================== -->
+    <section class="gallery" id="galleri">
+        <div class="container">
+            <div class="section-head">
+                <div class="section-head-left reveal-up">
+                    <div class="label">Galleri</div>
+                    <h2 class="section-title">Farger fra<br><em>stolen.</em></h2>
+                </div>
+                <p class="section-head-right reveal-up delay-1">
+                    Et lite utvalg av tonene som har gått gjennom salongen den siste tiden. Vil du ha noe liknende? Ta med et bilde — eller bare la oss bli enige underveis.
+                </p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-card gc-1 reveal-up">
+                    <div class="bg" style="background: var(--hair-sjokolade);"></div>
+                    <span class="reveal">Signatur</span>
+                    <div class="meta">
+                        <span class="meta-name">Mørk Sjokolade</span>
+                        <span class="meta-num">№ 01</span>
+                    </div>
+                </div>
+                <div class="gallery-card gc-2 reveal-up delay-1">
+                    <div class="bg" style="background: var(--hair-kobber);"></div>
+                    <span class="reveal">Glødende</span>
+                    <div class="meta">
+                        <span class="meta-name">Kobber</span>
+                        <span class="meta-num">№ 02</span>
+                    </div>
+                </div>
+                <div class="gallery-card gc-3 reveal-up delay-2">
+                    <div class="bg" style="background: var(--hair-platina);"></div>
+                    <span class="reveal">Kjølig</span>
+                    <div class="meta">
+                        <span class="meta-name">Platina</span>
+                        <span class="meta-num">№ 03</span>
+                    </div>
+                </div>
+                <div class="gallery-card gc-4 reveal-up">
+                    <div class="bg" style="background: var(--hair-karamell);"></div>
+                    <span class="reveal">Varm</span>
+                    <div class="meta">
+                        <span class="meta-name">Karamell</span>
+                        <span class="meta-num">№ 04</span>
+                    </div>
+                </div>
+                <div class="gallery-card gc-5 reveal-up delay-1">
+                    <div class="bg" style="background: var(--hair-asketone);"></div>
+                    <span class="reveal">Diskré</span>
+                    <div class="meta">
+                        <span class="meta-name">Asketone</span>
+                        <span class="meta-num">№ 05</span>
+                    </div>
+                </div>
+                <div class="gallery-card gc-6 reveal-up delay-2">
+                    <div class="bg" style="background: var(--hair-naturell);"></div>
+                    <span class="reveal">Egen</span>
+                    <div class="meta">
+                        <span class="meta-name">Naturell</span>
+                        <span class="meta-num">№ 06</span>
+                    </div>
+                </div>
+                <div class="gallery-card gc-7 reveal-up">
+                    <div class="bg" style="background: var(--hair-honning);"></div>
+                    <span class="reveal">Mykt</span>
+                    <div class="meta">
+                        <span class="meta-name">Honning</span>
+                        <span class="meta-num">№ 07</span>
+                    </div>
+                </div>
+                <div class="gallery-card gc-8 reveal-up delay-1">
+                    <div class="bg" style="background: var(--hair-rod);"></div>
+                    <span class="reveal">Dristig</span>
+                    <div class="meta">
+                        <span class="meta-name">Rødvin</span>
+                        <span class="meta-num">№ 08</span>
+                    </div>
+                </div>
+                <div class="gallery-card gc-9 reveal-up delay-2">
+                    <div class="bg" style="background: var(--hair-cool);"></div>
+                    <span class="reveal">Naturlig</span>
+                    <div class="meta">
+                        <span class="meta-name">Skygge</span>
+                        <span class="meta-num">№ 09</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== ABOUT ============================== -->
+    <section class="about" id="arild">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-portrait reveal-up">
+                    <div class="tag">Arild, en helt vanlig torsdag morgen.<br>Salongen åpner snart.</div>
+                </div>
+                <div>
+                    <div class="label reveal-up">Om Arild</div>
+                    <h2 class="about-title reveal-up delay-1">
+                        Klipt hår i Sandnes<br><em>siden nittenitto.</em>
+                    </h2>
+                    <p class="about-text reveal-up delay-2">
+                        Jeg åpna salongen i Gjesdalveien for over tretti år sia. Siden den gang har det vore mange tusen hovud i stolen — barn som no har egne barn, brudar som no har sølv i håret. Det er det fineste med jobben.
+                    </p>
+                    <p class="about-text reveal-up delay-2">
+                        Eg trur på godt håndverk og ærlige råd. Hvis ein farge ikkje passer, så seier eg det. Hvis håret treng kvile, så seier eg det òg. Klippen skal vere lett å stelle — kvardagsfrisyre, ikkje motebilde.
+                    </p>
+                    <div class="about-sig reveal-up delay-3">
+                        Arild
+                        <small>Eigar &amp; frisør</small>
+                    </div>
+                    <div class="about-stats reveal-up delay-3">
+                        <div>
+                            <div class="about-stat-num">30<em>+</em></div>
+                            <div class="about-stat-lab">År bak stolen</div>
+                        </div>
+                        <div>
+                            <div class="about-stat-num">∞</div>
+                            <div class="about-stat-lab">Faste kundar</div>
+                        </div>
+                        <div>
+                            <div class="about-stat-num">1</div>
+                            <div class="about-stat-lab">Salong, ein frisør</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== REVIEWS ============================== -->
+    <section class="reviews" id="anmeldelser">
+        <div class="container">
+            <div class="section-head">
+                <div class="section-head-left reveal-up">
+                    <div class="label">Anmeldelser</div>
+                    <h2 class="section-title">Det kundane<br><em>seier sjølve.</em></h2>
+                </div>
+                <p class="section-head-right reveal-up delay-1">
+                    Ekte ord frå ekte folk i Sandnes-området. Vi ber aldri om anmeldelser — dei kjem fordi nokon ville sei det.
+                </p>
+            </div>
+            <div class="reviews-grid">
+                <article class="review reveal-up">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-quote">Arild gjev seg ikkje før klippen er som eg ville ha han. Han spør, han høyrer etter, og han seier ifrå viss eg har valt feil. Eg har gått der i tjue år no — det seier vel det meste.</p>
+                    <div class="review-meta">
+                        <div class="review-avatar">M</div>
+                        <div class="review-by">
+                            <span class="review-name">Marit Sletten</span>
+                            <span class="review-where">Sandnes — kunde sidan 2004</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="review reveal-up delay-1">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-quote">Beste fargen eg har hatt. Han brukte god tid, forklarte kvifor han gjorde dei vala han gjorde, og eg gjekk ut med eit hår som faktisk ser ut som meg — berre litt finare.</p>
+                    <div class="review-meta">
+                        <div class="review-avatar">L</div>
+                        <div class="review-by">
+                            <span class="review-name">Linn Haugland</span>
+                            <span class="review-where">Bryne</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="review reveal-up delay-2">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-quote">Eg er ein 47 år gammal mann som har gått hos Arild i ti år. Eg veit ikkje korleis ein vurderer hår — men eg trur ikkje eg har kommentert det ein gong. Det er bra teikn.</p>
+                    <div class="review-meta">
+                        <div class="review-avatar">S</div>
+                        <div class="review-by">
+                            <span class="review-name">Stian Berge</span>
+                            <span class="review-where">Sandnes sentrum</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="review reveal-up delay-3">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-quote">Han klipte håret mitt før bryllupet og ho gjorde det same for mor mi. Heile dagen vart roleg fordi vi visste at den delen sat. Tusen takk, Arild.</p>
+                    <div class="review-meta">
+                        <div class="review-avatar">I</div>
+                        <div class="review-by">
+                            <span class="review-name">Ingrid Tjelta</span>
+                            <span class="review-where">Klepp</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== BOOKING ============================== -->
+    <section class="booking" id="bestill">
+        <div class="container">
+            <div class="booking-grid">
+                <div class="booking-side">
+                    <div class="label reveal-up">Bestill time</div>
+                    <h2 class="reveal-up delay-1">Sett deg<br>i <em>stolen.</em></h2>
+                    <p class="reveal-up delay-2">
+                        Fyll inn skjemaet, så ringer eg deg tilbake same dag for å bekrefte. Treng du time i dag eller i morgon, er det fortast å ringe direkte.
+                    </p>
+                    <div class="booking-call reveal-up delay-3">
+                        <div class="booking-call-lab">Ring direkte</div>
+                        <a href="tel:+4751665965" class="booking-call-num">51 66 59 65</a>
+                    </div>
+                </div>
+                <form class="form reveal-up delay-1" onsubmit="event.preventDefault(); this.querySelector('.form-submit').textContent='Sendt — eg ringer deg tilbake'; this.querySelector('.form-submit').style.background='var(--rose-deep)';">
+                    <div class="form-row">
+                        <div class="field">
+                            <label for="navn">Navn</label>
+                            <input id="navn" type="text" placeholder="Ditt navn" required>
+                        </div>
+                        <div class="field">
+                            <label for="tlf">Telefon</label>
+                            <input id="tlf" type="tel" placeholder="+47" required>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label for="tjeneste">Tjeneste</label>
+                        <select id="tjeneste" required>
+                            <option>Dameklipp</option>
+                            <option>Herreklipp</option>
+                            <option>Barneklipp</option>
+                            <option>Farging</option>
+                            <option>Striper / foiles</option>
+                            <option>Hårpleie-behandling</option>
+                            <option>Brudefrisyre</option>
+                            <option>Pensjonistklipp (tirsdager)</option>
+                            <option>Annet — eg fortel når Arild ringer</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <div class="field">
+                            <label for="dato">Ønsket dato</label>
+                            <input id="dato" type="date" required>
+                        </div>
+                        <div class="field">
+                            <label for="tid">Tid på dagen</label>
+                            <select id="tid">
+                                <option>Formiddag (09–12)</option>
+                                <option>Lunsj (12–14)</option>
+                                <option>Ettermiddag (14–17)</option>
+                                <option>Slutten av dagen (17–18)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="form-submit">Send bestilling</button>
+                    <p class="form-note">Eg svarer alle bestillingar samme dag.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== CONTACT ============================== -->
+    <section class="contact" id="kontakt">
+        <div class="container">
+            <div class="section-head">
+                <div class="section-head-left reveal-up">
+                    <div class="label">Finn oss</div>
+                    <h2 class="section-title">Gjesdalveien <em>18.</em></h2>
+                </div>
+                <p class="section-head-right reveal-up delay-1">
+                    Midt i Sandnes, med god parkering rett utanfor døra. Buss 3 og 4 stopper to minutt unna.
+                </p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-block reveal-up">
+                    <h3>Adresse</h3>
+                    <p>Gjesdalveien 18<br>4306 Sandnes<br>Norge</p>
+                    <br>
+                    <h3>Kontakt</h3>
+                    <p>
+                        Telefon: <a href="tel:+4751665965">51 66 59 65</a><br>
+                        E-post: <a href="mailto:post@arildsfrisor.no">post@arildsfrisor.no</a>
+                    </p>
+                </div>
+                <div class="contact-block reveal-up delay-1">
+                    <h3>Åpningstider</h3>
+                    <ul class="hours-list">
+                        <li><span class="day">Mandag</span><span class="closed">Stengt</span></li>
+                        <li><span class="day">Tirsdag</span><span>09 — 18</span></li>
+                        <li><span class="day">Onsdag</span><span>09 — 18</span></li>
+                        <li><span class="day">Torsdag</span><span>09 — 18</span></li>
+                        <li><span class="day">Fredag</span><span>09 — 18</span></li>
+                        <li><span class="day">Lørdag</span><span>09 — 15</span></li>
+                        <li><span class="day">Søndag</span><span class="closed">Stengt</span></li>
+                    </ul>
+                </div>
+                <div class="map reveal-up delay-2">
+                    <div class="map-pin">
+                        <div class="map-pin-pulse"></div>
+                        <div class="map-pin-dot"></div>
+                    </div>
+                    <div class="map-label">Gjesdalveien 18 · Sandnes</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== FOOTER ============================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-logo">Arilds <em>Frisør</em></div>
+                <ul class="footer-links">
+                    <li><a href="#tjenester">Tjenester</a></li>
+                    <li><a href="#galleri">Galleri</a></li>
+                    <li><a href="#bestill">Bestill</a></li>
+                    <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+                </ul>
+            </div>
+            <div class="container footer-bottom">
+                <span>© Arilds Frisør · Gjesdalveien 18, 4306 Sandnes</span>
+                <span>Klipt hår i Sandnes sidan 1992</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sticky nav
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 40);
+        });
+
+        // Reveal on scroll
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('in');
+                    io.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.reveal-up:not(.in)').forEach(el => io.observe(el));
+
+        // Smooth scroll for nav
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', (e) => {
+                const target = document.querySelector(a.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

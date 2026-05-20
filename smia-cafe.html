@@ -1,0 +1,2631 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smiå Café — om morgenen, og om kvelden | Bryne</title>
+    <meta name="description" content="Smiå er kafé og bakeri om morgenen, og bistro om kvelden. Surdeig, kaffe, og candlelit kveldsmat midt i Bryne sentrum.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='42' fill='%233D2718'/><path d='M30 55 Q50 30 70 55 Q70 70 50 70 Q30 70 30 55Z' fill='%23D9A93C'/><circle cx='42' cy='52' r='2.5' fill='%233D2718'/><circle cx='58' cy='52' r='2.5' fill='%233D2718'/><circle cx='50' cy='60' r='2.5' fill='%233D2718'/></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================
+           SMIÅ CAFÉ — Design System
+           Bakery by Day × Bistro by Night
+           ============================================ */
+
+        :root {
+            /* Day palette — warm sourdough morning */
+            --cream: #F4ECE0;
+            --cream-light: #FAF4EA;
+            --cream-deep: #ECE0CD;
+            --paper: #FBF6EC;
+
+            --amber: #A87739;
+            --amber-deep: #8A5E2A;
+            --amber-soft: #C99A5E;
+
+            --brown: #3D2718;
+            --brown-deep: #2A1A10;
+            --brown-warm: #5C3E27;
+
+            --gold: #D9A93C;
+            --gold-soft: #E8C275;
+            --gold-deep: #B88A24;
+
+            /* Night palette — candlelit evening */
+            --night: #1A130C;
+            --night-deep: #0F0A06;
+            --night-soft: #2A1F15;
+            --night-warm: #3A2A1C;
+
+            --ink: #2A1A10;
+            --muted: #6B5747;
+            --whisper: #9C8870;
+
+            --line: rgba(61, 39, 24, 0.14);
+            --line-soft: rgba(61, 39, 24, 0.07);
+            --line-night: rgba(217, 169, 60, 0.18);
+
+            --font-display: 'Fraunces', 'Times New Roman', serif;
+            --font-body: 'Outfit', system-ui, -apple-system, sans-serif;
+
+            --text-xs: clamp(0.7rem, 0.65rem + 0.2vw, 0.8rem);
+            --text-sm: clamp(0.85rem, 0.8rem + 0.25vw, 0.95rem);
+            --text-base: clamp(0.98rem, 0.92rem + 0.28vw, 1.12rem);
+            --text-lg: clamp(1.15rem, 1.05rem + 0.5vw, 1.4rem);
+            --text-xl: clamp(1.6rem, 1.2rem + 1.6vw, 2.5rem);
+            --text-2xl: clamp(2.2rem, 1.6rem + 2.8vw, 4rem);
+            --text-3xl: clamp(2.8rem, 2rem + 4.2vw, 5.8rem);
+            --text-hero: clamp(3.2rem, 2rem + 6vw, 8.5rem);
+
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+            --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+            --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-weight: 400;
+            color: var(--ink);
+            background-color: var(--cream);
+            line-height: 1.7;
+            overflow-x: hidden;
+            font-size: var(--text-base);
+        }
+
+        img { max-width: 100%; display: block; }
+        a { color: inherit; text-decoration: none; }
+
+        ::selection {
+            background: var(--amber);
+            color: var(--cream-light);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 clamp(1.4rem, 4vw, 3rem);
+        }
+
+        .container-narrow {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 0 clamp(1.4rem, 4vw, 3rem);
+        }
+
+        /* ---- Labels & section heads ---- */
+        .label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-family: var(--font-body);
+            font-size: 0.72rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.28em;
+            color: var(--amber);
+        }
+
+        .label::before {
+            content: '';
+            width: 28px;
+            height: 1px;
+            background: var(--amber);
+        }
+
+        .label-night {
+            color: var(--gold-soft);
+        }
+        .label-night::before { background: var(--gold-soft); }
+
+        .display {
+            font-family: var(--font-display);
+            font-weight: 400;
+            line-height: 1.04;
+            letter-spacing: -0.02em;
+            font-variation-settings: "opsz" 144, "SOFT" 50;
+            color: var(--brown);
+        }
+
+        .display em {
+            font-style: italic;
+            font-weight: 400;
+            color: var(--amber-deep);
+        }
+
+        /* ---- Navigation ---- */
+        nav.top {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1.4rem 0;
+            transition: all 0.5s var(--ease-out-expo);
+            background: rgba(244, 236, 224, 0);
+        }
+        nav.top.scrolled {
+            background: rgba(244, 236, 224, 0.94);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--line-soft);
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            color: var(--brown);
+        }
+
+        .logo-mark {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: var(--brown);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.2rem;
+            align-items: center;
+            font-size: 0.92rem;
+            font-weight: 400;
+        }
+
+        .nav-links a {
+            color: var(--ink);
+            position: relative;
+            transition: color 0.3s;
+        }
+        .nav-links a:not(.cta)::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--amber);
+            transition: width 0.4s var(--ease-out-expo);
+        }
+        .nav-links a:not(.cta):hover::after { width: 100%; }
+
+        .cta {
+            background: var(--brown);
+            color: var(--cream-light) !important;
+            padding: 0.78rem 1.6rem;
+            border-radius: 2px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: all 0.35s var(--ease-soft);
+            border: 1px solid var(--brown);
+        }
+        .cta:hover {
+            background: var(--amber-deep);
+            border-color: var(--amber-deep);
+            transform: translateY(-1px);
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--brown);
+            font-size: 1.5rem;
+        }
+
+        @media (max-width: 880px) {
+            .nav-links { display: none; }
+            .nav-toggle { display: block; }
+        }
+
+        /* ============================================
+           HERO — Editorial dual-mode split
+           ============================================ */
+        .hero {
+            min-height: 100vh;
+            padding: 9rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.15fr 1fr;
+            gap: clamp(2rem, 5vw, 5rem);
+            align-items: center;
+        }
+
+        @media (max-width: 960px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .hero-eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 1.4rem;
+            margin-bottom: 2rem;
+            font-size: 0.78rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.22em;
+            color: var(--amber-deep);
+        }
+
+        .hero-eyebrow .dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--gold);
+            animation: pulse 2.4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.7; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.25); }
+        }
+
+        h1.hero-title {
+            font-family: var(--font-display);
+            font-size: var(--text-hero);
+            font-weight: 300;
+            line-height: 0.96;
+            letter-spacing: -0.035em;
+            color: var(--brown);
+            margin-bottom: 2.2rem;
+            font-variation-settings: "opsz" 144, "SOFT" 50;
+        }
+
+        h1.hero-title .line-2 {
+            display: block;
+            font-style: italic;
+            font-weight: 400;
+            color: var(--amber-deep);
+        }
+
+        h1.hero-title .ampersand {
+            font-style: italic;
+            color: var(--gold-deep);
+            font-weight: 300;
+            display: inline-block;
+            transform: translateY(-0.05em);
+            margin: 0 0.05em;
+        }
+
+        .hero-lede {
+            font-size: 1.1rem;
+            line-height: 1.75;
+            color: var(--brown-warm);
+            max-width: 480px;
+            margin-bottom: 2.4rem;
+            font-weight: 300;
+        }
+
+        .hero-cta-row {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .btn-primary {
+            background: var(--brown);
+            color: var(--cream-light);
+            padding: 1rem 2rem;
+            border: 1px solid var(--brown);
+            border-radius: 2px;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.4s var(--ease-out-expo);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        .btn-primary:hover {
+            background: var(--amber-deep);
+            border-color: var(--amber-deep);
+            transform: translateY(-2px);
+        }
+        .btn-primary svg {
+            transition: transform 0.4s var(--ease-out-expo);
+        }
+        .btn-primary:hover svg { transform: translateX(4px); }
+
+        .btn-ghost {
+            color: var(--brown);
+            padding: 1rem 1.6rem;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--brown);
+            transition: all 0.3s;
+        }
+        .btn-ghost:hover {
+            color: var(--amber-deep);
+            border-color: var(--amber-deep);
+        }
+
+        .hours-strip {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--line);
+            max-width: 480px;
+        }
+
+        .hours-block .label-small {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.22em;
+            color: var(--amber-deep);
+            margin-bottom: 0.4rem;
+            font-weight: 500;
+        }
+        .hours-block .time {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            color: var(--brown);
+            font-weight: 400;
+            letter-spacing: -0.01em;
+        }
+        .hours-block .days {
+            font-size: 0.85rem;
+            color: var(--muted);
+            margin-top: 0.2rem;
+        }
+
+        /* Hero visual — split day/night */
+        .hero-visual {
+            position: relative;
+            aspect-ratio: 4/5;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px -20px rgba(61, 39, 24, 0.25);
+        }
+
+        .hero-visual::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(135deg,
+                    #C99A5E 0%,
+                    #A87739 30%,
+                    #8A5E2A 50%,
+                    #3D2718 75%,
+                    #1A130C 100%);
+        }
+
+        .hero-visual::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 25% 30%, rgba(255, 220, 150, 0.35), transparent 45%),
+                radial-gradient(circle at 75% 75%, rgba(217, 169, 60, 0.18), transparent 50%);
+        }
+
+        .hero-label-day,
+        .hero-label-night {
+            position: absolute;
+            font-family: var(--font-display);
+            font-style: italic;
+            color: var(--cream-light);
+            font-size: 1.1rem;
+            font-weight: 400;
+            opacity: 0.92;
+            letter-spacing: 0.02em;
+            z-index: 2;
+        }
+
+        .hero-label-day {
+            top: 1.4rem;
+            left: 1.6rem;
+        }
+        .hero-label-day::before {
+            content: '☼';
+            display: block;
+            font-style: normal;
+            font-size: 1.3rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .hero-label-night {
+            bottom: 1.4rem;
+            right: 1.6rem;
+            text-align: right;
+            color: var(--gold-soft);
+        }
+        .hero-label-night::before {
+            content: '☾';
+            display: block;
+            font-style: normal;
+            font-size: 1.3rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .hero-visual .center-quote {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: var(--font-display);
+            font-style: italic;
+            font-weight: 300;
+            color: var(--cream-light);
+            font-size: clamp(1.4rem, 2.2vw, 2rem);
+            text-align: center;
+            line-height: 1.3;
+            letter-spacing: -0.01em;
+            z-index: 2;
+            max-width: 80%;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+        }
+
+        .hero-meta {
+            position: absolute;
+            bottom: -3rem;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.22em;
+            color: var(--muted);
+        }
+
+        /* ============================================
+           TWO WORLDS — Day vs Night split
+           ============================================ */
+        .two-worlds {
+            padding: clamp(6rem, 10vw, 10rem) 0;
+            background: var(--paper);
+            position: relative;
+        }
+
+        .section-intro {
+            text-align: center;
+            max-width: 720px;
+            margin: 0 auto clamp(4rem, 7vw, 6rem);
+        }
+
+        .section-intro .label {
+            margin-bottom: 1.8rem;
+        }
+        .section-intro .label::before,
+        .section-intro .label::after {
+            content: '';
+            width: 28px;
+            height: 1px;
+            background: var(--amber);
+        }
+
+        h2.section-title {
+            font-family: var(--font-display);
+            font-size: var(--text-2xl);
+            font-weight: 400;
+            line-height: 1.05;
+            letter-spacing: -0.025em;
+            color: var(--brown);
+            margin-bottom: 1.4rem;
+        }
+        h2.section-title em {
+            font-style: italic;
+            color: var(--amber-deep);
+        }
+
+        .section-lede {
+            font-size: 1.05rem;
+            color: var(--brown-warm);
+            line-height: 1.75;
+            font-weight: 300;
+        }
+
+        .worlds-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(1rem, 2.5vw, 2.5rem);
+            position: relative;
+        }
+        @media (max-width: 880px) {
+            .worlds-split {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .world {
+            padding: clamp(2rem, 4vw, 3.5rem);
+            border-radius: 4px;
+            position: relative;
+            transition: transform 0.6s var(--ease-out-expo);
+            min-height: 580px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .world-day {
+            background: linear-gradient(170deg, #FAF4EA 0%, #ECE0CD 100%);
+            color: var(--brown);
+            border: 1px solid var(--line-soft);
+        }
+
+        .world-night {
+            background: linear-gradient(170deg, #2A1F15 0%, #0F0A06 100%);
+            color: var(--cream-light);
+        }
+
+        .world:hover {
+            transform: translateY(-6px);
+        }
+
+        .world-img {
+            aspect-ratio: 16/10;
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .world-img.day {
+            background:
+                radial-gradient(circle at 30% 40%, rgba(217, 169, 60, 0.35), transparent 50%),
+                linear-gradient(135deg, #C99A5E 0%, #A87739 70%, #8A5E2A 100%);
+        }
+        .world-img.night {
+            background:
+                radial-gradient(circle at 70% 35%, rgba(217, 169, 60, 0.4), transparent 45%),
+                radial-gradient(circle at 25% 75%, rgba(232, 194, 117, 0.15), transparent 40%),
+                linear-gradient(135deg, #3A2A1C 0%, #1A130C 60%, #0F0A06 100%);
+        }
+        .world-img::after {
+            content: attr(data-icon);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            opacity: 0.85;
+        }
+
+        .world-eyebrow {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.28em;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+        .world-day .world-eyebrow { color: var(--amber-deep); }
+        .world-night .world-eyebrow { color: var(--gold-soft); }
+
+        h3.world-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            font-weight: 400;
+            line-height: 1.05;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+        }
+        .world-night h3.world-title { color: var(--gold-soft); }
+
+        .world-tagline {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 1.15rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            opacity: 0.85;
+        }
+        .world-day .world-tagline { color: var(--amber-deep); }
+
+        .world-text {
+            font-size: 0.98rem;
+            line-height: 1.75;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .world-list {
+            list-style: none;
+            margin-top: auto;
+        }
+        .world-list li {
+            padding: 0.7rem 0;
+            font-size: 0.92rem;
+            font-weight: 400;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 1rem;
+        }
+        .world-day .world-list li {
+            border-bottom: 1px solid var(--line-soft);
+        }
+        .world-night .world-list li {
+            border-bottom: 1px solid var(--line-night);
+        }
+        .world-list li:last-child { border-bottom: none; }
+
+        .world-list .item {
+            font-family: var(--font-display);
+            font-weight: 400;
+            font-style: italic;
+            font-size: 1.05rem;
+        }
+        .world-list .desc {
+            font-size: 0.82rem;
+            opacity: 0.7;
+            margin-top: 0.15rem;
+        }
+
+        /* Center divider */
+        .worlds-divider {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 56px;
+            height: 56px;
+            background: var(--paper);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 1.4rem;
+            color: var(--amber);
+            border: 1px solid var(--line);
+            z-index: 5;
+        }
+        @media (max-width: 880px) {
+            .worlds-divider { display: none; }
+        }
+
+        /* ============================================
+           SMIÅ BY NIGHT — Dedicated section
+           ============================================ */
+        .by-night {
+            background: linear-gradient(180deg, #0F0A06 0%, #1A130C 50%, #0F0A06 100%);
+            color: var(--cream-light);
+            padding: clamp(7rem, 12vw, 12rem) 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .by-night::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 280px;
+            background:
+                radial-gradient(ellipse at 50% 0%, rgba(217, 169, 60, 0.18), transparent 65%);
+            pointer-events: none;
+        }
+
+        .by-night::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background: radial-gradient(ellipse at 50% 100%, rgba(217, 169, 60, 0.08), transparent 60%);
+            pointer-events: none;
+        }
+
+        .by-night .label {
+            color: var(--gold-soft);
+        }
+        .by-night .label::before,
+        .by-night .label::after {
+            background: var(--gold-soft);
+        }
+
+        .night-hero {
+            text-align: center;
+            margin-bottom: clamp(4rem, 7vw, 6rem);
+            position: relative;
+            z-index: 2;
+        }
+
+        .night-title {
+            font-family: var(--font-display);
+            font-size: var(--text-3xl);
+            font-weight: 300;
+            line-height: 0.98;
+            letter-spacing: -0.035em;
+            margin: 1.8rem 0;
+            color: var(--cream-light);
+        }
+        .night-title em {
+            font-style: italic;
+            color: var(--gold-soft);
+            font-weight: 400;
+        }
+
+        .night-sub {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--gold-soft);
+            opacity: 0.88;
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .night-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: clamp(2.5rem, 5vw, 5rem);
+            align-items: start;
+            position: relative;
+            z-index: 2;
+        }
+        @media (max-width: 880px) {
+            .night-grid { grid-template-columns: 1fr; }
+        }
+
+        .chef-card {
+            position: relative;
+        }
+
+        .chef-img {
+            aspect-ratio: 3/4;
+            border-radius: 4px;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 50% 30%, rgba(217, 169, 60, 0.25), transparent 55%),
+                linear-gradient(160deg, #3A2A1C 0%, #1A130C 70%, #0F0A06 100%);
+            position: relative;
+            margin-bottom: 1.8rem;
+        }
+        .chef-img::after {
+            content: '✦';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            color: var(--gold-soft);
+            opacity: 0.45;
+        }
+
+        .chef-label {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.28em;
+            color: var(--gold-soft);
+            margin-bottom: 0.5rem;
+            opacity: 0.85;
+        }
+
+        .chef-name {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 1.5rem;
+            color: var(--cream-light);
+            font-weight: 400;
+            margin-bottom: 0.4rem;
+        }
+
+        .chef-quote {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 1rem;
+            color: var(--whisper);
+            line-height: 1.7;
+            font-weight: 300;
+            opacity: 0.85;
+        }
+
+        .menu-night {
+            display: flex;
+            flex-direction: column;
+            gap: 2.4rem;
+        }
+
+        .course {
+            border-top: 1px solid rgba(217, 169, 60, 0.22);
+            padding-top: 1.6rem;
+        }
+
+        .course-label {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: var(--gold-soft);
+            margin-bottom: 1.2rem;
+            font-weight: 500;
+        }
+
+        .course-items {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .course-item {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 1.4rem;
+            align-items: baseline;
+        }
+
+        .course-item .name {
+            font-family: var(--font-display);
+            font-size: 1.18rem;
+            font-weight: 400;
+            color: var(--cream-light);
+            font-style: italic;
+            line-height: 1.3;
+        }
+
+        .course-item .desc {
+            font-size: 0.85rem;
+            color: var(--whisper);
+            line-height: 1.55;
+            margin-top: 0.3rem;
+            font-weight: 300;
+        }
+
+        .course-item .price {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            color: var(--gold-soft);
+            font-weight: 400;
+            white-space: nowrap;
+        }
+
+        .night-footer {
+            text-align: center;
+            margin-top: clamp(3rem, 6vw, 5rem);
+            position: relative;
+            z-index: 2;
+        }
+
+        .night-cta {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--night);
+            padding: 1.1rem 2.4rem;
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 0.9rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            border-radius: 2px;
+            transition: all 0.4s var(--ease-out-expo);
+            border: 1px solid var(--gold);
+        }
+        .night-cta:hover {
+            background: var(--gold-soft);
+            border-color: var(--gold-soft);
+            transform: translateY(-2px);
+        }
+
+        .night-note {
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+            color: var(--whisper);
+            font-style: italic;
+            font-family: var(--font-display);
+        }
+
+        /* ============================================
+           DAGSMENY — Day menu
+           ============================================ */
+        .day-menu {
+            padding: clamp(6rem, 10vw, 10rem) 0;
+            background: var(--cream);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: clamp(3rem, 5vw, 5rem) clamp(3rem, 6vw, 6rem);
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 720px) {
+            .menu-grid { grid-template-columns: 1fr; }
+        }
+
+        .menu-category {
+            position: relative;
+        }
+
+        .menu-category-title {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--amber-deep);
+            margin-bottom: 0.4rem;
+            letter-spacing: -0.01em;
+        }
+
+        .menu-category-line {
+            width: 40px;
+            height: 1px;
+            background: var(--amber);
+            margin-bottom: 1.6rem;
+        }
+
+        .menu-item {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 1.4rem;
+            align-items: baseline;
+            padding: 1.1rem 0;
+            border-bottom: 1px solid var(--line-soft);
+        }
+        .menu-item:last-child { border-bottom: none; }
+
+        .menu-item .name {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: var(--brown);
+            letter-spacing: -0.005em;
+        }
+
+        .menu-item .desc {
+            font-size: 0.86rem;
+            color: var(--muted);
+            margin-top: 0.3rem;
+            line-height: 1.55;
+            font-weight: 300;
+        }
+
+        .menu-item .price {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            color: var(--amber-deep);
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .menu-note {
+            margin-top: 4rem;
+            text-align: center;
+            font-family: var(--font-display);
+            font-style: italic;
+            color: var(--brown-warm);
+            font-size: 1.1rem;
+            font-weight: 300;
+            line-height: 1.6;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ============================================
+           OM SMIÅ — Story
+           ============================================ */
+        .story {
+            padding: clamp(6rem, 10vw, 10rem) 0;
+            background: var(--paper);
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: clamp(3rem, 6vw, 6rem);
+            align-items: center;
+        }
+        @media (max-width: 880px) {
+            .story-grid { grid-template-columns: 1fr; }
+        }
+
+        .story-img {
+            aspect-ratio: 4/5;
+            border-radius: 4px;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 30% 35%, rgba(217, 169, 60, 0.28), transparent 55%),
+                linear-gradient(150deg, #C99A5E 0%, #A87739 60%, #5C3E27 100%);
+            position: relative;
+            box-shadow: 0 30px 60px -20px rgba(61, 39, 24, 0.2);
+        }
+        .story-img::after {
+            content: '✦';
+            position: absolute;
+            bottom: 1.6rem;
+            left: 1.6rem;
+            font-size: 1.5rem;
+            color: var(--cream-light);
+            opacity: 0.6;
+        }
+
+        .story-content h2 {
+            margin-top: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .story-content p {
+            margin-bottom: 1.4rem;
+            font-size: 1.02rem;
+            color: var(--brown-warm);
+            line-height: 1.85;
+            font-weight: 300;
+        }
+        .story-content p:first-of-type {
+            font-size: 1.18rem;
+            color: var(--brown);
+            font-weight: 400;
+            font-family: var(--font-display);
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        .story-signature {
+            margin-top: 2.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--line);
+        }
+
+        .signature-mark {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--brown);
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 1.4rem;
+        }
+
+        .signature-text {
+            font-family: var(--font-display);
+            font-style: italic;
+            color: var(--brown);
+            font-size: 1.05rem;
+            font-weight: 400;
+        }
+        .signature-text .role {
+            display: block;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.22em;
+            font-style: normal;
+            color: var(--amber-deep);
+            margin-top: 0.2rem;
+            font-family: var(--font-body);
+            font-weight: 500;
+        }
+
+        /* ============================================
+           GALLERI — Mosaic
+           ============================================ */
+        .gallery {
+            padding: clamp(6rem, 10vw, 10rem) 0;
+            background: var(--cream);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 200px;
+            gap: 12px;
+            margin-top: 4rem;
+        }
+        @media (max-width: 720px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-auto-rows: 180px;
+            }
+        }
+
+        .tile {
+            border-radius: 3px;
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.6s var(--ease-out-expo);
+            cursor: pointer;
+        }
+        .tile:hover { transform: scale(1.015); }
+
+        .tile::after {
+            content: attr(data-label);
+            position: absolute;
+            bottom: 1rem;
+            left: 1.2rem;
+            font-family: var(--font-display);
+            font-style: italic;
+            color: var(--cream-light);
+            font-size: 0.95rem;
+            font-weight: 400;
+            opacity: 0.92;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+        }
+
+        .tile.tile-1 {
+            grid-column: span 2;
+            grid-row: span 2;
+            background:
+                radial-gradient(circle at 35% 40%, rgba(217, 169, 60, 0.35), transparent 55%),
+                linear-gradient(135deg, #C99A5E 0%, #A87739 70%, #5C3E27 100%);
+        }
+        .tile.tile-2 {
+            background:
+                radial-gradient(circle at 50% 50%, rgba(232, 194, 117, 0.25), transparent 60%),
+                linear-gradient(150deg, #3D2718 0%, #1A130C 100%);
+        }
+        .tile.tile-3 {
+            background:
+                radial-gradient(circle at 40% 60%, rgba(217, 169, 60, 0.3), transparent 50%),
+                linear-gradient(160deg, #ECE0CD 0%, #A87739 100%);
+        }
+        .tile.tile-4 {
+            grid-column: span 2;
+            background:
+                radial-gradient(circle at 65% 35%, rgba(217, 169, 60, 0.3), transparent 55%),
+                linear-gradient(135deg, #2A1F15 0%, #0F0A06 100%);
+        }
+        .tile.tile-5 {
+            background:
+                radial-gradient(circle at 50% 40%, rgba(232, 194, 117, 0.35), transparent 50%),
+                linear-gradient(135deg, #A87739 0%, #5C3E27 100%);
+        }
+        .tile.tile-6 {
+            background:
+                radial-gradient(circle at 30% 70%, rgba(217, 169, 60, 0.25), transparent 50%),
+                linear-gradient(170deg, #3A2A1C 0%, #1A130C 80%);
+        }
+        .tile.tile-7 {
+            grid-column: span 2;
+            background:
+                radial-gradient(circle at 60% 50%, rgba(217, 169, 60, 0.3), transparent 55%),
+                linear-gradient(135deg, #C99A5E 0%, #5C3E27 80%);
+        }
+
+        /* ============================================
+           BOOKING
+           ============================================ */
+        .booking {
+            padding: clamp(6rem, 10vw, 10rem) 0;
+            background: var(--paper);
+        }
+
+        .booking-card {
+            max-width: 720px;
+            margin: 4rem auto 0;
+            background: var(--cream-light);
+            border-radius: 4px;
+            padding: clamp(2.4rem, 5vw, 4rem);
+            box-shadow: 0 30px 60px -25px rgba(61, 39, 24, 0.18);
+            border: 1px solid var(--line-soft);
+        }
+
+        .booking-tabs {
+            display: flex;
+            border-bottom: 1px solid var(--line);
+            margin-bottom: 2.4rem;
+        }
+
+        .booking-tab {
+            flex: 1;
+            padding: 1.1rem 1rem;
+            font-family: var(--font-body);
+            font-size: 0.82rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            color: var(--muted);
+            background: none;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            transition: color 0.3s;
+        }
+        .booking-tab.active { color: var(--brown); }
+        .booking-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--amber);
+        }
+        .booking-tab .tab-time {
+            display: block;
+            font-size: 0.72rem;
+            text-transform: none;
+            letter-spacing: 0.03em;
+            color: var(--whisper);
+            margin-top: 0.3rem;
+            font-weight: 400;
+        }
+
+        .booking-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.4rem;
+        }
+        @media (max-width: 560px) {
+            .booking-form { grid-template-columns: 1fr; }
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+        }
+        .field.full { grid-column: 1 / -1; }
+
+        .field label {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.22em;
+            color: var(--amber-deep);
+            margin-bottom: 0.6rem;
+            font-weight: 500;
+        }
+
+        .field input,
+        .field select,
+        .field textarea {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            color: var(--brown);
+            background: var(--cream);
+            border: 1px solid var(--line);
+            border-radius: 2px;
+            padding: 0.95rem 1rem;
+            transition: border 0.3s;
+        }
+        .field input:focus,
+        .field select:focus,
+        .field textarea:focus {
+            outline: none;
+            border-color: var(--amber);
+        }
+        .field textarea {
+            min-height: 90px;
+            resize: vertical;
+        }
+
+        .booking-submit {
+            grid-column: 1 / -1;
+            background: var(--brown);
+            color: var(--cream-light);
+            border: none;
+            padding: 1.15rem;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: all 0.4s var(--ease-out-expo);
+            margin-top: 0.8rem;
+        }
+        .booking-submit:hover {
+            background: var(--amber-deep);
+        }
+
+        .booking-note {
+            text-align: center;
+            margin-top: 1.6rem;
+            font-size: 0.82rem;
+            color: var(--muted);
+            font-family: var(--font-display);
+            font-style: italic;
+        }
+
+        /* ============================================
+           REVIEWS
+           ============================================ */
+        .reviews {
+            padding: clamp(6rem, 10vw, 10rem) 0;
+            background: var(--cream);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+        @media (max-width: 880px) {
+            .reviews-grid { grid-template-columns: 1fr; }
+        }
+
+        .review {
+            padding: 2.4rem;
+            background: var(--cream-light);
+            border-radius: 4px;
+            border: 1px solid var(--line-soft);
+            position: relative;
+        }
+
+        .review::before {
+            content: '“';
+            position: absolute;
+            top: -0.4rem;
+            left: 1.5rem;
+            font-family: var(--font-display);
+            font-size: 5rem;
+            color: var(--gold);
+            line-height: 1;
+            opacity: 0.45;
+        }
+
+        .review-stars {
+            color: var(--gold);
+            font-size: 0.9rem;
+            margin-bottom: 1.4rem;
+            letter-spacing: 0.1em;
+        }
+
+        .review-text {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 1.05rem;
+            font-weight: 400;
+            color: var(--brown);
+            line-height: 1.65;
+            margin-bottom: 2rem;
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 0.9rem;
+            padding-top: 1.6rem;
+            border-top: 1px solid var(--line-soft);
+        }
+
+        .author-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--amber);
+            color: var(--cream-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 1.1rem;
+        }
+
+        .author-info .name {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--brown);
+        }
+        .author-info .when {
+            font-size: 0.78rem;
+            color: var(--muted);
+            margin-top: 0.1rem;
+        }
+
+        /* ============================================
+           CONTACT
+           ============================================ */
+        .contact {
+            padding: clamp(6rem, 10vw, 10rem) 0;
+            background: var(--brown);
+            color: var(--cream-light);
+            position: relative;
+            overflow: hidden;
+        }
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(217, 169, 60, 0.08), transparent 65%);
+            pointer-events: none;
+        }
+
+        .contact .label,
+        .contact .label::before {
+            color: var(--gold-soft);
+        }
+        .contact .label::before { background: var(--gold-soft); }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: clamp(3rem, 6vw, 6rem);
+            margin-top: 4rem;
+            position: relative;
+            z-index: 2;
+        }
+        @media (max-width: 880px) {
+            .contact-grid { grid-template-columns: 1fr; }
+        }
+
+        .contact-card .display {
+            color: var(--cream-light);
+        }
+        .contact-card .display em {
+            color: var(--gold-soft);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+
+        .info-block {
+            border-top: 1px solid rgba(217, 169, 60, 0.2);
+            padding-top: 1.5rem;
+        }
+
+        .info-label {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.28em;
+            color: var(--gold-soft);
+            margin-bottom: 0.6rem;
+            font-weight: 500;
+        }
+
+        .info-value {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: var(--cream-light);
+            letter-spacing: -0.01em;
+        }
+        .info-value em {
+            font-style: italic;
+            color: var(--gold-soft);
+        }
+
+        .info-sub {
+            font-size: 0.88rem;
+            color: var(--whisper);
+            margin-top: 0.3rem;
+            font-weight: 300;
+        }
+
+        .hours-table {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            margin-top: 1rem;
+        }
+
+        .hours-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.95rem;
+            padding: 0.4rem 0;
+        }
+
+        .hours-row .day-name {
+            color: var(--whisper);
+            font-weight: 300;
+        }
+        .hours-row .day-time {
+            font-family: var(--font-display);
+            color: var(--cream-light);
+            font-weight: 400;
+        }
+        .hours-row.special .day-name { color: var(--gold-soft); font-style: italic; }
+        .hours-row.special .day-time { color: var(--gold-soft); }
+
+        .map-card {
+            background: var(--night-soft);
+            border-radius: 4px;
+            overflow: hidden;
+            min-height: 460px;
+            position: relative;
+            border: 1px solid rgba(217, 169, 60, 0.15);
+        }
+
+        .map-visual {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 50% 50%, rgba(217, 169, 60, 0.18), transparent 50%),
+                linear-gradient(135deg, #2A1F15 0%, #1A130C 60%, #0F0A06 100%);
+        }
+
+        .map-pin {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .map-pin-dot {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--gold);
+            box-shadow: 0 0 0 8px rgba(217, 169, 60, 0.18), 0 0 0 16px rgba(217, 169, 60, 0.08);
+            margin: 0 auto 1rem;
+            animation: pulse 2.4s ease-in-out infinite;
+        }
+
+        .map-pin-label {
+            font-family: var(--font-display);
+            font-style: italic;
+            color: var(--cream-light);
+            font-size: 1.1rem;
+        }
+
+        .map-bottom {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 1.5rem;
+            right: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            z-index: 2;
+        }
+
+        .map-address {
+            font-size: 0.82rem;
+            color: var(--whisper);
+            line-height: 1.5;
+        }
+        .map-address strong {
+            color: var(--cream-light);
+            font-weight: 400;
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 1rem;
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        .map-link {
+            font-size: 0.78rem;
+            color: var(--gold-soft);
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            border-bottom: 1px solid var(--gold-soft);
+            padding-bottom: 2px;
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        footer {
+            background: var(--brown-deep);
+            color: var(--whisper);
+            padding: 5rem 0 2rem;
+            border-top: 1px solid rgba(217, 169, 60, 0.12);
+        }
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+        @media (max-width: 880px) {
+            .footer-top { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+        }
+        @media (max-width: 560px) {
+            .footer-top { grid-template-columns: 1fr; }
+        }
+
+        .footer-brand .logo {
+            color: var(--cream-light);
+            margin-bottom: 1.2rem;
+        }
+
+        .footer-tagline {
+            font-family: var(--font-display);
+            font-style: italic;
+            color: var(--gold-soft);
+            font-size: 1.05rem;
+            line-height: 1.6;
+            margin-bottom: 1.6rem;
+            font-weight: 300;
+        }
+
+        .footer-col h4 {
+            font-family: var(--font-body);
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.28em;
+            color: var(--gold-soft);
+            margin-bottom: 1.4rem;
+            font-weight: 500;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+        .footer-col li {
+            padding: 0.45rem 0;
+            font-size: 0.92rem;
+        }
+        .footer-col a {
+            color: var(--whisper);
+            transition: color 0.3s;
+        }
+        .footer-col a:hover {
+            color: var(--gold-soft);
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.6rem;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            font-family: var(--font-body);
+            background: rgba(217, 169, 60, 0.08);
+            border: 1px solid rgba(217, 169, 60, 0.2);
+            color: var(--cream-light);
+            padding: 0.7rem 0.9rem;
+            font-size: 0.88rem;
+            border-radius: 2px;
+        }
+        .newsletter-form input::placeholder { color: var(--muted); }
+        .newsletter-form input:focus { outline: none; border-color: var(--gold-soft); }
+
+        .newsletter-form button {
+            background: var(--gold);
+            border: none;
+            color: var(--night);
+            padding: 0.7rem 1rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .newsletter-form button:hover { background: var(--gold-soft); }
+
+        .social-row {
+            display: flex;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-row a {
+            width: 38px;
+            height: 38px;
+            border: 1px solid rgba(217, 169, 60, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            color: var(--gold-soft);
+        }
+        .social-row a:hover {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: var(--night);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(217, 169, 60, 0.12);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.82rem;
+            color: var(--muted);
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        /* ============================================
+           Animations
+           ============================================ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.9s var(--ease-out-expo), transform 0.9s var(--ease-out-expo);
+        }
+        .reveal.in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================
+         NAV
+         ============================================ -->
+    <nav class="top" id="topnav">
+        <div class="container nav-inner">
+            <a href="#" class="logo">
+                <span class="logo-mark">S</span>
+                <span>Smiå</span>
+            </a>
+            <div class="nav-links">
+                <a href="#to-verdar">To verdener</a>
+                <a href="#by-night">By Night</a>
+                <a href="#dagsmeny">Dagsmeny</a>
+                <a href="#om">Om oss</a>
+                <a href="#kontakt">Kontakt</a>
+                <a href="#bestill" class="cta">Bestill bord</a>
+            </div>
+            <button class="nav-toggle" aria-label="Menu">≡</button>
+        </div>
+    </nav>
+
+    <!-- ============================================
+         HERO
+         ============================================ -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-eyebrow">
+                        <span class="dot"></span>
+                        <span>Bryne sentrum · Storgata 35</span>
+                    </div>
+
+                    <h1 class="hero-title">
+                        Smiå<span class="ampersand"> — </span>
+                        <span class="line-2">om morgenen,</span>
+                        <span class="line-2">og om kvelden.</span>
+                    </h1>
+
+                    <p class="hero-lede">
+                        Samme hus. To stemninger. Surdeig og kaffe når dagen våkner, candlelit kveldsmat når lyset demper seg. Velkommen inn — vi holder åpent for begge.
+                    </p>
+
+                    <div class="hero-cta-row">
+                        <a href="#bestill" class="btn-primary">
+                            Bestill bord
+                            <svg width="16" height="12" viewBox="0 0 16 12" fill="none">
+                                <path d="M1 6H15M15 6L10 1M15 6L10 11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                            </svg>
+                        </a>
+                        <a href="#to-verdar" class="btn-ghost">Se menyen</a>
+                    </div>
+
+                    <div class="hours-strip">
+                        <div class="hours-block">
+                            <div class="label-small">Dagstid</div>
+                            <div class="time">07 — 16</div>
+                            <div class="days">Man — lør</div>
+                        </div>
+                        <div class="hours-block">
+                            <div class="label-small">Smiå by Night</div>
+                            <div class="time">18 — 22</div>
+                            <div class="days">Fre — lør</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <span class="hero-label-day">Morgen</span>
+                    <span class="hero-label-night">Kveld</span>
+                    <div class="center-quote">
+                        Samme hus.<br><em style="font-style:italic; color: var(--gold-soft);">To stemninger.</em>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         TO VERDAR I ÉIN
+         ============================================ -->
+    <section class="two-worlds" id="to-verdar">
+        <div class="container">
+            <div class="section-intro reveal">
+                <div class="label">To verdener i én</div>
+                <h2 class="section-title">
+                    Et hus som <em>våkner to ganger.</em>
+                </h2>
+                <p class="section-lede">
+                    Om morgenen er Smiå et bakeri og en kafé — surdeig på trefjøl, kaffe brygget sakte. Om kvelden lukker vi gardinene, tenner lysene, og åpner dørene som bistro. Samme rom, annet lys.
+                </p>
+            </div>
+
+            <div class="worlds-split reveal">
+                <div class="worlds-divider">&</div>
+
+                <div class="world world-day">
+                    <div class="world-img day" data-icon="☼"></div>
+                    <div class="world-eyebrow">07 — 16 · Dagtid</div>
+                    <h3 class="world-title">Smiå Bakeri & Kafé</h3>
+                    <p class="world-tagline">Surdeig, kaffe, og dagslys i Storgata.</p>
+                    <p class="world-text">
+                        Brød hevet over natten. Croissanter med smør fra Jæren. Kaffe vi har hentet selv fra Talor & Jørgen i Stavanger. Et hjørne der du kan sitte lenge — vi har ingenting imot det.
+                    </p>
+                    <ul class="world-list">
+                        <li>
+                            <div>
+                                <div class="item">Surdeigsbrød</div>
+                                <div class="desc">Hevet 24 t, stekt om morgenen</div>
+                            </div>
+                            <span class="price" style="color:var(--amber-deep); font-family: var(--font-display);">65,-</span>
+                        </li>
+                        <li>
+                            <div>
+                                <div class="item">Croissant</div>
+                                <div class="desc">Smør fra Tine, ekte lag</div>
+                            </div>
+                            <span class="price" style="color:var(--amber-deep); font-family: var(--font-display);">45,-</span>
+                        </li>
+                        <li>
+                            <div>
+                                <div class="item">Dagens lunsj</div>
+                                <div class="desc">Med sesongens råvarer</div>
+                            </div>
+                            <span class="price" style="color:var(--amber-deep); font-family: var(--font-display);">175,-</span>
+                        </li>
+                        <li>
+                            <div>
+                                <div class="item">Flat white</div>
+                                <div class="desc">Talor & Jørgen-kaffe</div>
+                            </div>
+                            <span class="price" style="color:var(--amber-deep); font-family: var(--font-display);">45,-</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="world world-night">
+                    <div class="world-img night" data-icon="☾"></div>
+                    <div class="world-eyebrow">18 — 22 · Smiå by Night</div>
+                    <h3 class="world-title">Smiå Bistro</h3>
+                    <p class="world-tagline" style="color: var(--gold-soft);">Småretter, vin, sesongmenyer.</p>
+                    <p class="world-text" style="color: var(--whisper);">
+                        Samme rom, men nå med tente lys og åpen vinhylle. Småretter bygd på det vi finner på Jæren denne uka. En vinmeny som er enkel å like, og en kjøkkensjef som elsker å bli kjent med gjestene sine.
+                    </p>
+                    <ul class="world-list">
+                        <li>
+                            <div>
+                                <div class="item" style="color: var(--cream-light);">Råvarer fra Jæren</div>
+                                <div class="desc" style="color: var(--whisper);">Sjømat, lam, rotgrønnsaker</div>
+                            </div>
+                            <span class="price" style="color: var(--gold-soft); font-family: var(--font-display);">à la carte</span>
+                        </li>
+                        <li>
+                            <div>
+                                <div class="item" style="color: var(--cream-light);">Vin på glass</div>
+                                <div class="desc" style="color: var(--whisper);">Valgt av kjøkkensjefen</div>
+                            </div>
+                            <span class="price" style="color: var(--gold-soft); font-family: var(--font-display);">fra 95,-</span>
+                        </li>
+                        <li>
+                            <div>
+                                <div class="item" style="color: var(--cream-light);">Kveldsmeny — 3 retter</div>
+                                <div class="desc" style="color: var(--whisper);">Skifter med sesongen</div>
+                            </div>
+                            <span class="price" style="color: var(--gold-soft); font-family: var(--font-display);">595,-</span>
+                        </li>
+                        <li>
+                            <div>
+                                <div class="item" style="color: var(--cream-light);">Kveldsmeny — 5 retter</div>
+                                <div class="desc" style="color: var(--whisper);">Med vinpakke 395,-</div>
+                            </div>
+                            <span class="price" style="color: var(--gold-soft); font-family: var(--font-display);">795,-</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SMIÅ BY NIGHT
+         ============================================ -->
+    <section class="by-night" id="by-night">
+        <div class="container">
+            <div class="night-hero reveal">
+                <div class="label" style="color: var(--gold-soft); justify-content: center;">
+                    <span></span>Ny åpning · høsten 2026<span></span>
+                </div>
+                <h2 class="night-title">
+                    Smiå <em>by Night.</em>
+                </h2>
+                <p class="night-sub">
+                    En ny kveldsopplevelse på Bryne — fra klokka 18:00, fredag og lørdag. Samme rom som om dagen, men med tente lys, åpnede vinflasker, og en meny som skifter med uka.
+                </p>
+            </div>
+
+            <div class="night-grid">
+                <div class="chef-card reveal">
+                    <div class="chef-img"></div>
+                    <div class="chef-label">Kjøkkensjef</div>
+                    <div class="chef-name">Alexandra Smiå</div>
+                    <p class="chef-quote">
+                        “Jeg har drømt om dette i mange år — et lite kveldssted der gjestene kan sitte lenge, der maten kommer ut når den er klar, og der jeg får snakke med hvert eneste bord.”
+                    </p>
+                </div>
+
+                <div class="menu-night reveal">
+                    <div class="course">
+                        <div class="course-label">Til å begynne med</div>
+                        <div class="course-items">
+                            <div class="course-item">
+                                <div>
+                                    <div class="name">Kveite-tartar</div>
+                                    <div class="desc">Sitron, dill, brent brød, créme fraîche fra Rogaland</div>
+                                </div>
+                                <span class="price">165,-</span>
+                            </div>
+                            <div class="course-item">
+                                <div>
+                                    <div class="name">Bakte rotgrønnsaker</div>
+                                    <div class="desc">Sirupsiré, brunt smør, hasselnøtt fra Sandnes</div>
+                                </div>
+                                <span class="price">145,-</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course">
+                        <div class="course-label">Hovedretter</div>
+                        <div class="course-items">
+                            <div class="course-item">
+                                <div>
+                                    <div class="name">Jærsk lam</div>
+                                    <div class="desc">Saktekokt skulder, fermentert hvitløk, vårløk</div>
+                                </div>
+                                <span class="price">325,-</span>
+                            </div>
+                            <div class="course-item">
+                                <div>
+                                    <div class="name">Linefisket torsk</div>
+                                    <div class="desc">Brun smørsaus, eple, pastinakk</div>
+                                </div>
+                                <span class="price">295,-</span>
+                            </div>
+                            <div class="course-item">
+                                <div>
+                                    <div class="name">Grønnsaksrett</div>
+                                    <div class="desc">Sesongens beste, varierer uke for uke</div>
+                                </div>
+                                <span class="price">255,-</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course">
+                        <div class="course-label">Til slutt</div>
+                        <div class="course-items">
+                            <div class="course-item">
+                                <div>
+                                    <div class="name">Karamellisert brød</div>
+                                    <div class="desc">Dagens surdeig, vaniljekrem, brunt smørs-iskrem</div>
+                                </div>
+                                <span class="price">115,-</span>
+                            </div>
+                            <div class="course-item">
+                                <div>
+                                    <div class="name">Ostebrett</div>
+                                    <div class="desc">Tre norske oster, syltetøy, knekkebrød</div>
+                                </div>
+                                <span class="price">155,-</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="night-footer reveal">
+                <a href="#bestill" class="night-cta">Bestill bord til kvelden</a>
+                <p class="night-note">Begrenset antall plasser — vi reserverer gjerne på SMS 930 66 569.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         DAGSMENY
+         ============================================ -->
+    <section class="day-menu" id="dagsmeny">
+        <div class="container">
+            <div class="section-intro reveal">
+                <div class="label">Dagsmeny</div>
+                <h2 class="section-title">
+                    Bakeren stod opp <em>før deg.</em>
+                </h2>
+                <p class="section-lede">
+                    Det meste er bakt om morgenen, det andre er ristet, varmet, eller helt opp mens du venter. Vi gjør det enkelt, men vi gjør det godt.
+                </p>
+            </div>
+
+            <div class="menu-grid reveal">
+                <div class="menu-category">
+                    <h3 class="menu-category-title">Fra bakeren</h3>
+                    <div class="menu-category-line"></div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="name">Surdeigsbrød · stort</div>
+                            <div class="desc">Hevet 24 timer, stekt klokka 06</div>
+                        </div>
+                        <span class="price">65,-</span>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="name">Surdeigsbrød · lite</div>
+                            <div class="desc">Hele kornet — perfekt til frokosten</div>
+                        </div>
+                        <span class="price">45,-</span>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="name">Croissant</div>
+                            <div class="desc">Smør fra Jæren, 27 lag</div>
+                        </div>
+                        <span class="price">45,-</span>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="name">Pain au chocolat</div>
+                            <div class="desc">Med mørk Valrhona</div>
+                        </div>
+                        <span class="price">52,-</span>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="name">Kanelsnurr</div>
+                            <div class="desc">Klassisk, varm, med kardemomme</div>
+                        </div>
+                        <span class="price">35,-</span>
+                    </div>
+                </div>
+
+                <div class="menu-category">
+                    <h3 class="menu-category-title">Frukost & lunsj</h3>
+                    <div class="menu-category-line"></div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="name">Dagens lunsj</div>
+                            <div class="desc">Skifter daglig — spør oss</div>
+                        </div>
+                        <span class="price">175,-</span>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="name">Avocadotoast</div>
+                            <div class="desc">Surdeig, chili, lime, sesam</div>
+                        </div>
+                        <span class="price">145,-</span>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="name">Eggerøre på surdeig</div>
+                            <div class="desc">Tre egg fra Jæren, gressløk</div>
+                        </div>
+                        <span class="price">135,-</span>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="name">Smiå-frokost</div>
+                            <div class="desc">Brød, egg, ost, syltetøy, kaffe</div>
+                        </div>
+                        <span class="price">195,-</span>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="name">Smørbrød — laks</div>
+                            <div class="desc">Røykt på huset, dillsmør</div>
+                        </div>
+                        <span class="price">155,-</span>
+                    </div>
+                </div>
+
+                <div class="menu-category">
+                    <h3 class="menu-category-title">Kaffe & drikke</h3>
+                    <div class="menu-category-line"></div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="name">Filterkaffe</div>
+                            <div class="desc">Talor & Jørgen, sakte brygget</div>
+                        </div>
+                        <span class="price">35,-</span>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="name">Espresso</div>
+                            <div class="desc">Doppio på forespørsel</div>
+                        </div>
+                        <span class="price">35,-</span>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="name">Flat white / Cappuccino</div>
+                            <div class="desc">Med havremelk, +5,-</div>
+                        </div>
+                        <span class="price">45,-</span>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="name">Chai latte</div>
+                            <div class="desc">Hjemmelaget sirup, krydret</div>
+                        </div>
+                        <span class="price">52,-</span>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="name">Hjemmelaget limonade</div>
+                            <div class="desc">Sesongens — spør i baren</div>
+                        </div>
+                        <span class="price">42,-</span>
+                    </div>
+                </div>
+
+                <div class="menu-category">
+                    <h3 class="menu-category-title">Søtt</h3>
+                    <div class="menu-category-line"></div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="name">Sjokoladekake</div>
+                            <div class="desc">Mørk, fuktig, med rømmekrem</div>
+                        </div>
+                        <span class="price">68,-</span>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="name">Sitronkake</div>
+                            <div class="desc">Med kandisert sitronskal</div>
+                        </div>
+                        <span class="price">62,-</span>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="name">Eplekake</div>
+                            <div class="desc">Smuldret topp, kanel, krem</div>
+                        </div>
+                        <span class="price">65,-</span>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="name">Cookie · brunt smør</div>
+                            <div class="desc">Myk i midten, sprø i kantene</div>
+                        </div>
+                        <span class="price">42,-</span>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="name">Dagens kake</div>
+                            <div class="desc">Bakeren bestemmer</div>
+                        </div>
+                        <span class="price">65,-</span>
+                    </div>
+                </div>
+            </div>
+
+            <p class="menu-note">
+                Vi baker etter beste evne — av og til går vi tomme før lunsj. Det tar vi som et godt tegn.
+            </p>
+        </div>
+    </section>
+
+    <!-- ============================================
+         OM SMIÅ
+         ============================================ -->
+    <section class="story" id="om">
+        <div class="container">
+            <div class="story-grid">
+                <div class="story-img reveal"></div>
+                <div class="story-content reveal">
+                    <div class="label">Om Smiå</div>
+                    <h2 class="display section-title">
+                        Et lite hus i <em>Storgata.</em>
+                    </h2>
+                    <p>
+                        Smiå er en del av Drivhuset Bageri-familien — vi holder til midt i Bryne, i et gammelt smiehus som har stått her siden før byen ble by.
+                    </p>
+                    <p>
+                        Det startet som en liten kafé ved siden av bakeriet. Surdeigsbrødet, kaffen, og litt søtt på siden. Folk begynte å sitte lenge, og ikke gå. Da tenkte vi: hva om vi holdt åpent på kvelden også?
+                    </p>
+                    <p>
+                        Så nå gjør vi det. Fra høsten 2026 åpner vi Smiå by Night — samme rom, samme omsorg, men med tente lys og en kveldsmeny som skifter med sesongen. Alexandra på kjøkkenet, familien på gulvet, og gjestene som heldigvis kommer tilbake.
+                    </p>
+
+                    <div class="story-signature">
+                        <div class="signature-mark">A</div>
+                        <div class="signature-text">
+                            Alexandra Smiå
+                            <span class="role">Eier & kjøkkensjef</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         GALLERI
+         ============================================ -->
+    <section class="gallery">
+        <div class="container">
+            <div class="section-intro reveal">
+                <div class="label">Galleri</div>
+                <h2 class="section-title">
+                    Fra <em>morgen til kveld.</em>
+                </h2>
+                <p class="section-lede">
+                    Slik ser det ut — surdeig på trefjøl, kaffe i koppen, stearinlys om kvelden.
+                </p>
+            </div>
+
+            <div class="gallery-grid reveal">
+                <div class="tile tile-1" data-label="Surdeig om morgenen"></div>
+                <div class="tile tile-2" data-label="Vin om kvelden"></div>
+                <div class="tile tile-3" data-label="Kaffe & kanelsnurr"></div>
+                <div class="tile tile-4" data-label="Smiå by Night"></div>
+                <div class="tile tile-5" data-label="Fra kjøkkenet"></div>
+                <div class="tile tile-6" data-label="Bordet om kvelden"></div>
+                <div class="tile tile-7" data-label="Storgata 35, Bryne"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         BOOKING
+         ============================================ -->
+    <section class="booking" id="bestill">
+        <div class="container">
+            <div class="section-intro reveal">
+                <div class="label">Bestill bord</div>
+                <h2 class="section-title">
+                    Vi reserverer <em>gjerne plassen din.</em>
+                </h2>
+                <p class="section-lede">
+                    Velg om du vil komme til dagtid eller kveld — vi tar imot bookinger opp til seks uker fram i tid.
+                </p>
+            </div>
+
+            <div class="booking-card reveal">
+                <div class="booking-tabs">
+                    <button class="booking-tab active" data-tab="day">
+                        Dagtid
+                        <span class="tab-time">07 — 16 · Man — lør</span>
+                    </button>
+                    <button class="booking-tab" data-tab="night">
+                        Smiå by Night
+                        <span class="tab-time">18 — 22 · Fre — lør</span>
+                    </button>
+                </div>
+
+                <form class="booking-form" onsubmit="event.preventDefault(); alert('Takk! Vi sender en bekreftelse på SMS innen kort tid.'); this.reset();">
+                    <div class="field">
+                        <label>Navn</label>
+                        <input type="text" placeholder="Ditt navn" required>
+                    </div>
+                    <div class="field">
+                        <label>Telefon</label>
+                        <input type="tel" placeholder="9XX XX XXX" required>
+                    </div>
+                    <div class="field">
+                        <label>Dato</label>
+                        <input type="date" required>
+                    </div>
+                    <div class="field">
+                        <label>Klokkeslett</label>
+                        <select required>
+                            <option value="">Velg tid</option>
+                            <option>10:00</option>
+                            <option>11:00</option>
+                            <option>12:00</option>
+                            <option>13:00</option>
+                            <option>14:00</option>
+                            <option>18:00</option>
+                            <option>19:00</option>
+                            <option>20:00</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label>Antall gjester</label>
+                        <select required>
+                            <option value="">Velg</option>
+                            <option>1 gjest</option>
+                            <option>2 gjester</option>
+                            <option>3 gjester</option>
+                            <option>4 gjester</option>
+                            <option>5 gjester</option>
+                            <option>6+ gjester</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label>E-post</label>
+                        <input type="email" placeholder="for bekreftelse">
+                    </div>
+                    <div class="field full">
+                        <label>Spesielle ønsker</label>
+                        <textarea placeholder="Allergier, bursdag, glutenfritt? Skriv det her."></textarea>
+                    </div>
+                    <button type="submit" class="booking-submit">Send bestilling</button>
+                </form>
+
+                <p class="booking-note">
+                    Vi tar også gjerne imot SMS på 930 66 569 — direkte til Alexandra.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         REVIEWS
+         ============================================ -->
+    <section class="reviews">
+        <div class="container">
+            <div class="section-intro reveal">
+                <div class="label">Fra gjestene</div>
+                <h2 class="section-title">
+                    Det vi <em>elsker å høre.</em>
+                </h2>
+            </div>
+
+            <div class="reviews-grid reveal">
+                <div class="review">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">
+                        Beste surdeigsbrødet på Jæren, punktum. Vi kjører fra Sandnes hver lørdag bare for å hente det. Og kaffen er like god — Alexandra og gjengen har funnet noe helt eget.
+                    </p>
+                    <div class="review-author">
+                        <div class="author-circle">M</div>
+                        <div class="author-info">
+                            <div class="name">Marit Tjora</div>
+                            <div class="when">Sandnes · for tre uker siden</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">
+                        Var en av de første gjestene på Smiå by Night, og jeg sitter fremdeles med smaken av lammeskulderen. Avslappet stemning, ærlig mat, og en vert som faktisk husker deg når du kommer tilbake.
+                    </p>
+                    <div class="review-author">
+                        <div class="author-circle">J</div>
+                        <div class="author-info">
+                            <div class="name">Jonas Reilstad</div>
+                            <div class="when">Bryne · for en uke siden</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">
+                        Jeg jobber hjemmefra de fleste dager, men når jeg trenger å komme ut, går jeg hit. Lyse vinduer, god kaffe, og de plager deg ikke selv om du sitter der i tre timer. Rene hjerteslag.
+                    </p>
+                    <div class="review-author">
+                        <div class="author-circle">K</div>
+                        <div class="author-info">
+                            <div class="name">Kari Lima</div>
+                            <div class="when">Bryne · for to dager siden</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         CONTACT
+         ============================================ -->
+    <section class="contact" id="kontakt">
+        <div class="container">
+            <div class="section-intro reveal" style="max-width: 720px;">
+                <div class="label">Finn oss</div>
+                <h2 class="section-title display">
+                    Storgata 35 — <em>midt i Bryne.</em>
+                </h2>
+                <p class="section-lede" style="color: var(--whisper);">
+                    Vi holder til i det gamle smiehuset, rett ved torget. Parkering rundt hjørnet.
+                </p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-card reveal">
+                    <div class="contact-info">
+                        <div class="info-block">
+                            <div class="info-label">Adresse</div>
+                            <div class="info-value">Storgata 35, 4340 Bryne</div>
+                            <div class="info-sub">Inngang fra torget</div>
+                        </div>
+
+                        <div class="info-block">
+                            <div class="info-label">Telefon</div>
+                            <div class="info-value">930 66 569</div>
+                            <div class="info-sub">Alexandra · ring eller SMS</div>
+                        </div>
+
+                        <div class="info-block">
+                            <div class="info-label">Åpningstider — dagtid</div>
+                            <div class="hours-table">
+                                <div class="hours-row"><span class="day-name">Mandag — fredag</span><span class="day-time">07 — 16</span></div>
+                                <div class="hours-row"><span class="day-name">Lørdag</span><span class="day-time">08 — 16</span></div>
+                                <div class="hours-row"><span class="day-name">Søndag</span><span class="day-time">Stengt</span></div>
+                            </div>
+                        </div>
+
+                        <div class="info-block">
+                            <div class="info-label">Smiå by Night</div>
+                            <div class="hours-table">
+                                <div class="hours-row special"><span class="day-name">Fredag — lørdag</span><span class="day-time">18 — 22</span></div>
+                            </div>
+                            <div class="info-sub" style="margin-top: 0.6rem; font-style: italic;">Reservering anbefales.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="map-card reveal">
+                    <div class="map-visual"></div>
+                    <div class="map-pin">
+                        <div class="map-pin-dot"></div>
+                        <div class="map-pin-label">Smiå</div>
+                    </div>
+                    <div class="map-bottom">
+                        <div class="map-address">
+                            <strong>Storgata 35</strong>
+                            4340 Bryne, Norge
+                        </div>
+                        <a href="https://maps.google.com/?q=Storgata+35,+4340+Bryne" class="map-link" target="_blank">Vis på kart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer>
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <span class="logo-mark">S</span>
+                        <span style="color: var(--cream-light);">Smiå</span>
+                    </a>
+                    <p class="footer-tagline">
+                        Samme hus.<br>To stemninger.
+                    </p>
+                    <p style="font-size: 0.85rem; color: var(--whisper); line-height: 1.7;">
+                        En del av Drivhuset Bageri-familien. Vi baker, koker, og holder åpent — midt i Bryne sentrum.
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Besøk oss</h4>
+                    <ul>
+                        <li><a href="#dagsmeny">Dagsmeny</a></li>
+                        <li><a href="#by-night">Smiå by Night</a></li>
+                        <li><a href="#om">Om oss</a></li>
+                        <li><a href="#bestill">Bestill bord</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Kontakt</h4>
+                    <ul>
+                        <li>Storgata 35</li>
+                        <li>4340 Bryne</li>
+                        <li><a href="tel:93066569">930 66 569</a></li>
+                        <li><a href="mailto:hei@smiacafe.no">hei@smiacafe.no</a></li>
+                    </ul>
+                    <div class="social-row">
+                        <a href="https://instagram.com/smiacafe" aria-label="Instagram">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="18" cy="6" r="1" fill="currentColor"/></svg>
+                        </a>
+                        <a href="#" aria-label="Facebook">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V7c0-1 .5-2 2-2h2V1h-3c-3 0-4 2-4 4v5H6v4h4v8z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Få invitasjon til kveldene</h4>
+                    <p style="font-size: 0.88rem; color: var(--whisper); line-height: 1.6; margin-bottom: 0.6rem;">
+                        Smiå by Night-meny, vinkvelder, og spesielle hendelser — rett i innboksen.
+                    </p>
+                    <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Takk! Vi sender første brev innen kort tid.'); this.reset();">
+                        <input type="email" placeholder="din@e-post.no" required>
+                        <button type="submit">Bli med</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>© 2026 Smiå Café · Drivhuset Bageri AS · Org. 920 000 000</div>
+                <div>Design med omsorg · Nettstedet er laget med kjærlighet for Bryne</div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Nav scroll effect
+        const nav = document.getElementById('topnav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 30);
+        });
+
+        // Reveal-on-scroll
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('in');
+                    io.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+        // Booking tabs
+        const tabs = document.querySelectorAll('.booking-tab');
+        tabs.forEach(t => {
+            t.addEventListener('click', () => {
+                tabs.forEach(x => x.classList.remove('active'));
+                t.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

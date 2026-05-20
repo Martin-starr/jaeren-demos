@@ -1,0 +1,2188 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saxobryn — av Oda Hodne. Bryn, hår og PMU i Kleppe.</title>
+    <meta name="description" content="Saxobryn — hjemmesalong i Kleppe ved Oda Hodne. Permanent makeup, microblading, bryn, vipper og hår. Personlig håndverk i rolige omgivelser.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%233B1F2E'/><text x='50' y='66' font-family='Cormorant Garamond,Georgia,serif' font-size='58' font-style='italic' font-weight='500' fill='%23F5EFE6' text-anchor='middle'>S</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================
+           SAXOBRYN — av Oda Hodne
+           Editorial beauty brand. Aubergine + gold + bone.
+           ============================================ */
+
+        :root {
+            /* Core palette — aubergine + bone + dusty mauve + warm gold */
+            --aubergine: #3B1F2E;
+            --aubergine-deep: #28131F;
+            --aubergine-soft: #54354A;
+
+            --bone: #F5EFE6;
+            --bone-warm: #EFE6D7;
+            --bone-light: #FAF6EE;
+            --bone-deep: #E3D8C5;
+
+            --mauve: #B89B96;
+            --mauve-deep: #9A7B76;
+            --mauve-soft: #D6BFB9;
+
+            --gold: #B89858;
+            --gold-deep: #93783F;
+            --gold-soft: #D9C18C;
+
+            --ink: #1A1A1A;
+            --muted: #5A4750;
+            --paper: #FCFAF5;
+
+            /* Beauty/skin tone gradients for gallery */
+            --tone-bryn-mork: linear-gradient(135deg, #6B4A35 0%, #3A2418 55%, #1F1410 100%);
+            --tone-bryn-medium: linear-gradient(135deg, #8B6B4F 0%, #5A3F2A 55%, #2E1C12 100%);
+            --tone-bryn-lys: linear-gradient(135deg, #C9A582 0%, #8E6A48 55%, #4D331F 100%);
+            --tone-lippe-naken: linear-gradient(135deg, #D9B5A8 0%, #B07F73 55%, #6E4742 100%);
+            --tone-lippe-rosa: linear-gradient(135deg, #D89BA0 0%, #A75F69 55%, #5F2B36 100%);
+            --tone-lippe-baer: linear-gradient(135deg, #B47180 0%, #6F3A4C 55%, #371923 100%);
+            --tone-vipper: linear-gradient(135deg, #ADA294 0%, #4A4038 55%, #1A1410 100%);
+            --tone-microblading: linear-gradient(135deg, #7A5640 0%, #4A2E20 55%, #1F0F0A 100%);
+            --tone-lash-lift: linear-gradient(135deg, #C9B79A 0%, #6B5F52 55%, #261D14 100%);
+
+            --font-display: 'Cormorant Garamond', Georgia, serif;
+            --font-body: 'Outfit', system-ui, sans-serif;
+
+            --text-xs: clamp(0.66rem, 0.6rem + 0.22vw, 0.78rem);
+            --text-sm: clamp(0.82rem, 0.76rem + 0.28vw, 0.95rem);
+            --text-base: clamp(0.96rem, 0.9rem + 0.28vw, 1.1rem);
+            --text-lg: clamp(1.12rem, 1rem + 0.55vw, 1.4rem);
+            --text-xl: clamp(1.5rem, 1.15rem + 1.6vw, 2.4rem);
+            --text-2xl: clamp(2.2rem, 1.55rem + 3vw, 4.2rem);
+            --text-3xl: clamp(3rem, 2rem + 4.8vw, 6rem);
+            --text-hero: clamp(4rem, 2.4rem + 8vw, 11rem);
+
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+            --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-weight: 300;
+            color: var(--aubergine);
+            background-color: var(--bone);
+            line-height: 1.72;
+            overflow-x: hidden;
+            font-size: var(--text-base);
+            letter-spacing: 0.005em;
+        }
+
+        a { color: inherit; text-decoration: none; }
+        img { max-width: 100%; display: block; }
+
+        ::selection { background: var(--aubergine); color: var(--bone); }
+
+        .container {
+            width: 100%;
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 clamp(1.4rem, 4vw, 3rem);
+        }
+
+        .label {
+            font-family: var(--font-body);
+            font-size: var(--text-xs);
+            font-weight: 500;
+            letter-spacing: 0.34em;
+            text-transform: uppercase;
+            color: var(--gold-deep);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .label::before {
+            content: '';
+            width: 28px;
+            height: 1px;
+            background: var(--gold);
+        }
+
+        .label-center { justify-content: center; }
+        .label-center::before { display: none; }
+        .label-center::after { display: none; }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-display);
+            font-weight: 400;
+            line-height: 1.06;
+            letter-spacing: -0.012em;
+            color: var(--aubergine);
+        }
+
+        h1 em, h2 em, h3 em {
+            font-style: italic;
+            font-weight: 400;
+            color: var(--gold-deep);
+        }
+
+        /* ============================================
+           NAVIGATION
+           ============================================ */
+
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1.5rem 0;
+            background: rgba(245, 239, 230, 0);
+            transition: background 0.6s var(--ease-out-quart),
+                        padding 0.6s var(--ease-out-quart),
+                        box-shadow 0.6s var(--ease-out-quart);
+        }
+
+        .nav.scrolled {
+            background: rgba(245, 239, 230, 0.92);
+            backdrop-filter: blur(18px) saturate(140%);
+            -webkit-backdrop-filter: blur(18px) saturate(140%);
+            padding: 1rem 0;
+            box-shadow: 0 1px 0 rgba(59, 31, 46, 0.08);
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .nav-logo {
+            font-family: var(--font-display);
+            font-size: clamp(1.4rem, 1.05rem + 0.9vw, 1.85rem);
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            color: var(--aubergine);
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+        }
+
+        .nav-logo em {
+            font-style: italic;
+            font-weight: 400;
+            color: var(--gold-deep);
+            font-size: 0.78em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.6rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: var(--text-sm);
+            font-weight: 400;
+            letter-spacing: 0.04em;
+            color: var(--aubergine);
+            position: relative;
+            transition: color 0.35s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--gold);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s var(--ease-out-quart);
+        }
+
+        .nav-links a:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .nav-cta {
+            font-family: var(--font-body);
+            font-size: var(--text-sm);
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            padding: 0.7rem 1.4rem;
+            border: 1px solid var(--aubergine);
+            color: var(--aubergine);
+            border-radius: 2px;
+            transition: background 0.4s ease, color 0.4s ease;
+        }
+
+        .nav-cta:hover {
+            background: var(--aubergine);
+            color: var(--bone);
+        }
+
+        .nav-cta::after { display: none !important; }
+
+        .nav-mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            color: var(--aubergine);
+        }
+
+        .nav-mobile-toggle span {
+            display: block;
+            width: 24px;
+            height: 1px;
+            background: currentColor;
+            margin: 6px 0;
+            transition: transform 0.35s ease, opacity 0.25s ease;
+        }
+
+        @media (max-width: 900px) {
+            .nav-links { display: none; }
+            .nav-mobile-toggle { display: block; }
+        }
+
+        /* ============================================
+           HERO
+           ============================================ */
+
+        .hero {
+            min-height: 100vh;
+            padding: 9rem 0 4rem;
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 80% 60% at 80% 20%, rgba(184, 152, 88, 0.10) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 80% at 10% 90%, rgba(184, 155, 150, 0.12) 0%, transparent 55%);
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.15fr 0.9fr;
+            gap: clamp(2.5rem, 5vw, 5rem);
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2.4rem;
+            font-size: var(--text-xs);
+            letter-spacing: 0.32em;
+            text-transform: uppercase;
+            color: var(--mauve-deep);
+            font-weight: 500;
+        }
+
+        .hero-meta-dot {
+            width: 5px;
+            height: 5px;
+            background: var(--gold);
+            border-radius: 50%;
+        }
+
+        .hero h1 {
+            font-size: var(--text-hero);
+            line-height: 0.94;
+            letter-spacing: -0.025em;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 .accent {
+            display: block;
+            font-style: italic;
+            font-weight: 300;
+            color: var(--gold-deep);
+            font-size: 0.62em;
+            letter-spacing: -0.005em;
+            margin-top: 0.4rem;
+        }
+
+        .hero h1 .small {
+            display: block;
+            font-style: italic;
+            font-weight: 300;
+            font-size: 0.36em;
+            color: var(--mauve-deep);
+            letter-spacing: 0.02em;
+            margin-top: 1.2rem;
+            line-height: 1.4;
+        }
+
+        .hero-lead {
+            font-size: var(--text-lg);
+            font-weight: 300;
+            line-height: 1.6;
+            color: var(--muted);
+            max-width: 32rem;
+            margin-bottom: 2.6rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .btn {
+            font-family: var(--font-body);
+            font-size: var(--text-sm);
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 1.1rem 2.2rem;
+            border-radius: 2px;
+            transition: all 0.45s var(--ease-out-quart);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background: var(--aubergine);
+            color: var(--bone);
+            border-color: var(--aubergine);
+        }
+
+        .btn-primary:hover {
+            background: var(--aubergine-deep);
+            transform: translateY(-2px);
+            box-shadow: 0 14px 32px -16px rgba(59, 31, 46, 0.6);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--aubergine);
+            border-color: var(--aubergine);
+        }
+
+        .btn-secondary:hover {
+            background: var(--aubergine);
+            color: var(--bone);
+        }
+
+        .btn-arrow {
+            transition: transform 0.4s var(--ease-out-quart);
+        }
+        .btn:hover .btn-arrow { transform: translateX(4px); }
+
+        .hero-visual {
+            position: relative;
+            aspect-ratio: 4 / 5;
+            border-radius: 4px;
+            overflow: hidden;
+            background:
+                linear-gradient(180deg, rgba(40, 19, 31, 0.15) 0%, transparent 30%, rgba(40, 19, 31, 0.4) 100%),
+                linear-gradient(135deg, #E3D8C5 0%, #B89B96 45%, #54354A 100%);
+            box-shadow:
+                0 30px 80px -30px rgba(40, 19, 31, 0.4),
+                0 10px 30px -10px rgba(40, 19, 31, 0.2);
+        }
+
+        .hero-visual::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                radial-gradient(circle at 30% 25%, rgba(245, 239, 230, 0.4) 0%, transparent 35%),
+                radial-gradient(circle at 70% 65%, rgba(184, 152, 88, 0.25) 0%, transparent 40%);
+            mix-blend-mode: soft-light;
+        }
+
+        .hero-visual::after {
+            content: 'Studio · Kleppe';
+            position: absolute;
+            bottom: 1.6rem;
+            left: 1.6rem;
+            font-family: var(--font-body);
+            font-size: var(--text-xs);
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: var(--bone);
+            font-weight: 400;
+        }
+
+        .hero-visual-tag {
+            position: absolute;
+            top: 1.6rem;
+            right: 1.6rem;
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--bone);
+            background: rgba(40, 19, 31, 0.5);
+            padding: 0.5rem 1rem;
+            border-radius: 2px;
+            backdrop-filter: blur(4px);
+        }
+
+        @media (max-width: 900px) {
+            .hero { padding: 7rem 0 3rem; min-height: auto; }
+            .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .hero-visual { max-width: 420px; margin: 0 auto; }
+        }
+
+        /* ============================================
+           MARQUEE / TICKER
+           ============================================ */
+
+        .marquee {
+            background: var(--aubergine);
+            color: var(--bone);
+            padding: 1.2rem 0;
+            overflow: hidden;
+            border-top: 1px solid rgba(245, 239, 230, 0.06);
+            border-bottom: 1px solid rgba(245, 239, 230, 0.06);
+        }
+
+        .marquee-track {
+            display: flex;
+            gap: 3.5rem;
+            white-space: nowrap;
+            animation: scroll 38s linear infinite;
+            width: max-content;
+        }
+
+        .marquee-item {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: var(--text-lg);
+            font-weight: 400;
+            color: var(--bone);
+            display: flex;
+            align-items: center;
+            gap: 3.5rem;
+        }
+
+        .marquee-item::after {
+            content: '✦';
+            color: var(--gold);
+            font-size: 0.7em;
+            font-style: normal;
+        }
+
+        @keyframes scroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        /* ============================================
+           SECTION FRAMEWORK
+           ============================================ */
+
+        section {
+            padding: clamp(5rem, 10vw, 9rem) 0;
+            position: relative;
+        }
+
+        .section-header {
+            margin-bottom: clamp(3rem, 6vw, 5rem);
+            max-width: 64rem;
+        }
+
+        .section-header.center {
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-title {
+            font-size: var(--text-2xl);
+            line-height: 1.04;
+            letter-spacing: -0.02em;
+            margin-top: 1.5rem;
+            margin-bottom: 1.4rem;
+        }
+
+        .section-lead {
+            font-size: var(--text-lg);
+            font-weight: 300;
+            color: var(--muted);
+            line-height: 1.65;
+            max-width: 42rem;
+        }
+
+        .section-header.center .section-lead { margin-left: auto; margin-right: auto; }
+
+        /* ============================================
+           OM ODA
+           ============================================ */
+
+        .om {
+            background: var(--bone-light);
+            position: relative;
+        }
+
+        .om-grid {
+            display: grid;
+            grid-template-columns: 0.85fr 1.15fr;
+            gap: clamp(2.5rem, 6vw, 5.5rem);
+            align-items: center;
+        }
+
+        .om-portrait {
+            position: relative;
+            aspect-ratio: 4 / 5;
+            border-radius: 4px;
+            overflow: hidden;
+            background:
+                linear-gradient(165deg, #C9A582 0%, #8E6A48 45%, #3B1F2E 100%);
+            box-shadow: 0 30px 70px -28px rgba(40, 19, 31, 0.45);
+        }
+
+        .om-portrait::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                radial-gradient(circle at 40% 30%, rgba(245, 239, 230, 0.35) 0%, transparent 45%),
+                radial-gradient(circle at 70% 70%, rgba(40, 19, 31, 0.2) 0%, transparent 50%);
+            mix-blend-mode: soft-light;
+        }
+
+        .om-portrait-caption {
+            position: absolute;
+            bottom: 1.4rem;
+            left: 1.4rem;
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 1rem;
+            color: var(--bone);
+            letter-spacing: 0.04em;
+        }
+
+        .om-content h2 {
+            font-size: var(--text-2xl);
+            margin-top: 1.5rem;
+            margin-bottom: 2rem;
+            line-height: 1.04;
+            letter-spacing: -0.018em;
+        }
+
+        .om-content p {
+            font-size: var(--text-base);
+            line-height: 1.85;
+            color: var(--muted);
+            margin-bottom: 1.4rem;
+            max-width: 36rem;
+        }
+
+        .om-content p strong {
+            color: var(--aubergine);
+            font-weight: 500;
+        }
+
+        .om-quote {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-weight: 400;
+            font-size: var(--text-xl);
+            line-height: 1.3;
+            color: var(--aubergine);
+            margin: 2.4rem 0;
+            padding-left: 1.6rem;
+            border-left: 2px solid var(--gold);
+            max-width: 32rem;
+        }
+
+        .om-signature {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            margin-top: 2.4rem;
+        }
+
+        .om-signature-mark {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 2rem;
+            color: var(--gold-deep);
+            line-height: 1;
+        }
+
+        .om-signature-meta {
+            font-size: var(--text-sm);
+            color: var(--muted);
+            letter-spacing: 0.05em;
+        }
+
+        .om-signature-meta strong {
+            display: block;
+            color: var(--aubergine);
+            font-weight: 500;
+            font-size: var(--text-base);
+            letter-spacing: 0.02em;
+            margin-bottom: 0.1rem;
+        }
+
+        @media (max-width: 900px) {
+            .om-grid { grid-template-columns: 1fr; }
+            .om-portrait { max-width: 380px; margin: 0 auto; }
+        }
+
+        /* ============================================
+           TJENESTER
+           ============================================ */
+
+        .tjenester {
+            background: var(--bone);
+        }
+
+        .tjenester-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: clamp(2rem, 4vw, 3.5rem);
+            margin-top: 2rem;
+        }
+
+        .tjeneste-kategori {
+            position: relative;
+        }
+
+        .tjeneste-kategori-head {
+            margin-bottom: 2rem;
+            padding-bottom: 1.3rem;
+            border-bottom: 1px solid rgba(59, 31, 46, 0.14);
+        }
+
+        .tjeneste-kategori-tag {
+            font-size: var(--text-xs);
+            font-weight: 500;
+            letter-spacing: 0.32em;
+            text-transform: uppercase;
+            color: var(--gold-deep);
+            display: block;
+            margin-bottom: 0.7rem;
+        }
+
+        .tjeneste-kategori h3 {
+            font-size: var(--text-xl);
+            font-weight: 400;
+            font-style: italic;
+            line-height: 1.1;
+            color: var(--aubergine);
+        }
+
+        .tjeneste-liste {
+            list-style: none;
+        }
+
+        .tjeneste-rad {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(59, 31, 46, 0.08);
+            transition: background 0.4s ease;
+        }
+
+        .tjeneste-rad:hover {
+            background: rgba(184, 152, 88, 0.05);
+        }
+
+        .tjeneste-rad:last-child {
+            border-bottom: none;
+        }
+
+        .tjeneste-navn {
+            font-size: var(--text-base);
+            font-weight: 400;
+            color: var(--aubergine);
+            line-height: 1.4;
+        }
+
+        .tjeneste-navn-sub {
+            display: block;
+            font-size: var(--text-xs);
+            color: var(--mauve-deep);
+            font-weight: 300;
+            margin-top: 0.2rem;
+            letter-spacing: 0.04em;
+        }
+
+        .tjeneste-pris {
+            font-family: var(--font-display);
+            font-size: var(--text-lg);
+            font-weight: 500;
+            color: var(--gold-deep);
+            white-space: nowrap;
+            font-feature-settings: "lnum";
+        }
+
+        .tjeneste-pris em {
+            font-size: 0.7em;
+            font-style: italic;
+            font-weight: 400;
+            color: var(--mauve-deep);
+            margin-right: 0.3rem;
+        }
+
+        .tjenester-note {
+            margin-top: 4rem;
+            padding: 2rem;
+            background: var(--bone-warm);
+            border-left: 2px solid var(--gold);
+            font-size: var(--text-sm);
+            color: var(--muted);
+            line-height: 1.7;
+            max-width: 50rem;
+        }
+
+        .tjenester-note strong {
+            color: var(--aubergine);
+            font-weight: 500;
+            display: block;
+            margin-bottom: 0.4rem;
+            font-size: var(--text-base);
+        }
+
+        @media (max-width: 900px) {
+            .tjenester-grid { grid-template-columns: 1fr; gap: 3rem; }
+        }
+
+        /* ============================================
+           GALLERI
+           ============================================ */
+
+        .galleri {
+            background: var(--aubergine);
+            color: var(--bone);
+        }
+
+        .galleri h2,
+        .galleri h3 { color: var(--bone); }
+
+        .galleri .section-lead {
+            color: var(--mauve-soft);
+        }
+
+        .galleri .label {
+            color: var(--gold-soft);
+        }
+
+        .galleri .label::before {
+            background: var(--gold-soft);
+        }
+
+        .galleri-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .galleri-card {
+            position: relative;
+            aspect-ratio: 4 / 5;
+            border-radius: 3px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.6s var(--ease-out-quart);
+        }
+
+        .galleri-card:nth-child(1) { background: var(--tone-bryn-mork); }
+        .galleri-card:nth-child(2) { background: var(--tone-lippe-rosa); }
+        .galleri-card:nth-child(3) { background: var(--tone-vipper); }
+        .galleri-card:nth-child(4) { background: var(--tone-microblading); }
+        .galleri-card:nth-child(5) { background: var(--tone-lippe-naken); }
+        .galleri-card:nth-child(6) { background: var(--tone-bryn-medium); }
+        .galleri-card:nth-child(7) { background: var(--tone-lash-lift); }
+        .galleri-card:nth-child(8) { background: var(--tone-lippe-baer); }
+        .galleri-card:nth-child(9) { background: var(--tone-bryn-lys); }
+
+        .galleri-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                radial-gradient(circle at 30% 30%, rgba(245, 239, 230, 0.18) 0%, transparent 45%),
+                radial-gradient(circle at 70% 70%, rgba(28, 19, 31, 0.3) 0%, transparent 50%);
+            mix-blend-mode: soft-light;
+        }
+
+        .galleri-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 50%, rgba(28, 19, 31, 0.85) 100%);
+            opacity: 0.7;
+            transition: opacity 0.5s ease;
+        }
+
+        .galleri-card:hover { transform: translateY(-4px); }
+        .galleri-card:hover::after { opacity: 0.95; }
+
+        .galleri-card-meta {
+            position: absolute;
+            bottom: 1.2rem;
+            left: 1.2rem;
+            right: 1.2rem;
+            z-index: 2;
+        }
+
+        .galleri-card-tag {
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--gold-soft);
+            margin-bottom: 0.4rem;
+        }
+
+        .galleri-card-name {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 1.15rem;
+            font-weight: 400;
+            color: var(--bone);
+            line-height: 1.2;
+        }
+
+        .galleri-card-tech {
+            font-size: 0.72rem;
+            color: var(--mauve-soft);
+            margin-top: 0.3rem;
+            opacity: 0;
+            transform: translateY(6px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+
+        .galleri-card:hover .galleri-card-tech {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 760px) {
+            .galleri-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 460px) {
+            .galleri-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ============================================
+           PMU PROSESS
+           ============================================ */
+
+        .prosess {
+            background: var(--bone-light);
+        }
+
+        .prosess-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: clamp(1.5rem, 3vw, 2.4rem);
+            margin-top: 3rem;
+            counter-reset: step;
+        }
+
+        .prosess-step {
+            position: relative;
+            counter-increment: step;
+        }
+
+        .prosess-step-num {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 3.6rem;
+            line-height: 1;
+            color: var(--gold);
+            margin-bottom: 1.4rem;
+            font-weight: 400;
+        }
+
+        .prosess-step-num::before {
+            content: "0" counter(step);
+        }
+
+        .prosess-step h3 {
+            font-size: 1.4rem;
+            font-style: italic;
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 0.9rem;
+            color: var(--aubergine);
+        }
+
+        .prosess-step p {
+            font-size: var(--text-sm);
+            line-height: 1.7;
+            color: var(--muted);
+        }
+
+        .prosess-step-time {
+            margin-top: 1rem;
+            font-size: 0.72rem;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: var(--gold-deep);
+            font-weight: 500;
+        }
+
+        .prosess-divider {
+            position: relative;
+            margin-top: 1.4rem;
+            padding-top: 1.4rem;
+            border-top: 1px solid rgba(59, 31, 46, 0.12);
+        }
+
+        @media (max-width: 900px) {
+            .prosess-grid { grid-template-columns: repeat(2, 1fr); gap: 2.4rem; }
+        }
+
+        @media (max-width: 520px) {
+            .prosess-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ============================================
+           ANMELDELSER
+           ============================================ */
+
+        .anmeldelser {
+            background: var(--bone);
+        }
+
+        .anmeldelser-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: clamp(2rem, 4vw, 3rem);
+            margin-top: 2rem;
+        }
+
+        .anmeldelse {
+            background: var(--bone-light);
+            padding: clamp(2rem, 3.5vw, 3rem);
+            border-radius: 4px;
+            position: relative;
+            transition: transform 0.5s var(--ease-out-quart), box-shadow 0.5s ease;
+        }
+
+        .anmeldelse:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 50px -22px rgba(40, 19, 31, 0.2);
+        }
+
+        .anmeldelse-mark {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 3.5rem;
+            color: var(--gold);
+            line-height: 0.6;
+            margin-bottom: 1rem;
+            opacity: 0.7;
+        }
+
+        .anmeldelse-tekst {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: var(--aubergine);
+            margin-bottom: 1.8rem;
+            font-style: italic;
+            letter-spacing: -0.005em;
+        }
+
+        .anmeldelse-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding-top: 1.4rem;
+            border-top: 1px solid rgba(59, 31, 46, 0.1);
+        }
+
+        .anmeldelse-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--bone);
+            background: var(--aubergine-soft);
+            font-weight: 500;
+        }
+
+        .anmeldelse:nth-child(1) .anmeldelse-avatar { background: linear-gradient(135deg, #54354A, #3B1F2E); }
+        .anmeldelse:nth-child(2) .anmeldelse-avatar { background: linear-gradient(135deg, #B89858, #93783F); }
+        .anmeldelse:nth-child(3) .anmeldelse-avatar { background: linear-gradient(135deg, #B89B96, #9A7B76); }
+        .anmeldelse:nth-child(4) .anmeldelse-avatar { background: linear-gradient(135deg, #8E6A48, #54354A); }
+
+        .anmeldelse-navn {
+            font-size: var(--text-base);
+            font-weight: 500;
+            color: var(--aubergine);
+            line-height: 1.2;
+        }
+
+        .anmeldelse-detalj {
+            font-size: var(--text-xs);
+            color: var(--mauve-deep);
+            letter-spacing: 0.06em;
+            margin-top: 0.15rem;
+        }
+
+        .anmeldelse-stars {
+            margin-left: auto;
+            color: var(--gold);
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+        }
+
+        @media (max-width: 760px) {
+            .anmeldelser-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ============================================
+           BESTILLING
+           ============================================ */
+
+        .bestilling {
+            background: var(--bone-light);
+        }
+
+        .bestilling-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(2.5rem, 6vw, 5rem);
+            align-items: start;
+        }
+
+        .bestilling-aside h2 {
+            font-size: var(--text-2xl);
+            line-height: 1.05;
+            margin-top: 1.5rem;
+            margin-bottom: 1.8rem;
+        }
+
+        .bestilling-aside p {
+            font-size: var(--text-base);
+            color: var(--muted);
+            line-height: 1.8;
+            margin-bottom: 1.4rem;
+            max-width: 30rem;
+        }
+
+        .bestilling-tel {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            padding: 1.2rem 1.8rem;
+            background: var(--aubergine);
+            color: var(--bone);
+            border-radius: 3px;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .bestilling-tel:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 32px -16px rgba(59, 31, 46, 0.5);
+        }
+
+        .bestilling-tel-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--aubergine);
+        }
+
+        .bestilling-tel-meta {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .bestilling-tel-meta-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: var(--gold-soft);
+            margin-bottom: 0.25rem;
+        }
+
+        .bestilling-tel-meta-num {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: var(--bone);
+        }
+
+        .bestilling-form {
+            background: var(--bone);
+            padding: clamp(2rem, 4vw, 3rem);
+            border-radius: 4px;
+            box-shadow: 0 30px 60px -30px rgba(40, 19, 31, 0.18);
+        }
+
+        .form-row {
+            margin-bottom: 1.4rem;
+        }
+
+        .form-row-double {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.26em;
+            text-transform: uppercase;
+            color: var(--gold-deep);
+            margin-bottom: 0.6rem;
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            border: 1px solid rgba(59, 31, 46, 0.18);
+            background: var(--bone-light);
+            font-family: var(--font-body);
+            font-size: var(--text-base);
+            color: var(--aubergine);
+            border-radius: 2px;
+            transition: border-color 0.3s ease, background 0.3s ease;
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--aubergine);
+            background: var(--paper);
+        }
+
+        .form-textarea {
+            min-height: 110px;
+            resize: vertical;
+            font-family: var(--font-body);
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 1.1rem;
+            background: var(--aubergine);
+            color: var(--bone);
+            border: none;
+            border-radius: 2px;
+            font-family: var(--font-body);
+            font-size: var(--text-sm);
+            font-weight: 500;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.4s ease, transform 0.3s ease;
+            margin-top: 0.8rem;
+        }
+
+        .form-submit:hover {
+            background: var(--aubergine-deep);
+            transform: translateY(-2px);
+        }
+
+        .form-note {
+            font-size: var(--text-xs);
+            color: var(--mauve-deep);
+            margin-top: 1rem;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        @media (max-width: 900px) {
+            .bestilling-grid { grid-template-columns: 1fr; }
+            .form-row-double { grid-template-columns: 1fr; }
+        }
+
+        /* ============================================
+           KONTAKT
+           ============================================ */
+
+        .kontakt {
+            background: var(--aubergine);
+            color: var(--bone);
+        }
+
+        .kontakt h2 { color: var(--bone); }
+        .kontakt .label { color: var(--gold-soft); }
+        .kontakt .label::before { background: var(--gold-soft); }
+        .kontakt .section-lead { color: var(--mauve-soft); }
+
+        .kontakt-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: clamp(2rem, 4vw, 3rem);
+            margin-top: 1rem;
+        }
+
+        .kontakt-blokk {
+            padding: 2rem 0;
+            border-top: 1px solid rgba(245, 239, 230, 0.12);
+        }
+
+        .kontakt-blokk-tag {
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--gold-soft);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .kontakt-blokk h3 {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: var(--bone);
+            margin-bottom: 0.4rem;
+            line-height: 1.3;
+        }
+
+        .kontakt-blokk p {
+            font-size: var(--text-base);
+            color: var(--mauve-soft);
+            line-height: 1.7;
+        }
+
+        .kontakt-blokk a {
+            color: var(--bone);
+            border-bottom: 1px solid rgba(184, 152, 88, 0.4);
+            transition: border-color 0.3s ease, color 0.3s ease;
+        }
+
+        .kontakt-blokk a:hover {
+            color: var(--gold-soft);
+            border-color: var(--gold);
+        }
+
+        .apent-liste {
+            list-style: none;
+        }
+
+        .apent-rad {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            font-size: var(--text-sm);
+            border-bottom: 1px dashed rgba(245, 239, 230, 0.1);
+        }
+
+        .apent-rad:last-child { border-bottom: none; }
+
+        .apent-rad span:first-child {
+            color: var(--mauve-soft);
+            letter-spacing: 0.04em;
+        }
+
+        .apent-rad span:last-child {
+            color: var(--bone);
+            font-feature-settings: "lnum";
+        }
+
+        .apent-rad.stengt span:last-child {
+            color: var(--mauve-deep);
+            font-style: italic;
+        }
+
+        .kontakt-note {
+            grid-column: 1 / -1;
+            margin-top: 2rem;
+            padding: 1.5rem 0;
+            border-top: 1px solid rgba(245, 239, 230, 0.12);
+            font-size: var(--text-sm);
+            color: var(--mauve-soft);
+            line-height: 1.7;
+            max-width: 50rem;
+        }
+
+        @media (max-width: 900px) {
+            .kontakt-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+
+        .footer {
+            background: var(--aubergine-deep);
+            color: var(--mauve-soft);
+            padding: 3.5rem 0 2rem;
+            border-top: 1px solid rgba(184, 152, 88, 0.15);
+        }
+
+        .footer-inner {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .footer-logo {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: var(--bone);
+            letter-spacing: 0.04em;
+        }
+
+        .footer-logo em {
+            font-style: italic;
+            font-weight: 400;
+            color: var(--gold-soft);
+            font-size: 0.78em;
+        }
+
+        .footer-tagline {
+            font-size: var(--text-xs);
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--mauve-deep);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .footer-insta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            padding: 0.8rem 1.4rem;
+            border: 1px solid rgba(184, 152, 88, 0.4);
+            border-radius: 2px;
+            font-size: var(--text-sm);
+            color: var(--bone);
+            transition: background 0.4s ease, border-color 0.4s ease;
+        }
+
+        .footer-insta:hover {
+            background: var(--gold);
+            color: var(--aubergine);
+            border-color: var(--gold);
+        }
+
+        .footer-bottom {
+            margin-top: 2.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(245, 239, 230, 0.08);
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+            font-size: var(--text-xs);
+            color: var(--mauve-deep);
+            letter-spacing: 0.06em;
+        }
+
+        @media (max-width: 600px) {
+            .footer-inner { grid-template-columns: 1fr; text-align: left; }
+        }
+
+        /* ============================================
+           REVEAL
+           ============================================ */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 1s var(--ease-out-quart), transform 1s var(--ease-out-quart);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-stagger > * {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.9s var(--ease-out-quart), transform 0.9s var(--ease-out-quart);
+        }
+
+        .reveal-stagger.visible > *:nth-child(1) { transition-delay: 0.05s; opacity: 1; transform: translateY(0); }
+        .reveal-stagger.visible > *:nth-child(2) { transition-delay: 0.15s; opacity: 1; transform: translateY(0); }
+        .reveal-stagger.visible > *:nth-child(3) { transition-delay: 0.25s; opacity: 1; transform: translateY(0); }
+        .reveal-stagger.visible > *:nth-child(4) { transition-delay: 0.35s; opacity: 1; transform: translateY(0); }
+        .reveal-stagger.visible > *:nth-child(5) { transition-delay: 0.45s; opacity: 1; transform: translateY(0); }
+        .reveal-stagger.visible > *:nth-child(6) { transition-delay: 0.55s; opacity: 1; transform: translateY(0); }
+        .reveal-stagger.visible > *:nth-child(7) { transition-delay: 0.62s; opacity: 1; transform: translateY(0); }
+        .reveal-stagger.visible > *:nth-child(8) { transition-delay: 0.7s; opacity: 1; transform: translateY(0); }
+        .reveal-stagger.visible > *:nth-child(9) { transition-delay: 0.78s; opacity: 1; transform: translateY(0); }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            .reveal, .reveal-stagger > * { opacity: 1; transform: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================
+         NAVIGATION
+         ============================================ -->
+    <nav class="nav" id="nav">
+        <div class="container nav-inner">
+            <a href="#" class="nav-logo">Saxobryn <em>av Oda</em></a>
+            <ul class="nav-links">
+                <li><a href="#om">Om Oda</a></li>
+                <li><a href="#tjenester">Tjenester</a></li>
+                <li><a href="#galleri">Galleri</a></li>
+                <li><a href="#prosess">PMU</a></li>
+                <li><a href="#anmeldelser">Anmeldelser</a></li>
+                <li><a href="#bestilling" class="nav-cta">Bestill time</a></li>
+            </ul>
+            <button class="nav-mobile-toggle" aria-label="Meny">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ============================================
+         HERO
+         ============================================ -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content reveal">
+                    <div class="hero-meta">
+                        <span>Hjemmesalong</span>
+                        <span class="hero-meta-dot"></span>
+                        <span>Kleppe, Jæren</span>
+                        <span class="hero-meta-dot"></span>
+                        <span>Siden 2017</span>
+                    </div>
+                    <h1>
+                        Saxobryn.
+                        <span class="accent">av Oda Hodne</span>
+                        <span class="small">Bryn, hår og håndverk — i rolige omgivelser på Jæren.</span>
+                    </h1>
+                    <p class="hero-lead">
+                        Jeg gjør bryn, lipliner og hår med en rolig hånd og et ærlig øye. Du går herfra
+                        som en finere versjon av deg selv — uten at det roper høyt.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#bestilling" class="btn btn-primary">
+                            Bestill time
+                            <span class="btn-arrow">→</span>
+                        </a>
+                        <a href="#tjenester" class="btn btn-secondary">
+                            Se tjenester
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-visual reveal" style="transition-delay: 0.2s;">
+                    <div class="hero-visual-tag">Studio</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         MARQUEE
+         ============================================ -->
+    <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+            <span class="marquee-item">Permanent makeup</span>
+            <span class="marquee-item">Microblading</span>
+            <span class="marquee-item">Brow lift</span>
+            <span class="marquee-item">Lash extensions</span>
+            <span class="marquee-item">Klipp &amp; farge</span>
+            <span class="marquee-item">Lipliner</span>
+            <span class="marquee-item">Brudefrisyre</span>
+            <span class="marquee-item">Permanent makeup</span>
+            <span class="marquee-item">Microblading</span>
+            <span class="marquee-item">Brow lift</span>
+            <span class="marquee-item">Lash extensions</span>
+            <span class="marquee-item">Klipp &amp; farge</span>
+            <span class="marquee-item">Lipliner</span>
+            <span class="marquee-item">Brudefrisyre</span>
+        </div>
+    </div>
+
+    <!-- ============================================
+         OM ODA
+         ============================================ -->
+    <section class="om" id="om">
+        <div class="container">
+            <div class="om-grid">
+                <div class="om-portrait reveal">
+                    <span class="om-portrait-caption">Oda Hodne · Studio Saxobryn</span>
+                </div>
+                <div class="om-content reveal" style="transition-delay: 0.15s;">
+                    <span class="label">Om Oda</span>
+                    <h2>Et håndverk jeg har <em>brukt år på</em> å gjøre mitt eget.</h2>
+                    <p>
+                        Jeg heter <strong>Oda Hodne</strong>, og driver Saxobryn fra studioet i hjemmet mitt på Kleppe.
+                        Jeg er utdannet frisør og sertifisert PMU-artist, og har arbeidet med bryn, hår og permanent
+                        makeup siden 2017.
+                    </p>
+                    <p>
+                        Det som startet med en saks og en drøm, har blitt et lite, personlig studio der jeg får
+                        ta meg tid til hver eneste kunde. Jeg jobber med én kunde om gangen — ingen ventelister i
+                        et travelt rom, bare deg, meg og lyset fra speilet.
+                    </p>
+                    <blockquote class="om-quote">
+                        "Jeg gjør bryn. Du blir en finere versjon av deg selv."
+                    </blockquote>
+                    <p>
+                        Filosofien min er enkel: <strong>naturlig, sterkt, ditt.</strong> Jeg skal ikke gjøre deg om —
+                        jeg skal hjelpe deg å se ut som deg selv på en god dag.
+                    </p>
+                    <div class="om-signature">
+                        <span class="om-signature-mark">— Oda</span>
+                        <div class="om-signature-meta">
+                            <strong>Oda Hodne</strong>
+                            Sertifisert PMU-artist &amp; frisør
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         TJENESTER
+         ============================================ -->
+    <section class="tjenester" id="tjenester">
+        <div class="container">
+            <div class="section-header center reveal">
+                <span class="label label-center">Tjenester &amp; priser</span>
+                <h2 class="section-title">Et nøye utvalgt <em>håndverk</em>.</h2>
+                <p class="section-lead">
+                    Permanent makeup, bryn, vipper og hår — alt under samme tak, og alltid med fokus
+                    på deg som sitter i stolen.
+                </p>
+            </div>
+
+            <div class="tjenester-grid">
+                <div class="tjeneste-kategori reveal">
+                    <div class="tjeneste-kategori-head">
+                        <span class="tjeneste-kategori-tag">01 · Permanent makeup</span>
+                        <h3>PMU</h3>
+                    </div>
+                    <ul class="tjeneste-liste">
+                        <li class="tjeneste-rad">
+                            <div class="tjeneste-navn">
+                                Bryn — powder
+                                <span class="tjeneste-navn-sub">Myk, pulverisert finish</span>
+                            </div>
+                            <span class="tjeneste-pris"><em>fra</em>3 900,–</span>
+                        </li>
+                        <li class="tjeneste-rad">
+                            <div class="tjeneste-navn">
+                                Bryn — microblading
+                                <span class="tjeneste-navn-sub">Hårstrå-teknikk, naturlig</span>
+                            </div>
+                            <span class="tjeneste-pris"><em>fra</em>3 900,–</span>
+                        </li>
+                        <li class="tjeneste-rad">
+                            <div class="tjeneste-navn">
+                                Lipliner
+                                <span class="tjeneste-navn-sub">Definert kant, nøytral finish</span>
+                            </div>
+                            <span class="tjeneste-pris"><em>fra</em>3 500,–</span>
+                        </li>
+                        <li class="tjeneste-rad">
+                            <div class="tjeneste-navn">
+                                Eyeliner
+                                <span class="tjeneste-navn-sub">Subtil eller markert</span>
+                            </div>
+                            <span class="tjeneste-pris"><em>fra</em>2 900,–</span>
+                        </li>
+                        <li class="tjeneste-rad">
+                            <div class="tjeneste-navn">
+                                Touch-up
+                                <span class="tjeneste-navn-sub">Innen 12 mnd. etter behandling</span>
+                            </div>
+                            <span class="tjeneste-pris">1 200,–</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="tjeneste-kategori reveal" style="transition-delay: 0.1s;">
+                    <div class="tjeneste-kategori-head">
+                        <span class="tjeneste-kategori-tag">02 · Bryn &amp; vipper</span>
+                        <h3>Bryn &amp; lash</h3>
+                    </div>
+                    <ul class="tjeneste-liste">
+                        <li class="tjeneste-rad">
+                            <div class="tjeneste-navn">
+                                Brow lift + farge
+                                <span class="tjeneste-navn-sub">Form, lift &amp; farge</span>
+                            </div>
+                            <span class="tjeneste-pris">695,–</span>
+                        </li>
+                        <li class="tjeneste-rad">
+                            <div class="tjeneste-navn">
+                                Lash lift + farge
+                                <span class="tjeneste-navn-sub">Naturlig krøll i 6–8 uker</span>
+                            </div>
+                            <span class="tjeneste-pris">795,–</span>
+                        </li>
+                        <li class="tjeneste-rad">
+                            <div class="tjeneste-navn">
+                                Lash extensions — full
+                                <span class="tjeneste-navn-sub">Klassisk eller volum</span>
+                            </div>
+                            <span class="tjeneste-pris"><em>fra</em>1 295,–</span>
+                        </li>
+                        <li class="tjeneste-rad">
+                            <div class="tjeneste-navn">
+                                Lash refill
+                                <span class="tjeneste-navn-sub">Innen 3 uker</span>
+                            </div>
+                            <span class="tjeneste-pris"><em>fra</em>695,–</span>
+                        </li>
+                        <li class="tjeneste-rad">
+                            <div class="tjeneste-navn">
+                                Bryn — form &amp; farge
+                                <span class="tjeneste-navn-sub">Voks, pinsett, farge</span>
+                            </div>
+                            <span class="tjeneste-pris">495,–</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="tjeneste-kategori reveal" style="transition-delay: 0.2s;">
+                    <div class="tjeneste-kategori-head">
+                        <span class="tjeneste-kategori-tag">03 · Hår</span>
+                        <h3>Hår</h3>
+                    </div>
+                    <ul class="tjeneste-liste">
+                        <li class="tjeneste-rad">
+                            <div class="tjeneste-navn">
+                                Dameklipp
+                                <span class="tjeneste-navn-sub">Klipp, vask &amp; føn</span>
+                            </div>
+                            <span class="tjeneste-pris">595,–</span>
+                        </li>
+                        <li class="tjeneste-rad">
+                            <div class="tjeneste-navn">
+                                Farge — helfarge
+                                <span class="tjeneste-navn-sub">Inkl. klipp</span>
+                            </div>
+                            <span class="tjeneste-pris"><em>fra</em>1 295,–</span>
+                        </li>
+                        <li class="tjeneste-rad">
+                            <div class="tjeneste-navn">
+                                Striper / balayage
+                                <span class="tjeneste-navn-sub">Tilpasset deg</span>
+                            </div>
+                            <span class="tjeneste-pris"><em>fra</em>1 695,–</span>
+                        </li>
+                        <li class="tjeneste-rad">
+                            <div class="tjeneste-navn">
+                                Brudefrisyre
+                                <span class="tjeneste-navn-sub">Prøve + dag, etter avtale</span>
+                            </div>
+                            <span class="tjeneste-pris">Avtale</span>
+                        </li>
+                        <li class="tjeneste-rad">
+                            <div class="tjeneste-navn">
+                                Føn &amp; styling
+                                <span class="tjeneste-navn-sub">For en spesiell kveld</span>
+                            </div>
+                            <span class="tjeneste-pris">495,–</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tjenester-note reveal">
+                <strong>En liten merknad om PMU.</strong>
+                Alle PMU-behandlinger inkluderer en gratis konsultasjon på forhånd, og pris kan justeres
+                etter behov og kompleksitet. Touch-up etter 6–8 uker er anbefalt, og ofte inkludert i
+                førstegangs-prisen. Ta kontakt så finner vi ut hva som passer deg.
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         GALLERI
+         ============================================ -->
+    <section class="galleri" id="galleri">
+        <div class="container">
+            <div class="section-header center reveal">
+                <span class="label label-center">Galleri</span>
+                <h2 class="section-title">Et utvalg fra <em>studioet</em>.</h2>
+                <p class="section-lead">
+                    Et lite utvalg av nylig arbeid — bryn, lipliner, hår og vipper. Klikk for å lese
+                    mer om teknikk og pleie.
+                </p>
+            </div>
+
+            <div class="galleri-grid reveal-stagger">
+                <a href="#" class="galleri-card">
+                    <div class="galleri-card-meta">
+                        <div class="galleri-card-tag">PMU · Bryn</div>
+                        <div class="galleri-card-name">Powder bryn</div>
+                        <div class="galleri-card-tech">Myk pulverfinish · mørk base</div>
+                    </div>
+                </a>
+                <a href="#" class="galleri-card">
+                    <div class="galleri-card-meta">
+                        <div class="galleri-card-tag">PMU · Leppe</div>
+                        <div class="galleri-card-name">Rosé lipliner</div>
+                        <div class="galleri-card-tech">Naken rosa · blend mot leppe</div>
+                    </div>
+                </a>
+                <a href="#" class="galleri-card">
+                    <div class="galleri-card-meta">
+                        <div class="galleri-card-tag">Vipper</div>
+                        <div class="galleri-card-name">Klassisk volum</div>
+                        <div class="galleri-card-tech">2D · naturlig lengde</div>
+                    </div>
+                </a>
+                <a href="#" class="galleri-card">
+                    <div class="galleri-card-meta">
+                        <div class="galleri-card-tag">PMU · Bryn</div>
+                        <div class="galleri-card-name">Microblading</div>
+                        <div class="galleri-card-tech">Hårstrå-teknikk · medium tone</div>
+                    </div>
+                </a>
+                <a href="#" class="galleri-card">
+                    <div class="galleri-card-meta">
+                        <div class="galleri-card-tag">PMU · Leppe</div>
+                        <div class="galleri-card-name">Naken lipliner</div>
+                        <div class="galleri-card-tech">Subtil definisjon · nøytral tone</div>
+                    </div>
+                </a>
+                <a href="#" class="galleri-card">
+                    <div class="galleri-card-meta">
+                        <div class="galleri-card-tag">Bryn</div>
+                        <div class="galleri-card-name">Brow lift + farge</div>
+                        <div class="galleri-card-tech">Lift · 6–8 ukers holdbarhet</div>
+                    </div>
+                </a>
+                <a href="#" class="galleri-card">
+                    <div class="galleri-card-meta">
+                        <div class="galleri-card-tag">Vipper</div>
+                        <div class="galleri-card-name">Lash lift</div>
+                        <div class="galleri-card-tech">Naturlig krøll · ingen extensions</div>
+                    </div>
+                </a>
+                <a href="#" class="galleri-card">
+                    <div class="galleri-card-meta">
+                        <div class="galleri-card-tag">PMU · Leppe</div>
+                        <div class="galleri-card-name">Bær-tone</div>
+                        <div class="galleri-card-tech">Dyp naturlig tone · vinter</div>
+                    </div>
+                </a>
+                <a href="#" class="galleri-card">
+                    <div class="galleri-card-meta">
+                        <div class="galleri-card-tag">PMU · Bryn</div>
+                        <div class="galleri-card-name">Lys bryn</div>
+                        <div class="galleri-card-tech">Myk powder · varm beige</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         PMU PROSESS
+         ============================================ -->
+    <section class="prosess" id="prosess">
+        <div class="container">
+            <div class="section-header center reveal">
+                <span class="label label-center">PMU-prosessen</span>
+                <h2 class="section-title">Fra første samtale til <em>ferdig resultat</em>.</h2>
+                <p class="section-lead">
+                    Permanent makeup er håndverk, ikke hastverk. Slik ser det ut fra du tar kontakt
+                    til du går hjem med et resultat du elsker.
+                </p>
+            </div>
+
+            <div class="prosess-grid reveal-stagger">
+                <div class="prosess-step">
+                    <div class="prosess-step-num"></div>
+                    <h3>Konsultasjon</h3>
+                    <p>
+                        En rolig prat — vi ser på huden din, ansiktsform og hva du ønsker. Jeg forteller
+                        hva som er mulig, og hva som ikke er det.
+                    </p>
+                    <div class="prosess-divider">
+                        <span class="prosess-step-time">Ca. 30 min · Gratis</span>
+                    </div>
+                </div>
+                <div class="prosess-step">
+                    <div class="prosess-step-num"></div>
+                    <h3>Skisse &amp; form</h3>
+                    <p>
+                        Vi tegner opp formen sammen, og finner en pigmenttone som passer huden din. Ingenting
+                        skjer før du er helt sikker.
+                    </p>
+                    <div class="prosess-divider">
+                        <span class="prosess-step-time">Ca. 45 min · Samme dag</span>
+                    </div>
+                </div>
+                <div class="prosess-step">
+                    <div class="prosess-step-num"></div>
+                    <h3>Behandling</h3>
+                    <p>
+                        Selve behandlingen er rolig og presis. Jeg bruker maskin og håndverktøy avhengig
+                        av teknikk, og forteller deg hva som skjer underveis.
+                    </p>
+                    <div class="prosess-divider">
+                        <span class="prosess-step-time">Ca. 2–3 timer</span>
+                    </div>
+                </div>
+                <div class="prosess-step">
+                    <div class="prosess-step-num"></div>
+                    <h3>Touch-up</h3>
+                    <p>
+                        Etter 6–8 uker kommer du tilbake for en touch-up — der finjusterer vi farge og form
+                        slik at resultatet sitter i 2–3 år.
+                    </p>
+                    <div class="prosess-divider">
+                        <span class="prosess-step-time">Ca. 1 time · Inkludert</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         ANMELDELSER
+         ============================================ -->
+    <section class="anmeldelser" id="anmeldelser">
+        <div class="container">
+            <div class="section-header center reveal">
+                <span class="label label-center">Anmeldelser</span>
+                <h2 class="section-title">Det <em>kundene</em> sier.</h2>
+                <p class="section-lead">
+                    Et utvalg fra kunder som har gått ut av studioet med ny form, ny finish — eller
+                    bare et nytt blikk i øynene.
+                </p>
+            </div>
+
+            <div class="anmeldelser-grid">
+                <div class="anmeldelse reveal">
+                    <div class="anmeldelse-mark">"</div>
+                    <p class="anmeldelse-tekst">
+                        Jeg har gått til Oda i tre år nå, og resultatene blir bare bedre. Hun tar seg tid,
+                        og brynene mine ser ut som mine egne — bare litt finere. Jeg slutter aldri å gå dit.
+                    </p>
+                    <div class="anmeldelse-meta">
+                        <div class="anmeldelse-avatar">T</div>
+                        <div>
+                            <div class="anmeldelse-navn">Trine M.</div>
+                            <div class="anmeldelse-detalj">PMU bryn · powder</div>
+                        </div>
+                        <div class="anmeldelse-stars">★★★★★</div>
+                    </div>
+                </div>
+
+                <div class="anmeldelse reveal" style="transition-delay: 0.1s;">
+                    <div class="anmeldelse-mark">"</div>
+                    <p class="anmeldelse-tekst">
+                        Jeg var nervøs for lipliner — men Oda forklarte alt så rolig, og resultatet er
+                        akkurat slik jeg håpet. Mannen min tror jeg bare har sovet godt.
+                    </p>
+                    <div class="anmeldelse-meta">
+                        <div class="anmeldelse-avatar">L</div>
+                        <div>
+                            <div class="anmeldelse-navn">Linn S.</div>
+                            <div class="anmeldelse-detalj">PMU lipliner · naken</div>
+                        </div>
+                        <div class="anmeldelse-stars">★★★★★</div>
+                    </div>
+                </div>
+
+                <div class="anmeldelse reveal" style="transition-delay: 0.05s;">
+                    <div class="anmeldelse-mark">"</div>
+                    <p class="anmeldelse-tekst">
+                        Det rolige studioet hennes er som å komme hjem. Hun klippet håret mitt før bryllupet,
+                        og det var det første gjestene snakket om. Tusen takk, Oda.
+                    </p>
+                    <div class="anmeldelse-meta">
+                        <div class="anmeldelse-avatar">M</div>
+                        <div>
+                            <div class="anmeldelse-navn">Marit K.</div>
+                            <div class="anmeldelse-detalj">Brudefrisyre · 2024</div>
+                        </div>
+                        <div class="anmeldelse-stars">★★★★★</div>
+                    </div>
+                </div>
+
+                <div class="anmeldelse reveal" style="transition-delay: 0.15s;">
+                    <div class="anmeldelse-mark">"</div>
+                    <p class="anmeldelse-tekst">
+                        Microbladingen hun gjorde for meg ser så naturlig ut at ingen tror det er PMU.
+                        Jeg slipper å tegne bryn om morgenen — og det er en liten luksus i seg selv.
+                    </p>
+                    <div class="anmeldelse-meta">
+                        <div class="anmeldelse-avatar">I</div>
+                        <div>
+                            <div class="anmeldelse-navn">Ingrid B.</div>
+                            <div class="anmeldelse-detalj">Microblading · 2025</div>
+                        </div>
+                        <div class="anmeldelse-stars">★★★★★</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         BESTILL
+         ============================================ -->
+    <section class="bestilling" id="bestilling">
+        <div class="container">
+            <div class="bestilling-grid">
+                <div class="bestilling-aside reveal">
+                    <span class="label">Bestill time</span>
+                    <h2>La oss finne en tid som <em>passer deg</em>.</h2>
+                    <p>
+                        Skriv litt om hva du ønsker, så ringer eller skriver jeg deg tilbake innen ett
+                        døgn — som regel samme dag. For PMU avtaler vi alltid en gratis konsultasjon først.
+                    </p>
+                    <p>
+                        Du kan også bare ringe — det er ofte raskest.
+                    </p>
+                    <a href="tel:+4793000489" class="bestilling-tel">
+                        <span class="bestilling-tel-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                        </span>
+                        <span class="bestilling-tel-meta">
+                            <span class="bestilling-tel-meta-label">Ring direkte</span>
+                            <span class="bestilling-tel-meta-num">930 00 489</span>
+                        </span>
+                    </a>
+                </div>
+
+                <form class="bestilling-form reveal" style="transition-delay: 0.15s;" onsubmit="event.preventDefault(); alert('Takk! Jeg ringer deg snart.');">
+                    <div class="form-row form-row-double">
+                        <div>
+                            <label class="form-label" for="navn">Navn</label>
+                            <input class="form-input" type="text" id="navn" name="navn" placeholder="Ditt navn" required>
+                        </div>
+                        <div>
+                            <label class="form-label" for="telefon">Telefon</label>
+                            <input class="form-input" type="tel" id="telefon" name="telefon" placeholder="Mobilnummer" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <label class="form-label" for="email">E-post</label>
+                        <input class="form-input" type="email" id="email" name="email" placeholder="din@epost.no">
+                    </div>
+                    <div class="form-row">
+                        <label class="form-label" for="tjeneste">Hva ønsker du?</label>
+                        <select class="form-select" id="tjeneste" name="tjeneste" required>
+                            <option value="">Velg tjeneste</option>
+                            <option>PMU — bryn (powder)</option>
+                            <option>PMU — bryn (microblading)</option>
+                            <option>PMU — lipliner</option>
+                            <option>PMU — eyeliner</option>
+                            <option>PMU — touch-up</option>
+                            <option>Brow lift + farge</option>
+                            <option>Lash lift + farge</option>
+                            <option>Lash extensions</option>
+                            <option>Dameklipp</option>
+                            <option>Farge / striper</option>
+                            <option>Brudefrisyre</option>
+                            <option>Konsultasjon</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <label class="form-label" for="melding">Melding</label>
+                        <textarea class="form-textarea" id="melding" name="melding" placeholder="Skriv litt om hva du ønsker, hva tid på dagen som passer, eller andre ønsker…"></textarea>
+                    </div>
+                    <button type="submit" class="form-submit">
+                        Send forespørsel
+                    </button>
+                    <p class="form-note">
+                        Jeg svarer som regel innen et par timer. PMU krever alltid gratis konsultasjon først.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         KONTAKT
+         ============================================ -->
+    <section class="kontakt" id="kontakt">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="label">Kontakt</span>
+                <h2 class="section-title">Studio Saxobryn — <em>Kleppe</em>.</h2>
+                <p class="section-lead">
+                    Et lite, personlig studio i hjemmet mitt på Jæren. Kom på avtale, så ordner vi
+                    parkering og det praktiske når du bestiller.
+                </p>
+            </div>
+
+            <div class="kontakt-grid">
+                <div class="kontakt-blokk reveal">
+                    <span class="kontakt-blokk-tag">Adresse</span>
+                    <h3>Seljevegen 19</h3>
+                    <p>
+                        4351 Kleppe<br>
+                        Rogaland, Norge
+                    </p>
+                </div>
+
+                <div class="kontakt-blokk reveal" style="transition-delay: 0.1s;">
+                    <span class="kontakt-blokk-tag">Kontakt</span>
+                    <h3>Direkte til Oda</h3>
+                    <p>
+                        <a href="tel:+4793000489">930 00 489</a><br>
+                        <a href="mailto:oda@saxobryn.no">oda@saxobryn.no</a><br>
+                        <a href="https://instagram.com/saxobryn" target="_blank" rel="noopener">@saxobryn</a>
+                    </p>
+                </div>
+
+                <div class="kontakt-blokk reveal" style="transition-delay: 0.2s;">
+                    <span class="kontakt-blokk-tag">Åpningstider</span>
+                    <h3>Etter avtale</h3>
+                    <ul class="apent-liste" style="margin-top: 0.8rem;">
+                        <li class="apent-rad"><span>Mandag</span><span>10–18</span></li>
+                        <li class="apent-rad"><span>Tirsdag</span><span>10–18</span></li>
+                        <li class="apent-rad"><span>Onsdag</span><span>10–20</span></li>
+                        <li class="apent-rad"><span>Torsdag</span><span>10–20</span></li>
+                        <li class="apent-rad"><span>Fredag</span><span>09–16</span></li>
+                        <li class="apent-rad"><span>Lørdag</span><span>Etter avtale</span></li>
+                        <li class="apent-rad stengt"><span>Søndag</span><span>Stengt</span></li>
+                    </ul>
+                </div>
+
+                <div class="kontakt-note">
+                    <strong style="color: var(--bone); font-weight: 500;">Et ord om besøket.</strong><br>
+                    Studioet ligger i privat hjem på Kleppe. Det er gratis parkering rett utenfor, og inngang
+                    er via egen dør på baksiden — du trenger ikke å ringe på. Ta av deg sko i gangen,
+                    så er du hjemme hos meg.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <div class="footer-logo">Saxobryn <em>av Oda Hodne</em></div>
+                    <div class="footer-tagline">Hjemmesalong · Kleppe · Jæren</div>
+                </div>
+                <div class="footer-social">
+                    <a href="https://instagram.com/saxobryn" target="_blank" rel="noopener" class="footer-insta">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                        Følg @saxobryn
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 Saxobryn · Oda Hodne</span>
+                <span>Seljevegen 19, 4351 Kleppe · 930 00 489</span>
+                <span>Org.nr 919 472 332</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sticky nav
+        const nav = document.getElementById('nav');
+        const onScroll = () => {
+            if (window.scrollY > 40) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+
+        // Reveal observer
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    io.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+        document.querySelectorAll('.reveal, .reveal-stagger').forEach((el) => io.observe(el));
+
+        // Smooth anchor scroll w/ offset
+        document.querySelectorAll('a[href^="#"]').forEach((link) => {
+            link.addEventListener('click', (e) => {
+                const id = link.getAttribute('href');
+                if (id.length > 1) {
+                    const target = document.querySelector(id);
+                    if (target) {
+                        e.preventDefault();
+                        const top = target.getBoundingClientRect().top + window.scrollY - 70;
+                        window.scrollTo({ top, behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

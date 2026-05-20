@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nettjord — Nettsider for lokale bedrifter på Jæren</title>
+    <meta name="description" content="Nettjord bygger moderne nettsider for håndverkere, restauranter, salonger og verksteder på Jæren, Bryne og Sandnes. Fast pris, ferdig på 1–2 uker.">
+    <meta property="og:title" content="Nettjord — Nettsider for lokale bedrifter">
+    <meta property="og:description" content="Moderne nettsider for lokale bedrifter på Jæren. Fast pris, betaling kun om du er fornøyd.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%231E2A1F'/><text x='50' y='62' font-family='sans-serif' font-weight='700' font-size='38' fill='%23C4956A' text-anchor='middle'>NJ</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --earth-dark: #1E2A1F;
+            --earth-deep: #2A3A2B;
+            --copper: #C4956A;
+            --copper-light: #D4A87A;
+            --parchment: #F5EDE0;
+            --warm-white: #FDFAF5;
+            --ink: #1A1A1A;
+            --muted: #6B7C6E;
+            --muted-light: #9BA89E;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+            color: var(--ink);
+            background: var(--warm-white);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ==================== NAV ==================== */
+        .nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            background: rgba(30, 42, 31, 0.97);
+            backdrop-filter: blur(12px);
+            padding: 0 40px;
+            height: 64px;
+            display: flex; align-items: center; justify-content: space-between;
+            border-bottom: 1px solid rgba(196, 149, 106, 0.15);
+        }
+        .nav-brand {
+            font-size: 15px; font-weight: 700; letter-spacing: 0.18em;
+            text-transform: uppercase; color: white;
+        }
+        .nav-brand span { color: var(--copper); }
+        .nav-links { display: flex; gap: 32px; }
+        .nav-links a {
+            font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.6);
+            text-decoration: none; letter-spacing: 0.02em;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--copper); }
+
+        /* ==================== HERO ==================== */
+        .hero {
+            background: var(--earth-dark);
+            color: white;
+            padding: 160px 40px 120px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute; inset: 0;
+            background:
+                radial-gradient(ellipse 80% 60% at 20% 80%, rgba(196, 149, 106, 0.06) 0%, transparent 70%),
+                radial-gradient(ellipse 60% 50% at 80% 20%, rgba(196, 149, 106, 0.04) 0%, transparent 60%);
+        }
+        .hero-inner { position: relative; max-width: 720px; margin: 0 auto; }
+        .hero-wordmark {
+            font-size: 14px; font-weight: 600; letter-spacing: 0.22em;
+            text-transform: uppercase; color: var(--copper);
+            margin-bottom: 32px;
+        }
+        .hero h1 {
+            font-size: clamp(36px, 5vw, 56px);
+            font-weight: 700; line-height: 1.1;
+            letter-spacing: -0.025em;
+            margin-bottom: 24px;
+        }
+        .hero h1 em {
+            font-style: italic; font-weight: 300;
+            color: var(--copper-light);
+        }
+        .hero-sub {
+            font-size: 18px; font-weight: 300; line-height: 1.7;
+            color: rgba(255,255,255,0.6);
+            max-width: 540px; margin: 0 auto 48px;
+        }
+        .hero-cta {
+            display: inline-block;
+            padding: 16px 40px;
+            background: var(--copper);
+            color: var(--earth-dark);
+            font-size: 14px; font-weight: 600;
+            letter-spacing: 0.04em;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.15s;
+        }
+        .hero-cta:hover {
+            background: var(--copper-light);
+            transform: translateY(-1px);
+        }
+
+        /* ==================== TRUST BAR ==================== */
+        .trust-bar {
+            background: var(--parchment);
+            padding: 32px 40px;
+            text-align: center;
+            border-bottom: 1px solid rgba(196, 149, 106, 0.15);
+        }
+        .trust-bar p {
+            font-size: 13px; font-weight: 400; color: var(--muted);
+            letter-spacing: 0.01em;
+        }
+        .trust-bar strong { color: var(--earth-dark); font-weight: 600; }
+
+        /* ==================== SECTION UTILITY ==================== */
+        .section {
+            padding: 100px 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .section-label {
+            font-size: 11px; font-weight: 600;
+            letter-spacing: 0.22em; text-transform: uppercase;
+            color: var(--copper); margin-bottom: 12px;
+        }
+        .section-title {
+            font-size: clamp(28px, 3.5vw, 40px);
+            font-weight: 700; line-height: 1.15;
+            letter-spacing: -0.02em;
+            color: var(--earth-dark);
+            margin-bottom: 16px;
+        }
+        .section-lead {
+            font-size: 17px; font-weight: 300; line-height: 1.75;
+            color: var(--muted); max-width: 600px;
+            margin-bottom: 56px;
+        }
+
+        /* ==================== PORTFOLIO GRID ==================== */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 24px;
+        }
+        .portfolio-card {
+            background: white;
+            border: 1px solid rgba(30, 42, 31, 0.08);
+            overflow: hidden;
+            text-decoration: none; color: inherit;
+            display: block;
+            transition: border-color 0.25s, transform 0.2s, box-shadow 0.25s;
+        }
+        .portfolio-card:hover {
+            border-color: var(--copper);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(30, 42, 31, 0.08);
+        }
+        .portfolio-thumb {
+            aspect-ratio: 16/10;
+            position: relative;
+            overflow: hidden;
+        }
+        .portfolio-thumb-inner {
+            position: absolute; inset: 0;
+            background-size: cover;
+            background-position: top center;
+            transition: transform 0.4s ease;
+        }
+        .portfolio-card:hover .portfolio-thumb-inner {
+            transform: scale(1.03);
+        }
+        .portfolio-thumb-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(180deg, transparent 50%, rgba(30, 42, 31, 0.6) 100%);
+        }
+        .portfolio-thumb-tag {
+            position: absolute; bottom: 12px; left: 16px;
+            font-size: 10px; font-weight: 600;
+            letter-spacing: 0.2em; text-transform: uppercase;
+            color: white; opacity: 0.85;
+        }
+        .portfolio-body { padding: 24px; }
+        .portfolio-body h3 {
+            font-size: 18px; font-weight: 700;
+            color: var(--earth-dark); letter-spacing: -0.01em;
+            margin-bottom: 6px;
+        }
+        .portfolio-body p {
+            font-size: 13px; color: var(--muted); line-height: 1.6;
+            margin-bottom: 16px;
+        }
+        .portfolio-link {
+            font-size: 12px; font-weight: 600; color: var(--copper);
+            letter-spacing: 0.04em; text-transform: uppercase;
+        }
+
+        /* Color-coded thumbnails for each project */
+        .thumb-miljogartneriet { background: linear-gradient(160deg, #1F3D2C 0%, #2D5A3D 50%, #C9462E 100%); }
+        .thumb-smia-day { background: linear-gradient(160deg, #F5E6D0 0%, #D4A574 50%, #8B6B4A 100%); }
+        .thumb-heskje { background: linear-gradient(160deg, #6B5A4E 0%, #8E7B6D 50%, #A69080 100%); }
+        .thumb-saxobryn { background: linear-gradient(160deg, #2C1810 0%, #4A2A1C 50%, #D4A87A 100%); }
+        .thumb-hommersak { background: linear-gradient(160deg, #23272A 0%, #3A4045 50%, #E58A2E 100%); }
+        .thumb-joers { background: linear-gradient(160deg, #1A1A2E 0%, #16213E 50%, #E8C547 100%); }
+        .thumb-berland { background: linear-gradient(160deg, #1B2838 0%, #2C4158 50%, #4A90D9 100%); }
+        .thumb-orstad { background: linear-gradient(160deg, #0D1B2A 0%, #1B3A4B 50%, #B8860B 100%); }
+        .thumb-arilds { background: linear-gradient(160deg, #2D1B2E 0%, #4A2B4A 50%, #D4A87A 100%); }
+        .thumb-bjergabygg { background: linear-gradient(160deg, #1A1A1A 0%, #2D2D2D 50%, #C4956A 100%); }
+        .thumb-hodne { background: linear-gradient(160deg, #2D4A2B 0%, #4A7A48 50%, #E8A0B4 100%); }
+
+        /* ==================== PROCESS ==================== */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 32px;
+        }
+        .process-step {
+            padding: 32px 0;
+            border-top: 2px solid var(--copper);
+        }
+        .process-num {
+            font-size: 32px; font-weight: 700;
+            color: rgba(30, 42, 31, 0.08);
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+        }
+        .process-step h3 {
+            font-size: 16px; font-weight: 700;
+            color: var(--earth-dark); margin-bottom: 8px;
+        }
+        .process-step p {
+            font-size: 14px; color: var(--muted); line-height: 1.65;
+        }
+
+        /* ==================== PRICING ==================== */
+        .pricing-section { background: var(--parchment); }
+        .pricing-section .section { max-width: 1100px; }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        .pricing-card {
+            background: white;
+            border: 1px solid rgba(30, 42, 31, 0.08);
+            padding: 40px 32px;
+        }
+        .pricing-card.featured {
+            border-color: var(--copper);
+            position: relative;
+        }
+        .pricing-card.featured::before {
+            content: 'MEST VALGT';
+            position: absolute; top: -1px; right: 24px;
+            background: var(--copper);
+            color: var(--earth-dark);
+            font-size: 9px; font-weight: 700;
+            letter-spacing: 0.2em;
+            padding: 6px 14px;
+        }
+        .pricing-name {
+            font-size: 11px; font-weight: 600;
+            letter-spacing: 0.2em; text-transform: uppercase;
+            color: var(--copper); margin-bottom: 8px;
+        }
+        .pricing-price {
+            font-size: 36px; font-weight: 700;
+            color: var(--earth-dark); letter-spacing: -0.02em;
+            margin-bottom: 4px;
+        }
+        .pricing-price span {
+            font-size: 16px; font-weight: 400; color: var(--muted);
+        }
+        .pricing-desc {
+            font-size: 14px; color: var(--muted);
+            margin-bottom: 24px; line-height: 1.5;
+        }
+        .pricing-features {
+            list-style: none; padding: 0;
+        }
+        .pricing-features li {
+            font-size: 14px; color: var(--ink);
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(30, 42, 31, 0.05);
+            padding-left: 20px;
+            position: relative;
+        }
+        .pricing-features li::before {
+            content: '✓';
+            position: absolute; left: 0;
+            color: var(--copper); font-weight: 600;
+        }
+
+        /* ==================== ABOUT ==================== */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+        .about-text p {
+            font-size: 16px; line-height: 1.75;
+            color: var(--ink); margin-bottom: 20px;
+        }
+        .about-text p:first-child {
+            font-size: 18px; font-weight: 300;
+            color: var(--muted);
+        }
+        .about-stats {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
+        }
+        .about-stat-num {
+            font-size: 40px; font-weight: 700;
+            color: var(--earth-dark); letter-spacing: -0.02em;
+        }
+        .about-stat-label {
+            font-size: 12px; font-weight: 600;
+            letter-spacing: 0.15em; text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        /* ==================== CTA ==================== */
+        .cta-section {
+            background: var(--earth-dark);
+            color: white;
+            text-align: center;
+            padding: 100px 40px;
+        }
+        .cta-section h2 {
+            font-size: clamp(28px, 3.5vw, 42px);
+            font-weight: 700; letter-spacing: -0.02em;
+            margin-bottom: 16px;
+        }
+        .cta-section p {
+            font-size: 17px; font-weight: 300;
+            color: rgba(255,255,255,0.55);
+            max-width: 500px; margin: 0 auto 40px;
+            line-height: 1.7;
+        }
+        .cta-phone {
+            font-size: 28px; font-weight: 700;
+            color: var(--copper); letter-spacing: -0.01em;
+            display: block; margin-bottom: 12px;
+            text-decoration: none;
+        }
+        .cta-email {
+            font-size: 15px; color: rgba(255,255,255,0.5);
+            text-decoration: none;
+        }
+        .cta-email:hover { color: var(--copper); }
+
+        /* ==================== FOOTER ==================== */
+        .footer {
+            background: var(--earth-dark);
+            border-top: 1px solid rgba(196, 149, 106, 0.1);
+            padding: 32px 40px;
+            text-align: center;
+        }
+        .footer p {
+            font-size: 12px; color: rgba(255,255,255,0.25);
+        }
+        .footer a { color: rgba(255,255,255,0.35); text-decoration: none; }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero { padding: 140px 24px 80px; }
+            .section { padding: 64px 24px; }
+            .portfolio-grid { grid-template-columns: 1fr; }
+            .about-grid { grid-template-columns: 1fr; gap: 40px; }
+            .pricing-grid { grid-template-columns: 1fr; }
+            .process-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 480px) {
+            .process-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ==================== ANIMATIONS ==================== */
+        .fade-in {
+            opacity: 0; transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-in.visible {
+            opacity: 1; transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+    <div class="nav-brand">NETT<span>JORD</span></div>
+    <div class="nav-links">
+        <a href="#arbeid">Arbeid</a>
+        <a href="#prosess">Prosess</a>
+        <a href="#priser">Priser</a>
+        <a href="#kontakt">Kontakt</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-inner">
+        <div class="hero-wordmark">NETTJORD</div>
+        <h1>Moderne nettsider for bedrifter <em>med røtter</em></h1>
+        <p class="hero-sub">
+            Lokale håndverkere, restauranter og fagbedrifter på Jæren fortjener en digital tilstedeværelse som matcher kvaliteten de leverer. Nettjord bygger den.
+        </p>
+        <a href="#arbeid" class="hero-cta">Se arbeidet</a>
+    </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+    <p><strong>11 prosjekter levert</strong> &nbsp;·&nbsp; Klepp Stasjon, Jæren &nbsp;·&nbsp; Fast pris &nbsp;·&nbsp; <strong>Betaling kun om du er fornøyd</strong></p>
+</div>
+
+<!-- PORTFOLIO -->
+<section class="section" id="arbeid">
+    <div class="section-label">Utvalgte prosjekter</div>
+    <h2 class="section-title">Arbeid som snakker for seg</h2>
+    <p class="section-lead">Hver side er bygget med utgangspunkt i bedriftens identitet, bransje og lokale posisjon. Ingen maler. Ingen abonnementer.</p>
+
+    <div class="portfolio-grid">
+
+        <!-- Miljogartneriet -->
+        <a href="https://martin-starr.github.io/jaeren-demos/miljogartneriet.html" target="_blank" class="portfolio-card fade-in">
+            <div class="portfolio-thumb">
+                <div class="portfolio-thumb-inner thumb-miljogartneriet"></div>
+                <div class="portfolio-thumb-overlay"></div>
+                <div class="portfolio-thumb-tag">Gartneri · Nærbø</div>
+            </div>
+            <div class="portfolio-body">
+                <h3>Miljøgartneriet AS</h3>
+                <p>77 000 kvm under glass. Engineering-grade visualisering av Nordens ledende veksthusanlegg.</p>
+                <div class="portfolio-link">Se prosjekt →</div>
+            </div>
+        </a>
+
+        <!-- Hodne Gartneri -->
+        <a href="https://martin-starr.github.io/jaeren-demos/hodne-gartneri-masterpiece.html" target="_blank" class="portfolio-card fade-in">
+            <div class="portfolio-thumb">
+                <div class="portfolio-thumb-inner thumb-hodne"></div>
+                <div class="portfolio-thumb-overlay"></div>
+                <div class="portfolio-thumb-tag">Gartneri · Bryne</div>
+            </div>
+            <div class="portfolio-body">
+                <h3>Hodne Gartneri</h3>
+                <p>Årstidshistorie, plantegalleri og besøkssenter. 60 år med blomster på Jæren.</p>
+                <div class="portfolio-link">Se prosjekt →</div>
+            </div>
+        </a>
+
+        <!-- Smia Cafe -->
+        <a href="https://martin-starr.github.io/jaeren-demos/smia-cafe.html" target="_blank" class="portfolio-card fade-in">
+            <div class="portfolio-thumb">
+                <div class="portfolio-thumb-inner thumb-smia-day"></div>
+                <div class="portfolio-thumb-overlay"></div>
+                <div class="portfolio-thumb-tag">Kafé & Restaurant · Bryne</div>
+            </div>
+            <div class="portfolio-body">
+                <h3>Smiå Café</h3>
+                <p>Dag- og kveldsmodus. Smiå by Night med eget bordbestillingsskjema og meny.</p>
+                <div class="portfolio-link">Se prosjekt →</div>
+            </div>
+        </a>
+
+        <!-- Murmester Heskje -->
+        <a href="https://martin-starr.github.io/jaeren-demos/murmester-heskje.html" target="_blank" class="portfolio-card fade-in">
+            <div class="portfolio-thumb">
+                <div class="portfolio-thumb-inner thumb-heskje"></div>
+                <div class="portfolio-thumb-overlay"></div>
+                <div class="portfolio-thumb-tag">Murmester · Bryne</div>
+            </div>
+            <div class="portfolio-body">
+                <h3>Murmester Heskje AS</h3>
+                <p>50+ år i faget. Heritage-design som formidler materialkunnskap og håndverkstradisjon.</p>
+                <div class="portfolio-link">Se prosjekt →</div>
+            </div>
+        </a>
+
+        <!-- Bjergabygg -->
+        <a href="https://martin-starr.github.io/jaeren-demos/bjergabygg.html" target="_blank" class="portfolio-card fade-in">
+            <div class="portfolio-thumb">
+                <div class="portfolio-thumb-inner thumb-bjergabygg"></div>
+                <div class="portfolio-thumb-overlay"></div>
+                <div class="portfolio-thumb-tag">Byggmester · Sandnes</div>
+            </div>
+            <div class="portfolio-body">
+                <h3>Bjergabygg AS</h3>
+                <p>28 år og Sentral godkjenning. Prosjektmosaikk, prosessbeskrivelse og forespørselsform.</p>
+                <div class="portfolio-link">Se prosjekt →</div>
+            </div>
+        </a>
+
+        <!-- Orstad Ror -->
+        <a href="https://martin-starr.github.io/jaeren-demos/orstad-ror.html" target="_blank" class="portfolio-card fade-in">
+            <div class="portfolio-thumb">
+                <div class="portfolio-thumb-inner thumb-orstad"></div>
+                <div class="portfolio-thumb-overlay"></div>
+                <div class="portfolio-thumb-tag">Rørlegger · Klepp Stasjon</div>
+            </div>
+            <div class="portfolio-body">
+                <h3>Orstad Rør AS</h3>
+                <p>Hansgrohe-partner med showroom. Premium editorial design for showroom-presentasjon.</p>
+                <div class="portfolio-link">Se prosjekt →</div>
+            </div>
+        </a>
+
+        <!-- Hommersak Bil -->
+        <a href="https://martin-starr.github.io/jaeren-demos/hommersak-bil.html" target="_blank" class="portfolio-card fade-in">
+            <div class="portfolio-thumb">
+                <div class="portfolio-thumb-inner thumb-hommersak"></div>
+                <div class="portfolio-thumb-overlay"></div>
+                <div class="portfolio-thumb-tag">Bilverksted · Hommersåk</div>
+            </div>
+            <div class="portfolio-body">
+                <h3>Hommersåk Bil AS</h3>
+                <p>Tre forretningsområder samlet: verksted, bilutleie og bruktbilsalg.</p>
+                <div class="portfolio-link">Se prosjekt →</div>
+            </div>
+        </a>
+
+        <!-- Saxobryn -->
+        <a href="https://martin-starr.github.io/jaeren-demos/saxobryn.html" target="_blank" class="portfolio-card fade-in">
+            <div class="portfolio-thumb">
+                <div class="portfolio-thumb-inner thumb-saxobryn"></div>
+                <div class="portfolio-thumb-overlay"></div>
+                <div class="portfolio-thumb-tag">PMU-salong · Kleppe</div>
+            </div>
+            <div class="portfolio-body">
+                <h3>Saxobryn</h3>
+                <p>Editorial design for PMU-salong. Galleri, prisforklaring og online booking.</p>
+                <div class="portfolio-link">Se prosjekt →</div>
+            </div>
+        </a>
+
+        <!-- Joers Kjokken -->
+        <a href="https://martin-starr.github.io/jaeren-demos/joers-kjokken.html" target="_blank" class="portfolio-card fade-in">
+            <div class="portfolio-thumb">
+                <div class="portfolio-thumb-inner thumb-joers"></div>
+                <div class="portfolio-thumb-overlay"></div>
+                <div class="portfolio-thumb-tag">Restaurant · Klepp Stasjon</div>
+            </div>
+            <div class="portfolio-body">
+                <h3>Jøers' Kjøkken</h3>
+                <p>Moderne restaurantside med digital meny, bestillingsknapp og åpningstider.</p>
+                <div class="portfolio-link">Se prosjekt →</div>
+            </div>
+        </a>
+
+        <!-- Berland Bilverksted -->
+        <a href="https://martin-starr.github.io/jaeren-demos/berland-bilverksted.html" target="_blank" class="portfolio-card fade-in">
+            <div class="portfolio-thumb">
+                <div class="portfolio-thumb-inner thumb-berland"></div>
+                <div class="portfolio-thumb-overlay"></div>
+                <div class="portfolio-thumb-tag">Bilverksted · Klepp Stasjon</div>
+            </div>
+            <div class="portfolio-body">
+                <h3>Berland Bilverksted</h3>
+                <p>Egen digital identitet uavhengig av MECA-portalen. Booking-form og SEO-styrke.</p>
+                <div class="portfolio-link">Se prosjekt →</div>
+            </div>
+        </a>
+
+        <!-- Arilds Frisor -->
+        <a href="https://martin-starr.github.io/jaeren-demos/arilds-frisor.html" target="_blank" class="portfolio-card fade-in">
+            <div class="portfolio-thumb">
+                <div class="portfolio-thumb-inner thumb-arilds"></div>
+                <div class="portfolio-thumb-overlay"></div>
+                <div class="portfolio-thumb-tag">Frisør · Sandnes</div>
+            </div>
+            <div class="portfolio-body">
+                <h3>Arilds Frisør</h3>
+                <p>Fra tom side til komplett salongpresentasjon med priser, galleri og booking.</p>
+                <div class="portfolio-link">Se prosjekt →</div>
+            </div>
+        </a>
+
+    </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section" id="prosess" style="background: var(--parchment); max-width: none;">
+    <div style="max-width: 1100px; margin: 0 auto;">
+        <div class="section-label">Slik jobber vi</div>
+        <h2 class="section-title">Fire steg til ferdig nettside</h2>
+        <p class="section-lead">Ingen møterekker, ingen byråprosesser. Du ser resultatet før du betaler en krone.</p>
+
+        <div class="process-grid">
+            <div class="process-step fade-in">
+                <div class="process-num">01</div>
+                <h3>Vi bygger et utkast</h3>
+                <p>Basert på din bedrift, bransje og lokale posisjon lager vi et komplett designforslag. Du trenger ikke gjøre noe.</p>
+            </div>
+            <div class="process-step fade-in">
+                <div class="process-num">02</div>
+                <h3>Du ser og kommenterer</h3>
+                <p>Gjennomgang av utkastet sammen. Du sier hva som fungerer og hva du vil endre. Vi justerer.</p>
+            </div>
+            <div class="process-step fade-in">
+                <div class="process-num">03</div>
+                <h3>Vi leverer ferdig side</h3>
+                <p>Siden publiseres på ditt domene. Alt er mobiloptimalisert, raskt og klart til bruk. 1–2 uker.</p>
+            </div>
+            <div class="process-step fade-in">
+                <div class="process-num">04</div>
+                <h3>Du betaler — hvis fornøyd</h3>
+                <p>Faktura sendes først når du er fornøyd med resultatet. Ikke fornøyd? Ingen faktura.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PRICING -->
+<div class="pricing-section" id="priser">
+    <section class="section">
+        <div class="section-label">Priser</div>
+        <h2 class="section-title">Fast pris, ingen overraskelser</h2>
+        <p class="section-lead">Byråer tar 25–80 000 kr. Vi leverer samme kvalitet til en brøkdel — fordi vi jobber smartere, ikke dyrere.</p>
+
+        <div class="pricing-grid">
+            <div class="pricing-card fade-in">
+                <div class="pricing-name">Enkel</div>
+                <div class="pricing-price">5 000 <span>kr</span></div>
+                <div class="pricing-desc">Perfekt for salonger, kaféer og enkeltpersonforetak.</div>
+                <ul class="pricing-features">
+                    <li>3–5 sider</li>
+                    <li>Mobiloptimalisert</li>
+                    <li>Kontaktskjema</li>
+                    <li>Google-vennlig</li>
+                    <li>1 uke leveranse</li>
+                </ul>
+            </div>
+            <div class="pricing-card featured fade-in">
+                <div class="pricing-name">Standard</div>
+                <div class="pricing-price">8–15 000 <span>kr</span></div>
+                <div class="pricing-desc">For etablerte håndverkere, verksteder og restauranter.</div>
+                <ul class="pricing-features">
+                    <li>5–7 sider</li>
+                    <li>Tilpasset design</li>
+                    <li>Prosjektgalleri / meny</li>
+                    <li>Booking-integrasjon</li>
+                    <li>SEO-optimalisert</li>
+                    <li>1–2 uker leveranse</li>
+                </ul>
+            </div>
+            <div class="pricing-card fade-in">
+                <div class="pricing-name">Premium</div>
+                <div class="pricing-price">15–30 000 <span>kr</span></div>
+                <div class="pricing-desc">For produksjonsbedrifter og etablerte merkevarer.</div>
+                <ul class="pricing-features">
+                    <li>7+ sider</li>
+                    <li>Skreddersydd visuell profil</li>
+                    <li>B2B-portal / produktkatalog</li>
+                    <li>Flerspråklig mulig</li>
+                    <li>Dedikert prosjektleder</li>
+                    <li>2–3 uker leveranse</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- ABOUT -->
+<section class="section" id="om">
+    <div class="section-label">Om Nettjord</div>
+    <h2 class="section-title">Lokale røtter, moderne verktøy</h2>
+
+    <div class="about-grid">
+        <div class="about-text">
+            <p>Nettjord ble startet fordi hundrevis av gode bedrifter på Jæren fortjener bedre enn en Wix-mal fra 2014.</p>
+            <p>Jeg heter Martin Folkestad og holder til på Klepp Stasjon. Jeg bygger nettsider for lokale bedrifter — håndverkere, restauranter, salonger og verksteder som har levert kvalitet i årevis, men som ikke synes digitalt.</p>
+            <p>Nettjord kombinerer moderne designverktøy med lokal kjennskap. Resultatet er nettsider som er ferdige på 1–2 uker, koster en brøkdel av hva byråene tar, og som faktisk formidler hvem bedriften er.</p>
+            <p>Navnet betyr det det sier: <strong>nett</strong> (web) + <strong>jord</strong> (grunn). Digital tilstedeværelse med røtter i virkeligheten.</p>
+        </div>
+        <div class="about-stats">
+            <div>
+                <div class="about-stat-num">11</div>
+                <div class="about-stat-label">Prosjekter</div>
+            </div>
+            <div>
+                <div class="about-stat-num">1–2</div>
+                <div class="about-stat-label">Uker leveranse</div>
+            </div>
+            <div>
+                <div class="about-stat-num">60–80%</div>
+                <div class="about-stat-label">Billigere enn byrå</div>
+            </div>
+            <div>
+                <div class="about-stat-num">0 kr</div>
+                <div class="about-stat-label">Risiko for deg</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="kontakt">
+    <h2>Klar for en nettside som matcher bedriften din?</h2>
+    <p>Ring, send melding, eller bare si hei. Første samtale er alltid uforpliktende.</p>
+    <a href="tel:+47DITTNUMMER" class="cta-phone">[DITT TELEFONNUMMER]</a>
+    <a href="mailto:martin@nettjord.no" class="cta-email">martin@nettjord.no</a>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <p>Nettjord &nbsp;·&nbsp; Klepp Stasjon, Jæren &nbsp;·&nbsp; Org.nr. [REGISTRER ENK] &nbsp;·&nbsp; <a href="https://www.proff.no" target="_blank">Se oss på Proff.no</a></p>
+</footer>
+
+<!-- SCROLL ANIMATIONS -->
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

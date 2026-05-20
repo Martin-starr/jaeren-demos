@@ -1,0 +1,2263 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Folkestad Designs — Design som satisfierer. Klepp Stasjon, Jæren</title>
+<meta name="description" content="Folkestad Designs leverer nettsider, merkevarer og visuell identitet for lokale bedrifter på Jæren. Basert i Klepp Stasjon.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════════
+   RESET & FOUNDATION
+   ═══════════════════════════════════════════════════════ */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --navy: #1C3A5C;
+  --gold: #B8993A;
+  --cream: #F6F2EA;
+  --ink: #1A1A1A;
+  --muted: #5A6270;
+  --white: #FFFFFF;
+
+  /* Case study: Kvernhuset */
+  --kv-stone: #4A4A4A;
+  --kv-wheat: #D4A65A;
+  --kv-flour: #FAF7F0;
+  --kv-copper: #B87333;
+  --kv-ink: #1A1A1A;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.72;
+  color: var(--ink);
+  background: var(--white);
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.text-col {
+  max-width: 720px;
+}
+
+/* ═══════════════════════════════════════════════════════
+   TYPOGRAPHY SYSTEM
+   ═══════════════════════════════════════════════════════ */
+.label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+  display: block;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+h2.section-title {
+  font-size: clamp(28px, 4vw, 40px);
+  color: var(--navy);
+  margin-bottom: 24px;
+}
+
+h3 {
+  font-size: clamp(18px, 2.5vw, 24px);
+  color: var(--navy);
+}
+
+.lead {
+  font-weight: 300;
+  font-size: clamp(16px, 2vw, 19px);
+  line-height: 1.75;
+  color: var(--muted);
+  max-width: 640px;
+}
+
+/* ═══════════════════════════════════════════════════════
+   SCROLL ANIMATIONS
+   ═══════════════════════════════════════════════════════ */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+
+/* ═══════════════════════════════════════════════════════
+   NAVIGATION
+   ═══════════════════════════════════════════════════════ */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 20px 0;
+  transition: background 0.4s ease, padding 0.4s ease, box-shadow 0.4s ease;
+}
+
+.nav.scrolled {
+  background: var(--navy);
+  padding: 14px 0;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.06);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.nav-logo {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+}
+
+.nav-links a {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.75);
+  transition: color 0.3s;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--gold);
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-links a:hover {
+  color: var(--white);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+  background: none;
+  border: none;
+}
+
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--white);
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: translateY(6.5px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg);
+}
+
+/* Mobile menu */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--navy);
+  z-index: 999;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 36px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.mobile-menu.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-menu a {
+  font-size: 24px;
+  font-weight: 300;
+  color: var(--white);
+  letter-spacing: 0.05em;
+  transition: color 0.3s;
+}
+
+.mobile-menu a:hover {
+  color: var(--gold);
+}
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .mobile-menu { display: flex; }
+}
+
+/* ═══════════════════════════════════════════════════════
+   HERO
+   ═══════════════════════════════════════════════════════ */
+.hero {
+  min-height: 100vh;
+  background: var(--navy);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  padding: 120px 0 0;
+  overflow: hidden;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding-bottom: 80px;
+}
+
+.hero h1 {
+  font-size: clamp(32px, 6vw, 64px);
+  color: var(--white);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 28px;
+  max-width: 800px;
+}
+
+.hero h1 .hero-line {
+  display: block;
+  opacity: 0;
+  transform: translateY(24px);
+  animation: heroLineIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero h1 .hero-line:nth-child(2) { animation-delay: 0.15s; }
+.hero h1 .hero-line:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes heroLineIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-subtitle {
+  font-weight: 300;
+  font-size: clamp(15px, 2vw, 19px);
+  color: rgba(255,255,255,0.6);
+  line-height: 1.75;
+  max-width: 560px;
+  margin-bottom: 40px;
+  opacity: 0;
+  animation: fadeUp 0.7s 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeUp {
+  to { opacity: 1; }
+}
+
+/* Gold line accent */
+.hero-gold-line {
+  position: absolute;
+  top: 50%;
+  right: -60px;
+  width: 200px;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: lineGrow 1.2s 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0.4;
+}
+
+@keyframes lineGrow {
+  to { transform: scaleX(1); }
+}
+
+/* Subtle grid pattern */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+  z-index: 1;
+}
+
+/* Stats strip */
+.hero-stats {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.15);
+  z-index: 2;
+}
+
+.hero-stats-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 24px;
+  display: flex;
+  gap: 48px;
+}
+
+.hero-stat {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  opacity: 0;
+  animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-stat:nth-child(1) { animation-delay: 0.9s; }
+.hero-stat:nth-child(2) { animation-delay: 1.05s; }
+.hero-stat:nth-child(3) { animation-delay: 1.2s; }
+
+.hero-stat-number {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.hero-stat-text {
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.03em;
+}
+
+/* Scroll indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 80px;
+  right: 40px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  animation: fadeUp 0.6s 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.scroll-indicator span {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  writing-mode: vertical-rl;
+}
+
+.scroll-indicator::after {
+  content: '';
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; transform: scaleY(0.6); }
+  50% { opacity: 1; transform: scaleY(1); }
+}
+
+@media (max-width: 768px) {
+  .hero-stats-inner { gap: 24px; flex-wrap: wrap; }
+  .scroll-indicator { display: none; }
+}
+
+/* ═══════════════════════════════════════════════════════
+   SECTION SPACING
+   ═══════════════════════════════════════════════════════ */
+.section {
+  padding: 100px 0;
+}
+
+@media (min-width: 769px) {
+  .section { padding: 120px 0; }
+}
+
+.section-header {
+  margin-bottom: 56px;
+}
+
+/* ═══════════════════════════════════════════════════════
+   TJENESTER (SERVICES)
+   ═══════════════════════════════════════════════════════ */
+.services-section {
+  background: var(--cream);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 960px) {
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 580px) {
+  .services-grid { grid-template-columns: 1fr; }
+}
+
+.service-card {
+  background: var(--white);
+  padding: 36px 28px;
+  border-radius: 2px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s;
+  border: 1px solid rgba(28,58,92,0.06);
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(28,58,92,0.08);
+}
+
+.service-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: var(--navy);
+  margin-bottom: 20px;
+  border: 1px solid rgba(28,58,92,0.12);
+  border-radius: 2px;
+}
+
+.service-card h3 {
+  font-size: 17px;
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
+}
+
+.service-card p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.65;
+  margin-bottom: 16px;
+}
+
+.service-price {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 0.02em;
+}
+
+/* ═══════════════════════════════════════════════════════
+   PORTEFØLJE (PORTFOLIO)
+   ═══════════════════════════════════════════════════════ */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+@media (max-width: 960px) {
+  .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 580px) {
+  .portfolio-grid { grid-template-columns: 1fr; }
+}
+
+.portfolio-card {
+  background: var(--cream);
+  border-radius: 2px;
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s;
+  border: 1px solid rgba(28,58,92,0.04);
+}
+
+.portfolio-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(28,58,92,0.1);
+}
+
+.portfolio-thumb {
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-thumb::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(28,58,92,0.08);
+  transition: opacity 0.3s;
+}
+
+.portfolio-card:hover .portfolio-thumb::after {
+  opacity: 0;
+}
+
+.portfolio-card-body {
+  padding: 24px;
+}
+
+.portfolio-tag {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.portfolio-card-body h3 {
+  font-size: 17px;
+  margin-bottom: 6px;
+}
+
+.portfolio-card-body p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.portfolio-cta {
+  text-align: center;
+}
+
+.portfolio-cta a {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--navy);
+  letter-spacing: 0.02em;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.portfolio-cta a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.portfolio-cta a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* ═══════════════════════════════════════════════════════
+   CASE STUDY
+   ═══════════════════════════════════════════════════════ */
+.case-section {
+  background: var(--cream);
+}
+
+.case-intro {
+  margin-bottom: 64px;
+}
+
+/* Logo presentation */
+.case-logo-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+@media (max-width: 640px) {
+  .case-logo-row { grid-template-columns: 1fr; }
+}
+
+.case-logo-panel {
+  padding: 56px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+  min-height: 220px;
+}
+
+.case-logo-panel.dark {
+  background: var(--kv-stone);
+}
+
+.case-logo-panel.light {
+  background: var(--kv-flour);
+  border: 1px solid rgba(74,74,74,0.1);
+}
+
+.case-logo-main {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 700;
+  font-size: clamp(28px, 4vw, 40px);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.case-logo-panel.dark .case-logo-main { color: var(--kv-flour); }
+.case-logo-panel.light .case-logo-main { color: var(--kv-stone); }
+
+.case-logo-sub {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.case-logo-panel.dark .case-logo-sub { color: var(--kv-wheat); }
+.case-logo-panel.light .case-logo-sub { color: var(--kv-copper); }
+
+/* Monogram + size demo */
+.case-logo-variants {
+  display: flex;
+  gap: 24px;
+  align-items: end;
+  margin-bottom: 56px;
+  flex-wrap: wrap;
+}
+
+.case-monogram {
+  width: 80px;
+  height: 80px;
+  background: var(--kv-stone);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  letter-spacing: 0.08em;
+  color: var(--kv-flour);
+}
+
+.case-min-size {
+  display: flex;
+  gap: 16px;
+  align-items: end;
+}
+
+.case-min-size-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.case-min-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.case-min-box {
+  background: var(--kv-stone);
+  border-radius: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--kv-flour);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.case-min-box.size-30 {
+  width: 100px;
+  height: 30px;
+  font-size: 8px;
+}
+
+.case-min-box.size-12 {
+  width: 40px;
+  height: 24px;
+  font-size: 7px;
+}
+
+/* Subsection label */
+.case-sub-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--kv-copper);
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(184,115,51,0.2);
+  display: inline-block;
+}
+
+.case-block {
+  margin-bottom: 64px;
+}
+
+/* Color palette */
+.case-palette {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 640px) {
+  .case-palette { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 400px) {
+  .case-palette { grid-template-columns: repeat(2, 1fr); }
+}
+
+.case-swatch {
+  border-radius: 2px;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+.case-swatch-color {
+  height: 80px;
+}
+
+.case-swatch-info {
+  padding: 12px;
+  background: var(--white);
+}
+
+.case-swatch-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 2px;
+}
+
+.case-swatch-hex {
+  font-size: 11px;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+/* Typography spec */
+.case-type-samples {
+  background: var(--white);
+  border-radius: 2px;
+  padding: 40px;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+.case-type-row {
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  display: flex;
+  gap: 32px;
+  align-items: baseline;
+}
+
+.case-type-row:last-child { border-bottom: none; }
+
+.case-type-meta {
+  min-width: 160px;
+  flex-shrink: 0;
+}
+
+.case-type-meta span {
+  display: block;
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.case-type-sample {
+  color: var(--kv-stone);
+}
+
+.case-type-sample.t-heading {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.case-type-sample.t-body {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.72;
+}
+
+.case-type-sample.t-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 640px) {
+  .case-type-row {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .case-type-meta { min-width: auto; }
+}
+
+/* Spacing / buttons */
+.case-spacing-demo {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  align-items: start;
+}
+
+.case-spacing-grid {
+  flex: 1;
+  min-width: 200px;
+}
+
+.case-grid-visual {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.case-grid-cell {
+  height: 40px;
+  background: var(--kv-flour);
+  border: 1px solid rgba(74,74,74,0.1);
+  border-radius: 1px;
+}
+
+.case-grid-cell.filled {
+  background: rgba(212,166,90,0.15);
+  border-color: var(--kv-wheat);
+}
+
+.case-spacing-vals {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.case-buttons-demo {
+  flex: 1;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.case-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 28px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border-radius: 2px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  width: fit-content;
+}
+
+.case-btn:hover {
+  transform: translateY(-1px);
+}
+
+.case-btn-primary {
+  background: var(--kv-stone);
+  color: var(--kv-flour);
+}
+
+.case-btn-secondary {
+  background: transparent;
+  color: var(--kv-stone);
+  border: 1.5px solid var(--kv-stone);
+}
+
+.case-btn-meta {
+  font-size: 11px;
+  color: var(--muted);
+  margin-left: 16px;
+}
+
+/* Business card */
+.case-card-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 40px 0;
+}
+
+.biz-card {
+  width: 340px;
+  height: 200px;
+  background: var(--kv-stone);
+  border-radius: 2px;
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+}
+
+.biz-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--kv-wheat);
+}
+
+.biz-card-top {
+  display: flex;
+  flex-direction: column;
+}
+
+.biz-card-logo {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--kv-flour);
+  margin-bottom: 2px;
+}
+
+.biz-card-tagline {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--kv-wheat);
+}
+
+.biz-card-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.biz-card-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--kv-flour);
+  margin-bottom: 4px;
+}
+
+.biz-card-detail {
+  font-size: 10px;
+  color: rgba(250,247,240,0.55);
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* Brand guidelines cheat sheet */
+.case-guidelines {
+  background: var(--white);
+  border-radius: 2px;
+  border: 1px solid rgba(0,0,0,0.06);
+  overflow: hidden;
+}
+
+.case-guidelines-header {
+  background: var(--kv-stone);
+  padding: 20px 32px;
+}
+
+.case-guidelines-header h4 {
+  color: var(--kv-flour);
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.case-guidelines-body {
+  padding: 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+@media (max-width: 640px) {
+  .case-guidelines-body { grid-template-columns: 1fr; }
+}
+
+.case-do-dont h5 {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.case-do-dont h5 .indicator {
+  width: 18px;
+  height: 18px;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: var(--white);
+  font-weight: 700;
+}
+
+.case-do-dont.do h5 { color: #2D7A4F; }
+.case-do-dont.do .indicator { background: #2D7A4F; }
+.case-do-dont.dont h5 { color: #9E3030; }
+.case-do-dont.dont .indicator { background: #9E3030; }
+
+.case-do-dont ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.case-do-dont li {
+  font-size: 13px;
+  color: var(--ink);
+  line-height: 1.6;
+  padding-left: 16px;
+  position: relative;
+}
+
+.case-do-dont li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 6px;
+  height: 6px;
+  border-radius: 1px;
+}
+
+.case-do-dont.do li::before { background: #2D7A4F; }
+.case-do-dont.dont li::before { background: #9E3030; }
+
+/* ═══════════════════════════════════════════════════════
+   PROSESS (PROCESS)
+   ═══════════════════════════════════════════════════════ */
+.process-section {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.process-section .label { color: var(--gold); }
+
+.process-section h2.section-title {
+  color: var(--white);
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  margin-bottom: 56px;
+}
+
+@media (max-width: 768px) {
+  .process-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+  .process-grid { grid-template-columns: 1fr; }
+}
+
+.process-step {
+  position: relative;
+}
+
+.process-number {
+  font-size: 48px;
+  font-weight: 700;
+  color: rgba(184,153,58,0.2);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.process-step h3 {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+
+.process-step p {
+  font-size: 14px;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.65;
+}
+
+.process-guarantee {
+  text-align: center;
+  padding-top: 40px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.process-guarantee p {
+  font-size: clamp(18px, 2.5vw, 24px);
+  font-weight: 300;
+  color: var(--gold);
+  letter-spacing: -0.01em;
+}
+
+/* ═══════════════════════════════════════════════════════
+   PRISER (PRICING)
+   ═══════════════════════════════════════════════════════ */
+.pricing-section {
+  background: var(--cream);
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  max-width: 840px;
+  margin: 0 auto 48px;
+}
+
+@media (max-width: 640px) {
+  .pricing-grid { grid-template-columns: 1fr; }
+}
+
+.pricing-card {
+  background: var(--white);
+  border: 1px solid rgba(28,58,92,0.08);
+  border-radius: 2px;
+  padding: 40px 32px;
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s;
+}
+
+.pricing-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(28,58,92,0.08);
+}
+
+.pricing-card.featured {
+  border-color: var(--gold);
+  border-width: 2px;
+}
+
+.pricing-badge {
+  position: absolute;
+  top: -12px;
+  right: 24px;
+  background: var(--gold);
+  color: var(--white);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 4px 14px;
+  border-radius: 2px;
+}
+
+.pricing-card h3 {
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+.pricing-price {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+}
+
+.pricing-price span {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.pricing-desc {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.pricing-features {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.pricing-feature {
+  font-size: 14px;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pricing-check {
+  width: 18px;
+  height: 18px;
+  border-radius: 2px;
+  background: rgba(28,58,92,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pricing-check::after {
+  content: '';
+  width: 8px;
+  height: 5px;
+  border-left: 1.5px solid var(--navy);
+  border-bottom: 1.5px solid var(--navy);
+  transform: rotate(-45deg) translateY(-1px);
+}
+
+.pricing-btn {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  text-align: center;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border-radius: 2px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.pricing-btn:hover {
+  transform: translateY(-1px);
+}
+
+.pricing-btn-primary {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.pricing-btn-secondary {
+  background: transparent;
+  color: var(--navy);
+  border: 1.5px solid var(--navy);
+}
+
+.pricing-custom {
+  text-align: center;
+}
+
+.pricing-custom p {
+  font-size: 15px;
+  color: var(--muted);
+}
+
+.pricing-custom a {
+  font-weight: 600;
+  color: var(--navy);
+  position: relative;
+}
+
+.pricing-custom a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--gold);
+}
+
+/* ═══════════════════════════════════════════════════════
+   OM (ABOUT)
+   ═══════════════════════════════════════════════════════ */
+.about-section {
+  background: var(--white);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+}
+
+.about-portrait {
+  aspect-ratio: 3/4;
+  background: linear-gradient(145deg, var(--navy) 0%, #2a5280 50%, var(--navy) 100%);
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-portrait::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(to top, rgba(28,58,92,0.5), transparent);
+}
+
+.about-portrait::before {
+  content: '';
+  position: absolute;
+  top: 30%;
+  left: 20%;
+  width: 60%;
+  height: 30%;
+  background: rgba(184,153,58,0.08);
+  border-radius: 50%;
+  filter: blur(20px);
+}
+
+.about-content h3 {
+  font-size: 24px;
+  margin-bottom: 6px;
+}
+
+.about-location {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  display: block;
+}
+
+.about-content p {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.72;
+  margin-bottom: 16px;
+  max-width: 560px;
+}
+
+.about-trust {
+  display: flex;
+  gap: 32px;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(28,58,92,0.08);
+  flex-wrap: wrap;
+}
+
+.about-trust-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-trust-number {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: -0.02em;
+}
+
+.about-trust-text {
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+/* ═══════════════════════════════════════════════════════
+   KONTAKT (CTA)
+   ═══════════════════════════════════════════════════════ */
+.contact-section {
+  background: var(--navy);
+  text-align: center;
+  padding: 100px 0;
+}
+
+.contact-section h2 {
+  font-size: clamp(28px, 5vw, 48px);
+  color: var(--white);
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.contact-link {
+  font-size: 18px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.7);
+  transition: color 0.3s;
+}
+
+.contact-link:hover {
+  color: var(--gold);
+}
+
+.contact-free {
+  font-size: 14px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.4);
+  margin-top: 16px;
+}
+
+/* ═══════════════════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════════════════ */
+.footer {
+  background: var(--ink);
+  padding: 40px 0;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-brand {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+}
+
+.footer-links {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-links a {
+  font-size: 12px;
+  color: rgba(255,255,255,0.3);
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: rgba(255,255,255,0.6);
+}
+
+.footer-copy {
+  font-size: 11px;
+  color: rgba(255,255,255,0.2);
+}
+
+@media (max-width: 640px) {
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════
+   UTILITY
+   ═══════════════════════════════════════════════════════ */
+.gold-accent {
+  color: var(--gold);
+}
+
+/* Buttons (global) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 32px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border-radius: 2px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.3s;
+  text-decoration: none;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-gold {
+  background: var(--gold);
+  color: var(--white);
+}
+
+.btn-gold:hover {
+  box-shadow: 0 8px 24px rgba(184,153,58,0.3);
+}
+
+.btn-outline-white {
+  background: transparent;
+  color: var(--white);
+  border: 1.5px solid rgba(255,255,255,0.3);
+}
+
+.btn-outline-white:hover {
+  border-color: var(--white);
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════
+     NAVIGATION
+     ═══════════════════════════════════════════════════════ -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">Folkestad Designs</a>
+    <div class="nav-links">
+      <a href="#tjenester">Tjenester</a>
+      <a href="#portefolje">Portef&#248;lje</a>
+      <a href="#prosess">Prosess</a>
+      <a href="#om">Om</a>
+      <a href="#kontakt">Kontakt</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Meny">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#tjenester" class="mobile-link">Tjenester</a>
+  <a href="#portefolje" class="mobile-link">Portef&#248;lje</a>
+  <a href="#prosess" class="mobile-link">Prosess</a>
+  <a href="#om" class="mobile-link">Om</a>
+  <a href="#kontakt" class="mobile-link">Kontakt</a>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════════════════════ -->
+<section class="hero" id="hero">
+  <div class="container hero-content">
+    <h1>
+      <span class="hero-line">Lokale bedrifter</span>
+      <span class="hero-line">fortjener design</span>
+      <span class="hero-line">i <span class="gold-accent">verdensklasse.</span></span>
+    </h1>
+    <p class="hero-subtitle">Nettsider, merkevare og visuell identitet&thinsp;&mdash;&thinsp;for h&#229;ndverkere, restauranter og fagbedrifter p&#229; J&#230;ren.</p>
+    <div style="display:flex; gap:16px; flex-wrap:wrap; opacity:0; animation: fadeUp 0.7s 0.65s cubic-bezier(0.16,1,0.3,1) forwards;">
+      <a href="#kontakt" class="btn btn-gold">Ta kontakt</a>
+      <a href="#portefolje" class="btn btn-outline-white">Se arbeidene</a>
+    </div>
+    <div class="hero-gold-line"></div>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stats-inner">
+      <div class="hero-stat">
+        <span class="hero-stat-number" data-count="21">0</span>
+        <span class="hero-stat-text">prosjekter</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-number" data-count="8">0</span>
+        <span class="hero-stat-text">bransjer</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-text" style="color:rgba(255,255,255,0.5);">Klepp Stasjon</span>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     TJENESTER
+     ═══════════════════════════════════════════════════════ -->
+<section class="section services-section" id="tjenester">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="label">Tjenester</span>
+      <h2 class="section-title">Alt fra nettside til komplett merkevare</h2>
+      <p class="lead">Hver bedrift er unik. Vi tilpasser l&#248;sningen til dine behov og ditt budsjett.</p>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-icon">&#9701;</div>
+        <h3>Nettside</h3>
+        <p>One-page eller flersidet nettside. Responsivt design, rask lasting og klar for Google.</p>
+        <span class="service-price">5 000 &ndash; 15 000 kr</span>
+      </div>
+
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-icon">&#9672;</div>
+        <h3>Logo &amp; Visuell Identitet</h3>
+        <p>Unik logo som fungerer overalt &mdash; fra visittkort til fasadeskilt.</p>
+        <span class="service-price">4 000 &ndash; 8 000 kr</span>
+      </div>
+
+      <div class="service-card reveal reveal-delay-3">
+        <div class="service-icon">&#9638;</div>
+        <h3>Komplett Merkevare</h3>
+        <p>Logo, fargepalett, typografi og retningslinjer &mdash; alt du trenger for et helhetlig uttrykk.</p>
+        <span class="service-price">12 000 &ndash; 22 000 kr</span>
+      </div>
+
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-icon">&#9645;</div>
+        <h3>Flyers &amp; Trykksaker</h3>
+        <p>Profesjonelle flyers, brosjyrer og plakater som skiller seg ut.</p>
+        <span class="service-price">2 000 &ndash; 5 000 kr</span>
+      </div>
+
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-icon">&#9643;</div>
+        <h3>Visittkort</h3>
+        <p>F&#248;rsteinntrykket teller. Design som gir tillit fra f&#248;rste h&#229;ndtrykk.</p>
+        <span class="service-price">1 500 &ndash; 3 000 kr</span>
+      </div>
+
+      <div class="service-card reveal reveal-delay-3">
+        <div class="service-icon">&#8635;</div>
+        <h3>Redesign / Fornying</h3>
+        <p>Oppgrader det du har. Frisk opp merkevaren uten &#229; starte p&#229; nytt.</p>
+        <span class="service-price">3 000 &ndash; 8 000 kr</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     PORTEF&#216;LJE
+     ═══════════════════════════════════════════════════════ -->
+<section class="section" id="portefolje">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="label">Utvalgte prosjekter</span>
+      <h2 class="section-title">Design som leverer resultater</h2>
+      <p class="lead">Et utvalg av arbeid levert til lokale bedrifter p&#229; J&#230;ren.</p>
+    </div>
+    <div class="portfolio-grid">
+
+      <a href="https://martin-starr.github.io/jaeren-demos/miljogartneriet.html" target="_blank" rel="noopener" class="portfolio-card reveal reveal-delay-1">
+        <div class="portfolio-thumb" style="background: linear-gradient(135deg, #2D5A27, #4A8E3F, #1C3A5C);"></div>
+        <div class="portfolio-card-body">
+          <span class="portfolio-tag">Nettside &middot; Merkevare</span>
+          <h3>Milj&#248;gartneriet</h3>
+          <p>B&#230;rekraftig gartneri med komplett visuell identitet og nettl&#248;sning.</p>
+        </div>
+      </a>
+
+      <a href="https://martin-starr.github.io/jaeren-demos/hodne-gartneri.html" target="_blank" rel="noopener" class="portfolio-card reveal reveal-delay-2">
+        <div class="portfolio-thumb" style="background: linear-gradient(135deg, #3A6B35, #7CB342, #F6F2EA);"></div>
+        <div class="portfolio-card-body">
+          <span class="portfolio-tag">Nettside</span>
+          <h3>Hodne Gartneri</h3>
+          <p>Lokalt gartneri med fokus p&#229; tradisjon og kvalitet.</p>
+        </div>
+      </a>
+
+      <a href="https://martin-starr.github.io/jaeren-demos/rits-kafe.html" target="_blank" rel="noopener" class="portfolio-card reveal reveal-delay-3">
+        <div class="portfolio-thumb" style="background: linear-gradient(135deg, #8B4513, #D4A65A, #F6F2EA);"></div>
+        <div class="portfolio-card-body">
+          <span class="portfolio-tag">Nettside &middot; Meny</span>
+          <h3>Rits Kaf&#233;</h3>
+          <p>Hyggelig kaf&#233; i sentrum med meny og bestillingsmuligheter.</p>
+        </div>
+      </a>
+
+      <a href="https://martin-starr.github.io/jaeren-demos/topp-til-ta.html" target="_blank" rel="noopener" class="portfolio-card reveal reveal-delay-1">
+        <div class="portfolio-thumb" style="background: linear-gradient(135deg, #1C3A5C, #B8993A, #F6F2EA);"></div>
+        <div class="portfolio-card-body">
+          <span class="portfolio-tag">Nettside &middot; Booking</span>
+          <h3>Topp til T&#229;</h3>
+          <p>Fris&#248;rsalong med elegant design og enkel timebestilling.</p>
+        </div>
+      </a>
+
+      <a href="https://martin-starr.github.io/jaeren-demos/murmester-heskje.html" target="_blank" rel="noopener" class="portfolio-card reveal reveal-delay-2">
+        <div class="portfolio-thumb" style="background: linear-gradient(135deg, #5A6270, #8B9DAF, #1C3A5C);"></div>
+        <div class="portfolio-card-body">
+          <span class="portfolio-tag">Nettside &middot; H&#229;ndverker</span>
+          <h3>Murmester Heskje</h3>
+          <p>Solid h&#229;ndverk presentert med tilsvarende solid design.</p>
+        </div>
+      </a>
+
+      <a href="https://martin-starr.github.io/jaeren-demos/bulkedoktoren.html" target="_blank" rel="noopener" class="portfolio-card reveal reveal-delay-3">
+        <div class="portfolio-thumb" style="background: linear-gradient(135deg, #1A1A1A, #4A4A4A, #B8993A);"></div>
+        <div class="portfolio-card-body">
+          <span class="portfolio-tag">Nettside &middot; Reparasjon</span>
+          <h3>Bulkedoktoren</h3>
+          <p>Spesialist p&#229; bulkreparasjon med profesjonell digital tilstedev&#230;relse.</p>
+        </div>
+      </a>
+
+    </div>
+    <div class="portfolio-cta reveal">
+      <a href="https://martin-starr.github.io/jaeren-demos" target="_blank" rel="noopener">Se alle 21 prosjekter &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     CASE STUDY: KVERNHUSET KAF&#201;
+     ═══════════════════════════════════════════════════════ -->
+<section class="section case-section" id="merkevare">
+  <div class="container">
+    <div class="section-header case-intro reveal">
+      <span class="label">Merkevare-eksempel</span>
+      <h2 class="section-title">Fra ingenting til komplett identitet</h2>
+      <p class="lead">Vi designet en komplett visuell identitet for en fiktiv kaf&#233; &mdash; for &#229; vise hva pakken inneholder.</p>
+    </div>
+
+    <!-- 5a. Logo presentation -->
+    <div class="case-block reveal">
+      <div class="case-sub-label">Logo</div>
+      <div class="case-logo-row">
+        <div class="case-logo-panel dark">
+          <div class="case-logo-main">Kvernhuset</div>
+          <div class="case-logo-sub">Kaf&#233; &middot; J&#230;ren</div>
+        </div>
+        <div class="case-logo-panel light">
+          <div class="case-logo-main">Kvernhuset</div>
+          <div class="case-logo-sub">Kaf&#233; &middot; J&#230;ren</div>
+        </div>
+      </div>
+      <div class="case-logo-variants">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+          <div class="case-monogram">KK</div>
+          <span class="case-min-label">Monogram</span>
+        </div>
+        <div class="case-min-size">
+          <div class="case-min-size-item">
+            <span class="case-min-label">30mm</span>
+            <div class="case-min-box size-30">Kvernhuset</div>
+          </div>
+          <div class="case-min-size-item">
+            <span class="case-min-label">12mm min</span>
+            <div class="case-min-box size-12">KK</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5b. Color palette -->
+    <div class="case-block reveal">
+      <div class="case-sub-label">Fargepalett</div>
+      <div class="case-palette">
+        <div class="case-swatch">
+          <div class="case-swatch-color" style="background:#4A4A4A;"></div>
+          <div class="case-swatch-info">
+            <div class="case-swatch-name">Mill Stone Grey</div>
+            <div class="case-swatch-hex">#4A4A4A &middot; Prim&#230;r</div>
+          </div>
+        </div>
+        <div class="case-swatch">
+          <div class="case-swatch-color" style="background:#D4A65A;"></div>
+          <div class="case-swatch-info">
+            <div class="case-swatch-name">Wheat Gold</div>
+            <div class="case-swatch-hex">#D4A65A &middot; Aksent</div>
+          </div>
+        </div>
+        <div class="case-swatch">
+          <div class="case-swatch-color" style="background:#FAF7F0;"></div>
+          <div class="case-swatch-info">
+            <div class="case-swatch-name">Flour White</div>
+            <div class="case-swatch-hex">#FAF7F0 &middot; Bakgrunn</div>
+          </div>
+        </div>
+        <div class="case-swatch">
+          <div class="case-swatch-color" style="background:#B87333;"></div>
+          <div class="case-swatch-info">
+            <div class="case-swatch-name">Copper</div>
+            <div class="case-swatch-hex">#B87333 &middot; Detaljer</div>
+          </div>
+        </div>
+        <div class="case-swatch">
+          <div class="case-swatch-color" style="background:#1A1A1A;"></div>
+          <div class="case-swatch-info">
+            <div class="case-swatch-name">Ink</div>
+            <div class="case-swatch-hex">#1A1A1A &middot; Tekst</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5c. Typography specification -->
+    <div class="case-block reveal">
+      <div class="case-sub-label">Typografi</div>
+      <div class="case-type-samples">
+        <div class="case-type-row">
+          <div class="case-type-meta">
+            <span>IBM Plex Sans Bold</span>
+            <span>32px / 1.15 / -0.02em</span>
+          </div>
+          <div class="case-type-sample t-heading">Kvernhuset Kaf&#233;</div>
+        </div>
+        <div class="case-type-row">
+          <div class="case-type-meta">
+            <span>IBM Plex Sans Regular</span>
+            <span>15px / 1.72</span>
+          </div>
+          <div class="case-type-sample t-body">Velkommen til Kvernhuset &mdash; en kafé i det gamle m&#248;llebygget p&#229; J&#230;ren. Her baker vi br&#248;d p&#229; tradisjonelt vis og serverer kaffe med omtanke.</div>
+        </div>
+        <div class="case-type-row">
+          <div class="case-type-meta">
+            <span>IBM Plex Sans SemiBold</span>
+            <span>11px / 0.22em / UPPERCASE</span>
+          </div>
+          <div class="case-type-sample t-label">Meny &middot; Om oss &middot; Bestill bord &middot; Kontakt</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5d. Spacing & layout -->
+    <div class="case-block reveal">
+      <div class="case-sub-label">Layout &amp; knapper</div>
+      <div class="case-spacing-demo">
+        <div class="case-spacing-grid">
+          <div class="case-grid-visual">
+            <div class="case-grid-cell filled"></div>
+            <div class="case-grid-cell filled"></div>
+            <div class="case-grid-cell"></div>
+            <div class="case-grid-cell"></div>
+            <div class="case-grid-cell"></div>
+            <div class="case-grid-cell filled"></div>
+            <div class="case-grid-cell filled"></div>
+            <div class="case-grid-cell"></div>
+            <div class="case-grid-cell filled"></div>
+            <div class="case-grid-cell"></div>
+            <div class="case-grid-cell"></div>
+            <div class="case-grid-cell filled"></div>
+          </div>
+          <div class="case-spacing-vals">
+            Basisenhet: 8px<br>
+            Luft mellom elementer: 16&ndash;24px<br>
+            Seksjonsluft: 64&ndash;96px<br>
+            Maks innholdsbredde: 720px<br>
+            Border-radius: maks 2px
+          </div>
+        </div>
+        <div class="case-buttons-demo">
+          <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+            <button class="case-btn case-btn-primary">Bestill bord</button>
+            <span class="case-btn-meta">Primary &middot; Stone p&#229; Flour</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+            <button class="case-btn case-btn-secondary">Se menyen</button>
+            <span class="case-btn-meta">Secondary &middot; outline</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5e. Business card -->
+    <div class="case-block reveal">
+      <div class="case-sub-label">Visittkort</div>
+      <div class="case-card-wrapper">
+        <div class="biz-card">
+          <div class="biz-card-top">
+            <div class="biz-card-logo">Kvernhuset</div>
+            <div class="biz-card-tagline">Kaf&#233; &middot; J&#230;ren</div>
+          </div>
+          <div class="biz-card-bottom">
+            <div class="biz-card-name">Ingrid M&#248;ller, daglig leder</div>
+            <div class="biz-card-detail">+47 412 34 567</div>
+            <div class="biz-card-detail">post@kvernhuset.no</div>
+            <div class="biz-card-detail">M&#248;llevegen 12, 4340 Bryne</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5f. Brand guidelines cheat sheet -->
+    <div class="case-block reveal">
+      <div class="case-sub-label">Retningslinjer</div>
+      <div class="case-guidelines">
+        <div class="case-guidelines-header">
+          <h4>Kvernhuset &mdash; Merkevareguide</h4>
+        </div>
+        <div class="case-guidelines-body">
+          <div class="case-do-dont do">
+            <h5><span class="indicator">&#10003;</span> Gj&#248;r dette</h5>
+            <ul>
+              <li>Bruk alltid IBM Plex Sans i all kommunikasjon</li>
+              <li>Hold logoen p&#229; m&#248;rk eller lys bakgrunn &mdash; aldri p&#229; foto</li>
+              <li>La det v&#230;re rikelig med luft rundt elementer</li>
+              <li>Bruk Wheat Gold kun som aksent, aldri som prim&#230;rfarge</li>
+              <li>Hold border-radius p&#229; maks 2px</li>
+            </ul>
+          </div>
+          <div class="case-do-dont dont">
+            <h5><span class="indicator">&#10005;</span> Unng&#229; dette</h5>
+            <ul>
+              <li>Aldri skaler logoen under 12mm bredde</li>
+              <li>Ikke bruk gradienter eller skygger p&#229; logoen</li>
+              <li>Unng&#229; mer enn 3 farger i &#233;n komposisjon</li>
+              <li>Ikke bruk andre fonter enn IBM Plex Sans</li>
+              <li>Aldri plasser m&#248;rk tekst p&#229; m&#248;rk bakgrunn</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     PROSESS
+     ═══════════════════════════════════════════════════════ -->
+<section class="section process-section" id="prosess">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="label">Prosess</span>
+      <h2 class="section-title">Enkelt. Effektivt. Uten m&#248;ter.</h2>
+    </div>
+    <div class="process-grid">
+      <div class="process-step reveal reveal-delay-1">
+        <div class="process-number">01</div>
+        <h3>Vi bygger et utkast</h3>
+        <p>Du forteller hva du trenger. Vi lager et konkret forslag &mdash; uten lange m&#248;ter eller skjemaer.</p>
+      </div>
+      <div class="process-step reveal reveal-delay-2">
+        <div class="process-number">02</div>
+        <h3>Du ser og kommenterer</h3>
+        <p>Du f&#229;r et ferdig utkast &#229; vurdere. Skriv hva du liker og hva du vil endre.</p>
+      </div>
+      <div class="process-step reveal reveal-delay-3">
+        <div class="process-number">03</div>
+        <h3>Vi justerer</h3>
+        <p>Vi finpusser basert p&#229; din tilbakemelding. S&#229; mange runder som trengs.</p>
+      </div>
+      <div class="process-step reveal reveal-delay-4">
+        <div class="process-number">04</div>
+        <h3>Lansering</h3>
+        <p>N&#229;r du er forn&#248;yd, g&#229;r vi live. Alt leveres klart til bruk.</p>
+      </div>
+    </div>
+    <div class="process-guarantee reveal">
+      <p>Du betaler kun om du er forn&#248;yd.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     PRISER
+     ═══════════════════════════════════════════════════════ -->
+<section class="section pricing-section" id="priser">
+  <div class="container">
+    <div class="section-header reveal" style="text-align:center;">
+      <span class="label" style="justify-content:center;">Priser</span>
+      <h2 class="section-title">Rett p&#229; sak. Ingen overraskelser.</h2>
+      <p class="lead" style="margin:0 auto;">Faste priser for de vanligste pakkene. Skreddersydd l&#248;sning? Ta kontakt.</p>
+    </div>
+    <div class="pricing-grid">
+
+      <div class="pricing-card reveal reveal-delay-1">
+        <h3>Oppstart</h3>
+        <div class="pricing-price">5 000 <span>kr</span></div>
+        <p class="pricing-desc">Perfekt for deg som trenger en profesjonell nettside raskt.</p>
+        <div class="pricing-features">
+          <div class="pricing-feature"><span class="pricing-check"></span>Nettside (one-page)</div>
+          <div class="pricing-feature"><span class="pricing-check"></span>SEO-grunnlag</div>
+          <div class="pricing-feature"><span class="pricing-check"></span>Responsiv mobilversjon</div>
+          <div class="pricing-feature"><span class="pricing-check"></span>Google-klar</div>
+        </div>
+        <a href="#kontakt" class="pricing-btn pricing-btn-secondary">Kom i gang</a>
+      </div>
+
+      <div class="pricing-card featured reveal reveal-delay-2">
+        <span class="pricing-badge">Bestselger</span>
+        <h3>Komplett Merkevare</h3>
+        <div class="pricing-price">18 000 <span>kr</span></div>
+        <p class="pricing-desc">Helhetlig identitet som gir bedriften din et profesjonelt l&#248;ft.</p>
+        <div class="pricing-features">
+          <div class="pricing-feature"><span class="pricing-check"></span>Alt i Oppstart</div>
+          <div class="pricing-feature"><span class="pricing-check"></span>Logo-design</div>
+          <div class="pricing-feature"><span class="pricing-check"></span>Fargepalett &amp; typografi</div>
+          <div class="pricing-feature"><span class="pricing-check"></span>Visittkort</div>
+          <div class="pricing-feature"><span class="pricing-check"></span>Merkevareguide</div>
+        </div>
+        <a href="#kontakt" class="pricing-btn pricing-btn-primary">Velg pakke</a>
+      </div>
+
+    </div>
+    <div class="pricing-custom reveal">
+      <p>Trenger du noe skreddersydd? <a href="#kontakt">Send en melding</a>, s&#229; finner vi en l&#248;sning.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     OM
+     ═══════════════════════════════════════════════════════ -->
+<section class="section about-section" id="om">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="label">Om</span>
+    </div>
+    <div class="about-grid">
+      <div class="about-portrait reveal"></div>
+      <div class="about-content reveal reveal-delay-1">
+        <h3>Martin Folkestad</h3>
+        <span class="about-location">Klepp Stasjon, J&#230;ren</span>
+        <p>Med bakgrunn fra bygg og h&#229;ndverk forst&#229;r jeg hva lokale bedrifter trenger: noe som fungerer, ser profesjonelt ut, og ikke koster en formue.</p>
+        <p>Jeg startet Folkestad Designs fordi jeg s&#229; at dyktige fagfolk p&#229; J&#230;ren fortjener en digital tilstedev&#230;relse som matcher kvaliteten i arbeidet deres. Gjennom Verminord AS leverer jeg design, nettsider og merkevarer til bedrifter som vil ta neste steg.</p>
+        <p>Hver eneste piksel har en mening. Hver farge er valgt med omtanke. Design handler ikke om pynt &mdash; det handler om tillit.</p>
+        <div class="about-trust">
+          <div class="about-trust-item">
+            <span class="about-trust-number">21</span>
+            <span class="about-trust-text">prosjekter levert</span>
+          </div>
+          <div class="about-trust-item">
+            <span class="about-trust-number">8</span>
+            <span class="about-trust-text">bransjer</span>
+          </div>
+          <div class="about-trust-item">
+            <span class="about-trust-number">100%</span>
+            <span class="about-trust-text">J&#230;ren-basert</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     KONTAKT
+     ═══════════════════════════════════════════════════════ -->
+<section class="contact-section" id="kontakt">
+  <div class="container reveal">
+    <span class="label" style="color:var(--gold);text-align:center;display:block;">Kontakt</span>
+    <h2>Klar for en nettside<br>som virker?</h2>
+    <div class="contact-links">
+      <a href="mailto:martin@folkestaddesigns.no" class="contact-link">martin@folkestaddesigns.no</a>
+      <a href="tel:" class="contact-link">[TELEFON]</a>
+    </div>
+    <a href="mailto:martin@folkestaddesigns.no" class="btn btn-gold">Send e-post</a>
+    <p class="contact-free">F&#248;rste samtale er alltid gratis.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">Folkestad Designs &middot; Klepp Stasjon &middot; J&#230;ren</div>
+      <div class="footer-links">
+        <a href="#tjenester">Tjenester</a>
+        <a href="#portefolje">Portef&#248;lje</a>
+        <a href="#prosess">Prosess</a>
+        <a href="#om">Om</a>
+        <a href="#kontakt">Kontakt</a>
+      </div>
+      <div class="footer-copy">&copy; 2025 Folkestad Designs</div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════════
+     JAVASCRIPT
+     ═══════════════════════════════════════════════════════ -->
+<script>
+(function() {
+  'use strict';
+
+  // ── NAV SCROLL ──
+  var nav = document.getElementById('nav');
+  var lastScroll = 0;
+
+  function onScroll() {
+    var y = window.pageYOffset || document.documentElement.scrollTop;
+    if (y > 60) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+    lastScroll = y;
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  // ── HAMBURGER ──
+  var hamburger = document.getElementById('hamburger');
+  var mobileMenu = document.getElementById('mobileMenu');
+
+  hamburger.addEventListener('click', function() {
+    hamburger.classList.toggle('active');
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+  });
+
+  // Close mobile menu on link click
+  var mobileLinks = document.querySelectorAll('.mobile-link');
+  for (var i = 0; i < mobileLinks.length; i++) {
+    mobileLinks[i].addEventListener('click', function() {
+      hamburger.classList.remove('active');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  }
+
+  // ── SCROLL REVEAL ──
+  var reveals = document.querySelectorAll('.reveal');
+
+  var revealObserver = new IntersectionObserver(function(entries) {
+    for (var j = 0; j < entries.length; j++) {
+      if (entries[j].isIntersecting) {
+        entries[j].target.classList.add('visible');
+        revealObserver.unobserve(entries[j].target);
+      }
+    }
+  }, {
+    threshold: 0.12,
+    rootMargin: '0px 0px -40px 0px'
+  });
+
+  for (var k = 0; k < reveals.length; k++) {
+    revealObserver.observe(reveals[k]);
+  }
+
+  // ── COUNTER ANIMATION ──
+  var counters = document.querySelectorAll('[data-count]');
+  var counterDone = new Set();
+
+  var counterObserver = new IntersectionObserver(function(entries) {
+    for (var m = 0; m < entries.length; m++) {
+      var entry = entries[m];
+      if (entry.isIntersecting && !counterDone.has(entry.target)) {
+        counterDone.add(entry.target);
+        animateCounter(entry.target);
+      }
+    }
+  }, { threshold: 0.5 });
+
+  for (var n = 0; n < counters.length; n++) {
+    counterObserver.observe(counters[n]);
+  }
+
+  function animateCounter(el) {
+    var target = parseInt(el.getAttribute('data-count'), 10);
+    var duration = 1200;
+    var start = 0;
+    var startTime = null;
+
+    function step(timestamp) {
+      if (!startTime) startTime = timestamp;
+      var progress = Math.min((timestamp - startTime) / duration, 1);
+      // Ease out cubic
+      var eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(eased * target);
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      }
+    }
+
+    requestAnimationFrame(step);
+  }
+
+})();
+</script>
+
+</body>
+</html>

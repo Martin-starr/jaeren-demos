@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="nn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Horpestad Gartneri — Blomsterdyrking på Jæren sidan 1996</title>
+<meta name="description" content="Familiedreve gartneri på Bryne. Horpestad Gartneri dyrkar snittblomar, utplantingsplantar og staudar for heile Rogaland. Ring 911 00 958.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Horpestad Gartneri",
+  "telephone": "+4791100958",
+  "email": "ove@horpestadgartneri.no",
+  "address": { "@type": "PostalAddress", "addressLocality": "Bryne", "postalCode": "4340", "addressCountry": "NO" },
+  "foundingDate": "1996",
+  "numberOfEmployees": "14"
+}
+</script>
+<style>
+:root {
+  --forest:     #2D5A3D;
+  --forest-d:   #1E3F2B;
+  --moss:       #4A7C5C;
+  --sage:       #8BAF7F;
+  --cream:      #FAF7F2;
+  --warm:       #F3EDE3;
+  --coral:      #D4705A;
+  --coral-soft: #E89B87;
+  --ink:        #1A1D1B;
+  --ink-soft:   #4A5049;
+  --ink-muted:  #7A827A;
+  --rule:       rgba(45,90,61,0.12);
+  --ff-serif:   'Lora', Georgia, serif;
+  --ff-sans:    'Outfit', system-ui, sans-serif;
+  --r-sm:       6px;
+  --r-md:       12px;
+  --r-lg:       20px;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--ff-sans);
+  background: var(--cream);
+  color: var(--ink);
+  line-height: 1.65;
+  font-size: 17px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+
+/* ── HEADER ── */
+.header {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(250,247,242,0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--rule);
+  padding: 14px 0;
+}
+.header-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  max-width: 1140px; margin: 0 auto; padding: 0 24px;
+}
+.header-brand {
+  font-family: var(--ff-serif);
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--forest);
+  letter-spacing: -0.01em;
+}
+.header-brand em { font-style: italic; color: var(--moss); font-weight: 400; }
+.header-nav { display: flex; gap: 28px; align-items: center; }
+.header-nav a {
+  font-size: 0.85rem; font-weight: 500; color: var(--ink-soft);
+  text-decoration: none; letter-spacing: 0.02em;
+  transition: color 0.2s;
+}
+.header-nav a:hover { color: var(--forest); }
+.header-cta {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--forest); color: #fff;
+  padding: 10px 20px; border-radius: 100px;
+  font-size: 0.85rem; font-weight: 500;
+  text-decoration: none; transition: background 0.2s;
+}
+.header-cta:hover { background: var(--forest-d); }
+.header-cta svg { width: 14px; height: 14px; }
+@media(max-width:768px) {
+  .header-nav a:not(.header-cta) { display: none; }
+}
+
+/* ── HERO ── */
+.hero {
+  padding: 100px 0 80px;
+  position: relative;
+}
+.hero-tag {
+  font-size: 0.8rem; font-weight: 500;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--moss); margin-bottom: 20px;
+}
+.hero h1 {
+  font-family: var(--ff-serif);
+  font-size: clamp(2.4rem, 5.5vw, 4rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  max-width: 700px;
+  margin-bottom: 24px;
+}
+.hero h1 em { font-style: italic; color: var(--forest); }
+.hero-sub {
+  font-size: 1.15rem;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  max-width: 520px;
+  margin-bottom: 36px;
+}
+.hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 28px; border-radius: 100px;
+  font-family: var(--ff-sans); font-size: 0.95rem; font-weight: 500;
+  text-decoration: none; transition: all 0.25s;
+  cursor: pointer; border: none;
+}
+.btn-primary { background: var(--forest); color: #fff; }
+.btn-primary:hover { background: var(--forest-d); transform: translateY(-1px); }
+.btn-outline {
+  background: transparent; color: var(--forest);
+  border: 1.5px solid var(--forest);
+}
+.btn-outline:hover { background: var(--forest); color: #fff; }
+.btn svg { width: 16px; height: 16px; }
+
+.hero-stats {
+  display: flex; gap: 48px; margin-top: 56px;
+  padding-top: 32px; border-top: 1px solid var(--rule);
+}
+.stat-num {
+  font-family: var(--ff-serif);
+  font-size: 2rem; font-weight: 500;
+  color: var(--forest); line-height: 1;
+}
+.stat-label {
+  font-size: 0.82rem; color: var(--ink-muted);
+  margin-top: 4px; letter-spacing: 0.01em;
+}
+@media(max-width:600px) {
+  .hero-stats { gap: 32px; flex-wrap: wrap; }
+}
+
+/* ── IMAGE PLACEHOLDER ── */
+.img-placeholder {
+  background: linear-gradient(135deg, var(--warm) 0%, #e8e2d6 100%);
+  border: 1px dashed rgba(45,90,61,0.2);
+  border-radius: var(--r-lg);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--ink-muted); font-size: 0.85rem;
+  text-align: center; padding: 20px;
+  min-height: 280px;
+}
+
+/* ── SECTION COMMON ── */
+.section { padding: 80px 0; }
+.section-tag {
+  font-size: 0.75rem; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--coral); margin-bottom: 16px;
+}
+.section-title {
+  font-family: var(--ff-serif);
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+.section-title em { font-style: italic; color: var(--forest); }
+.section-lead {
+  font-size: 1.05rem; color: var(--ink-soft);
+  line-height: 1.65; max-width: 580px; margin-bottom: 48px;
+}
+
+/* ── PRODUKT / DYRKING ── */
+.products {
+  background: #fff;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+@media(max-width:768px) { .product-grid { grid-template-columns: 1fr; } }
+.product-card {
+  padding: 32px 28px;
+  border: 1px solid var(--rule);
+  border-radius: var(--r-md);
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+.product-card:hover {
+  border-color: var(--sage);
+  box-shadow: 0 8px 32px rgba(45,90,61,0.06);
+}
+.product-icon {
+  width: 48px; height: 48px;
+  background: var(--warm);
+  border-radius: var(--r-sm);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 20px;
+  color: var(--forest);
+}
+.product-icon svg { width: 24px; height: 24px; }
+.product-card h3 {
+  font-family: var(--ff-serif);
+  font-size: 1.25rem; font-weight: 500;
+  margin-bottom: 10px;
+}
+.product-card p {
+  font-size: 0.92rem; color: var(--ink-soft);
+  line-height: 1.6;
+}
+
+/* ── OM OSS ── */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+@media(max-width:768px) { .about-grid { grid-template-columns: 1fr; gap: 40px; } }
+.about-text p {
+  font-size: 1rem; color: var(--ink-soft);
+  line-height: 1.7; margin-bottom: 20px;
+}
+.about-text p:last-child { margin-bottom: 0; }
+.about-highlight {
+  font-family: var(--ff-serif);
+  font-size: 1.3rem;
+  font-style: italic;
+  color: var(--forest);
+  line-height: 1.5;
+  border-left: 3px solid var(--coral);
+  padding-left: 24px;
+  margin: 32px 0;
+}
+
+/* ── KVIFOR OSS ── */
+.why { background: var(--forest); color: #fff; }
+.why .section-tag { color: var(--coral-soft); }
+.why .section-title { color: #fff; }
+.why .section-title em { color: var(--sage); }
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+@media(max-width:600px) { .why-grid { grid-template-columns: 1fr; } }
+.why-card {
+  padding: 28px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--r-md);
+}
+.why-card h3 {
+  font-family: var(--ff-serif);
+  font-size: 1.1rem; font-weight: 500;
+  margin-bottom: 8px;
+}
+.why-card p {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.6;
+}
+
+/* ── GALLERI ── */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+@media(max-width:600px) { .gallery-grid { grid-template-columns: 1fr 1fr; } }
+.gallery-item {
+  aspect-ratio: 4/3;
+  border-radius: var(--r-md);
+  overflow: hidden;
+}
+.gallery-item .img-placeholder {
+  width: 100%; height: 100%;
+  min-height: unset;
+  border-radius: 0;
+}
+
+/* ── KONTAKT ── */
+.contact { background: #fff; border-top: 1px solid var(--rule); }
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+}
+@media(max-width:768px) { .contact-grid { grid-template-columns: 1fr; gap: 40px; } }
+.contact-info-item {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.contact-info-item:first-child { border-top: 1px solid var(--rule); }
+.contact-label {
+  font-size: 0.75rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--ink-muted); margin-bottom: 4px;
+}
+.contact-value {
+  font-size: 1.05rem; color: var(--ink);
+}
+.contact-value a {
+  color: var(--forest); text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+  transition: border-color 0.2s;
+}
+.contact-value a:hover { border-color: var(--forest); }
+.contact-form { display: flex; flex-direction: column; gap: 16px; }
+.form-field {
+  display: flex; flex-direction: column; gap: 6px;
+}
+.form-field label {
+  font-size: 0.82rem; font-weight: 500;
+  color: var(--ink-soft);
+}
+.form-field input, .form-field textarea {
+  font-family: var(--ff-sans); font-size: 1rem;
+  padding: 12px 16px;
+  border: 1px solid var(--rule);
+  border-radius: var(--r-sm);
+  background: var(--cream);
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.2s;
+}
+.form-field input:focus, .form-field textarea:focus {
+  border-color: var(--forest);
+}
+.form-field textarea { resize: vertical; min-height: 120px; }
+
+/* ── MAP ── */
+.map-wrap {
+  margin-top: 40px;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  border: 1px solid var(--rule);
+}
+.map-wrap iframe { display: block; width: 100%; height: 300px; border: 0; }
+
+/* ── FOOTER ── */
+.footer {
+  background: var(--forest-d);
+  color: rgba(255,255,255,0.6);
+  padding: 48px 0;
+}
+.footer-inner {
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 16px;
+}
+.footer-brand {
+  font-family: var(--ff-serif);
+  font-size: 1rem; color: #fff;
+}
+.footer-brand em { font-style: italic; color: var(--sage); }
+.footer-meta { font-size: 0.82rem; }
+
+/* ── MOBILE CTA BAR ── */
+.mobile-cta {
+  display: none;
+  position: fixed; bottom: 0; left: 0; right: 0;
+  background: var(--forest);
+  color: #fff;
+  text-align: center;
+  padding: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1rem;
+  z-index: 200;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+}
+.mobile-cta svg { width: 18px; height: 18px; }
+@media(max-width:768px) {
+  .mobile-cta { display: flex; }
+  body { padding-bottom: 60px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <div class="header-brand">Horpestad <em>Gartneri</em></div>
+    <nav class="header-nav">
+      <a href="#produkt">Produkt</a>
+      <a href="#om">Om oss</a>
+      <a href="#kontakt">Kontakt</a>
+      <a href="tel:+4791100958" class="header-cta">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.86 13 19.79 19.79 0 0 1 1.77 4.4 2 2 0 0 1 3.74 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.15 6.15l1.07-1.07a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Ring oss
+      </a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-tag">Bryne · Jæren · Sidan 1996</div>
+    <h1>Blomar dyrka med <em>omtanke</em> på Jæren.</h1>
+    <p class="hero-sub">
+      Horpestad Gartneri er eit familiedreve gartneri på Bryne. Me dyrkar snittblomar, utplantingsplantar og staudar — og leverer kvalitet til butikkar og hagesenter i heile Rogaland.
+    </p>
+    <div class="hero-ctas">
+      <a href="#kontakt" class="btn btn-primary">
+        Ta kontakt
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+      <a href="tel:+4791100958" class="btn btn-outline">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.86 13 19.79 19.79 0 0 1 1.77 4.4 2 2 0 0 1 3.74 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.15 6.15l1.07-1.07a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Ring 911 00 958
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">28</div>
+        <div class="stat-label">år på Jæren</div>
+      </div>
+      <div>
+        <div class="stat-num">14</div>
+        <div class="stat-label">tilsette</div>
+      </div>
+      <div>
+        <div class="stat-num">100%</div>
+        <div class="stat-label">norskprodusert</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUKT / DYRKING -->
+<section class="section products" id="produkt">
+  <div class="container">
+    <div class="section-tag">Kva me dyrkar</div>
+    <h2 class="section-title">Frå frø til <em>ferdig plante</em></h2>
+    <p class="section-lead">
+      Me har spesialisert oss på blomstrande plantar som trivst i norsk klima — dyrka med kunnskap og omtanke gjennom heile vekstsyklusen.
+    </p>
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c-4-3-8-6.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 5.3-4 8.8-8 11.8Z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <h3>Utplantingsplantar</h3>
+        <p>Sommarblomar, haustblomar og sesongplantar klare for bed, krukker og kasser. Hardføre sortar tilpassa vestlandsklima.</p>
+      </div>
+      <div class="product-card">
+        <div class="product-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3>Snittblomar</h3>
+        <p>Frisktklipte blomar dyrka i eigne veksthus. Leverer til blomsterbutikkar, arrangement og gravferd gjennom heile sesongen.</p>
+      </div>
+      <div class="product-card">
+        <div class="product-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66L15 12"/><path d="M17 8l4-4"/><path d="M17 8l-1.5 5"/></svg>
+        </div>
+        <h3>Staudar og grønt</h3>
+        <p>Fleirårige plantar som kjem att år etter år. Me dyrkar eit breitt utval for hagar, parkar og offentlege anlegg.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OM OSS -->
+<section class="section" id="om">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <div class="img-placeholder" style="aspect-ratio:4/5;">
+          [BILDE: Ove Horpestad i veksthuset blant blomstrande plantar]
+        </div>
+      </div>
+      <div class="about-text">
+        <div class="section-tag">Om oss</div>
+        <h2 class="section-title">Familiebedrift med <em>jærstål</em> i botn</h2>
+        <p>
+          Horpestad Gartneri vart starta i 1996 av Ove Horpestad. Det som byrja som ein liten produksjon har vakse til eit gartneri med 14 tilsette og veksthus som leverer plantar til heile Rogaland.
+        </p>
+        <div class="about-highlight">
+          «Me trur på at gode plantar kjem frå folk som bryr seg. Kvar plante som forlèt gartneriet skal vera ei plante me sjølv ville hatt heime.»
+        </div>
+        <p>
+          Ove er og leiar for Blomsterutvalet i Norsk Gartnerforbund — eit engasjement som speglar gartneriet sin filosofi: kvalitet, fagkunnskap og eit brennande ønske om å fremja norsk blomsterproduksjon.
+        </p>
+        <p>
+          I dag driv me heilårsproduksjon i moderne veksthus på Bryne, med kontroll på heile prosessen frå formering til ferdig plante.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KVIFOR OSS -->
+<section class="section why">
+  <div class="container">
+    <div class="section-tag">Kvifor velja oss</div>
+    <h2 class="section-title">Kortreist kvalitet — <em>dyrka her</em></h2>
+    <div class="why-grid" style="margin-top:40px;">
+      <div class="why-card">
+        <h3>Lokalprodusert</h3>
+        <p>Alle plantane våre er dyrka på Jæren. Kort transportveg gir friskare plantar og lågare klimaavtrykk.</p>
+      </div>
+      <div class="why-card">
+        <h3>Fagkunnskap i kvar potte</h3>
+        <p>28 år med erfaring i klima, jord og sortval. Me veit kva som trivst på Vestlandet.</p>
+      </div>
+      <div class="why-card">
+        <h3>Påliteleg levering</h3>
+        <p>Me leverer jamt og trufast til butikkar og hagesenter — med kvalitet du kan stola på kvar gong.</p>
+      </div>
+      <div class="why-card">
+        <h3>Berekraftig drift</h3>
+        <p>Moderne veksthus med effektiv energibruk og gjenbruk av vatn. Gode plantar treng ikkje gå på kostnad av miljøet.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERI -->
+<section class="section" id="galleri">
+  <div class="container">
+    <div class="section-tag">Frå gartneriet</div>
+    <h2 class="section-title">Bilde frå <em>kvardagen vår</em></h2>
+    <p class="section-lead">Inne i veksthuset, ute i levering, og alt imellom.</p>
+    <div class="gallery-grid">
+      <div class="gallery-item"><div class="img-placeholder">[BILDE: Veksthus innvendig med fargerike plantar i rekker]</div></div>
+      <div class="gallery-item"><div class="img-placeholder">[BILDE: Nærbilde av blomstrande utplantingsplantar]</div></div>
+      <div class="gallery-item"><div class="img-placeholder">[BILDE: Tilsett som steller plantar]</div></div>
+      <div class="gallery-item"><div class="img-placeholder">[BILDE: Leveranse — plantar på tralle klare for utkøyring]</div></div>
+      <div class="gallery-item"><div class="img-placeholder">[BILDE: Fasaden til gartneriet med skilt]</div></div>
+      <div class="gallery-item"><div class="img-placeholder">[BILDE: Ove Horpestad — portrett blant plantar]</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAKT -->
+<section class="section contact" id="kontakt">
+  <div class="container">
+    <div class="section-tag">Kontakt</div>
+    <h2 class="section-title">Snakk med <em>oss</em></h2>
+    <p class="section-lead">Treng du plantar, har spørsmål om sortiment, eller vil diskutera leveranse? Ta kontakt — me svarar gjerne.</p>
+    <div class="contact-grid">
+      <div>
+        <div class="contact-info-item">
+          <div class="contact-label">Telefon</div>
+          <div class="contact-value"><a href="tel:+4791100958">911 00 958</a></div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-label">E-post</div>
+          <div class="contact-value"><a href="mailto:ove@horpestadgartneri.no">ove@horpestadgartneri.no</a></div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-label">Adresse</div>
+          <div class="contact-value">Bryne, 4340 Jæren</div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-label">Opningstider</div>
+          <div class="contact-value">Måndag–fredag 07:00–15:30</div>
+        </div>
+        <div class="map-wrap">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2091.5!2d5.65!3d58.73!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTjCsDQzJzQ4LjAiTiA1wrAzOScwMC4wIkU!5e0!3m2!1sno!2sno!4v1" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+      <div>
+        <form class="contact-form" onsubmit="event.preventDefault(); alert('Takk for meldinga! Me tek kontakt snart.');">
+          <div class="form-field">
+            <label for="namn">Namn</label>
+            <input type="text" id="namn" name="namn" placeholder="Ditt namn" required>
+          </div>
+          <div class="form-field">
+            <label for="telefon">Telefon</label>
+            <input type="tel" id="telefon" name="telefon" placeholder="Ditt telefonnummer" required>
+          </div>
+          <div class="form-field">
+            <label for="melding">Melding</label>
+            <textarea id="melding" name="melding" placeholder="Kva kan me hjelpa deg med?"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="justify-content:center;">
+            Send melding
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">Horpestad <em>Gartneri</em></div>
+      <div class="footer-meta">© 2026 Horpestad Gartneri · Bryne, Jæren</div>
+    </div>
+  </div>
+</footer>
+
+<!-- MOBILE CTA -->
+<a href="tel:+4791100958" class="mobile-cta">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.86 13 19.79 19.79 0 0 1 1.77 4.4 2 2 0 0 1 3.74 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.15 6.15l1.07-1.07a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+  Ring Horpestad Gartneri — 911 00 958
+</a>
+
+</body>
+</html>
